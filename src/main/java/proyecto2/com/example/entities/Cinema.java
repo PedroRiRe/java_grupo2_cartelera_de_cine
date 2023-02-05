@@ -3,6 +3,8 @@ package proyecto2.com.example.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "cinema")
@@ -13,8 +15,6 @@ public class Cinema {
     private Long id;
     private String name;
     private String phone;
-
-    // private Address address;
 
 
     public Cinema() {
