@@ -1,11 +1,19 @@
 package proyecto2.com.example.entities;
 
 import jakarta.persistence.*;
+import lombok.*;
 
-import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
+import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
+
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
 @Entity
 @Table(name = "cinema")
 public class Cinema {
@@ -15,15 +23,13 @@ public class Cinema {
     private Long id;
     private String name;
     private String phone;
+    //private Address address;
+    private Integer capacity;
+    private Boolean active;
+    private LocalTime open;
+    @ElementCollection
+    private Set<String> rooms = new HashSet<>();
 
-
-    public Cinema() {
-    }
-
-    public Cinema(String name, String phone) {
-        this.name = name;
-        this.phone = phone;
-    }
 
     public Long getId() {
         return id;
@@ -34,30 +40,4 @@ public class Cinema {
         return this;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Cinema setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public Cinema setPhone(String phone) {
-        this.phone = phone;
-        return this;
-    }
-
-    @Override
-    public String toString() {
-        return "Cinema{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
-    }
 }
