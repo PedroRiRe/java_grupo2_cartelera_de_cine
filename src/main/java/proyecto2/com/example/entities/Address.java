@@ -3,27 +3,22 @@ package proyecto2.com.example.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-
-@Setter
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@Getter
+@Setter
 @ToString
+@Builder
 @Entity
-@Table(name = "app_users")
-public class User {
+public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
-    private String name;
-    private String surname;
-    @OneToOne
-    private Address address;
     @Column(unique = true)
-    private String email;
-    private String password;
-
+    private String address; // ( calle, número, escalera, piso )
+    @Column(length = 6)
+    private String postalCode;
+    private String city;
+    private String country;
 }

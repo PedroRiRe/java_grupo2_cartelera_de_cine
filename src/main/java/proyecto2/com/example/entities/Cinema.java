@@ -21,23 +21,18 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+    @Column(unique = true)
     private String name;
+    @Column(unique = true)
+    private String email;
+    @Column(unique = true)
     private String phone;
-    //private Address address;
-    private Integer capacity;
-    private Boolean active;
-    private LocalTime open;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
     @ElementCollection
-    private Set<String> rooms = new HashSet<>();
+    @OneToMany
+    @ToString.Exclude
+    private Set<String> rooms;
 
-
-    public Long getId() {
-        return id;
     }
-
-    public Cinema setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
-}

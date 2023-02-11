@@ -1,63 +1,23 @@
 package proyecto2.com.example.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+public enum Gender {
+    COMEDY("Comedia"),
+    DRAMA("Drama"),
+    ACTION("Acción"),
+    SCI_FI("Ciencia Ficción"),
+    FANTASY("Fantasia"),
+    MUSICAL("Musical"),
+    TERROR("Terror"),
+    SUSPENSE("Suspense"),
+    ROMANCE("Romántica"),
+    CHILDISH("Infantil"),
+    BIOGRAPHICAL("Biografía"),
+    FAMILY("Familiar");
 
-@Entity
-public class Gender {
+    private String gender;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long id;
-
-    private String name;
-    private Integer minAllowedAge;
-
-    public Gender() {
-    }
-
-    public Gender(Long id, String name, Integer minAllowedAge) {
-        this.id = id;
-        this.name = name;
-        this.minAllowedAge = minAllowedAge;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public Gender setId(Long id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Gender setName(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public Integer getMinAllowedAge() {
-        return minAllowedAge;
-    }
-
-    public Gender setMinAllowedAge(Integer minAllowedAge) {
-        this.minAllowedAge = minAllowedAge;
-        return this;
-    }
-
-    @Override
-    public String toString() {
-        return "Gender{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", minAllowedAge=" + minAllowedAge +
-                '}';
+    Gender(String gender) {
+        this.gender = gender;
     }
 }
