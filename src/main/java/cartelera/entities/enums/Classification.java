@@ -1,4 +1,6 @@
-package cartelera.entities;
+package cartelera.entities.enums;
+
+// todo @Enumerated(EnumType.STRING)
 
 public enum Classification {
     ALL_AGES("Todos los públicos"),
