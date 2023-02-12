@@ -1,4 +1,4 @@
-package proyecto2.com.example.entities;
+package cartelera.entities;
 
 public enum Classification {
     ALL_AGES("Todos los públicos"),

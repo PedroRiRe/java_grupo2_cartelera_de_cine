@@ -1,10 +1,8 @@
-package proyecto2.com.example.entities;
+package cartelera.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalTime;
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -30,9 +28,16 @@ public class Cinema {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
-    @ElementCollection
-    @OneToMany
-    @ToString.Exclude
-    private Set<String> rooms;
+
+    @OneToMany(mappedBy="cinema")
+    private Set<Room> rooms;
+    public void addRoom(Room room) {
+        rooms.add(room);
+        room.setCinema(this);
+    }
+    public void removeRoom(Room room) {
+        rooms.remove(room);
+        room.setCinema(null);
+    }
 
     }

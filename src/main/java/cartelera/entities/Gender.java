@@ -1,4 +1,4 @@
-package proyecto2.com.example.entities;
+package cartelera.entities;
 
 public enum Gender {
     COMEDY("Comedia"),

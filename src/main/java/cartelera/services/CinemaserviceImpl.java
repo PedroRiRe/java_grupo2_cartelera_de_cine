@@ -1,4 +1,4 @@
-package proyecto2.com.example.services;
+package cartelera.services;
 
 public class CinemaserviceImpl implements ICinemaservice {
 }

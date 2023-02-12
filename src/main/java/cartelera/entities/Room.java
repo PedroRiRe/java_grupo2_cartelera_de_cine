@@ -1,4 +1,4 @@
-package proyecto2.com.example.entities;
+package cartelera.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -28,4 +28,9 @@ public class Room {
     private LocalDate premiere;
     @ElementCollection
     private Set<LocalTime> schedules;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="cinema_id", nullable=false)
+    private Cinema cinema;
+
 }
