@@ -19,8 +19,17 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
+    private String cif;
+    @Column(unique = true, nullable = false)
     private String name;
+    @Column(unique = true)
+    private String url;
+    @Column(unique = true)
+    private String twiter;
+    @Column(unique = true)
+    private  String linkedint;
+
     @Column(unique = true)
     private String email;
     @Column(unique = true)
@@ -30,7 +39,8 @@ public class Cinema {
     private Address address;
 
     @OneToMany(mappedBy="cinema")
-    private Set<Room> rooms;
+    private Set<Room> rooms;  // todo  = new HashSet<>()
+
     public void addRoom(Room room) {
         rooms.add(room);
         room.setCinema(this);
