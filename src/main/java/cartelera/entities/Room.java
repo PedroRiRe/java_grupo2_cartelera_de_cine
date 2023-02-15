@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -27,7 +28,7 @@ public class Room {
     private Boolean active;
     private LocalDate premiere;
     @ElementCollection
-    private Set<LocalTime> schedules;
+    private Set<LocalTime> schedules = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="cinema_id", nullable=false)
