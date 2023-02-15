@@ -28,13 +28,13 @@ public class App {
 
 		cineRepo.saveAll(List.of(
 				new Cinema(null, "54646546", "barna", null, null, null,
-						null, "456321", null, null),
+						null, "456321", null, null, null),
 				new Cinema(null, "546456", "madrid", null, null, null,
-						null, "2135", null, null),
+						null, "2135", null, null, null),
 				new Cinema(null, "546542132", "malaga", null, null, null,
-						null, "211216548", null, null),
+						null, "211216548", null, null, null),
 				new Cinema(null, "8756412", "sevilla", null, null, null,
-						null, "2154", null, null)
+						null, "2154", null, null, null)
 		));
 
 		var addressRepo = context.getBean(AddressRepository.class);

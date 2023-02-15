@@ -31,7 +31,7 @@ public class Cinema {
     @Column(unique = true)
     private String twiter;
     @Column(unique = true)
-    private  String linkedint;
+    private  String facebook;
 
     @Column(unique = true)
     private String email;
@@ -40,6 +40,7 @@ public class Cinema {
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
+    private String instagram;
 
     @OneToMany(mappedBy="cinema")
     @ToString.Exclude
