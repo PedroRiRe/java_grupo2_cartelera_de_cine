@@ -3,6 +3,7 @@ package cartelera.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -39,7 +40,8 @@ public class Cinema {
     private Address address;
 
     @OneToMany(mappedBy="cinema")
-    private Set<Room> rooms;  // todo  = new HashSet<>()
+    @ToString.Exclude
+    private Set<Room> rooms = new HashSet<>();
 
     public void addRoom(Room room) {
         rooms.add(room);
