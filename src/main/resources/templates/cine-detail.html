@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cine Detail</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+<div class="container text-center">
+    <div class="row">
+        <h1>En este cine</h1>
+        <div class="col"></div>
+
+        <div class="col">
+            <div class="card">
+                <img src="https://dummyimage.com/300" class="card-img-top" alt="Cinema Image">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${cine.name}"></h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                </ul>
+                <div class="card-body">
+                    <button type="button" class="btn btn-primary">Volver</button>
+                    <button type="button" class="btn btn-success">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col"></div>
+    </div>
+</div>
+
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

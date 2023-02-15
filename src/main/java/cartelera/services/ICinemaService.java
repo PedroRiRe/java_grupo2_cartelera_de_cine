@@ -1,5 +1,6 @@
 package cartelera.services;
 
+
 import cartelera.entities.Cinema;
 import cartelera.exceptions.EntityDeleteException;
 import cartelera.exceptions.EntitySavingException;
@@ -9,15 +10,21 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface ICinemaservice {
+public interface ICinemaService {
 
     // CRUD
 
-    Cinema save(Cinema cinema) throws EntitySavingException;
+//    Cinema save(Cinema cinema) throws EntitySavingException;
 
     List<Cinema> findAll();
 
     Optional<Cinema> findById(Long id);
+
+    List<Cinema> findAllByName(String name);
+    List<Cinema> findAllByPhone(String phone);
+    List<Cinema> findByNameAndPhone(String name, String phone);
+
+    Cinema save(Cinema cinema);
 
     Optional<Cinema> findByName(String name);
 

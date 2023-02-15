@@ -1,5 +1,6 @@
 package cartelera.services;
 
+
 import cartelera.entities.Cinema;
 import cartelera.exceptions.EntityDeleteException;
 import cartelera.exceptions.EntitySavingException;
@@ -15,9 +16,10 @@ import java.util.Optional;
 @AllArgsConstructor
 @Service
 
-public class CinemaserviceImpl implements ICinemaservice {
+public class CinemaServiceImpl implements ICinemaService {
     private final CinemaRepository cinemaRepo;
 
+    /*
     @Override
     public Cinema save(Cinema cinema) throws EntitySavingException {
         if(cinema == null)
@@ -34,6 +36,58 @@ public class CinemaserviceImpl implements ICinemaservice {
 
         throw new EntitySavingException("Error guardando usuario");
     }
+     */
+
+    @Override
+    public List<Cinema> findAll() {
+        log.info("findAll");
+        return cinemaRepo.findAll();
+    }
+
+    @Override
+    public Optional<Cinema> findById(Long id) {
+        return cinemaRepo.findById(id);
+    }
+
+    @Override
+    public List<Cinema> findAllByName(String name) {
+        return cinemaRepo.findAllByName(name);
+    }
+
+    @Override
+    public List<Cinema> findAllByPhone(String phone) {
+        return cinemaRepo.findAllByPhone(phone);
+    }
+
+    @Override
+    public List<Cinema> findByNameAndPhone(String name, String phone) {
+        return cinemaRepo.findByNameAndPhone(name, phone);
+    }
+
+    @Override
+    public Cinema save(Cinema cinema) {
+        return cinemaRepo.save(cinema);
+    }
+
+
+    @Override
+    public Optional<Cinema> findByName(String name) {
+        log.info("findByName {}", name);
+        return cinemaRepo.findByName(name);
+    }
+
+    @Override
+    public Optional<Cinema> findByPhone(String phone) {
+        log.info("findByPhone {}", phone);
+        return cinemaRepo.findByName(phone);
+    }
+
+
+    @Override
+    public Optional<Cinema> findByAddress() {
+        return Optional.empty();
+    }
+
 
     @Override
     public Cinema update(Cinema cine) throws EntitySavingException {
@@ -51,9 +105,9 @@ public class CinemaserviceImpl implements ICinemaservice {
         cineFromDB.setPhone(cine.getPhone());
         cineFromDB.setUrl(cine.getUrl());
         cineFromDB.setEmail(cine.getEmail());
-        cineFromDB.setInstagram(cine.getInstagram());
-        cineFromDB.setTwiter(cine.getTwiter());
         cineFromDB.setFacebook(cine.getFacebook());
+        cineFromDB.setTwiter(cine.getTwiter());
+        cineFromDB.setInstagram(cine.getInstagram());
 
         try {
             return cinemaRepo.save(cineFromDB);
@@ -63,37 +117,6 @@ public class CinemaserviceImpl implements ICinemaservice {
 
         throw new EntitySavingException("Error guardando usuario");
 
-    }
-
-    @Override
-    public List<Cinema> findAll() {
-        log.info("findAll");
-        return cinemaRepo.findAll();
-    }
-
-    @Override
-    public Optional<Cinema> findById(Long id) {
-        log.info("findById {}", id);
-        if (id == null || id <= 0)
-            return Optional.empty();
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<Cinema> findByName(String name) {
-        log.info("findByName {}", name);
-        return cinemaRepo.findByName(name);
-    }
-
-    @Override
-    public Optional<Cinema> findByPhone(String phone) {
-        log.info("findByPhone {}", phone);
-        return cinemaRepo.findByName(phone);
-    }
-
-    @Override
-    public Optional<Cinema> findByAddress() {
-        return Optional.empty();
     }
 
     @Override
