@@ -4,8 +4,10 @@ import cartelera.entities.enums.Classification;
 import cartelera.entities.enums.Gender;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Setter
@@ -42,4 +44,16 @@ public class Film {
     @ElementCollection
     private Set<Gender> genders;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Film film = (Film) o;
+        return id != null && Objects.equals(id, film.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
