@@ -15,7 +15,7 @@ import java.util.Optional;
 @AllArgsConstructor
 @Service
 
-public class CinemaserviceImpl implements ICinemaservice {
+public class CinemaServiceImpl implements ICinemaService {
     private final CinemaRepository cinemaRepo;
 
     @Override
@@ -51,8 +51,8 @@ public class CinemaserviceImpl implements ICinemaservice {
         cineFromDB.setPhone(cine.getPhone());
         cineFromDB.setUrl(cine.getUrl());
         cineFromDB.setEmail(cine.getEmail());
-        cineFromDB.setLinkedint(cine.getLinkedint());
-        cineFromDB.setTwiter(cine.getTwiter());
+        cineFromDB.setLinkedIn(cine.getLinkedIn());
+        cineFromDB.setTwitter(cine.getTwitter());
 
         try {
             return cinemaRepo.save(cineFromDB);

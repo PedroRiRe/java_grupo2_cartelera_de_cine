@@ -1,7 +1,7 @@
 package cartelera.controllers;
 
 import cartelera.entities.Cinema;
-import cartelera.services.ICinemaservice;
+import cartelera.services.ICinemaService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import java.util.List;
 @Controller
 public class CinemaController {
 
-    private final ICinemaservice cinemaService;
+    private final ICinemaService cinemaService;
 
     @GetMapping("cines")  // http://localhost:8080/cines
     public String findAll(Model model) {

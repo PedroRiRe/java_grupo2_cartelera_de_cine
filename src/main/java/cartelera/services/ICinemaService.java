@@ -3,13 +3,11 @@ package cartelera.services;
 import cartelera.entities.Cinema;
 import cartelera.exceptions.EntityDeleteException;
 import cartelera.exceptions.EntitySavingException;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Service
-public interface ICinemaservice {
+public interface ICinemaService {
 
     // CRUD
 
