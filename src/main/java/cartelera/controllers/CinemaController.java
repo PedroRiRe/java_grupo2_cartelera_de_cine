@@ -1,6 +1,7 @@
 package cartelera.controllers;
 
 import cartelera.entities.Cinema;
+import cartelera.exceptions.EntityDeleteException;
 import cartelera.repositories.CinemaRepository;
 import cartelera.services.ICinemaService;
 import lombok.AllArgsConstructor;
@@ -60,14 +61,40 @@ public class CinemaController {
 
     @GetMapping("cines/create")
     public String createForm(Model model) {
-        model.addAttribute("cinema", new Cinema()); // objeto vacío para rellenar desde el formulario
+        model.addAttribute("cine", new Cinema());
         return "cine-form";
     }
 
+    /*
     @PostMapping("cines")
     public String save(@ModelAttribute Cinema cinema) {
         cineService.save(cinema);
         return "redirect:/cines";
     }
+     */
+
+    @GetMapping("cines/{id}/edit")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Cinema> cineOpt = cineService.findById(id);
+        if (cineOpt.isPresent())
+            model.addAttribute("cinema", cineOpt.get());
+        else
+            model.addAttribute("ERROR", "No encontramos este cine");
+
+        return "cine-form";
+    }
+
+    @PostMapping("cines") // POST http://localhost:8080/cines
+    public String saveForm(@ModelAttribute Cinema cinema) {
+        cineService.save(cinema);
+        return "redirect:/cines";
+    }
+
+    @GetMapping("cines/{id}/delete")
+    public String deleteById(@PathVariable Long id) throws EntityDeleteException {
+        cineService.deleteById(id);
+        return "redirect:/cines";
+    }
+
 
 }

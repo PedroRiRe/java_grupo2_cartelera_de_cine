@@ -23,18 +23,15 @@ public interface ICinemaService {
     List<Cinema> findAllByName(String name);
     List<Cinema> findAllByPhone(String phone);
     List<Cinema> findByNameAndPhone(String name, String phone);
-
-    Cinema save(Cinema cinema);
-
     Optional<Cinema> findByName(String name);
 
     Optional<Cinema> findByPhone(String phone);
 
     Optional<Cinema> findByAddress();
-
+    Cinema save(Cinema cinema);
     Cinema update(Cinema cine) throws EntitySavingException;
 
-    void deleteById(Long id) throws EntityDeleteException;
+    void deleteById(Long id);
 
 
     // LÓGICA DE NEGOCIO

@@ -19,6 +19,11 @@ import java.util.Optional;
 public class CinemaServiceImpl implements ICinemaService {
     private final CinemaRepository cinemaRepo;
 
+    @Override
+    public Cinema save(Cinema cinema) {
+        return cinemaRepo.save(cinema);
+    }
+
     /*
     @Override
     public Cinema save(Cinema cinema) throws EntitySavingException {
@@ -63,12 +68,6 @@ public class CinemaServiceImpl implements ICinemaService {
     public List<Cinema> findByNameAndPhone(String name, String phone) {
         return cinemaRepo.findByNameAndPhone(name, phone);
     }
-
-    @Override
-    public Cinema save(Cinema cinema) {
-        return cinemaRepo.save(cinema);
-    }
-
 
     @Override
     public Optional<Cinema> findByName(String name) {
@@ -119,6 +118,7 @@ public class CinemaServiceImpl implements ICinemaService {
 
     }
 
+    /*
     @Override
     public void deleteById(Long id) throws EntityDeleteException {
         log.info("deleteById {}", id);
@@ -128,6 +128,12 @@ public class CinemaServiceImpl implements ICinemaService {
         } catch (Exception e) {
             log.error("Error al intentar borrar el cine", e);
         }
-        throw new EntityDeleteException("Error borrando usuario");
+        throw new EntityDeleteException("Error borrando cine");
+    }
+     */
+
+    @Override
+    public void deleteById(Long id) {
+        cinemaRepo.deleteById(id);
     }
 }
