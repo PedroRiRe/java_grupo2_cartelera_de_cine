@@ -22,8 +22,9 @@
                 <ul class="list-group list-group-flush">
                 </ul>
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary">Volver</button>
-                    <button type="button" class="btn btn-success">Comprar</button>
+                    <a class="btn btn-dark" th:href="@{/cines}">Volver</a>
+                    <a class="btn btn-success" th:href="@{/cines/{id}/edit(id=${cine.id})}">Editar</a>
+                    <a class="btn btn-danger" th:href="@{/cines/{id}/delete(id=${cine.id})}">Borrar</a>
                 </div>
             </div>
         </div>
