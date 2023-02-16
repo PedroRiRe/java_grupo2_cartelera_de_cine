@@ -29,7 +29,7 @@ public class Cinema {
     @Column(unique = true)
     private String url;
     @Column(unique = true)
-    private String twiter;
+    private String twitter;
     @Column(unique = true)
     private  String facebook;
 

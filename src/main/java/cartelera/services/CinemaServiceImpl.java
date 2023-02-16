@@ -105,7 +105,7 @@ public class CinemaServiceImpl implements ICinemaService {
         cineFromDB.setUrl(cine.getUrl());
         cineFromDB.setEmail(cine.getEmail());
         cineFromDB.setFacebook(cine.getFacebook());
-        cineFromDB.setTwiter(cine.getTwiter());
+        cineFromDB.setTwitter(cine.getTwitter());
         cineFromDB.setInstagram(cine.getInstagram());
 
         try {
