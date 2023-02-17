@@ -40,16 +40,16 @@ public class App {
 
 		addressRepo.saveAll(List.of(address1, address2, address3, address4));
 
-		var film1 = new Film(null, "Spiderman", 120, "uno", "EEUU", Classification.OLDER7,
+		var film1 = new Film(null, "Spiderman", 120, 2020, "uno", "EEUU", Classification.OLDER7,
 				null, "otro", "photógrafo", "script", "Universal",
 				null, Set.of(Gender.ACTION), null, null, null, null);
-		var film2 = new Film(null, "Batman", 135, "uno", "EEUU", Classification.OLDER12,
+		var film2 = new Film(null, "Batman", 135, 2020, "uno", "EEUU", Classification.OLDER12,
 				null, "otro", "photógrafo", "script", "Universal",
 				null, Set.of(Gender.ACTION), null, null, null, null);
-		var film3 = new Film(null, "Superman", 115, "uno", "EEUU", Classification.OLDER12,
+		var film3 = new Film(null, "Superman", 115, 2020, "uno", "EEUU", Classification.OLDER12,
 				null, "otro", "photógrafo", "script", "Universal",
 				null, Set.of(Gender.ACTION), null, null, null, null);
-		var film4 = new Film(null, "X-Men", 122, "uno", "EEUU", Classification.ALL_AGES,
+		var film4 = new Film(null, "X-Men", 122, 2020, "uno", "EEUU", Classification.ALL_AGES,
 				null, "otro", "photógrafo", "script", "Universal",
 				null, Set.of(Gender.ACTION), null, null, null, null);
 
