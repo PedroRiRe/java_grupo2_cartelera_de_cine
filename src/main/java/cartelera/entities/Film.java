@@ -43,9 +43,11 @@ public class Film {
     private String company;
 
     @ElementCollection
+    @ToString.Exclude
     private Set<String> actors = new HashSet<>();
 
     @ElementCollection
+    @ToString.Exclude
     private Set<Gender> genders;
 
     private String trailer;
@@ -55,5 +57,6 @@ public class Film {
     private String review;
 
     @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
+    @ToString.Exclude
     private Set<Room> rooms = new HashSet<>();
 }

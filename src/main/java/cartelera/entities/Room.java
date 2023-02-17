@@ -30,6 +30,7 @@ public class Room {
     private LocalDate premiere;
 
     @ElementCollection
+    @ToString.Exclude
     private Set<LocalTime> schedules;
 
     @ManyToOne
