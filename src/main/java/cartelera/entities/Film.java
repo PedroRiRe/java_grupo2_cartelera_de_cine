@@ -26,6 +26,8 @@ public class Film {
 
     private Integer duration;
 
+    private Integer year;
+
     private String director;
 
     private String country;
