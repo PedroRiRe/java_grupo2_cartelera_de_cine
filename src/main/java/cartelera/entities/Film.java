@@ -40,8 +40,11 @@ public class Film {
     private String script;
     private String company;
     @ElementCollection
+    @ToString.Exclude
     private Set<String> actors = new HashSet<>();
+
     @ElementCollection
+    @ToString.Exclude
     private Set<Gender> genders;
 
     @Override
@@ -56,4 +59,13 @@ public class Film {
     public int hashCode() {
         return getClass().hashCode();
     }
+    private String trailer;
+
+    private String poster;
+
+    private String review;
+
+    @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
+    @ToString.Exclude
+    private Set<Room> rooms = new HashSet<>();
 }
