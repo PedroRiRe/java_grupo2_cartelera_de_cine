@@ -1,9 +1,10 @@
-package cartelera.services;
+package cartelera.services.impl;
 
 import cartelera.entities.Cinema;
 import cartelera.exceptions.EntityDeleteException;
 import cartelera.exceptions.EntitySavingException;
 import cartelera.repositories.CinemaRepository;
+import cartelera.services.ICinemaService;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
