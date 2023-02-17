@@ -37,6 +37,8 @@ public class App {
 		var address2 = new Address(null, "Calle Cita", "41258", "Marbella", "España");
 		var address3 = new Address(null, "Carrerón", "96587", "Lugo", "España");
 		var address4 = new Address(null, "Carrerita", "12365", "Sevilla", "España");
+		addressRepo.saveAll(List.of(address1, address2, address3, address4));
+
 
 		var film1 = new Film(null, "Spiderman", 120, "uno", "EEUU", Classification.OLDER7,
 				null, "otro", "photógrafo", "script", "Universal",
@@ -50,6 +52,7 @@ public class App {
 		var film4 = new Film(null, "X-Men", 122, "uno", "EEUU", Classification.ALL_AGES,
 				null, "otro", "photógrafo", "script", "Universal",
 				null, Set.of(Gender.ACTION), null);
+		filmRepo.saveAll(List.of(film1, film2, film3, film4));
 
 		var cinema1 = new Cinema(null, "54646546", "Barna", null, null, null,
 				null, "456321", address1, null);
@@ -59,21 +62,19 @@ public class App {
 				null, "211216548", address3, null);
 		var cinema4 = new Cinema(null, "8756412", "Sevilla", null, null, null,
 				null, "2154", address4, null);
+		cineRepo.saveAll(List.of(cinema1, cinema2, cinema3, cinema4));
 
 		// TODO al añadir los film, da error
 
 		var room1 = new Room(null, (byte) 1, 130, true,
-				LocalDate.of(2023, 2, 18), null, null, cinema1);
+				LocalDate.of(2023, 2, 18), null, film1, cinema1);
 		var room2 = new Room(null, (byte) 2, 130, true,
-				LocalDate.of(2023, 2, 18), null, null, cinema2);
+				LocalDate.of(2023, 2, 18), null, film1, cinema2);
 		var room3 = new Room(null, (byte) 3, 130, true,
-				LocalDate.of(2023, 2, 18), null, null, cinema3);
+				LocalDate.of(2023, 2, 18), null, film2, cinema3);
 		var room4 = new Room(null, (byte) 4, 130, true,
-				LocalDate.of(2023, 2, 18), null, null, cinema4);
-
-		addressRepo.saveAll(List.of(address1, address2, address3, address4));
-		cineRepo.saveAll(List.of(cinema1, cinema2, cinema3, cinema4));
+				LocalDate.of(2023, 2, 18), null, film2, cinema4);
 		roomRepo.saveAll(List.of(room1, room2, room3, room4));
-		filmRepo.saveAll(List.of(film1, film2, film3, film4));
+
 	}
 }
