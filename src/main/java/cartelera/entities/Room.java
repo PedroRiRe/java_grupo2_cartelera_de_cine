@@ -15,14 +15,20 @@ import java.util.Set;
 @Builder
 @Entity
 public class Room {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(unique = true)
     private Byte roomNumber;
+
     private Integer capacity;
+
     private Boolean active;
+
     private LocalDate premiere;
+
     @ElementCollection
     private Set<LocalTime> schedules;
 
@@ -31,6 +37,6 @@ public class Room {
     private Film film;
 
     @ManyToOne
-    @JoinColumn(name="cinema_id") // nullable
+    @JoinColumn(name="cinema_id")
     private Cinema cinema;
 }
