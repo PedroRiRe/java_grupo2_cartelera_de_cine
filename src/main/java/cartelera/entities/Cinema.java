@@ -38,6 +38,9 @@ public class Cinema {
     private String faceBook;
 
     @Column(unique = true)
+    private String instagram;
+
+    @Column(unique = true)
     private String email;
 
     @Column(unique = true)

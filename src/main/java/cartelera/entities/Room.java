@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -31,7 +32,7 @@ public class Room {
 
     @ElementCollection
     @ToString.Exclude
-    private Set<LocalTime> schedules;
+    private Set<LocalTime> schedules = new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name = "film_id")
