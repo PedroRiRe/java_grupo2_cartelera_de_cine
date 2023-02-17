@@ -18,7 +18,7 @@ public class CinemaController {
 
     private final ICinemaService cinemaService;
 
-    @GetMapping("/cines")  // http://localhost:8080/cines
+    @GetMapping("/cinemas")
     public String findAll(Model model) {
         List<Cinema> cinemas = cinemaService.findAll();
         if (cinemas != null) model.addAttribute("cinemas", cinemas);
@@ -26,7 +26,7 @@ public class CinemaController {
         return "cinemas-list";
     }
 
-    @GetMapping("/cines/{id}")
+    @GetMapping("/cinema/{id}")
     public String findById(Model model, @PathVariable Long id) {
         Optional<Cinema> cinema = cinemaService.findById(id);
         if (cinema.isPresent()) model.addAttribute("cinema", cinema.get());
