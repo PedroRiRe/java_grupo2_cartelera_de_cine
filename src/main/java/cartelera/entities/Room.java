@@ -15,22 +15,29 @@ import java.util.Set;
 @Builder
 @Entity
 public class Room {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(unique = true)
     private Byte roomNumber;
+
+    private Integer capacity;
+
+    private Boolean active;
+
+    private LocalDate premiere;
+
+    @ElementCollection
+    @ToString.Exclude
+    private Set<LocalTime> schedules;
+
     @ManyToOne
     @JoinColumn(name = "film_id")
     private Film film;
-    private Integer capacity;
-    private Boolean active;
-    private LocalDate premiere;
-    @ElementCollection
-    private Set<LocalTime> schedules;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="cinema_id") // nullable
+    @ManyToOne
+    @JoinColumn(name = "cinema_id")
     private Cinema cinema;
-
 }
