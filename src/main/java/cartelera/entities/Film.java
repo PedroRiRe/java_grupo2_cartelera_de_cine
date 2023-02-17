@@ -44,5 +44,5 @@ public class Film {
 
     @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
     // @ElementCollection  //¿? Teniendo el mapped by no es necesario
-    private Set<Room> rooms;
+    private Set<Room> rooms = new HashSet<>();
 }

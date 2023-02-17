@@ -42,5 +42,5 @@ public class Cinema {
     @OneToMany(mappedBy = "cinema", fetch = FetchType.EAGER)
     @ToString.Exclude
     // @ElementCollection
-    private Set<Room> rooms;
+    private Set<Room> rooms = new HashSet<>();
 }
