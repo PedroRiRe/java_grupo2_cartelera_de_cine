@@ -1,6 +1,5 @@
 package cartelera.controllers;
 
-import cartelera.entities.Address;
 import cartelera.entities.Cinema;
 import cartelera.services.ICinemaService;
 import lombok.AllArgsConstructor;
