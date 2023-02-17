@@ -38,6 +38,6 @@ public class Room {
     private Film film;
 
     @ManyToOne
-    @JoinColumn(name="cinema_id")
+    @JoinColumn(name = "cinema_id")
     private Cinema cinema;
 }
