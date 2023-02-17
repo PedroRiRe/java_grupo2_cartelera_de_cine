@@ -11,75 +11,54 @@
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
-<div class="container text-center">
+<div class="container text-left">
     <div class="row">
+        <h1>Listado de cines</h1>
 
-    <!--    <h1 th:if="${cine.id}">Modificar Cine<span th:text="${cine.id}"></span></h1>  -->
-    <!--    <h1 th:if="${cine.id} == null">Crear nuevo Cine</h1>  -->
-
-        <div class="col"></div>
-
-        <div class="col">
-
-            <div>
-
-                <!-- se puedeponer un icono en lugar de un boton-->
-
-                <a class="btn btn-light" th:href="@{/cines/create}">Crear nuevo cine</a>
-            </div>
-            <div class="mt-2">
-                <span>Filtrar por nombre: </span>
-                <a class="btn btn-primary" th:href="@{/cines/name/barna}">Barcelona</a>
-                <a class="btn btn-primary" th:href="@{/cines/name/madrid}">Madrid</a>
-            </div>
-            <div class="mt-2">
-                <span>Filtrar por teléfono: </span>
-                <a class="btn btn-success" th:href="@{/cines/phone/211216548}">TF, Malaga</a>
-                <a class="btn btn-warning" th:href="@{/cines/phone/2154}">Tf, Sevilla</a>
-            </div>
+        <div class="col mt-3">
+            <button type="button" class="btn btn-success">Crear nuevo cine</button>
 
             <table class="table">
                 <thead>
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">CIF</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">url</th>
-                    <th scope="col">twitter</th>
-                    <th scope="col">linkedint</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Sitio web</th>
+                    <th scope="col">Twitter</th>
+                    <th scope="col">Instagram</th>
+                    <th scope="col">Facebook</th>
+                    <th scope="col">LinkedIn</th>
                     <th scope="col">email</th>
-                    <th scope="col">phone</th>
-                    <th scope="col">address</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="cine : ${cines}">
-                    <td th:text="${cine.id}"></td>
-                    <td th:text="${cine.cif}"></td>
-                    <td th:text="${cine.name}"></td>
-                    <td th:text="${cine.url}"></td>
-                    <td th:text="${cine.twitter}"></td>
-                    <td th:text="${cine.facebook}"></td>
-                    <td th:text="${cine.email}"></td>
-                    <td th:text="${cine.phone}"></td>
-                    <td th:text="${cine.address}"></td>
+                <tr th:each="cinema : ${cinemas}">
+                    <td th:text="${cinema.id}"></td>
+                    <td th:text="${cinema.name}"></td>
+                    <td th:text="${cinema.url}"></td>
+                    <td th:text="${cinema.twitter}"></td>
+                    <td th:text="${cinema.instagram}"></td>
+                    <td th:text="${cinema.facebook}"></td>
+                    <td th:text="${cinema.linkedIn}"></td>
+                    <td th:text="${cinema.email}"></td>
+                    <td th:text="${cinema.phone}"></td>
+                    <td th:text="${cinema.address}"></td>
                     <td>
-                        <a class="btn btn-primary" th:href="@{/cines/{id}(id=${cine.id})}">Ver</a>
-                        <a class="btn btn-success" th:href="@{/cines/{id}/edit(id=${cine.id})}">Editar</a>
-                        <a class="btn btn-danger" th:href="@{/cines/{id}/delete(id=${cine.id})}">Borrar</a>
+                        <a class="btn btn-primary btn-sm" th:href="@{/cinema/{id}(id=${cinema.id})}">Ver</a>
+                        <button type="button" class="btn btn-success btn-sm">Editar</button>
+                        <button type="button" class="btn btn-danger btn-sm">Borrar</button>
                     </td>
                 </tr>
                 </tbody>
             </table>
-
-        </div>
-        <div class="col-2">
-
         </div>
     </div>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
+
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
