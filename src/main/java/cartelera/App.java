@@ -55,14 +55,14 @@ public class App {
 
 		filmRepo.saveAll(List.of(film1, film2, film3, film4));
 
-		var cinema1 = new Cinema(null, "54646546", "Barna", null, null, null, null,
-				null, "456321", address1, null);
-		var cinema2 = new Cinema(null, "546456", "Madrid", null, null, null, null,
-				null, "2135", address2, null);
-		var cinema3 = new Cinema(null, "546542132", "Málaga", null, null, null, null,
-				null, "211216548", address3, null);
-		var cinema4 = new Cinema(null, "8756412", "Sevilla", null, null, null, null,
-				null, "2154", address4, null);
+		var cinema1 = new Cinema(null, "Barna", "+34666332211", address1, "barna@mail.es", "123456789X", "https://cinebarna.com",
+				"Twitter", "LinkedIn", "Facebook", "Instagram", null);
+		var cinema2 = new Cinema(null, "Madrid", "+34666332211", address2, "barna@mail.es", "123456789X", "https://cinebarna.com",
+				"Twitter", "LinkedIn", "Facebook", "Instagram", null);
+		var cinema3 = new Cinema(null, "Malaga", "+34666332211", address3, "barna@mail.es", "123456789X", "https://cinebarna.com",
+				"Twitter", "LinkedIn", "Facebook", "Instagram", null);
+		var cinema4 = new Cinema(null, "Sevilla", "+34666332211", address4, "barna@mail.es", "123456789X", "https://cinebarna.com",
+				"Twitter", "LinkedIn", "Facebook", "Instagram", null);
 
 		cineRepo.saveAll(List.of(cinema1, cinema2, cinema3, cinema4));
 
