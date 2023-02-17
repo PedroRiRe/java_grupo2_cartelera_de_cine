@@ -10,14 +10,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-
 @Slf4j
 @AllArgsConstructor
 @Service
 public class RoomServiceImpl implements IRoomService {
 
         private final RoomRepository roomRepo;
-
 
     @Override
         public List<Room> findAll() {
