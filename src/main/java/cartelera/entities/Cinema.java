@@ -20,20 +20,10 @@ public class Cinema {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private String name;
-
-    @Column(unique = true)
-    private String phone;
-
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
-
-    @Column(unique = true)
-    private String email;
+    private String cif;
 
     @Column(unique = true, nullable = false)
-    private String cif;
+    private String name;
 
     @Column(unique = true)
     private String url;
@@ -42,13 +32,23 @@ public class Cinema {
     private String twitter;
 
     @Column(unique = true)
-    private String linkedin;
+    private String linkedIn;
 
     @Column(unique = true)
-    private String facebook;
+    private String faceBook;
 
     @Column(unique = true)
     private String instagram;
+
+    @Column(unique = true)
+    private String email;
+
+    @Column(unique = true)
+    private String phone;
+
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.EAGER)
     @ToString.Exclude

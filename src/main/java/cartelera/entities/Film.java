@@ -50,7 +50,7 @@ public class Film {
 
     @ElementCollection
     @ToString.Exclude
-    private Set<Gender> genders;
+    private Set<Gender> genders = new HashSet<>();
 
     private String trailer;
 
