@@ -30,26 +30,17 @@ public class Cinema {
     private String twitter;
     @Column(unique = true)
     private  String linkedIn;
-
     @Column(unique = true)
     private String email;
     @Column(unique = true)
     private String phone;
+
     @OneToOne
-    @JoinColumn(name = "address_id")
+    // @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToMany(mappedBy="cinema")
+    @OneToMany(mappedBy = "cinema", fetch = FetchType.EAGER)
     @ToString.Exclude
-    private Set<Room> rooms = new HashSet<>();
-
-    public void addRoom(Room room) {
-        rooms.add(room);
-        room.setCinema(this);
-    }
-    public void removeRoom(Room room) {
-        rooms.remove(room);
-        room.setCinema(null);
-    }
-
-    }
+    @ElementCollection
+    private Set<Room> rooms;
+}

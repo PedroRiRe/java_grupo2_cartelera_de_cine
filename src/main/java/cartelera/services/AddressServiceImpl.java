@@ -14,17 +14,18 @@ import java.util.Optional;
 @Service
 public class AddressServiceImpl implements IAddressService {
 
-    private final AddressRepository addressRepository;
+    private final AddressRepository addressRepo;
 
     @Override
     public List<Address> findAll() {
         log.info("findAll");
-        return addressRepository.findAll();
+        return addressRepo.findAll();
     }
 
     @Override
     public Optional<Address> findById(Long id) {
         log.info("findById {}", id);
-        return addressRepository.findById(id);
+        if (id == null || id <= 0 ) return Optional.empty();
+        return addressRepo.findById(id);
     }
 }

@@ -11,7 +11,7 @@ public interface ICinemaService {
 
     // CRUD
 
-    Cinema save(Cinema cinema) throws EntitySavingException;
+//    Cinema save(Cinema cinema) throws EntitySavingException;
 
     List<Cinema> findAll();
 
@@ -21,11 +21,11 @@ public interface ICinemaService {
 
     Optional<Cinema> findByPhone(String phone);
 
-    Optional<Cinema> findByAddress();
-
-    Cinema update(Cinema cine) throws EntitySavingException;
-
-    void deleteById(Long id) throws EntityDeleteException;
+//    Optional<Cinema> findByAddress();
+//
+//    Cinema update(Cinema cine) throws EntitySavingException;
+//
+//    void deleteById(Long id) throws EntityDeleteException;
 
 
     // LÓGICA DE NEGOCIO

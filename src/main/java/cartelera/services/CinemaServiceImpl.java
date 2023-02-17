@@ -18,52 +18,52 @@ import java.util.Optional;
 public class CinemaServiceImpl implements ICinemaService {
     private final CinemaRepository cinemaRepo;
 
-    @Override
-    public Cinema save(Cinema cinema) throws EntitySavingException {
-        if(cinema == null)
-            throw new IllegalArgumentException("Cine no puede ser null");
-
-        if(cinema.getId() != null)
-            update(cinema);
-
-        try {
-            return cinemaRepo.save(cinema);
-        } catch (Exception e) {
-            log.error("Error guardando cine", e);
-        }
-
-        throw new EntitySavingException("Error guardando usuario");
-    }
-
-    @Override
-    public Cinema update(Cinema cine) throws EntitySavingException {
-        if(cine == null)
-            throw new IllegalArgumentException("Cine no puede ser null");
-
-        if(cine.getId() == null)
-            throw new IllegalArgumentException("Cine ID no puede ser null");
-
-        if(!cinemaRepo.existsById(cine.getId()))
-            throw new EntityNotFoundException("Cine no existe");
-
-        Cinema cineFromDB = cinemaRepo.findById(cine.getId()).get();
-        // solo cambiamos los atributos deseados
-        cineFromDB.setPhone(cine.getPhone());
-        cineFromDB.setUrl(cine.getUrl());
-        cineFromDB.setEmail(cine.getEmail());
-        cineFromDB.setLinkedIn(cine.getLinkedIn());
-        cineFromDB.setTwitter(cine.getTwitter());
-
-        try {
-            return cinemaRepo.save(cineFromDB);
-        } catch (Exception e) {
-            log.error("Error guardando usuario", e);
-        }
-
-        throw new EntitySavingException("Error guardando usuario");
-
-    }
-
+//    @Override
+//    public Cinema save(Cinema cinema) throws EntitySavingException {
+//        if(cinema == null)
+//            throw new IllegalArgumentException("Cine no puede ser null");
+//
+//        if(cinema.getId() != null)
+//            update(cinema);
+//
+//        try {
+//            return cinemaRepo.save(cinema);
+//        } catch (Exception e) {
+//            log.error("Error guardando cine", e);
+//        }
+//
+//        throw new EntitySavingException("Error guardando usuario");
+//    }
+//
+//    @Override
+//    public Cinema update(Cinema cine) throws EntitySavingException {
+//        if(cine == null)
+//            throw new IllegalArgumentException("Cine no puede ser null");
+//
+//        if(cine.getId() == null)
+//            throw new IllegalArgumentException("Cine ID no puede ser null");
+//
+//        if(!cinemaRepo.existsById(cine.getId()))
+//            throw new EntityNotFoundException("Cine no existe");
+//
+//        Cinema cineFromDB = cinemaRepo.findById(cine.getId()).get();
+//        // solo cambiamos los atributos deseados
+//        cineFromDB.setPhone(cine.getPhone());
+//        cineFromDB.setUrl(cine.getUrl());
+//        cineFromDB.setEmail(cine.getEmail());
+//        cineFromDB.setLinkedIn(cine.getLinkedIn());
+//        cineFromDB.setTwitter(cine.getTwitter());
+//
+//        try {
+//            return cinemaRepo.save(cineFromDB);
+//        } catch (Exception e) {
+//            log.error("Error guardando usuario", e);
+//        }
+//
+//        throw new EntitySavingException("Error guardando usuario");
+//
+//    }
+//
     @Override
     public List<Cinema> findAll() {
         log.info("findAll");
@@ -73,37 +73,46 @@ public class CinemaServiceImpl implements ICinemaService {
     @Override
     public Optional<Cinema> findById(Long id) {
         log.info("findById {}", id);
-        if (id == null || id <= 0)
-            return Optional.empty();
-        return Optional.empty();
+        if (id == null || id <= 0) return Optional.empty();
+        return cinemaRepo.findById(id);
     }
 
+//    @Override
+//    public Optional<Cinema> findById(Long id) {
+//        log.info("findById {}", id);
+//        if (id == null || id <= 0)
+//            return Optional.empty();
+//        return Optional.empty();  // <----- siempre devuelve vacío
+//    }
+//
     @Override
     public Optional<Cinema> findByName(String name) {
         log.info("findByName {}", name);
-        return cinemaRepo.findByName(name);
+        if (name == null || name.trim().isEmpty()) return Optional.empty();
+        return cinemaRepo.findByName(name.trim());
     }
 
     @Override
     public Optional<Cinema> findByPhone(String phone) {
         log.info("findByPhone {}", phone);
-        return cinemaRepo.findByName(phone);
+        if (phone == null || phone.trim().isEmpty()) return Optional.empty();
+        return cinemaRepo.findByName(phone.trim());
     }
 
-    @Override
-    public Optional<Cinema> findByAddress() {
-        return Optional.empty();
-    }
-
-    @Override
-    public void deleteById(Long id) throws EntityDeleteException {
-        log.info("deleteById {}", id);
-
-        try {
-            cinemaRepo.deleteById(id);
-        } catch (Exception e) {
-            log.error("Error al intentar borrar el cine", e);
-        }
-        throw new EntityDeleteException("Error borrando usuario");
-    }
+//    @Override
+//    public Optional<Cinema> findByAddress() {
+//        return Optional.empty();
+//    }
+//
+//    @Override
+//    public void deleteById(Long id) throws EntityDeleteException {
+//        log.info("deleteById {}", id);
+//
+//        try {
+//            cinemaRepo.deleteById(id);
+//        } catch (Exception e) {
+//            log.error("Error al intentar borrar el cine", e);
+//        }
+//        throw new EntityDeleteException("Error borrando usuario");
+//    }
 }

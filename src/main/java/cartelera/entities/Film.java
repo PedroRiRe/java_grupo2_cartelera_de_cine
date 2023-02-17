@@ -42,4 +42,7 @@ public class Film {
     @ElementCollection
     private Set<Gender> genders;
 
+    @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
+    @ElementCollection  //¿? Teniendo el mapped by no es necesario
+    private Set<Room> rooms;
 }

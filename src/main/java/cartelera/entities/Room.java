@@ -20,17 +20,17 @@ public class Room {
     private Long id;
     @Column(unique = true)
     private Byte roomNumber;
-    @ManyToOne
-    @JoinColumn(name = "film_id")
-    private Film film;
     private Integer capacity;
     private Boolean active;
     private LocalDate premiere;
     @ElementCollection
     private Set<LocalTime> schedules;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "film_id")
+    private Film film;
+
+    @ManyToOne
     @JoinColumn(name="cinema_id") // nullable
     private Cinema cinema;
-
 }
