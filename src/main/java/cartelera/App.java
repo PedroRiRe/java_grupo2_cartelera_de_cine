@@ -51,6 +51,39 @@ public class App {
 		var film4 = new Film(null, "X-Men", 122, 2020, "uno", "EEUU", Classification.ALL_AGES,
 				null, "otro", "photógrafo", "script", "Universal",
 				null, Set.of(Gender.ACTION), null, null, null, null);
+		var film5 = new Film(null,"Los Fabelman",2022,151,"Steven Spielberg",
+				"Estados Unidos",Classification.OLDER16,null, "John Williams","Janusz Kaminski",
+				"Tony Kushner_Steven Spielberg", "Universal Pictures",null,Set.of(Gender.DRAMA),null,null,null,null);
+		var film6 = new Film(null,"La niña de la Comunión",2022,98,"Victor Garcia",
+				"España",Classification.OLDER16,null, "Marc Timón","José Luis Bernal Ibañez","Guillem Clua",
+				"Ikiru Films",null,Set.of(Gender.TERROR),null,null,null,null);
+		var film7 = new Film(null,"El Piloto",2023,107,"Jean-Francois Richet",
+				"Estados Unidos",Classification.OLDER18,null,"Marco Beltrami","Brendan Galvin","Matt Cook",
+				"Coproducción Estados Unidos",null,Set.of(Gender.ACTION),null,null,null,null);
+		var film8 = new Film(null,"Oro Puro",2022,138,"Faith Akin","Alemania",Classification.OLDER18,null,
+				"Ralf Kemper","Rainer Klausman","Fatih Akin","Warner Broos",null,Set.of(Gender.ACTION),null,null,null,null);
+		var film9 = new Film(null,"Titanic",1997,195,"James Cameron",
+				"Estados Unidos",Classification.OLDER12,null, "James Horner","Russell Carpenter","James Cameron",
+				"Paramount Pictures",null,Set.of(Gender.ROMANCE),null,null,null,null);
+		var film10 = new Film(null,"Mi Querido Monstruo",2022,99,"Jianming Huang",
+				"China",Classification.OLDER7,null, "Xiaoyu Wu","Animación","Liang Li","Daysview Animation",null,Set.of(Gender.CHILDISH),null,null,null,null);
+		var film11 = new Film(null,"Anime Supremacy!",2022,128,"Saim Kohei Yoshino",
+				"Japón",Classification.OLDER16,null, "Mizuki Tsujimura","Motonobu kiyoku","Yosuke Masaike",
+				"Toei",null,Set.of(Gender.DRAMA),null,null,null,null);
+		var film12 = new Film(null,"Almas en pena de Inisherin",2022,114,"Martin McDonagh",
+				"Reino Unido",Classification.OLDER12,null, "Carter Burwell","Ben Davis","Martin McDonagh",
+				"Walt Disney Pictures",null,Set.of(Gender.DRAMA),null,null,null,null);
+		var film13 = new Film(null,"Llaman a la puerta",2023,100,"M. Night Shyamalan",
+				"Estados Unidos",Classification.OLDER16,null, "Herdís Stefánsdóttir","Jarin Blaschke",
+				"M. Night Shyamalan","Universal Pictures",null,Set.of(Gender.TERROR),null,null,null,null);
+		var film14 = new Film(null,"Astérix y Obélix y el reino medio",2023,111,
+				"Guillaume Canet","Francia",Classification.OLDER7,null, "Matthie Chedid","Andre Chemetoff",
+				"Guillaume Canet","Les Editions Albert René",null,Set.of(Gender.COMEDY),null,null,null,null);
+		var film15 = new Film(null,"Todo a la vez en todas partes",2022,139,"Dan Kwan",
+				"Estados Unidos",Classification.OLDER12,null, "Son Lux","Larkin Seiple","Dan Kwan","AGBO",null,Set.of(Gender.ACTION),null,null,null,null);
+		var film16 = new Film(null,"Los hijos de otros",2022,104,"Rebecca Zlotowski",
+				"Francia",Classification.OLDER18,null, "Robin Coudert","Georges Lechaptois","Rebeca Zkitiwski",
+				"Les Films Velvet",null,Set.of(Gender.DRAMA),null,null,null,null);
 
 		filmRepo.saveAll(List.of(film1, film2, film3, film4));
 
