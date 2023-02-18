@@ -5,9 +5,10 @@
 </head>
 <body>
 <div th:fragment="footer">
-    &copy; Cartelera
     <img src="/img/ + ${.id} + '_' + ${.name} + '.png'" width=""/>
     <img src="/img/ + ${.id} + '_' + ${.name} + '.png'" width=""/>
+    <div th:replace="fragments/footer :: footer">&copy; Cateleria</div>
+</div>
 </div>
 </body>
 </html>
