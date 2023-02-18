@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 public class RoomServiceImpl implements IRoomService {
 
-        private final RoomRepository roomRepo;
+    private final RoomRepository roomRepo;
 
     @Override
         public List<Room> findAll() {
