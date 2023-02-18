@@ -27,7 +27,7 @@ public class FilmController {
         return "films-list";
     }
 
-    @GetMapping("/films/{id}")
+    @GetMapping("/film/{id}")
     public String findById(Model model, @PathVariable Long id) {
         Optional<Film> film = filmService.findById(id);
         if (film.isPresent()) model.addAttribute("film", film.get());
