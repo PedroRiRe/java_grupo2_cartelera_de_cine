@@ -7,6 +7,7 @@ import java.util.Optional;
 public interface IAddressService {
 
     List<Address> findAll();
+
     Optional<Address> findById(Long id);
 
 }

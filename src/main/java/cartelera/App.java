@@ -38,8 +38,6 @@ public class App {
 				new User(null, "Ana", "Melendez", null, "anaem@il","632541"),
 				new User(null, "Alberto", "Lopez", null, "albertoem@il","632541"),
 				new User(null, "Mercedes", "Mila", null, "mercedesem@il","632541"),
-
-
 				new User(null, "Ramón", "Perez", null, "ramonem@il","632541")
 		));
 

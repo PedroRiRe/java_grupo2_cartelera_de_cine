@@ -9,6 +9,7 @@ import java.util.Optional;
 public interface IUserService {
 
     List<User> findAll();
+
     Optional<User> findById(Long id);
 
 }

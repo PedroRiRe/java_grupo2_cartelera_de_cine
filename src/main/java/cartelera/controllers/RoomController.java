@@ -32,5 +32,4 @@ public class RoomController {
             else model.addAttribute("error", "404 Room Not Found");
             return "room-detail";
         }
-
     }

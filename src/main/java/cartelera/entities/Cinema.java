@@ -10,7 +10,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
 @Entity
 public class Cinema {
@@ -51,6 +50,10 @@ public class Cinema {
     private Address address;
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.EAGER)
-    @ToString.Exclude
     private Set<Room> rooms = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return name + " - " + cif;
+    }
 }

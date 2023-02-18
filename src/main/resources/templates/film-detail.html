@@ -5,39 +5,37 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Details film</title>
+    <title>Detalle de película</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container text-center">
-    <div class="row">
-        <h1>Detalle de film</h1>
+    <div class="row mt-5">
+        <h1>Detalle de película</h1>
         <div class="col">
         </div>
         <div class="col">
             <div class="card">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Film Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="|Film ID: ${film.id}|"></h5>
+                    <h5 class="card-title" th:text="|Película ID: ${film.id}|"></h5>
                     <p class="card-text" th:text="${film.title}"></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Duration: ${film.duration}|"></li>
-                    <li class="list-group-item" th:text="|Year: ${film.year}|"></li>
+                    <li class="list-group-item" th:text="|Duración: ${film.duration}|"></li>
+                    <li class="list-group-item" th:text="|Año: ${film.year}|"></li>
                     <li class="list-group-item" th:text="|Director: ${film.director}|"></li>
-                    <li class="list-group-item" th:text="|Country: ${film.country}|"></li>
-                    <li class="list-group-item" th:text="|Classification: ${film.classification}|"></li>
-                    <li class="list-group-item" th:text="|Rating: ${film.rating}|"></li>
-                    <li class="list-group-item" th:text="|Music: ${film.music}|"></li>
-                    <li class="list-group-item" th:text="|Photography: ${film.photography}|"></li>
-                    <li class="list-group-item" th:text="|Script: ${film.script}|"></li>
-                    <li class="list-group-item" th:text="|Company: ${film.company}|"></li>
+                    <li class="list-group-item" th:text="|País: ${film.country}|"></li>
+                    <li class="list-group-item" th:text="|Clasificación: ${film.classification}|"></li>
+                    <li class="list-group-item" th:text="|Música: ${film.music}|"></li>
+                    <li class="list-group-item" th:text="|Fotografía: ${film.photography}|"></li>
+                    <li class="list-group-item" th:text="|Guión: ${film.script}|"></li>
+                    <li class="list-group-item" th:text="|Compañía: ${film.company}|"></li>
                 </ul>
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary">Volver</button>
-                    <button type="button" class="btn btn-success">Comprar</button>
+                    <a class="btn btn-primary" th:href="@{/films}">Volver</a>
                 </div>
             </div>
         </div>

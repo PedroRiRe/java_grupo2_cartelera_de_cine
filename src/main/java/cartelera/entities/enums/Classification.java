@@ -3,15 +3,20 @@ package cartelera.entities.enums;
 // todo @Enumerated(EnumType.STRING)
 
 public enum Classification {
-    ALL_AGES("Todos los públicos"),
-    OLDER7("7 años"),
-    OLDER12("12 años"),
-    OLDER16("16 años"),
-    OLDER18("18 años");
+    ALL_AGES("TP"),
+    OLDER7("+7"),
+    OLDER12("+12"),
+    OLDER16("+16"),
+    OLDER18("+18");
 
-    private String classification;
+    private final String classification;
 
     Classification(String classification) {
         this.classification = classification;
+    }
+
+    @Override
+    public String toString() {
+        return this.classification;
     }
 }

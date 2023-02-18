@@ -12,7 +12,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
 @Entity
 public class Film {
@@ -45,11 +44,9 @@ public class Film {
     private String company;
 
     @ElementCollection
-    @ToString.Exclude
     private Set<String> actors = new HashSet<>();
 
     @ElementCollection
-    @ToString.Exclude
     private Set<Gender> genders = new HashSet<>();
 
     private String trailer;
@@ -59,6 +56,10 @@ public class Film {
     private String review;
 
     @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
-    @ToString.Exclude
     private Set<Room> rooms = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "«" + title + "» (" + year + ')';
+    }
 }
