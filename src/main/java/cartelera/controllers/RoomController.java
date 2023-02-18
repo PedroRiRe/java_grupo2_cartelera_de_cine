@@ -17,7 +17,7 @@ public class RoomController {
 
         private final IRoomService roomService;
 
-        @GetMapping("/rooms") // http://localhost:8080/room
+        @GetMapping("/rooms")
             public String findAll(Model model) {
                 List<Room> rooms = roomService.findAll();
                 if (rooms != null) model.addAttribute("rooms", rooms);
@@ -25,7 +25,7 @@ public class RoomController {
                 return "rooms-list";
             }
 
-        @GetMapping("/room/{id}") // http://localhost:8080/room/1
+        @GetMapping("/room/{id}")
         public String findById(Model model, @PathVariable Long id) {
             Optional<Room> room = roomService.findById(id);
             if (room.isPresent()) model.addAttribute("room", room.get());

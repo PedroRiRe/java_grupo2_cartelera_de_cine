@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import java.time.LocalDate;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -55,14 +54,18 @@ public class App {
 
 		filmRepo.saveAll(List.of(film1, film2, film3, film4));
 
-		var cinema1 = new Cinema(null, "54646546", "Barna", null, null, null, null, null,
-				null, "456321", address1, null);
-		var cinema2 = new Cinema(null, "546456", "Madrid", null, null, null, null, null,
-				null, "2135", address2, null);
-		var cinema3 = new Cinema(null, "546542132", "Málaga", null, null, null, null, null,
-				null, "211216548", address3, null);
-		var cinema4 = new Cinema(null, "8756412", "Sevilla", null, null, null, null, null,
-				null, "2154", address4, null);
+		var cinema1 = new Cinema(null, "123456987", "CineAlicante", "http://cinealicante.com",
+				"Twitter1", "LinkedIn1", "Facebook1", "Instagram1",
+				"alicante@cinefilos.org", "693326598", address1, null);
+		var cinema2 = new Cinema(null, "987456321", "CineMadrid", "http://cinemadrid.com",
+				"Twitter2", "LinkedIn2", "Facebook2", "Instagram2",
+				"marid@cinefilos.org", "658946785", address2, null);
+		var cinema3 = new Cinema(null, "654987123", "Burgos", "http://cineburgos.com",
+				"Twitter3", "LinkedIn3", "Facebook3", "Instagram3",
+				"burgos@cinefilos.org", "685269831", address3, null);
+		var cinema4 = new Cinema(null, "951753682", "Pamplona", "http://cinepamplona.com",
+				"Twitter4", "LinkedIn4", "Facebook4", "Instagram4",
+				"pamplona@cinefilos.org", "647958969", address4, null);
 
 		cineRepo.saveAll(List.of(cinema1, cinema2, cinema3, cinema4));
 
