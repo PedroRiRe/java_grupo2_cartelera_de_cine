@@ -2,10 +2,12 @@ package cartelera.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @NoArgsConstructor
@@ -41,4 +43,17 @@ public class Room {
     @ManyToOne
     @JoinColumn(name = "cinema_id")
     private Cinema cinema;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Room room = (Room) o;
+        return id != null && Objects.equals(id, room.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
 }
