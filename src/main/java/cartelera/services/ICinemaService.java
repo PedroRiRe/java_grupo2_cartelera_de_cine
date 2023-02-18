@@ -1,8 +1,6 @@
 package cartelera.services;
 
 import cartelera.entities.Cinema;
-import cartelera.exceptions.EntityDeleteException;
-import cartelera.exceptions.EntitySavingException;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +27,5 @@ public interface ICinemaService {
 
 
     // LÓGICA DE NEGOCIO
-
-
 
 }

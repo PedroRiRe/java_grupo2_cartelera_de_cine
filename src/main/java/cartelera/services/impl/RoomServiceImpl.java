@@ -23,12 +23,12 @@ public class RoomServiceImpl implements IRoomService {
             return roomRepo.findAll();
         }
 
-        @Override
-        public Optional<Room> findById(Long id) {
-            log.info("findById {}", id);
-            if (id == null || id <= 0) return Optional.empty();
-            return roomRepo.findById(id);
-        }
-    }//
+    @Override
+    public Optional<Room> findById(Long id) {
+        log.info("findById {}", id);
+        if (id == null || id <= 0) return Optional.empty();
+        return roomRepo.findById(id);
+    }
+}
 
 
