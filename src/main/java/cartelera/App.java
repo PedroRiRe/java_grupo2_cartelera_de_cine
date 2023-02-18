@@ -1,16 +1,8 @@
 package cartelera;
 
-import cartelera.entities.*;
-import cartelera.entities.enums.Classification;
-import cartelera.entities.enums.Gender;
-import cartelera.repositories.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Set;
 
 @SpringBootApplication
 public class App {
@@ -19,6 +11,8 @@ public class App {
 
 		ApplicationContext context = SpringApplication.run(App.class, args);
 
+		// Datos en data.sql
+		/*
 		var userRepo = context.getBean(UserRepository.class);
 		var addressRepo = context.getBean(AddressRepository.class);
 		var cineRepo = context.getBean(CinemaRepository.class);
@@ -147,5 +141,6 @@ public class App {
 				LocalDate.of(2023, 2, 18), null, film2, cinema4);
 
 		roomRepo.saveAll(List.of(room1, room2, room3, room4));
+		 */
 	}
 }

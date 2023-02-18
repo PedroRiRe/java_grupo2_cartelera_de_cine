@@ -9,5 +9,4 @@ public interface IAddressService {
     List<Address> findAll();
 
     Optional<Address> findById(Long id);
-
 }
