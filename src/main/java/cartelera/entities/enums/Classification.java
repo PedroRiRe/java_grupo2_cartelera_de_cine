@@ -17,6 +17,6 @@ public enum Classification {
 
     @Override
     public String toString() {
-        return this.classification;
+        return classification;
     }
 }
