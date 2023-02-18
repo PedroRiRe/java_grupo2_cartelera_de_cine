@@ -18,10 +18,10 @@ public class RoomServiceImpl implements IRoomService {
     private final RoomRepository roomRepo;
 
     @Override
-        public List<Room> findAll() {
-            log.info("findAll");
-            return roomRepo.findAll();
-        }
+    public List<Room> findAll() {
+        log.info("findAll");
+        return roomRepo.findAll();
+    }
 
     @Override
     public Optional<Room> findById(Long id) {
