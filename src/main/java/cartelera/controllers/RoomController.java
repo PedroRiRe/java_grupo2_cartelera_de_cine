@@ -1,0 +1,36 @@
+package cartelera.controllers;
+
+import cartelera.entities.Room;
+import cartelera.services.IRoomService;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+import java.util.Optional;
+
+@AllArgsConstructor
+@Controller
+public class RoomController {
+
+        private final IRoomService roomService;
+
+        @GetMapping("/rooms")
+            public String findAll(Model model) {
+                List<Room> rooms = roomService.findAll();
+                if (rooms != null) model.addAttribute("rooms", rooms);
+                else model.addAttribute("warning", "Empty list.");
+                return "rooms-list";
+            }
+
+        @GetMapping("/room/{id}")
+        public String findById(Model model, @PathVariable Long id) {
+            Optional<Room> room = roomService.findById(id);
+            if (room.isPresent()) model.addAttribute("room", room.get());
+            else model.addAttribute("error", "404 Room Not Found");
+            return "room-detail";
+        }
+
+    }

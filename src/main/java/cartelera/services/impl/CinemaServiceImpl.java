@@ -1,11 +1,8 @@
 package cartelera.services.impl;
 
 import cartelera.entities.Cinema;
-import cartelera.exceptions.EntityDeleteException;
-import cartelera.exceptions.EntitySavingException;
 import cartelera.repositories.CinemaRepository;
 import cartelera.services.ICinemaService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -78,14 +75,6 @@ public class CinemaServiceImpl implements ICinemaService {
         return cinemaRepo.findById(id);
     }
 
-//    @Override
-//    public Optional<Cinema> findById(Long id) {
-//        log.info("findById {}", id);
-//        if (id == null || id <= 0)
-//            return Optional.empty();
-//        return Optional.empty();  // <----- siempre devuelve vacío
-//    }
-//
     @Override
     public Optional<Cinema> findByName(String name) {
         log.info("findByName {}", name);

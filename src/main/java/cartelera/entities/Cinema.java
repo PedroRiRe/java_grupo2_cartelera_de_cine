@@ -35,7 +35,10 @@ public class Cinema {
     private String linkedIn;
 
     @Column(unique = true)
-    private String faceBook;
+    private String facebook;
+
+    @Column(unique = true)
+    private String instagram;
 
     @Column(unique = true)
     private String email;
