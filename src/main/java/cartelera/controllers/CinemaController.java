@@ -28,7 +28,7 @@ public class CinemaController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<Cinema> cinema = cinemaService.findById(id);
         if (cinema.isPresent()) model.addAttribute("cinema", cinema.get());
-        else model.addAttribute("error", "404 Cine no encontrado");
+        else model.addAttribute("error", "Cine no encontrado.");
         return "cinema-detail";
     }
 }

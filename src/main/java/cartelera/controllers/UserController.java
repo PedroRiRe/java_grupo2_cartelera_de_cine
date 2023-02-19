@@ -28,7 +28,7 @@ public class UserController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<User> user = userService.findById(id);
         if (user.isPresent()) model.addAttribute("user", user.get());
-        else model.addAttribute("error", "404 Usuario no encontrado");
+        else model.addAttribute("error", "Usuario no encontrado.");
         return "user-detail";
     }
 }

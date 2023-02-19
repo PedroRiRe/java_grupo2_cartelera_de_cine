@@ -28,7 +28,7 @@ public class RoomController {
         public String findById(Model model, @PathVariable Long id) {
             Optional<Room> room = roomService.findById(id);
             if (room.isPresent()) model.addAttribute("room", room.get());
-            else model.addAttribute("error", "404 Sala no encontrada");
+            else model.addAttribute("error", "Sala no encontrada.");
             return "room-detail";
         }
     }

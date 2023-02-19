@@ -28,7 +28,7 @@ public class AddressController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<Address> address = addressService.findById(id);
         if (address.isPresent()) model.addAttribute("address", address.get());
-        else model.addAttribute("error", "404 Dirección no encontrada");
+        else model.addAttribute("error", "Dirección no encontrada.");
         return "address-detail";
     }
 }

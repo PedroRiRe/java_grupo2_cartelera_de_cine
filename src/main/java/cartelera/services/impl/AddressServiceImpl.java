@@ -7,8 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import static cartelera.utils.Utils.stringIsEmpty;
+
+import java.util.*;
 
 @Slf4j
 @AllArgsConstructor
@@ -28,5 +29,17 @@ public class AddressServiceImpl implements IAddressService {
         log.info("findById {}", id);
         if (id == null || id <= 0 ) return Optional.empty();
         return addressRepo.findById(id);
+    }
+
+    @Override
+    public boolean existsCity(String city) {
+        return !stringIsEmpty(city) && !addressRepo.findByCityIgnoreCase(city).isEmpty();
+    }
+
+    @Override
+    public Set<String> citiesNames() {
+        Set<String> citiesNames = new HashSet<>();
+        for (Address city : addressRepo.findAll()) citiesNames.add(city.getCity());
+        return citiesNames;
     }
 }
