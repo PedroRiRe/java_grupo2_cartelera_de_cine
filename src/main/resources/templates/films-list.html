@@ -15,9 +15,10 @@
     <div class="row mt-5">
         <h1>Listado de películas</h1>
 
-        <form th:if="${not #lists.isEmpty(cities)}" th:action="@{/films/{city}(city=${city})}" method="GET">
+        <form th:if="${not #lists.isEmpty(cities)}" th:action="@{/films/} + ${city}" method="GET">
+            <p>Elija una ciudad:</p>
             <div class="mb-3">
-                <select aria-label="Cities" class="form-select" th:field="*{cities}">
+                <select name="city" aria-label="Ciudades" class="form-select" th:field="*{cities}">
                     <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>
                 </select>
             </div>
