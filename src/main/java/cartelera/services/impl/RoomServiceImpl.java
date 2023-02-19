@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,6 +29,13 @@ public class RoomServiceImpl implements IRoomService {
         log.info("findById {}", id);
         if (id == null || id <= 0) return Optional.empty();
         return roomRepo.findById(id);
+    }
+
+    @Override
+    public List<Room> findAllByCinemaId(Long id) {
+        log.info("findAllByCinemaId {}", id);
+        if (id == null || id <= 0) return new ArrayList<>();
+        return roomRepo.findAllByCinemaId(id);
     }
 }
 

@@ -11,14 +11,14 @@ public class App {
 
 		ApplicationContext context = SpringApplication.run(App.class, args);
 
+		// var userRepo = context.getBean(UserRepository.class);
+		// var addressRepo = context.getBean(AddressRepository.class);
+		// var cineRepo = context.getBean(CinemaRepository.class);
+		// var roomRepo = context.getBean(RoomRepository.class);
+		// var filmRepo = context.getBean(FilmRepository.class);
+
 		// Datos en data.sql
 		/*
-		var userRepo = context.getBean(UserRepository.class);
-		var addressRepo = context.getBean(AddressRepository.class);
-		var cineRepo = context.getBean(CinemaRepository.class);
-		var roomRepo = context.getBean(RoomRepository.class);
-		var filmRepo = context.getBean(FilmRepository.class);
-
 		userRepo.saveAll(List.of(
 				new User(null, "Aitor", "Tilla", null, "aitorem@il", "123456"),
 				new User(null, "Fina", "Segura", null, "finaem@il", "654321"),

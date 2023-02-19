@@ -19,6 +19,8 @@ public interface ICinemaService {
 
     Optional<Cinema> findByPhone(String phone);
 
+    List<Cinema> findAllByAddressCity(String city);
+
 //    Optional<Cinema> findByAddress();
 //
 //    Cinema update(Cinema cine) throws EntitySavingException;

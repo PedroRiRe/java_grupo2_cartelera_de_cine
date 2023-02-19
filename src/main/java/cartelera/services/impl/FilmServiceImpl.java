@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,5 +32,12 @@ public class FilmServiceImpl implements IFilmService {
         log.info("findById {}", id);
         if (id == null || id <= 0 ) return Optional.empty();
         return filmRepo.findById(id);
+    }
+
+    @Override
+    public List<Film> findByRooms_Cinema_Address_CityIgnoreCase(String city) {
+        log.info("findByRooms_Cinema_Address_CityIgnoreCase {}", city);
+        if (city == null || city.trim().isEmpty()) return new ArrayList<>();
+        return filmRepo.findByRooms_Cinema_Address_CityIgnoreCase(city);
     }
 }

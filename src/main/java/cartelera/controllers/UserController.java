@@ -20,8 +20,7 @@ public class UserController {
     @GetMapping("/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
-        if (users != null) model.addAttribute("users", users);
-        else model.addAttribute("warning", "Empty list.");
+        model.addAttribute("users", users);
         return "users-list";
     }
 
@@ -29,7 +28,7 @@ public class UserController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<User> user = userService.findById(id);
         if (user.isPresent()) model.addAttribute("user", user.get());
-        else model.addAttribute("error", "404 Address Not Found");
+        else model.addAttribute("error", "Usuario no encontrado.");
         return "user-detail";
     }
 }

@@ -20,8 +20,7 @@ public class CinemaController {
     @GetMapping("/cinemas")
     public String findAll(Model model) {
         List<Cinema> cinemas = cinemaService.findAll();
-        if (cinemas != null) model.addAttribute("cinemas", cinemas);
-        else model.addAttribute("warning", "Empty list.");
+        model.addAttribute("cinemas", cinemas);
         return "cinemas-list";
     }
 
@@ -29,7 +28,7 @@ public class CinemaController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<Cinema> cinema = cinemaService.findById(id);
         if (cinema.isPresent()) model.addAttribute("cinema", cinema.get());
-        else model.addAttribute("error", "404 Cinema Not Found");
+        else model.addAttribute("error", "Cine no encontrado.");
         return "cinema-detail";
     }
 }

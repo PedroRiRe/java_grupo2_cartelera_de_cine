@@ -6,7 +6,8 @@ INSERT INTO `address` (`id`, `address`, `city`, `country`, `postal_code`) VALUES
 (1, 'C/ Callejón, 2', 'Bilbao', 'España', '23654'),
 (2, 'C/ Calle Cita, 5', 'Marbella', 'España', '41258'),
 (3, 'C/ Carrerón, 3', 'Lugo', 'España', '96587'),
-(4, 'C/ Carrerita, 1', 'Sevilla', 'España', '12365');
+(4, 'C/ Carrerita, 1', 'Sevilla', 'España', '12365'),
+(5, 'Ciudad dad, 2', 'Sevilla', 'España', '12123');
 
 -- --------------------------------------------------------
 
@@ -39,7 +40,8 @@ INSERT INTO `cinema` (`id`, `cif`, `email`, `facebook`, `instagram`, `linked_in`
 (1, '123456987', 'alicante@cinefilos.org', 'Facebook1', 'Instagram1', 'LinkedIn1', 'CineAlicante', '693326598', 'Twitter1', 'http://cinealicante.com', 1),
 (2, '987456321', 'marid@cinefilos.org', 'Facebook2', 'Instagram2', 'LinkedIn2', 'CineMadrid', '658946785', 'Twitter2', 'http://cinemadrid.com', 2),
 (3, '654987123', 'burgos@cinefilos.org', 'Facebook3', 'Instagram3', 'LinkedIn3', 'Burgos', '685269831', 'Twitter3', 'http://cineburgos.com', 3),
-(4, '951753682', 'pamplona@cinefilos.org', 'Facebook4', 'Instagram4', 'LinkedIn4', 'Pamplona', '647958969', 'Twitter4', 'http://cinepamplona.com', 4);
+(4, '951753682', 'pamplona@cinefilos.org', 'Facebook4', 'Instagram4', 'LinkedIn4', 'Pamplona', '647958969', 'Twitter4', 'http://cinepamplona.com', 4),
+(5, '951753680', 'pamplona2@cinefilos.org', 'Facebook5', 'Instagram5', 'LinkedIn5', 'Pamplona2', '647958960', 'Twitter5', 'http://cinepamplona2.com', 5);
 
 -- --------------------------------------------------------
 
@@ -99,4 +101,5 @@ INSERT INTO `room` (`id`, `active`, `capacity`, `premiere`, `room_number`, `cine
 (1, b'1', 130, '2023-02-18', 1, 1, 1),
 (2, b'1', 130, '2023-02-18', 2, 2, 1),
 (3, b'1', 130, '2023-02-18', 3, 3, 2),
-(4, b'1', 130, '2023-02-18', 4, 4, 2);
+(4, b'1', 130, '2023-02-18', 4, 4, 2),
+(5, b'1', 130, '2023-02-18', 5, 5, 3);
