@@ -1,8 +1,16 @@
 package cartelera;
 
+import cartelera.entities.Cinema;
+import cartelera.entities.Film;
+import cartelera.entities.Room;
+import cartelera.repositories.CinemaRepository;
+import cartelera.repositories.FilmRepository;
+import cartelera.repositories.RoomRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import java.util.List;
 
 @SpringBootApplication
 public class App {
@@ -11,14 +19,20 @@ public class App {
 
 		ApplicationContext context = SpringApplication.run(App.class, args);
 
-		// Datos en data.sql
-		/*
-		var userRepo = context.getBean(UserRepository.class);
-		var addressRepo = context.getBean(AddressRepository.class);
+		// var userRepo = context.getBean(UserRepository.class);
+		// var addressRepo = context.getBean(AddressRepository.class);
 		var cineRepo = context.getBean(CinemaRepository.class);
-		var roomRepo = context.getBean(RoomRepository.class);
+		// var roomRepo = context.getBean(RoomRepository.class);
 		var filmRepo = context.getBean(FilmRepository.class);
 
+		List<Cinema> cinemas = cineRepo.findAllByAddressCity("Bilbao");
+		System.out.println(cinemas);
+		List<Film> films = filmRepo.findByRooms_Cinema_Address_CityIgnoreCase("Bilbao");
+		System.out.println(films);
+
+
+		// Datos en data.sql
+		/*
 		userRepo.saveAll(List.of(
 				new User(null, "Aitor", "Tilla", null, "aitorem@il", "123456"),
 				new User(null, "Fina", "Segura", null, "finaem@il", "654321"),

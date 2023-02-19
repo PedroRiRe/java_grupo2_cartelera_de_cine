@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Slf4j
@@ -87,6 +88,13 @@ public class CinemaServiceImpl implements ICinemaService {
         log.info("findByPhone {}", phone);
         if (phone == null || phone.trim().isEmpty()) return Optional.empty();
         return cinemaRepo.findByName(phone.trim());
+    }
+
+    @Override
+    public List<Cinema> findAllByAddressCity(String city) {
+        log.info("findAllByAddressCity {}", city);
+        if (city == null || city.trim().isEmpty()) return new ArrayList<>();
+        return cinemaRepo.findAllByAddressCity(city);
     }
 
 //    @Override

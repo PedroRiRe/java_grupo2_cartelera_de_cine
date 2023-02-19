@@ -20,8 +20,7 @@ public class AddressController {
     @GetMapping("/addresses")
     public String findAll(Model model) {
         List<Address> addresses = addressService.findAll();
-        if (addresses != null) model.addAttribute("addresses", addresses);
-        else model.addAttribute("warning", "Empty list.");
+        model.addAttribute("addresses", addresses);
         return "addresses-list";
     }
 
@@ -29,7 +28,7 @@ public class AddressController {
     public String findById(Model model, @PathVariable Long id) {
         Optional<Address> address = addressService.findById(id);
         if (address.isPresent()) model.addAttribute("address", address.get());
-        else model.addAttribute("error", "404 Address Not Found");
+        else model.addAttribute("error", "404 Dirección no encontrada");
         return "address-detail";
     }
 }

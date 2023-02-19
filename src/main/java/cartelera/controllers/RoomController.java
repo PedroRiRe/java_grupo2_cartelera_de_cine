@@ -20,8 +20,7 @@ public class RoomController {
         @GetMapping("/rooms")
             public String findAll(Model model) {
                 List<Room> rooms = roomService.findAll();
-                if (rooms != null) model.addAttribute("rooms", rooms);
-                else model.addAttribute("warning", "Empty list.");
+                model.addAttribute("rooms", rooms);
                 return "rooms-list";
             }
 
@@ -29,7 +28,7 @@ public class RoomController {
         public String findById(Model model, @PathVariable Long id) {
             Optional<Room> room = roomService.findById(id);
             if (room.isPresent()) model.addAttribute("room", room.get());
-            else model.addAttribute("error", "404 Room Not Found");
+            else model.addAttribute("error", "404 Sala no encontrada");
             return "room-detail";
         }
     }
