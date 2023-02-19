@@ -1,16 +1,8 @@
 package cartelera;
 
-import cartelera.entities.Cinema;
-import cartelera.entities.Film;
-import cartelera.entities.Room;
-import cartelera.repositories.CinemaRepository;
-import cartelera.repositories.FilmRepository;
-import cartelera.repositories.RoomRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import java.util.List;
 
 @SpringBootApplication
 public class App {
@@ -21,15 +13,9 @@ public class App {
 
 		// var userRepo = context.getBean(UserRepository.class);
 		// var addressRepo = context.getBean(AddressRepository.class);
-		var cineRepo = context.getBean(CinemaRepository.class);
+		// var cineRepo = context.getBean(CinemaRepository.class);
 		// var roomRepo = context.getBean(RoomRepository.class);
-		var filmRepo = context.getBean(FilmRepository.class);
-
-		List<Cinema> cinemas = cineRepo.findAllByAddressCity("Bilbao");
-		System.out.println(cinemas);
-		List<Film> films = filmRepo.findByRooms_Cinema_Address_CityIgnoreCase("Bilbao");
-		System.out.println(films);
-
+		// var filmRepo = context.getBean(FilmRepository.class);
 
 		// Datos en data.sql
 		/*
