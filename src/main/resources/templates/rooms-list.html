@@ -5,19 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>---Cambiar---</title>
+    <title>Salas</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container text-left">
-    <div class="row">
+    <div class="row mt-5">
         <h1>Listado de salas</h1>
-
         <div class="col mt-3">
-            <button type="button" class="btn btn-success">Crear nueva sala</button>
-
             <table class="table">
                 <thead>
                 <tr>
@@ -27,7 +24,7 @@
                     <th scope="col">Estreno</th>
                     <th scope="col">Película</th>
                     <th scope="col">Cine</th>
-                    <th scope="col">Botones</th>
+                    <th scope="col">Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,15 +37,13 @@
                     <td th:text="${rooms.cinema}"></td>
                     <td>
                         <a class="btn btn-primary btn-sm" th:href="@{/room/{id}(id=${rooms.id})}">Ver</a>
-                        <button type="button" class="btn btn-success btn-sm">Editar</button>
-                        <button type="button" class="btn btn-danger btn-sm">Borrar</button>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
     </div>
+    <a class="btn btn-primary" th:href="@{/}">Volver</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

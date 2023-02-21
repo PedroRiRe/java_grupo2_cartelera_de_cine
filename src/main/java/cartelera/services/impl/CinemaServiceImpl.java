@@ -1,15 +1,13 @@
 package cartelera.services.impl;
 
 import cartelera.entities.Cinema;
-import cartelera.exceptions.EntityDeleteException;
-import cartelera.exceptions.EntitySavingException;
 import cartelera.repositories.CinemaRepository;
 import cartelera.services.ICinemaService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Slf4j
@@ -78,14 +76,6 @@ public class CinemaServiceImpl implements ICinemaService {
         return cinemaRepo.findById(id);
     }
 
-//    @Override
-//    public Optional<Cinema> findById(Long id) {
-//        log.info("findById {}", id);
-//        if (id == null || id <= 0)
-//            return Optional.empty();
-//        return Optional.empty();  // <----- siempre devuelve vacío
-//    }
-//
     @Override
     public Optional<Cinema> findByName(String name) {
         log.info("findByName {}", name);
@@ -98,6 +88,13 @@ public class CinemaServiceImpl implements ICinemaService {
         log.info("findByPhone {}", phone);
         if (phone == null || phone.trim().isEmpty()) return Optional.empty();
         return cinemaRepo.findByName(phone.trim());
+    }
+
+    @Override
+    public List<Cinema> findAllByAddressCity(String city) {
+        log.info("findAllByAddressCity {}", city);
+        if (city == null || city.trim().isEmpty()) return new ArrayList<>();
+        return cinemaRepo.findAllByAddressCity(city);
     }
 
 //    @Override

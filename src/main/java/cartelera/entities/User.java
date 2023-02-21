@@ -22,6 +22,7 @@ public class User {
     private String surname;
 
     @OneToOne
+    @JoinColumn(name = "address_id")
     private Address address;
 
     @Column(unique = true)

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cines</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: navbar}"></div>
+
+<div class="container text-left">
+    <div class="row mt-5">
+        <h1>Listado de cines</h1>
+        <div class="col mt-3">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Sitio web</th>
+                    <th scope="col">Twitter</th>
+                    <th scope="col">Instagram</th>
+                    <th scope="col">Facebook</th>
+                    <th scope="col">LinkedIn</th>
+                    <th scope="col">email</th>
+                    <th scope="col">Teléfono</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="cinema : ${cinemas}">
+                    <td th:text="${cinema.id}"></td>
+                    <td th:text="${cinema.name}"></td>
+                    <td th:text="${cinema.url}"></td>
+                    <td th:text="${cinema.twitter}"></td>
+                    <td th:text="${cinema.instagram}"></td>
+                    <td th:text="${cinema.facebook}"></td>
+                    <td th:text="${cinema.linkedIn}"></td>
+                    <td th:text="${cinema.email}"></td>
+                    <td th:text="${cinema.phone}"></td>
+                    <td th:text="${cinema.address}"></td>
+                    <td>
+                        <a class="btn btn-primary btn-sm" th:href="@{/cinema/{id}(id=${cinema.id})}">Ver</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a class="btn btn-primary" th:href="@{/}">Volver</a>
+</div>
+
+<div th:replace="~{footer :: footer}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>
