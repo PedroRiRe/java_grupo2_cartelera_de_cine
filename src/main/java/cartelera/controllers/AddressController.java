@@ -31,4 +31,10 @@ public class AddressController {
         else model.addAttribute("error", "Dirección no encontrada.");
         return "address-detail";
     }
+
+    @GetMapping("addresses/create")
+    public String createForm(Model model) {
+        model.addAttribute("address", new Address());
+        return "address-form";
+    }
 }
