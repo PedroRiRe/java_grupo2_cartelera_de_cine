@@ -16,6 +16,14 @@
         <h1>Detalle de cine</h1>
         <div class="col"></div>
         <div class="col">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert">
+                <p th:text="${error}"></p>
+            </div>
+                <a type="button" class="btn btn-primary" th:href="@{/cinemas}">Atrás</a>
+            </div>
+
             <div class="card">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Cinema Image">
                 <div class="card-body">
@@ -24,7 +32,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:text="|Nombre: ${cinema.name}|"></li>
                     <li class="list-group-item" th:text="|Teléfono: ${cinema.phone}|"></li>
-                    <li class="list-group-item" th:text="|Instagram: ${cinema.instagram}|"></li>
+                    <li class="list-group-item" th:text="|Dirección: ${cinema.address}|"></li>
                 </ul>
                 <div class="card-body">
                     <a class="btn btn-primary" th:href="@{/cinemas}">Volver</a>

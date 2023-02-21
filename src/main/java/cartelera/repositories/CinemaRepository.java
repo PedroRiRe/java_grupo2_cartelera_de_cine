@@ -1,5 +1,6 @@
 package cartelera.repositories;
 
+import cartelera.entities.Address;
 import cartelera.entities.Cinema;
 import cartelera.entities.Room;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,9 +14,9 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
 
     List<Cinema> findAllByName(String name);
 
-    List<Cinema> findByNameAndPhone(String name, String phone);
-
     List<Cinema> findAllByPhone(String phone);
+
+    List<Cinema> findByNameAndPhone(String name, Address address);
 
     List<Cinema> findAllByAddressCity(String city);
 }
