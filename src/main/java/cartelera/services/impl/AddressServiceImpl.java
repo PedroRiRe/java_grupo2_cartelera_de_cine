@@ -42,4 +42,13 @@ public class AddressServiceImpl implements IAddressService {
         for (Address city : addressRepo.findAll()) citiesNames.add(city.getCity());
         return citiesNames;
     }
+    @Override
+    public Address save(Address address) {
+        return addressRepo.save(address);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        addressRepo.deleteById(id);
+    }
 }

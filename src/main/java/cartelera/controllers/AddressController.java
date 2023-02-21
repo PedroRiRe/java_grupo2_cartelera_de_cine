@@ -1,6 +1,7 @@
 package cartelera.controllers;
 
 import cartelera.entities.Address;
+import cartelera.entities.Film;
 import cartelera.services.IAddressService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -36,5 +37,16 @@ public class AddressController {
     public String createForm(Model model) {
         model.addAttribute("address", new Address());
         return "address-form";
+    }
+
+    @GetMapping("addresses/{id}/edit")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Address> addressOptional = addressService.findById(id);
+        if (addressOptional.isPresent())
+            model.addAttribute("address", addressOptional.get());
+        else
+            model.addAttribute("error", "Film not found");
+
+        return "film-form";
     }
 }
