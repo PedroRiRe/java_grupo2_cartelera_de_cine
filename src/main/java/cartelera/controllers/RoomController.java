@@ -31,4 +31,10 @@ public class RoomController {
             else model.addAttribute("error", "Sala no encontrada.");
             return "room-detail";
         }
+
+    @GetMapping("room/create")
+    public String createForm(Model model) {
+        model.addAttribute("room", new Room()); // objeto vacío para rellenar desde el formulario
+        return "food-form";
+    }
     }
