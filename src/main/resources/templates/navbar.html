@@ -1,8 +1,24 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <nav th:fragment="navbar" class="navbar sticky-top navbar-light bg-light justify-content-between">
     <a class="navbar-brand" th:href="@{/}">
         <img src="/img/logo.svg" width="120" height="48" class="ms-3 d-inline-block align-top" alt="Logo Cinéfilos">
     </a>
+
+
     <ul class="navbar-nav me-3 align-top d-flex flex-row">
+        <li class="nav-item me-3">
+            <a class="nav-link" th:href="@{/addresses}">Direcciones</a>
+        </li>
+        <li class="nav-item me-3">
+            <a class="nav-link" th:href="@{/films}">Películas</a>
+        </li>
+        <li class="nav-item me-3">
+            <a class="nav-link" th:href="@{/cinemas}">Cines</a>
+        </li>
+        <li class="nav-item me-3">
+            <a class="nav-link" th:href="@{/rooms}">Salas</a>
+        </li>
         <li class="nav-item me-3">
             <a class="nav-link" href="#">Acceso</a>
         </li>
