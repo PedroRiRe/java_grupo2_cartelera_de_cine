@@ -36,8 +36,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.webjars</groupId>
-			<artifactId>webjars-locator</artifactId>
-			<version>0.46</version>
+			<artifactId>webjars-locator-core</artifactId>
+			<version>0.52</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
