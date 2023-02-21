@@ -54,4 +54,15 @@ public class FilmController {
         model.addAttribute("film",new Film());
         return "film-form";
     }
+
+    @GetMapping("films/{id}/edit")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Film> filmOptional = filmService.findById(id);
+        if (filmOptional.isPresent())
+            model.addAttribute("film", filmOptional.get());
+        else
+            model.addAttribute("error", "Film not found");
+
+        return "film-form";
+    }
 }
