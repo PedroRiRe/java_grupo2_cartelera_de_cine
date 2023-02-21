@@ -16,9 +16,6 @@
         <h1>Detalle de la sala</h1>
         <div class="col">
         </div>
-        <div>
-            <a class="btn btn-light" th:href="@{/cinemas/create}">Crear nuevo cine</a>
-        </div>
         <div class="col">
             <div class="card">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Sala Image">
@@ -33,8 +30,6 @@
                 </ul>
                 <div class="card-body">
                     <a class="btn btn-primary" th:href="@{/rooms}">Volver</a>
-                    <a class="btn btn-success btn-sm" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}">Editar</a>
-                    <a class="btn btn-danger btn-sm" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}">Borrar</a>
                 </div>
             </div>
         </div>

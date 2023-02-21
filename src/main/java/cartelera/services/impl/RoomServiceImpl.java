@@ -36,6 +36,11 @@ public class RoomServiceImpl implements IRoomService {
         return roomRepo.save(room);
 
     }
+
+    @Override
+    public void deleteById(Long id) {
+
+    }
 }
 
 
