@@ -29,6 +29,8 @@
                 </div>
                 <a type="button" class="btn btn-primary" th:href="@{/rooms}">Volver</a>
             </div>
+                    <a class="btn btn-success btn-sm" th:href="@{/cinemas/{id}/edit(id=${room.id})}">Editar</a>
+                    <a class="btn btn-danger btn-sm" th:href="@{/cinemas/{id}/delete(id=${room.id})}">Borrar</a>
 
             <form th:if="${error} == null" th:action="@{/rooms}" method="POST" th:object="${room}">
 
