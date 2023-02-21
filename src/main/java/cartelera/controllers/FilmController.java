@@ -48,4 +48,10 @@ public class FilmController {
         } else model.addAttribute("error", "Ciudad «" + city + "» no encontrada.");
         return "films-city";
     }
+
+    @GetMapping("/films/create")
+    public String createFilm(Model model) {
+        model.addAttribute("film",new Film());
+        return "film-form";
+    }
 }
