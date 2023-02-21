@@ -25,6 +25,10 @@
             <button type="submit" class="btn btn-success">Listar</button>
         </form>
 
+        <div>
+            <a class="btn btn-info" th:href="@{/films/create}">Crear nueva película</a>
+        </div>
+
         <div class="col mt-3">
             <table class="table">
                 <thead>
@@ -57,9 +61,9 @@
                     <td th:text="${film.script}"></td>
                     <td th:text="${film.company}"></td>
                     <td>
-                        <a class="btn btn-primary" th:href="@{/films/{id}(id=${film.id})}">Ver</a>
-                        <a class="btn btn-success" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
-                        <button type="button" class="btn btn-danger">Borrar</button>
+                        <a class="btn btn-primary btn-sm" th:href="@{/film/{id}(id=${film.id})}">Ver</a>
+                        <a class="btn btn-success btn-sm" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
+                        <a class="btn btn-danger btn-sm" th:href="@{/films/{id}/delete(id=${film.id})}">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
@@ -71,5 +75,6 @@
 
 <div th:replace="~{footer :: footer}"></div>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

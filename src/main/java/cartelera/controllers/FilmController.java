@@ -7,7 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import static cartelera.utils.Utils.*;
 
@@ -21,12 +23,17 @@ public class FilmController {
     private final IFilmService filmService;
     private final IAddressService addressService;
 
+    @GetMapping("/")
+    public String index() {
+        return "redirect:/films";
+    }
+
     @GetMapping("/films")
     public String findAll(Model model) {
         List<Film> films = filmService.findAll();
         model.addAttribute("films", films);
-        model.addAttribute("cities", addressService.citiesNames());
-        return "films-list";
+        //model.addAttribute("cities", addressService.citiesNames());
+        return "film-list";
     }
 
     @GetMapping("/film/{id}")
@@ -49,8 +56,8 @@ public class FilmController {
         return "films-city";
     }
 
-    @GetMapping("/films/create")
-    public String createFilm(Model model) {
+    @GetMapping("films/create")
+    public String createForm(Model model) {
         model.addAttribute("film",new Film());
         return "film-form";
     }
@@ -64,5 +71,17 @@ public class FilmController {
             model.addAttribute("error", "Film not found");
 
         return "film-form";
+    }
+
+    @PostMapping("films")
+    public String save(@ModelAttribute Film film) {
+        filmService.save(film);
+        return "redirect:/films";
+    }
+
+    @GetMapping("films/{id}/delete")
+    public String deleteById(@PathVariable Long id) {
+        filmService.deleteById(id);
+        return "redirect:/films";
     }
 }
