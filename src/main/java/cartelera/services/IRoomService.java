@@ -11,5 +11,5 @@ public interface IRoomService {
 
     Optional<Room> findById(Long id);
 
-    List<Room> findAllByCinemaId(Long id);
+    Room save(Room room);
 }

@@ -32,10 +32,9 @@ public class RoomServiceImpl implements IRoomService {
     }
 
     @Override
-    public List<Room> findAllByCinemaId(Long id) {
-        log.info("findAllByCinemaId {}", id);
-        if (id == null || id <= 0) return new ArrayList<>();
-        return roomRepo.findAllByCinemaId(id);
+    public Room save(Room room) {
+        return roomRepo.save(room);
+
     }
 }
 

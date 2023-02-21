@@ -35,6 +35,6 @@ public class RoomController {
     @GetMapping("room/create")
     public String createForm(Model model) {
         model.addAttribute("room", new Room()); // objeto vacío para rellenar desde el formulario
-        return "food-form";
+        return "rooms-form";
     }
     }
