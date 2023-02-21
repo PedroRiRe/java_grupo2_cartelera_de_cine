@@ -14,7 +14,7 @@
 <div class="container text-center">
   <div class="row">
 
-
+    <h1 th:if="${film.id}" class="h1-title">Modificar Film <span th:text="${film.id}"></span></h1>
     <h1 th:if="${film.id} == null" class="h1-title">Crear nuevo Film</h1>
 
 
@@ -30,6 +30,8 @@
       </div>
 
       <form th:if="${error} == null" th:action="@{/films}" method="POST" th:object="${film}">
+
+        <input type="hidden" id="id" name="id" th:field="*{id}" />
 
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
@@ -83,7 +85,7 @@
 
 
 
-
+        <a class="btn btn-danger" th:href="@{/films}">Cancelar</a>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
 
@@ -96,5 +98,6 @@
 
 <div th:replace="~{footer :: footer}"></div>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>
