@@ -12,30 +12,36 @@
 <div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container text-center">
-    <div class="row mt-5">
-        <h1>Detalle de cine</h1>
+    <div class="row">
+        <h1>Cine Detalle</h1>
         <div class="col"></div>
+
         <div class="col">
 
             <div th:if="${error}">
                 <div class="alert alert-danger" role="alert">
-                <p th:text="${error}"></p>
-            </div>
-                <a type="button" class="btn btn-primary" th:href="@{/cinemas}">Atrás</a>
+                    <p th:text="${error}"></p>
+                </div>
+                <a type="button" class="btn btn-primary" th:href="@{/cinemas}">Volver</a>
             </div>
 
-            <div class="card">
+            <div class="card" th:if="${error} == null">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Cinema Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="|Dirección ID: ${cinema.id}|"></h5>
+                    <h5 class="card-title" th:text="${cinema.name}"></h5>
+                    <p class="card-text" th:text="${cinema.phone}"></p>
+                    <p class="card-text" th:text="${cinema.address}"></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Nombre: ${cinema.name}|"></li>
-                    <li class="list-group-item" th:text="|Teléfono: ${cinema.phone}|"></li>
-                    <li class="list-group-item" th:text="|Dirección: ${cinema.address}|"></li>
+                    <li class="list-group-item" th:text="|Twitter: ${cinema.twitter}|"></li>
+                    <li class="list-group-item" th:text="|LinkedIn: ${cinema.linkedIn}|"></li>
+                    <li class="list-group-item" th:text="|Facebook: ${cinema.facebook}|"></li>
+                    <li class="list-group-item" th:text="|Instagram: ${cinema.instagram}|"></li>
                 </ul>
                 <div class="card-body">
                     <a class="btn btn-primary" th:href="@{/cinemas}">Volver</a>
+                    <button class="btn btn-success" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}">EDITAR</button>
+                    <button class="btn btn-danger" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}">BORRAR</button>
                 </div>
             </div>
         </div>
