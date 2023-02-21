@@ -57,7 +57,9 @@
                     <td th:text="${film.script}"></td>
                     <td th:text="${film.company}"></td>
                     <td>
-                        <a class="btn btn-primary btn-sm" th:href="@{/film/{id}(id=${film.id})}">Ver</a>
+                        <a class="btn btn-primary" th:href="@{/films/{id}(id=${film.id})}">Ver</a>
+                        <a class="btn btn-success" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
+                        <button type="button" class="btn btn-danger">Borrar</button>
                     </td>
                 </tr>
                 </tbody>
