@@ -53,7 +53,7 @@
                     <td th:text="${cinema.phone}"></td>
                     <td th:text="${cinema.address}"></td>
                     <td>
-                        <a class="btn btn-primary btn-sm" th:href="@{/cinemas/{id}(id=${cinema.id})}">Ver</a>
+                        <a class="btn btn-primary btn-sm" th:href="@{/cinema/{id}(id=${cinema.id})}">Ver</a>
                         <a class="btn btn-success btn-sm" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}">Editar</a>
                         <a class="btn btn-danger btn-sm" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}">Borrar</a>
                     </td>
