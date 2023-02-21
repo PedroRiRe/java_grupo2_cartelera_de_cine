@@ -17,6 +17,14 @@
         <div class="col">
         </div>
         <div class="col">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert" >
+                    <p th:text="${error}"></p>
+                </div>
+                <a class="btn btn-primary" th:href="@{/films}">Volver</a>
+            </div>
+
             <div class="card">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Film Image">
                 <div class="card-body">
@@ -36,6 +44,8 @@
                 </ul>
                 <div class="card-body">
                     <a class="btn btn-primary" th:href="@{/films}">Volver</a>
+                    <a class="btn btn-success" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
+                    <a class="btn btn-danger" th:href="@{/films/{id}/delete(id=${film.id})}">Borrar</a>
                 </div>
             </div>
         </div>
@@ -46,5 +56,6 @@
 
 <div th:replace="~{footer :: footer}"></div>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

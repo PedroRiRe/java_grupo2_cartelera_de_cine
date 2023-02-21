@@ -1,10 +1,7 @@
 package cartelera.services.impl;
 
-import cartelera.entities.Address;
 import cartelera.entities.Film;
-import cartelera.repositories.AddressRepository;
 import cartelera.repositories.FilmRepository;
-import cartelera.services.IAddressService;
 import cartelera.services.IFilmService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -39,5 +36,24 @@ public class FilmServiceImpl implements IFilmService {
         log.info("findByRooms_Cinema_Address_CityIgnoreCase {}", city);
         if (city == null || city.trim().isEmpty()) return new ArrayList<>();
         return filmRepo.findByRooms_Cinema_Address_CityIgnoreCase(city);
+    }
+
+    @Override
+    public Film save(Film film) {
+        return filmRepo.save(film);
+    }
+    @Override
+    public void deleteById(Long id) {
+        filmRepo.deleteById(id);
+    }
+
+    @Override
+    public void deleteAllById(List<Long> ids) {
+        filmRepo.deleteAllById(ids);
+    }
+
+    @Override
+    public void saveAll(List<Film> films) {
+        filmRepo.saveAll(films);
     }
 }

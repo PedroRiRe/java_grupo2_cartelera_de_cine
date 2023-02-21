@@ -1,6 +1,5 @@
 package cartelera.services;
 
-import cartelera.entities.Address;
 import cartelera.entities.Film;
 
 import java.util.List;
@@ -13,4 +12,8 @@ public interface IFilmService {
     Optional<Film> findById(Long id);
 
     List<Film> findByRooms_Cinema_Address_CityIgnoreCase(String city);
+    Film save(Film film);
+    void deleteById(Long id);
+    void deleteAllById(List<Long> ids);
+    void saveAll(List<Film> films);
 }
