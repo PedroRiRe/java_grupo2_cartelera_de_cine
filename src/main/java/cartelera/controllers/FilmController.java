@@ -23,10 +23,12 @@ public class FilmController {
     private final IFilmService filmService;
     private final IAddressService addressService;
 
+    /*
     @GetMapping("/")
     public String index() {
         return "redirect:/films";
-    }
+    }++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     */
 
     @GetMapping("/films")
     public String findAll(Model model) {
