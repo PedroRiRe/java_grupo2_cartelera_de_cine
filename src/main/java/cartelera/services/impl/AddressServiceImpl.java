@@ -51,4 +51,14 @@ public class AddressServiceImpl implements IAddressService {
     public void deleteById(Long id) {
         addressRepo.deleteById(id);
     }
+
+    @Override
+    public void deleteAllById(List<Long> ids) {
+        addressRepo.deleteAllById(ids);
+    }
+
+    @Override
+    public void saveAll(List<Address> addresses) {
+        addressRepo.saveAll(addresses);
+    }
 }

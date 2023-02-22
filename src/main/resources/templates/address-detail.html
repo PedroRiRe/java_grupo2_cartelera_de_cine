@@ -16,6 +16,14 @@
         <h1>Detalle de dirección</h1>
         <div class="col">
         </div>
+
+        <div th:if="${error}">
+            <div class="alert alert-danger" role="alert" >
+                <p th:text="${error}"></p>
+            </div>
+            <a class="btn btn-primary" th:href="@{/addresses}">Volver</a>
+        </div>
+
         <div class="col">
             <div class="card">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Address Image">
@@ -28,6 +36,13 @@
                     <li class="list-group-item" th:text="|Ciudad: ${address.city}|"></li>
                     <li class="list-group-item" th:text="|País: ${address.country}|"></li>
                 </ul>
+
+                <div class="card-body">
+                    <a class="btn btn-primary" th:href="@{/addresses}">Volver</a>
+                    <a class="btn btn-success" th:href="@{/addresses/{id}/edit(id=${address.id})}">Editar</a>
+                    <a class="btn btn-danger" th:href="@{/addresses/{id}/delete(id=${address.id})}">Borrar</a>
+                </div>
+
                 <div class="card-body">
                     <a class="btn btn-primary" th:href="@{/addresses}">Volver</a>
                 </div>
@@ -40,5 +55,6 @@
 
 <div th:replace="~{footer :: footer}"></div>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

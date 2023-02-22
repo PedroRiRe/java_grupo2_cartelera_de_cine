@@ -7,7 +7,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
@@ -45,8 +47,20 @@ public class AddressController {
         if (addressOptional.isPresent())
             model.addAttribute("address", addressOptional.get());
         else
-            model.addAttribute("error", "Film not found");
+            model.addAttribute("error", "Address not found");
 
-        return "film-form";
+        return "address-form";
+    }
+
+    @PostMapping("addresses")
+    public String save(@ModelAttribute Address address) {
+        addressService.save(address);
+        return "redirect:/addresses";
+    }
+
+    @GetMapping("addresses/{id}/delete")
+    public String deleteById(@PathVariable Long id) {
+        addressService.deleteById(id);
+        return "redirect:/addresses";
     }
 }
