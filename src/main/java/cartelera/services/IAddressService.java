@@ -1,6 +1,8 @@
 package cartelera.services;
 
 import cartelera.entities.Address;
+import cartelera.entities.Film;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -14,4 +16,8 @@ public interface IAddressService {
     boolean existsCity(String city);
 
     Set<String> citiesNames();
+    Address save(Address address);
+    void deleteById(Long id);
+    void deleteAllById(List<Long> ids);
+    void saveAll(List<Address> addresses);
 }
