@@ -3,11 +3,11 @@
 --
 
 INSERT INTO `address` (`id`, `address`, `city`, `country`, `postal_code`) VALUES
-(1, 'C/ Callejón, 2', 'Bilbao', 'España', '23654'),
-(2, 'C/ Calle Cita, 5', 'Marbella', 'España', '41258'),
-(3, 'C/ Carrerón, 3', 'Lugo', 'España', '96587'),
-(4, 'C/ Carrerita, 1', 'Sevilla', 'España', '12365'),
-(5, 'Ciudad dad, 2', 'Sevilla', 'España', '12123');
+(1, 'C/ Callejón, 2', 'Alicante', 'España', '23654'),
+(2, 'C/ Calle Cita, 5', 'Madrid', 'España', '41258'),
+(3, 'C/ Carrerón, 3', 'Burgos', 'España', '96587'),
+(4, 'C/ Carrerita, 1', 'Pamplona', 'España', '12365'),
+(5, 'Ciudad dad, 2', 'Pamplona', 'España', '12123');
 
 -- --------------------------------------------------------
 
