@@ -19,12 +19,12 @@ public class RoomServiceImpl implements IRoomService {
     private final CinemaRepository roomRepo;
 
     @Override
-    public List<Cinema> findAll() {
+    public List<Room> findAll() {
         return roomRepo.findAll();
     }
 
     @Override
-    public Optional<Cinema> findById(Long id) {
+    public Optional<Room> findById(Long id) {
         return roomRepo.findById(id);
     }
 

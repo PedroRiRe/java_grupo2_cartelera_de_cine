@@ -8,9 +8,9 @@ import java.util.Optional;
 
 public interface IRoomService {
 
-    List<Cinema> findAll();
+    List<Room> findAll();
 
-    Optional<Cinema> findById(Long id);
+    Optional<Room> findById(Long id);
 
     Room save(Room room);
 
