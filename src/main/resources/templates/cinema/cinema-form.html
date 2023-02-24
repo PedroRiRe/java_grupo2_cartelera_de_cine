@@ -2,9 +2,10 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cinema Form</title>
+    <title cinefilos-title>Cinema Form</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -12,8 +13,8 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 th:if="${cinema.id}">Modificar datos de un cine <span th:text="${cinema.id}"></span></h1>
-        <h1 th:if="${cinema.id} == null">Crear nuevo Food</h1>
+        <h1 th:if="${cinema.id}" class="h1-title">Modificar datos de un cine <span th:text="${cinema.id}"></span></h1>
+        <h1 th:if="${cinema.id} == null" class="h1-title">Crear nuevo Cine</h1>
 
         <div class="col"></div>
 
