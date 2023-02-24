@@ -2,7 +2,7 @@ package cartelera.services.impl;
 
 import cartelera.entities.Cinema;
 import cartelera.entities.Room;
-import cartelera.repositories.CinemaRepository;
+import cartelera.repositories.RoomRepository;
 import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +16,8 @@ import java.util.Optional;
 
 public class RoomServiceImpl implements IRoomService {
 
-    private final CinemaRepository roomRepo;
+    private final RoomRepository roomRepo;
+    private Room room;
 
     @Override
     public List<Room> findAll() {
@@ -29,13 +30,13 @@ public class RoomServiceImpl implements IRoomService {
     }
 
     @Override
-    public Room save(Room room) {
-        return null;
+    public Room save(Room Room) {
+        return roomRepo.save(room);
     }
 
     @Override
     public Cinema save(Cinema cinema) {
-        return roomRepo.save(cinema);
+        return null;
     }
 
     @Override

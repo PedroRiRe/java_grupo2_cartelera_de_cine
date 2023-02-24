@@ -12,7 +12,7 @@ public interface IRoomService {
 
     Optional<Room> findById(Long id);
 
-    Room save(Room room);
+    abstract Room save(Room room);
 
     Cinema save(Cinema cinema);
 
