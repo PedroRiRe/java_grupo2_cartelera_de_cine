@@ -23,7 +23,7 @@ public class CinemaController {
     public String findAll(Model model) {
         List<Cinema> cinemas = cinemaService.findAll();
         model.addAttribute("cinemas", cinemas);
-        return "cinemas-list";
+        return "cinema/cinemas-list";
     }
 
     @GetMapping("/cinema/{id}")
@@ -31,13 +31,13 @@ public class CinemaController {
         Optional<Cinema> cinema = cinemaService.findById(id);
         if (cinema.isPresent()) model.addAttribute("cinema", cinema.get());
         else model.addAttribute("error", "Cine no encontrado.");
-        return "cinema-detail";
+        return "cinema/cinema-detail";
     }
 
     @GetMapping("cinemas/create")
     public String createForm(Model model) {
         model.addAttribute("cinema", new Cinema());
-        return "cinema-form";
+        return "cinema/cinema-form";
     }
 
     @GetMapping("cinemas/{id}/edit")
@@ -47,7 +47,7 @@ public class CinemaController {
             model.addAttribute("cinema", cinemaOpt.get());
         else
             model.addAttribute("error", "No encontramos este cine");
-        return "cinema-form";
+        return "cinema/cinema-form";
     }
 
     @PostMapping("cinemas")

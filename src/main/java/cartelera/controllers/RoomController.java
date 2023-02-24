@@ -21,7 +21,7 @@ public class RoomController {
             public String findAll(Model model) {
                 List<Room> rooms = roomService.findAll();
                 model.addAttribute("rooms", rooms);
-                return "rooms-list";
+                return "room/rooms-list";
             }
 
         @GetMapping("/room/{id}")
@@ -29,6 +29,6 @@ public class RoomController {
             Optional<Room> room = roomService.findById(id);
             if (room.isPresent()) model.addAttribute("room", room.get());
             else model.addAttribute("error", "Sala no encontrada.");
-            return "room-detail";
+            return "room/room-detail";
         }
     }

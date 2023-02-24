@@ -28,7 +28,7 @@ public class FilmController {
         List<Film> films = filmService.findAll();
         model.addAttribute("films", films);
         //model.addAttribute("cities", addressService.citiesNames());
-        return "film-list";
+        return "film/film-list";
     }
 
     @GetMapping("/film/{id}")
@@ -36,7 +36,7 @@ public class FilmController {
         Optional<Film> film = filmService.findById(id);
         if (film.isPresent()) model.addAttribute("film", film.get());
         else model.addAttribute("error", "Película no encontrada.");
-        return "film-detail";
+        return "film/film-detail";
     }
 
     @GetMapping("/films/{city}")
@@ -48,13 +48,13 @@ public class FilmController {
             if (!films.isEmpty()) model.addAttribute("films", films);
             else model.addAttribute("warning", "No hay películas en «" + city + "».");
         } else model.addAttribute("error", "Ciudad «" + city + "» no encontrada.");
-        return "films-city";
+        return "film/films-city";
     }
 
     @GetMapping("films/create")
     public String createForm(Model model) {
         model.addAttribute("film",new Film());
-        return "film-form";
+        return "film/film-form";
     }
 
     @GetMapping("films/{id}/edit")
@@ -65,7 +65,7 @@ public class FilmController {
         else
             model.addAttribute("error", "Film not found");
 
-        return "film-form";
+        return "film/film-form";
     }
 
     @PostMapping("films")

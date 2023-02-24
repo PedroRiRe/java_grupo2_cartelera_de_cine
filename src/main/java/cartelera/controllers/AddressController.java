@@ -24,7 +24,7 @@ public class AddressController {
     public String findAll(Model model) {
         List<Address> addresses = addressService.findAll();
         model.addAttribute("addresses", addresses);
-        return "addresses-list";
+        return "address/addresses-list";
     }
 
     @GetMapping("/address/{id}")
@@ -32,13 +32,13 @@ public class AddressController {
         Optional<Address> address = addressService.findById(id);
         if (address.isPresent()) model.addAttribute("address", address.get());
         else model.addAttribute("error", "Dirección no encontrada.");
-        return "address-detail";
+        return "address/address-detail";
     }
 
     @GetMapping("addresses/create")
     public String createForm(Model model) {
         model.addAttribute("address", new Address());
-        return "address-form";
+        return "address/address-form";
     }
 
     @GetMapping("addresses/{id}/edit")
@@ -49,7 +49,7 @@ public class AddressController {
         else
             model.addAttribute("error", "Address not found");
 
-        return "address-form";
+        return "address/address-form";
     }
 
     @PostMapping("addresses")
