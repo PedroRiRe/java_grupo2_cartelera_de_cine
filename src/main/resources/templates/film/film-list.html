@@ -27,10 +27,10 @@
         </form>
 
         <div>
-            <a class="btn btn-info" th:href="@{/films/create}">Crear nueva película</a>
+            <a class="btn btn-outline-info" th:href="@{/films/create}">Crear nueva película</a>
         </div>
 
-        <div class="col mt-3">
+        <div class="col mt-4">
             <table class="table">
                 <thead>
                 <tr>
@@ -62,16 +62,16 @@
                     <td th:text="${film.script}"></td>
                     <td th:text="${film.company}"></td>
                     <td>
-                        <a class="btn btn-primary btn-sm" th:href="@{/film/{id}(id=${film.id})}">Ver</a>
-                        <a class="btn btn-success btn-sm" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
-                        <a class="btn btn-danger btn-sm" th:href="@{/films/{id}/delete(id=${film.id})}">Borrar</a>
+                        <a class="btn btn-outline-primary" th:href="@{/film/{id}(id=${film.id})}">Ver</a>
+                        <a class="btn btn-outline-success" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
+                        <a class="btn btn-outline-danger" th:href="@{/films/{id}/delete(id=${film.id})}">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <a class="btn btn-primary" th:href="@{/}">Volver</a>
+    <a class="btn btn-outline-success" th:href="@{/}">Volver</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

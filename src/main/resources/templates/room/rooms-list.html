@@ -15,7 +15,7 @@
 <div class="container text-left">
     <div class="row mt-5">
         <h1 class="cinefilos-h1">Listado de salas</h1>
-        <div class="col mt-3">
+        <div class="col mt-4">
             <table class="table">
                 <thead>
                 <tr>
@@ -37,14 +37,14 @@
                     <td th:text="${rooms.film}"></td>
                     <td th:text="${rooms.cinema}"></td>
                     <td>
-                        <a class="btn btn-primary btn-sm" th:href="@{/room/{id}(id=${rooms.id})}">Ver</a>
+                        <a class="btn btn-outline-primary" th:href="@{/room/{id}(id=${rooms.id})}">Ver</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <a class="btn btn-primary" th:href="@{/}">Volver</a>
+    <a class="btn btn-outline-success" th:href="@{/}">Volver</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
