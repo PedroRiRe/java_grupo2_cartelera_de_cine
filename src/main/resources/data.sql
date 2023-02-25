@@ -13,6 +13,7 @@ INSERT INTO `address` (`id`, `address`, `city`, `country`, `postal_code`) VALUES
 
 --
 -- Volcado de datos para la tabla `app_users`
+-- Contraseña: 632541
 --
 
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `surname`, `username`, `address_id`) VALUES
