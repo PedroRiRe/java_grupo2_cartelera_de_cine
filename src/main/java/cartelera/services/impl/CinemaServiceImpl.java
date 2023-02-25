@@ -1,8 +1,11 @@
 package cartelera.services.impl;
 
 import cartelera.entities.Cinema;
+import cartelera.entities.Room;
 import cartelera.repositories.CinemaRepository;
+import cartelera.services.IAddressService;
 import cartelera.services.ICinemaService;
+import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,8 @@ import java.util.Optional;
 public class CinemaServiceImpl implements ICinemaService {
 
     private final CinemaRepository cinemaRepo;
+    private final IRoomService roomService;
+    private final IAddressService addressService;
 
     @Override
     public List<Cinema> findAll() {
@@ -35,6 +40,17 @@ public class CinemaServiceImpl implements ICinemaService {
 
     @Override
     public void deleteById(Long id) {
+        // borrar todas las rooms asociadas
+        roomService.deleteAllById(id);
+
+        // borrar address asociada
+        Optional<Cinema> cinemaOpt = findById(id);
+        if (cinemaOpt.isPresent()) {
+            Cinema cinema = cinemaOpt.get();
+            Long addressId = cinema.getAddress().getId();
+            cinema.setAddress(null);
+            addressService.deleteById(addressId);
+        }
         cinemaRepo.deleteById(id);
     }
 }

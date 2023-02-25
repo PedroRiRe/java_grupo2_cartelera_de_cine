@@ -37,6 +37,11 @@ public class RoomServiceImpl implements IRoomService {
         if (id == null || id <= 0) return new ArrayList<>();
         return roomRepo.findAllByCinemaId(id);
     }
+
+    @Override
+    public void deleteAllById(Long id) {
+        roomRepo.deleteById(id);
+    }
 }
 
 

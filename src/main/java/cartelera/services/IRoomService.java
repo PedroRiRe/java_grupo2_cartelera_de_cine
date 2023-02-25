@@ -12,4 +12,6 @@ public interface IRoomService {
     Optional<Room> findById(Long id);
 
     List<Room> findAllByCinemaId(Long id);
+
+    void deleteAllById(Long id);
 }
