@@ -29,13 +29,12 @@
             <div class="card">
                 <img src="https://dummyimage.com/300" class="card-img-top" alt="Film Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="|Película ID: ${film.id}|"></h5>
-                    <p class="card-text" th:text="${film.title}"></p>
+                    <h5 class="card-title" th:text="${film.title}|"></h5>
+                    <p class="card-text" th:text="${film.director}"></p>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:text="|Duración: ${film.duration}|"></li>
                     <li class="list-group-item" th:text="|Año: ${film.year}|"></li>
-                    <li class="list-group-item" th:text="|Director: ${film.director}|"></li>
                     <li class="list-group-item" th:text="|País: ${film.country}|"></li>
                     <li class="list-group-item" th:text="|Clasificación: ${film.classification}|"></li>
                     <li class="list-group-item" th:text="|Música: ${film.music}|"></li>
@@ -44,9 +43,9 @@
                     <li class="list-group-item" th:text="|Compañía: ${film.company}|"></li>
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-primary" th:href="@{/films}">Volver</a>
-                    <a class="btn btn-success" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
-                    <a class="btn btn-danger" th:href="@{/films/{id}/delete(id=${film.id})}">Borrar</a>
+                    <a class="btn btn-outline-primary" th:href="@{/films}">Volver</a>
+                    <a class="btn btn-outline-success" th:href="@{/films/{id}/edit(id=${film.id})}">Editar</a>
+                    <a class="btn btn-outline-danger" th:href="@{/films/{id}/delete(id=${film.id})}">Borrar</a>
                 </div>
             </div>
         </div>
