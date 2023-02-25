@@ -8,9 +8,6 @@
     <title class ="h1-title">Salas</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&family=Satisfy&display=swap" rel="stylesheet">
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -22,23 +19,21 @@
             <table class="table th">
                 <thead>
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Número</th>
+                    <th scope="col">Nº sala</th>
                     <th scope="col">Aforo</th>
-                    <th scope="col">Estreno</th>
-                    <th scope="col">Película</th>
                     <th scope="col">Cine</th>
+                    <th scope="col">Película</th>
+                    <th scope="col">Estreno</th>
                     <th scope="col">Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="rooms: ${rooms}">
-                    <td th:text="${rooms.id}"></td>
                     <td th:text="${rooms.roomNumber}"></td>
                     <td th:text="${rooms.capacity}"></td>
-                    <td th:text="${rooms.premiere}"></td>
-                    <td th:text="${rooms.film}"></td>
                     <td th:text="${rooms.cinema}"></td>
+                    <td th:text="${rooms.film}"></td>
+                    <td th:text="${rooms.premiere}"></td>
                     <td>
                         <a class="btn btn-outline-primary" th:href="@{/room/{id}(id=${rooms.id})}">Ver</a>
                     </td>
