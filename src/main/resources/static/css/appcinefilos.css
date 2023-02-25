@@ -15,7 +15,21 @@ font-family: "Gloss And Bloom"; arial, Helvetica, sans-serif;
 margin-bottom: 25px;
 }
 
+.table th {
+color:#A52A2A
+font-size:35px;
+font-family: "Gloss And Bloom"; arial, Helvetica, sans-serif;
+text-align: center;
+font-weight: 900;
+letter-spacing:2px;
+}
 
+.table td {
+color:#A52A2A
+font-size:25px;
+font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
+text-align: center;
+}
 
 
 
