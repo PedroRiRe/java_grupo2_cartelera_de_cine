@@ -1,24 +1,37 @@
 
 .cinefilos-h1 {
     color: #DC143C;
-    font-size: 35px;
+    font-size: 45px;
     font-style: italic;
-    font-family: "Gloss And Bloom"; arial, Helvetica, sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Satisfy', cursive;
     margin-bottom: 30px;
 }
 
-.h1-title {
-color:#DC143C;
-font-size:40px;
+.modificar {
+color:#FA8072;
+font-size:xxx-large;
 font-weight:bold;
-font-family: "Gloss And Bloom"; arial, Helvetica, sans-serif;
+font-family: 'Nunito', sans-serif;
+font-family: 'Satisfy', cursive;
+margin-bottom: 25px;
+margin-top: 25px;
+}
+
+.h1-title {
+color:#8B0000;
+font-size:x-large;
+font-weight:bold;
+font-family: 'Nunito', sans-serif;
+font-family: 'Satisfy', cursive;
 margin-bottom: 25px;
 }
 
 .table th {
-color:#A52A2A
-font-size:35px;
-font-family: "Gloss And Bloom"; arial, Helvetica, sans-serif;
+color:#B22222;
+font-size: x-large;
+font-family: 'Nunito', sans-serif;
+font-family: 'Satisfy', cursive;
 text-align: center;
 font-weight: 900;
 letter-spacing:2px;
@@ -44,6 +57,12 @@ text-align: center;
 }
 
 .list-group-item {
+font-size:25px;
+font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
+text-align: center;
+}
+
+.form-label {
 font-size:25px;
 font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
 text-align: center;
