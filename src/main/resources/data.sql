@@ -15,20 +15,17 @@ INSERT INTO `address` (`id`, `address`, `city`, `country`, `postal_code`) VALUES
 -- Volcado de datos para la tabla `app_users`
 --
 
-INSERT INTO `app_users` (`id`, `email`, `name`, `password`, `surname`, `address_id`) VALUES
-(1, 'aitorem@il', 'Aitor', '123456', 'Tilla', NULL),
-(2, 'finaem@il', 'Fina', '654321', 'Segura', NULL),
-(3, 'peterm@il', 'Pedro', '412563', 'Gadicto', NULL),
-(4, 'doloresem@il', 'Dolores', '632541', 'Fuertes', NULL),
-(5, 'manuelem@il', 'Manuel', '632541', 'Perez', NULL),
-(6, 'rosaem@il', 'Rosa', '632541', 'Fuentes', NULL),
-(7, 'luisem@il', 'Luis', '632541', 'Reta', NULL),
-(8, 'mariaem@il', 'María', '632541', 'Fernandez', NULL),
-(9, 'robertoem@il', 'Roberto', '632541', 'Martinez', NULL),
-(10, 'anaem@il', 'Ana', '632541', 'Melendez', NULL),
-(11, 'albertoem@il', 'Alberto', '632541', 'Lopez', NULL),
-(12, 'mercedesem@il', 'Mercedes', '632541', 'Mila', NULL),
-(13, 'ramonem@il', 'Ramón', '632541', 'Perez', NULL);
+INSERT INTO `users` (`id`, `email`, `name`, `password`, `surname`, `username`, `address_id`) VALUES
+(1, 'doloresem@il', 'Dolores', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuertes', 'dfuertes', NULL),
+(2, 'manuelem@il', 'Manuel', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Perez', 'mperez', NULL),
+(3, 'rosaem@il', 'Rosa', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuentes', 'rfuentes', NULL),
+(4, 'luisem@il', 'Luis', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Reta', 'lreta', NULL),
+(5, 'mariaem@il', 'María', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fernandez', 'mfernandez', NULL),
+(6, 'robertoem@il', 'Roberto', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Martinez', 'rmartinez', NULL),
+(7, 'anaem@il', 'Ana', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Melendez', 'amelendez', NULL),
+(8, 'albertoem@il', 'Alberto', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Lopez', 'alopez', NULL),
+(9, 'mercedesem@il', 'Mercedes', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Mila', 'mmila', NULL),
+(10, 'ramonem@il', 'Ramón', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Perez', 'rperez', NULL);
 
 -- --------------------------------------------------------
 

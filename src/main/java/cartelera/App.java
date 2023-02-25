@@ -1,8 +1,13 @@
 package cartelera;
 
+import cartelera.entities.User;
+import cartelera.repositories.UserRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.List;
 
 @SpringBootApplication
 public class App {
@@ -12,27 +17,27 @@ public class App {
 		ApplicationContext context = SpringApplication.run(App.class, args);
 
 		// var userRepo = context.getBean(UserRepository.class);
+		// var passwordEncoder = context.getBean(PasswordEncoder.class);
+
 		// var addressRepo = context.getBean(AddressRepository.class);
 		// var cineRepo = context.getBean(CinemaRepository.class);
 		// var roomRepo = context.getBean(RoomRepository.class);
 		// var filmRepo = context.getBean(FilmRepository.class);
 
 		// Datos en data.sql
+
 		/*
 		userRepo.saveAll(List.of(
-				new User(null, "Aitor", "Tilla", null, "aitorem@il", "123456"),
-				new User(null, "Fina", "Segura", null, "finaem@il", "654321"),
-				new User(null, "Pedro", "Gadicto", null, "peterm@il", "412563"),
-				new User(null, "Dolores", "Fuertes", null, "doloresem@il","632541"),
-				new User(null, "Manuel", "Perez", null, "manuelem@il","632541"),
-				new User(null, "Rosa", "Fuentes", null, "rosaem@il","632541"),
-				new User(null, "Luis", "Reta", null, "luisem@il","632541"),
-				new User(null, "María", "Fernandez", null, "mariaem@il","632541"),
-				new User(null, "Roberto", "Martinez", null, "robertoem@il","632541"),
-				new User(null, "Ana", "Melendez", null, "anaem@il","632541"),
-				new User(null, "Alberto", "Lopez", null, "albertoem@il","632541"),
-				new User(null, "Mercedes", "Mila", null, "mercedesem@il","632541"),
-				new User(null, "Ramón", "Perez", null, "ramonem@il","632541")
+				new User(null, "Dolores", "Fuertes", null, "dfuertes", "doloresem@il", passwordEncoder.encode("632541")),
+				new User(null, "Manuel", "Perez", null, "mperez", "manuelem@il", passwordEncoder.encode("632541")),
+				new User(null, "Rosa", "Fuentes", null, "rfuentes", "rosaem@il", passwordEncoder.encode("632541")),
+				new User(null, "Luis", "Reta", null, "lreta", "luisem@il", passwordEncoder.encode("632541")),
+				new User(null, "María", "Fernandez", null,"mfernandez", "mariaem@il", passwordEncoder.encode("632541")),
+				new User(null, "Roberto", "Martinez", null, "rmartinez", "robertoem@il", passwordEncoder.encode("632541")),
+				new User(null, "Ana", "Melendez", null, "amelendez", "anaem@il", passwordEncoder.encode("632541")),
+				new User(null, "Alberto", "Lopez", null, "alopez", "albertoem@il", passwordEncoder.encode("632541")),
+				new User(null, "Mercedes", "Mila", null, "mmila", "mercedesem@il", passwordEncoder.encode("632541")),
+				new User(null, "Ramón", "Perez", null, "rperez", "ramonem@il", passwordEncoder.encode("632541"))
 		));
 
 		var address1 = new Address(null, "C/ Callejón, 2", "23654", "Bilbao", "España");
