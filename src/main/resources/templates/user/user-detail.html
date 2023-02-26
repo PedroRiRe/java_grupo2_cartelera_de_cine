@@ -7,30 +7,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Detalle de usuario</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container text-center">
     <div class="row mt-5">
-        <h1>Detalle de usuario</h1>
+        <h1 class="cinefilos-h1">Detalle de usuario</h1>
         <div class="col">
         </div>
         <div class="col">
             <div class="card">
-                <img src="https://dummyimage.com/300" class="card-img-top" alt="User Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="|Usuario ID: ${user.id}|"></h5>
-                    <p class="card-text" th:text="${user.name}"></p>
+                    <h5 class="card-title" th:text="${user.username}"></h5>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Surname: ${user.surname}|"></li>
-                    <li class="list-group-item" th:text="|Address: ${user.address}|"></li>
-                    <li class="list-group-item" th:text="|Email: ${user.email}|"></li>
-                    <li class="list-group-item" th:text="|Password: ${user.password}|"></li>
+                    <li class="list-group-item" th:text="|Nombre: ${user.name}|"></li>
+                    <li class="list-group-item" th:text="|Apellidos: ${user.surname}|"></li>
+                    <li class="list-group-item" th:text="|Correo: ${user.email}|"></li>
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-primary" th:href="@{/users}">Volver</a>
+                    <a class="btn btn-outline-primary" th:href="@{/users}">Volver</a>
+                    <a class="btn btn-outline-success" th:href="@{/users/{id}/edit(id=${user.id})}">Editar</a>
+                    <a class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}">Borrar</a>
                 </div>
             </div>
         </div>
@@ -40,6 +40,5 @@
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

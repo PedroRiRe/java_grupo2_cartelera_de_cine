@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title cinefilos-title>Direcciones</title>
+    <title class = "h1-title">Direcciones</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
@@ -17,14 +17,13 @@
         <h1 class="cinefilos-h1">Listado de direcciones</h1>
 
         <div>
-            <a class="btn btn-outline-info" th:href="@{/films/create}">Crear nueva Dirección</a>
+            <a class="btn btn-outline-primary" th:href="@{/addresses/create}" sec:authorize="isAuthenticated()">Crear nueva Dirección</a>
         </div>
 
         <div class="col mt-4">
             <table class="table th">
                 <thead>
                 <tr>
-                    <th scope="col" >Id</th>
                     <th scope="col" >Dirección</th>
                     <th scope="col" >CP</th>
                     <th scope="col" >Ciudad</th>
@@ -34,15 +33,14 @@
                 </thead>
                 <tbody>
                 <tr th:each="address: ${addresses}">
-                    <td th:text ="${address.id}"></td>
                     <td th:text ="${address.address}"></td>
                     <td th:text ="${address.postalCode}"></td>
                     <td th:text ="${address.city}"></td>
                     <td th:text ="${address.country}"></td>
                     <td>
                         <a class="btn btn-outline-primary" th:href="@{/address/{id}(id=${address.id})}">Ver</a>
-                        <a class="btn btn-outline-success" th:href="@{/addresses/{id}/edit(id=${address.id})}">Editar</a>
-                        <a class="btn btn-outline-danger" th:href="@{/addresses/{id}/delete(id=${address.id})}">Borrar</a>
+                        <a class="btn btn-outline-success" th:href="@{/addresses/{id}/edit(id=${address.id})}" sec:authorize="isAuthenticated()">Editar</a>
+                        <a class="btn btn-outline-danger" th:href="@{/addresses/{id}/delete(id=${address.id})}" sec:authorize="isAuthenticated()">Borrar</a>
                     </td>
                 </tr>
                 </tbody>

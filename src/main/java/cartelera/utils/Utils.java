@@ -12,12 +12,12 @@ public abstract class Utils {
     }
 
     /**
-     * Compruba si el número introducido es válido.
+     * Compruba si el número introducido es un número positivo válido.
      * @param num núimero.
      * @return true si es válido / false en caso contrario.
      */
-    public static boolean numberIsEmpty (Long num) {
-        return num == null || !num.getClass().toString().equals("Number") || num <= 0;
+    public static boolean invalidPosNumber (Long num) {
+        return num == null || num <= 0;
     }
 
     /**

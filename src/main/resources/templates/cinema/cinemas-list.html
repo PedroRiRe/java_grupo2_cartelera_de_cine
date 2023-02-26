@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title cinefilos-title>Cines</title>
+    <title class ="h1-title">Cines</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
@@ -18,14 +18,13 @@
         <h1 class="cinefilos-h1">Listado de cines</h1>
 
         <div>
-            <a class="btn btn-outline-info" th:href="@{/cinemas/create}">Crear nuevo cine</a>
+            <a class="btn btn-outline-primary" th:href="@{/cinemas/create}">Crear nuevo cine</a>
         </div>
 
         <div class="col mt-4">
             <table class="table th">
                 <thead>
                 <tr>
-                    <th scope="col">ID</th>
                     <th scope="col">CIF</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Sitio web</th>
@@ -36,7 +35,6 @@
                 </thead>
                 <tbody>
                 <tr th:each="cinema : ${cinemas}">
-                    <td th:text="${cinema.id}"></td>
                     <td th:text="${cinema.cif}"></td>
                     <td th:text="${cinema.name}"></td>
                     <td th:text="${cinema.url}"></td>
