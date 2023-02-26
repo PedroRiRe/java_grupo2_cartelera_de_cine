@@ -30,7 +30,7 @@
                 <div class="card-body">
                     <a class="btn btn-outline-primary" th:href="@{/users}">Volver</a>
                     <a class="btn btn-outline-success" th:href="@{/users/{id}/edit(id=${user.id})}" sec:authorize="isAuthenticated()">Editar</a>
-                    <a class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">Borrar</a>
+                    <a th:if="${user.id != #authentication.getPrincipal().getId()}" class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">Borrar</a>
                 </div>
             </div>
         </div>

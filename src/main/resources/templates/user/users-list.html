@@ -40,7 +40,7 @@
                     <td>
                         <a class="btn btn-outline-primary" th:href="@{/user/{id}(id=${user.id})}">Ver</a>
                         <a class="btn btn-outline-success" th:href="@{/users/{id}/edit(id=${user.id})}" sec:authorize="isAuthenticated()">Editar</a>
-                        <a class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">Borrar</a>
+                        <a th:if="${user.id != #authentication.getPrincipal().getId()}" class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
