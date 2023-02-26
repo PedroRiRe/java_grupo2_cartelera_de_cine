@@ -49,6 +49,12 @@ public class SecurityConfig {
             .requestMatchers(HttpMethod.GET,"/rooms/**").permitAll()
             .requestMatchers(HttpMethod.GET,"/room/**").permitAll()
 
+            .requestMatchers(HttpMethod.GET,"/users/create").authenticated()
+            .requestMatchers(HttpMethod.GET,"/users/{id}/edit").authenticated()
+            .requestMatchers(HttpMethod.GET,"/users/{id}/delete").authenticated()
+            .requestMatchers(HttpMethod.GET,"/users/**").permitAll()
+            .requestMatchers(HttpMethod.GET,"/user/**").permitAll()
+
             .anyRequest().authenticated()
 
             .and().formLogin()

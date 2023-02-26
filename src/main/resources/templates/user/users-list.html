@@ -7,42 +7,49 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Usuarios</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container text-left">
     <div class="row mt-5">
-        <h1>Listado de usuarios</h1>
-        <div class="col mt-3">
+        <h1 class="cinefilos-h1">Listado de usuarios</h1>
+
+        <div>
+            <a class="btn btn-outline-primary" th:href="@{/users/create}">Crear nuevo usuario</a>
+        </div>
+
+        <div class="col mt-4">
             <table class="table">
                 <thead>
                 <tr>
+                    <th scope="col">Usuario</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellidos</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Contraseña</th>
                     <th scope="col">Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="user: ${users}">
+                    <td th:text="${user.username}"></td>
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.surname}"></td>
                     <td th:text="${user.email}"></td>
-                    <td th:text="${user.password}"></td>
                     <td>
-                        <a class="btn btn-primary btn-sm" th:href="@{/user/{id}(id=${user.id})}">Ver</a>
+                        <a class="btn btn-outline-primary" th:href="@{/user/{id}(id=${user.id})}">Ver</a>
+                        <a class="btn btn-outline-success" th:href="@{/users/{id}/edit(id=${user.id})}">Editar</a>
+                        <a class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-    <a class="btn btn-primary" th:href="@{/}">Volver</a>
+    <a class="btn btn-outline-success" th:href="@{/}">Volver</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

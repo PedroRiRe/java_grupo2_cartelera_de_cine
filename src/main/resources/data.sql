@@ -7,7 +7,8 @@ INSERT INTO `address` (`id`, `address`, `city`, `country`, `postal_code`) VALUES
 (2, 'C/ Calle Cita, 5', 'Madrid', 'España', '41258'),
 (3, 'C/ Carrerón, 3', 'Burgos', 'España', '96587'),
 (4, 'C/ Carrerita, 1', 'Pamplona', 'España', '12365'),
-(5, 'Ciudad dad, 2', 'Pamplona', 'España', '12123');
+(5, 'C/ Camino, 2', 'Orense', 'España', '12123'),
+(6, 'C/ Portón, 25', 'Lugo', 'España', '23443');
 
 -- --------------------------------------------------------
 
@@ -17,7 +18,7 @@ INSERT INTO `address` (`id`, `address`, `city`, `country`, `postal_code`) VALUES
 --
 
 INSERT INTO `users` (`id`, `email`, `name`, `password`, `surname`, `username`, `address_id`) VALUES
-(1, 'doloresem@il', 'Dolores', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuertes', 'dfuertes', NULL),
+(1, 'doloresem@il', 'Dolores', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuertes', 'dfuertes', 6),
 (2, 'manuelem@il', 'Manuel', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Perez', 'mperez', NULL),
 (3, 'rosaem@il', 'Rosa', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuentes', 'rfuentes', NULL),
 (4, 'luisem@il', 'Luis', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Reta', 'lreta', NULL),
