@@ -26,7 +26,11 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:text="|Aforo: ${room.capacity}|"></li>
-                    <li class="list-group-item" th:text="|Película: ${room.film}|"></li>
+                    <li>
+                        <a class="btn btn-light"
+                           th:text="${room.film.title}"
+                           th:href="@{/film/{id}(id=${room.film.id})}"></a>
+                    </li>
                     <li>
                         <a class="btn btn-light"
                            th:text="${room.cinema.name}"
