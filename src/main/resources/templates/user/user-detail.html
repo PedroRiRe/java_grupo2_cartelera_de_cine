@@ -1,5 +1,5 @@
 <!Doctype html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -29,8 +29,8 @@
                 </ul>
                 <div class="card-body">
                     <a class="btn btn-outline-primary" th:href="@{/users}">Volver</a>
-                    <a class="btn btn-outline-success" th:href="@{/users/{id}/edit(id=${user.id})}">Editar</a>
-                    <a class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}">Borrar</a>
+                    <a class="btn btn-outline-success" th:href="@{/users/{id}/edit(id=${user.id})}" sec:authorize="isAuthenticated()">Editar</a>
+                    <a class="btn btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">Borrar</a>
                 </div>
             </div>
         </div>
