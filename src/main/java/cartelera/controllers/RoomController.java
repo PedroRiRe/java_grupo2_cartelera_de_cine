@@ -1,6 +1,7 @@
 package cartelera.controllers;
 
 import cartelera.entities.Room;
+import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
