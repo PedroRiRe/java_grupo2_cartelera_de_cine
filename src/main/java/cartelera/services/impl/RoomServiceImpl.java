@@ -1,5 +1,7 @@
 package cartelera.services.impl;
 
+import cartelera.entities.Cinema;
+import cartelera.entities.Film;
 import cartelera.entities.Room;
 import cartelera.repositories.RoomRepository;
 import cartelera.services.IRoomService;
@@ -39,9 +41,44 @@ public class RoomServiceImpl implements IRoomService {
     }
 
     @Override
-    public void deleteAllById(Long id) {
+    public List<Room> findAllByFilmId(Long id) {
+        log.info("findAllByFilmId {}", id);
+        if (id == null || id <= 0) return new ArrayList<>();
+        return roomRepo.findAllByFilmId(id);
+    }
+
+    @Override
+    public Room save(Room room) {
+        return roomRepo.save(room);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        // desasociar room de cine
+        Optional<Room> roomOpt = findById(id);
+        if (roomOpt.isPresent()) {
+            Room room = roomOpt.get();
+            room.setCinema(null);
+        }
+        // desasociar room de película
+        Optional<Room> roomOpt1 = findById(id);
+        if (roomOpt1.isPresent()) {
+            Room room = roomOpt1.get();
+            room.setFilm(null);
+        }
         roomRepo.deleteById(id);
     }
+
+    @Override
+    public void deleteAllById(List<Long> ids) {
+        roomRepo.deleteAllById(ids);
+    }
+
+    @Override
+    public void saveAll(List<Room> rooms) {
+        roomRepo.saveAll(rooms);
+    }
+
 }
 
 

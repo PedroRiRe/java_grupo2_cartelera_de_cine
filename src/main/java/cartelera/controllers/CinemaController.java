@@ -2,6 +2,7 @@ package cartelera.controllers;
 
 import cartelera.entities.Cinema;
 import cartelera.services.ICinemaService;
+import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class CinemaController {
 
     private final ICinemaService cinemaService;
+    private final IRoomService roomService;
 
     @GetMapping("/cinemas")
     public String findAll(Model model) {
@@ -26,11 +28,14 @@ public class CinemaController {
         return "cinema/cinemas-list";
     }
 
-    @GetMapping("/cinema/{id}")
+    @GetMapping("cinema/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        Optional<Cinema> cinema = cinemaService.findById(id);
-        if (cinema.isPresent()) model.addAttribute("cinema", cinema.get());
-        else model.addAttribute("error", "Cine no encontrado.");
+        Optional<Cinema> cinemaOpt = cinemaService.findById(id);
+        if (cinemaOpt.isPresent()) {
+            model.addAttribute("cinema", cinemaOpt.get());
+            model.addAttribute("rooms", roomService.findAllByCinemaId(id));
+        } else
+            model.addAttribute("error", "Cine no encontrado.");
         return "cinema/cinema-detail";
     }
 

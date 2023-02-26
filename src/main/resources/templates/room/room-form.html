@@ -5,17 +5,77 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Formulario de Sala</title>
+    <title class = "h1-title">Formulario Sala</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
+<div class="container text-center">
+    <div class="row">
 
-<!--Ponga su código aquí-->
+        <h1 class="modificar" th:if="${room.id}">Modificar Sala<span class="modificar" th:text="${room.id}"></span></h1>
+        <h1 class="modificar" th:if="${room.id} == null">Crear nueva Sala</h1>
+
+
+        <div class="col"></div>
+
+        <div class="col">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert" >
+                    <p th:text="${error}"></p>
+                </div>
+                <a type="button" class="btn btn-primary" th:href="@{/rooms}">Volver</a>
+            </div>
+
+            <form th:if="${error} == null" th:action="@{/rooms}" method="POST" th:object="${room}">
+
+                <input type="hidden" id="id" name="id" th:field="*{id}" />
+
+                <div class="mb-4">
+                    <label for="roomNumber" class="form-label">Número de Sala</label>
+                    <input type="text" class="form-control" id="roomNumber" th:field="*{roomNumber}" >
+                </div>
+
+                <div class="mb-4">
+                    <label for="capacity" class="form-label">Aforo</label>
+                    <input type="text" class="form-control" id="capacity" th:field="*{capacity}">
+                </div>
+
+                <div class="mb-4">
+                    <label for="premiere" class="form-label">Premiere</label>
+                    <input type="text" class="form-control" id="premiere" th:field="*{premiere}">
+                </div>
+
+                <div class="mb-3">
+                    <select aria-label="Films" class="form-select" th:field="*{film}">
+                        <option th:if="${room.id} == null" selected value="0">Seleccionar película</option>
+                        <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.title}"></option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <select aria-label="Cinemas" class="form-select" th:field="*{cinema}">
+                        <option th:if="${room.id} == null" selected value="0">Seleccionar cine</option>
+                        <option th:each="cinema : ${cinemas}" th:value="${cinema.id}" th:text="${cinema.name}"></option>
+                    </select>
+                </div>
+
+                <a class="btn btn-outline-primary" th:href="@{/rooms}">Cancelar</a>
+                <button type="submit" class="btn btn-outline-success">Guardar</button>
+            </form>
+
+        </div>
+
+        <div class="col"></div>
+    </div>
+</div>
 
 
 <div th:replace="~{footer :: footer}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

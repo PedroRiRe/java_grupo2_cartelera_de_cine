@@ -31,15 +31,30 @@
                 <tr th:each="rooms: ${rooms}">
                     <td th:text="${rooms.roomNumber}"></td>
                     <td th:text="${rooms.capacity}"></td>
-                    <td th:text="${rooms.cinema}"></td>
-                    <td th:text="${rooms.film}"></td>
+                    <td>
+                        <a class="btn btn-light" th:text="${rooms.cinema.name}"
+                           th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
+                    <td>
+                        <a class="btn btn-light" th:text="${rooms.film.title}"
+                           th:href="@{/rooms/films/{id}(id=${rooms.film.id})}"></a>
+                    </td>
                     <td th:text="${rooms.premiere}"></td>
                     <td>
                         <a class="btn btn-outline-primary" th:href="@{/room/{id}(id=${rooms.id})}">Ver</a>
+                        <a class="btn btn-outline-success" th:href="@{/room/{id}/edit(id=${rooms.id})}">Editar</a>
+                        <a class="btn btn-outline-danger" th:href="@{/room/{id}/delete(id=${rooms.id})}">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
             </table>
+
+            <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(rooms)}">
+                No podemos mostrarte ninguna sala.
+            </div>
+            <div class="text-center" th:if="${#lists.size(rooms) > 0}">
+                Actualmente hay <span th:text="${#lists.size(rooms)}"></span> salas.
+            </div>
+
         </div>
     </div>
     <a class="btn btn-outline-success" th:href="@{/}">Volver</a>

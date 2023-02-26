@@ -1,8 +1,10 @@
 package cartelera.services.impl;
 
 import cartelera.entities.Film;
+import cartelera.entities.Room;
 import cartelera.repositories.FilmRepository;
 import cartelera.services.IFilmService;
+import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import java.util.Optional;
 public class FilmServiceImpl implements IFilmService {
 
     private final FilmRepository filmRepo;
+    private final IRoomService roomService;
 
     @Override
     public List<Film> findAll() {
@@ -44,16 +47,15 @@ public class FilmServiceImpl implements IFilmService {
     }
     @Override
     public void deleteById(Long id) {
+        // desasociar film de rooms
+        List<Room> rooms = roomService.findAllByFilmId(id);
+        for (Room room : rooms) {
+            room.setFilm(null);
+        }
+        roomService.saveAll(rooms);
+
         filmRepo.deleteById(id);
     }
 
-    @Override
-    public void deleteAllById(List<Long> ids) {
-        filmRepo.deleteAllById(ids);
-    }
 
-    @Override
-    public void saveAll(List<Film> films) {
-        filmRepo.saveAll(films);
-    }
 }

@@ -1,8 +1,10 @@
 package cartelera.services.impl;
 
 import cartelera.entities.Address;
+import cartelera.entities.Cinema;
 import cartelera.repositories.AddressRepository;
 import cartelera.services.IAddressService;
+import cartelera.services.ICinemaService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

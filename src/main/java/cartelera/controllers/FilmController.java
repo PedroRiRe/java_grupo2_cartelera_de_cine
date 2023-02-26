@@ -3,6 +3,7 @@ package cartelera.controllers;
 import cartelera.entities.Film;
 import cartelera.services.IAddressService;
 import cartelera.services.IFilmService;
+import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class FilmController {
 
     private final IFilmService filmService;
     private final IAddressService addressService;
+    private final IRoomService roomService;
 
     @GetMapping("/films")
     public String findAll(Model model) {
@@ -31,11 +33,13 @@ public class FilmController {
         return "film/film-list";
     }
 
-    @GetMapping("/film/{id}")
+    @GetMapping("film/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        Optional<Film> film = filmService.findById(id);
-        if (film.isPresent()) model.addAttribute("film", film.get());
-        else model.addAttribute("error", "Película no encontrada.");
+        Optional<Film> filmOpt = filmService.findById(id);
+        if (filmOpt.isPresent()) {
+            model.addAttribute("film", filmOpt.get());
+            model.addAttribute("rooms", roomService.findAllByFilmId(id));
+        } else model.addAttribute("error", "Película no encontrada.");
         return "film/film-detail";
     }
 
@@ -69,7 +73,7 @@ public class FilmController {
     }
 
     @PostMapping("films")
-    public String save(@ModelAttribute Film film) {
+    public String saveForm(@ModelAttribute Film film) {
         filmService.save(film);
         return "redirect:/films";
     }

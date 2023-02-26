@@ -13,5 +13,13 @@ public interface IRoomService {
 
     List<Room> findAllByCinemaId(Long id);
 
-    void deleteAllById(Long id);
+    List<Room> findAllByFilmId(Long id);
+
+    Room save(Room room);
+
+    void deleteById(Long id);
+
+    void deleteAllById(List<Long> ids);
+
+    void saveAll(List<Room> rooms);
 }

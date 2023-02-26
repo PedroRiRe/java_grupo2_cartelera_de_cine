@@ -40,8 +40,13 @@ public class CinemaServiceImpl implements ICinemaService {
 
     @Override
     public void deleteById(Long id) {
+
         // borrar todas las rooms asociadas
-        roomService.deleteAllById(id);
+        List<Room> rooms = roomService.findAllByCinemaId(id);
+        List<Long> ids = new ArrayList<>();
+        for (Room room : rooms)
+            ids.add(room.getId());
+        roomService.deleteAllById(ids);
 
         // borrar address asociada
         Optional<Cinema> cinemaOpt = findById(id);
@@ -51,6 +56,7 @@ public class CinemaServiceImpl implements ICinemaService {
             cinema.setAddress(null);
             addressService.deleteById(addressId);
         }
+
         cinemaRepo.deleteById(id);
     }
 }
