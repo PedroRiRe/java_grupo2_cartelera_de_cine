@@ -1,3 +1,155 @@
-<footer th:fragment="footer" class="bd-footer py-2 py-md-3 mt-5 bg-light text-center">
-    Cinéfilos - <a href="#" class="text-decoration-none">Aviso legal</a> | <a href="#" class="text-decoration-none">Privacidad</a>
+<!Doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+</head>
+<!-- Footer -->
+<footer class="bg-light text-center ">
+    <!-- Grid container -->
+    <div class="container p-4">
+
+        <!-- Section: Social media -->
+        <section class="mb-4">
+            <!-- Facebook -->
+            <a class="btn btn-primary btn-floating m-1"  href="#" role="button">
+                <img width="30px" height="30px" src="/img/icons/facebook2.svg" alt="Facebook"></a>
+            <!-- Twitter -->
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #E0FFFF"  role="button">
+                <img width="30px" height="30px" src="/img/icons/twitter2.svg" alt="Twitter"></a>
+            <!-- Instagram -->
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #FF00FF"  role="button">
+                <img width="30px" height="30px" src="/img/icons/instagram2.svg" alt="Instagram"></a>
+            <!-- Linkedin -->
+            <a class="btn btn-primary btn-floating m-1" style="background-color: #AFEEEE"  role="button">
+               <img width="30px" height="30px" src="/img/icons/linkedin2.svg" alt="Linkedin"></a>
+        </section>
+        <!-- Section: Social media -->
+
+
+        <!-- Section: Form -->
+        <section class="">
+            <form action="">
+                <!--Grid row-->
+                <div class="row d-flex justify-content-center">
+                    <!--Grid column-->
+                    <div class="col-auto">
+                        <p class="pt-2">
+                            <strong>Suscríbete a nuestro boletín</strong>
+                        </p>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-md-5 col-12">
+                        <!-- Email input -->
+                        <div class="form-outline mb-4">
+                            <input type="email" id="form5Example2" class="form-control" />
+                            <label class="form-label" for="form5Example2">Dirección de Correo</label>
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-auto">
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary mb-4">
+                            Subscribe
+                        </button>
+                    </div>
+                    <!--Grid column-->
+                </div>
+                <!--Grid row-->
+            </form>
+        </section>
+        <!-- Section: Form -->
+
+
+        <!-- Section: Text -->
+        <section class="mb-4">
+            <p>
+                Diseñado y construido con todo el amor del mundo por el equipo de Cinéfilos.
+            </p>
+        </section>
+        <!-- Section: Text -->
+
+
+        <!-- Section: Links -->
+        <section class="">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Home</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="http://localhost:8082/" class="text-dark">Portada</a>
+                        </li>
+
+                        <li>
+                            <a href="http://localhost:8082/addresses" class="text-dark">Direcciones</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Film</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="http://localhost:8082/films" class="text-dark">Películas</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Cinema</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="http://localhost:8082/films" class="text-dark">Cines</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Rooms</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="http://localhost:8082/rooms" class="text-dark">Salas</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+            <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2023 Copyright:
+        <a class="text-dark" href="#">Cinéfilos.com</a>
+    </div>
+    <!-- Copyright -->
+
 </footer>
+<!-- Footer -->
