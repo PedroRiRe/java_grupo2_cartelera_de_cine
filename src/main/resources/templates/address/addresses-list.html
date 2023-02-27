@@ -15,11 +15,9 @@
 <div class="container text-left">
     <div class="row mt-5">
         <h1 class="cinefilos-h1">Listado de direcciones</h1>
-
         <div>
             <a class="btn btn-outline-primary" th:href="@{/addresses/create}" sec:authorize="isAuthenticated()">Crear nueva Dirección</a>
         </div>
-
         <div class="col mt-4">
             <table class="table th">
                 <thead>
@@ -45,9 +43,15 @@
                 </tr>
                 </tbody>
             </table>
+            <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(addresses)}">
+                Actualmente no hay ninguna dirección para mostrar.
+            </div>
+            <div class="text-center" th:if="${#lists.size(addresses) > 0}">
+                Actualmente hay <span th:text="${#lists.size(addresses)}"></span> direcciones.
+            </div>
         </div>
     </div>
-    <a class="btn btn-outline-success" th:href="@{/}">Volver</a>
+    <a class="btn btn-outline-success" th:href="@{/}">VOLVER</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

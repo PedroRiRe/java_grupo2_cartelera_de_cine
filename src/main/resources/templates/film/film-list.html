@@ -29,7 +29,6 @@
         <div>
             <a class="btn btn-outline-primary" th:href="@{/films/create}" sec:authorize="isAuthenticated()">Crear nueva película</a>
         </div>
-
         <div class="col mt-4">
             <table class="table th">
                 <thead>
@@ -59,9 +58,15 @@
                 </tr>
                 </tbody>
             </table>
+            <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(films)}">
+                Actualmente no hay ninguna película para mostrar.
+            </div>
+            <div class="text-center" th:if="${#lists.size(films) > 0}">
+                Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
+            </div>
         </div>
     </div>
-    <a class="btn btn-outline-success" th:href="@{/}">Volver</a>
+    <a class="btn btn-outline-success" th:href="@{/}">VOLVER</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

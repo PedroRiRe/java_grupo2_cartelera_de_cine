@@ -14,13 +14,10 @@
 
 <div class="container text-left">
     <div class="row mt-5">
-
         <h1 class="cinefilos-h1">Listado de cines</h1>
-
         <div>
             <a class="btn btn-outline-primary" th:href="@{/cinemas/create}" sec:authorize="isAuthenticated()">Crear nuevo cine</a>
         </div>
-
         <div class="col mt-4">
             <table class="table th">
                 <thead>
@@ -30,7 +27,7 @@
                     <th scope="col">Sitio web</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Dirección</th>
-                    <th scope="col">Acciones</th>
+                    <th scope="col">Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -50,9 +47,15 @@
                 </tr>
                 </tbody>
             </table>
+            <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(cinemas)}">
+                Actualmente no hay ningún cine para mostrar.
+            </div>
+            <div class="text-center" th:if="${#lists.size(cinemas) > 0}">
+                Actualmente hay <span th:text="${#lists.size(cinemas)}"></span> cines.
+            </div>
         </div>
     </div>
-    <a class="btn btn-outline-success" th:href="@{/}">Volver</a>
+    <a class="btn btn-outline-success" th:href="@{/}">VOLVER</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
