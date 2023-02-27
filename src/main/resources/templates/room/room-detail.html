@@ -14,31 +14,39 @@
 
 <div class="container text-center">
     <div class="row mt-5">
-        <h1 class="cinefilos-h1">Detalle de la sala</h1>
+        <h1 class="cinefilos-h1" th:text="|Sala ${room.roomNumber}|"></h1>
         <div class="col">
         </div>
         <div class="col">
             <div class="card">
-                <img src="https://dummyimage.com/300" class="card-img-top" alt="Sala Image">
+                <img src="/img/poster/spiderman.jpg" class="card-img-top" alt="Spiderman">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="|Sala ${room.roomNumber}|"></h5>
-                    <p class="card-text" th:text="${room.premiere}"></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Aforo: ${room.capacity}|"></li>
-                    <li>
+                    <h5 class="card-title">
                         <a class="btn btn-light"
                            th:text="${room.film.title}"
                            th:href="@{/film/{id}(id=${room.film.id})}"></a>
-                    </li>
-                    <li>
-                        <a class="btn btn-light"
-                           th:text="${room.cinema.name}"
-                           th:href="@{/cinema/{id}(id=${room.cinema.id})}"></a>
+                    </h5>
+                    <p class="card-text" th:text="${room.premiere}"></p>
+                </div>
+                <ul class="list-group list-group-flush">
+
+             <!--   <li class="list-group-item" th:text="|Sesiones: ${#time.format(room.schedules, 'hh:mm')}|"></li>  -->
+
+                    <li class="list-group-item" th:text="|Aforo: ${room.capacity}|"></li>
+                    <li class="list-group-item">
+                        <span th:if="${room.active}" class="badge text-bg-success">Disponible</span>
+                        <span th:if="${room.active} == false" class="badge text-bg-danger">No disponible</span>
                     </li>
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-outline-primary" th:href="@{/rooms}">Volver</a>
+                    <a class="btn btn-light"
+                       th:text="${room.cinema.name}"
+                       th:href="@{/cinema/{id}(id=${room.cinema.id})}"></a>
+                    <br>
+                    <br>
+                    <a class="btn btn-outline-primary" th:href="@{/rooms}">SALAS</a>
+                    <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${room.id})}"  sec:authorize="isAuthenticated()">EDITAR</a>
+                    <button class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${room.id})}"  sec:authorize="isAuthenticated()">ELIMINAR</button>
                 </div>
             </div>
         </div>
