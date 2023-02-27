@@ -68,10 +68,8 @@ public class RoomController {
         } else {
             model.addAttribute("error", "404 La sala desapareció");
         }
-
         return "room/room-form";
     }
-
 
     @PostMapping("/rooms")
     public String saveForm(@ModelAttribute Room room) {
@@ -82,7 +80,6 @@ public class RoomController {
     @GetMapping("rooms/{id}/delete")
     public String deleteById(@PathVariable Long id) {
         roomService.deleteById(id);
-        return "redirect/rooms";
+        return "redirect:/rooms";
     }
-
 }

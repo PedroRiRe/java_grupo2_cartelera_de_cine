@@ -3,12 +3,14 @@ package cartelera.services.impl;
 import cartelera.entities.Address;
 import cartelera.entities.Cinema;
 import cartelera.repositories.AddressRepository;
+import cartelera.repositories.CinemaRepository;
 import cartelera.services.IAddressService;
 import cartelera.services.ICinemaService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import static cartelera.utils.Utils.invalidPosNumber;
 import static cartelera.utils.Utils.stringIsEmpty;
 
 import java.util.*;
@@ -19,6 +21,7 @@ import java.util.*;
 public class AddressServiceImpl implements IAddressService {
 
     private final AddressRepository addressRepo;
+    private final CinemaRepository cinemaRepo;
 
     @Override
     public List<Address> findAll() {
@@ -51,6 +54,17 @@ public class AddressServiceImpl implements IAddressService {
 
     @Override
     public void deleteById(Long id) {
+
+        if (invalidPosNumber(id)) return;
+
+
+        for (Cinema cinema : cinemaRepo.findAll()) {
+            if (Objects.equals(cinema.getAddress().getId(), id)) {
+                cinema.setAddress(null);
+                break;
+            }
+        }
+
         addressRepo.deleteById(id);
     }
 

@@ -59,11 +59,6 @@ public class RoomServiceImpl implements IRoomService {
         if (roomOpt.isPresent()) {
             Room room = roomOpt.get();
             room.setCinema(null);
-        }
-        // desasociar room de película
-        Optional<Room> roomOpt1 = findById(id);
-        if (roomOpt1.isPresent()) {
-            Room room = roomOpt1.get();
             room.setFilm(null);
         }
         roomRepo.deleteById(id);
