@@ -1,15 +1,13 @@
 package cartelera.services.impl;
 
 import cartelera.entities.Cinema;
-import cartelera.exceptions.EntityDeleteException;
-import cartelera.exceptions.EntitySavingException;
 import cartelera.repositories.CinemaRepository;
 import cartelera.services.ICinemaService;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Slf4j
@@ -17,103 +15,26 @@ import java.util.Optional;
 @Service
 
 public class CinemaServiceImpl implements ICinemaService {
+
     private final CinemaRepository cinemaRepo;
 
-//    @Override
-//    public Cinema save(Cinema cinema) throws EntitySavingException {
-//        if(cinema == null)
-//            throw new IllegalArgumentException("Cine no puede ser null");
-//
-//        if(cinema.getId() != null)
-//            update(cinema);
-//
-//        try {
-//            return cinemaRepo.save(cinema);
-//        } catch (Exception e) {
-//            log.error("Error guardando cine", e);
-//        }
-//
-//        throw new EntitySavingException("Error guardando usuario");
-//    }
-//
-//    @Override
-//    public Cinema update(Cinema cine) throws EntitySavingException {
-//        if(cine == null)
-//            throw new IllegalArgumentException("Cine no puede ser null");
-//
-//        if(cine.getId() == null)
-//            throw new IllegalArgumentException("Cine ID no puede ser null");
-//
-//        if(!cinemaRepo.existsById(cine.getId()))
-//            throw new EntityNotFoundException("Cine no existe");
-//
-//        Cinema cineFromDB = cinemaRepo.findById(cine.getId()).get();
-//        // solo cambiamos los atributos deseados
-//        cineFromDB.setPhone(cine.getPhone());
-//        cineFromDB.setUrl(cine.getUrl());
-//        cineFromDB.setEmail(cine.getEmail());
-//        cineFromDB.setLinkedIn(cine.getLinkedIn());
-//        cineFromDB.setTwitter(cine.getTwitter());
-//
-//        try {
-//            return cinemaRepo.save(cineFromDB);
-//        } catch (Exception e) {
-//            log.error("Error guardando usuario", e);
-//        }
-//
-//        throw new EntitySavingException("Error guardando usuario");
-//
-//    }
-//
     @Override
     public List<Cinema> findAll() {
-        log.info("findAll");
         return cinemaRepo.findAll();
     }
 
     @Override
     public Optional<Cinema> findById(Long id) {
-        log.info("findById {}", id);
-        if (id == null || id <= 0) return Optional.empty();
         return cinemaRepo.findById(id);
     }
 
-//    @Override
-//    public Optional<Cinema> findById(Long id) {
-//        log.info("findById {}", id);
-//        if (id == null || id <= 0)
-//            return Optional.empty();
-//        return Optional.empty();  // <----- siempre devuelve vacío
-//    }
-//
     @Override
-    public Optional<Cinema> findByName(String name) {
-        log.info("findByName {}", name);
-        if (name == null || name.trim().isEmpty()) return Optional.empty();
-        return cinemaRepo.findByName(name.trim());
+    public Cinema save(Cinema cinema) {
+        return cinemaRepo.save(cinema);
     }
 
     @Override
-    public Optional<Cinema> findByPhone(String phone) {
-        log.info("findByPhone {}", phone);
-        if (phone == null || phone.trim().isEmpty()) return Optional.empty();
-        return cinemaRepo.findByName(phone.trim());
+    public void deleteById(Long id) {
+        cinemaRepo.deleteById(id);
     }
-
-//    @Override
-//    public Optional<Cinema> findByAddress() {
-//        return Optional.empty();
-//    }
-//
-//    @Override
-//    public void deleteById(Long id) throws EntityDeleteException {
-//        log.info("deleteById {}", id);
-//
-//        try {
-//            cinemaRepo.deleteById(id);
-//        } catch (Exception e) {
-//            log.error("Error al intentar borrar el cine", e);
-//        }
-//        throw new EntityDeleteException("Error borrando usuario");
-//    }
 }

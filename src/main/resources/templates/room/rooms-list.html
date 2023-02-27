@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title class ="h1-title">Salas</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: navbar}"></div>
+
+<div class="container text-left">
+    <div class="row mt-5">
+        <h1 class="cinefilos-h1">Listado de salas</h1>
+        <div class="col mt-4">
+            <table class="table th">
+                <thead>
+                <tr>
+                    <th scope="col">Nº sala</th>
+                    <th scope="col">Aforo</th>
+                    <th scope="col">Cine</th>
+                    <th scope="col">Película</th>
+                    <th scope="col">Estreno</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="rooms: ${rooms}">
+                    <td th:text="${rooms.roomNumber}"></td>
+                    <td th:text="${rooms.capacity}"></td>
+                    <td th:text="${rooms.cinema}"></td>
+                    <td th:text="${rooms.film}"></td>
+                    <td th:text="${rooms.premiere}"></td>
+                    <td>
+                        <a class="btn btn-outline-primary" th:href="@{/room/{id}(id=${rooms.id})}">Ver</a>
+                        <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${rooms.id})}" sec:authorize="isAuthenticated()">Editar</a>
+                        <a class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${rooms.id})}" sec:authorize="isAuthenticated()">Borrar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a class="btn btn-outline-success" th:href="@{/}">Volver</a>
+</div>
+
+<div th:replace="~{footer :: footer}"></div>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</body>
+</html>

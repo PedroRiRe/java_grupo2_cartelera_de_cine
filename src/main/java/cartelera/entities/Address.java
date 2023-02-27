@@ -7,7 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 @Builder
 @Entity
 public class Address {
@@ -25,4 +24,9 @@ public class Address {
     private String city;
 
     private String country;
+
+    @Override
+    public String toString() {
+        return address + ", " + postalCode + " - " + city;
+    }
 }

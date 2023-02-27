@@ -4,7 +4,7 @@ public enum Gender {
     COMEDY("Comedia"),
     DRAMA("Drama"),
     ACTION("Acción"),
-    SCI_FI("Ciencia Ficción"),
+    SCI_FI("Ci-Fi"),
     FANTASY("Fantasia"),
     MUSICAL("Musical"),
     TERROR("Terror"),
@@ -14,10 +14,14 @@ public enum Gender {
     BIOGRAPHICAL("Biografía"),
     FAMILY("Familiar");
 
-    private String gender;
-
+    private final String gender;
 
     Gender(String gender) {
         this.gender = gender;
+    }
+
+    @Override
+    public String toString() {
+        return gender;
     }
 }
