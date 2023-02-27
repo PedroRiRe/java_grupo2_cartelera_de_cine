@@ -60,7 +60,7 @@
                     <input type="password" class="form-control" id="password" th:field="*{password}" required>
                 </div>
 
-                <a class="btn btn-outline-primary" th:href="@{/user/{id}(id=${user.id})}">Cancelar</a>
+                <a class="btn btn-outline-primary" th:href="@{/user/{id}(id=${user.id})}" role="button">Cancelar</a>
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
             </form>
 
