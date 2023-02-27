@@ -43,8 +43,6 @@
                     <input type="text" class="form-control" id="surname" th:field="*{surname}" >
                 </div>
 
-                <input type="hidden" id="address" name="address" th:field="*{address}" />
-
                 <div class="mb-4">
                     <label for="username" class="form-label">Usuario</label>
                     <input type="text" class="form-control" id="username" th:field="*{username}" required>
@@ -60,7 +58,7 @@
                     <input type="password" class="form-control" id="password" th:field="*{password}" required>
                 </div>
 
-                <a class="btn btn-outline-primary" th:href="@{/user/{id}(id=${user.id})}">Cancelar</a>
+                <a class="btn btn-outline-primary" th:href="@{/user/{id}(id=${user.id})}" role="button">Cancelar</a>
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
             </form>
 

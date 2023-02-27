@@ -26,10 +26,6 @@ public class User implements UserDetails {
 
     private String surname;
 
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
-
     @Column(unique = true)
     private String username;
 

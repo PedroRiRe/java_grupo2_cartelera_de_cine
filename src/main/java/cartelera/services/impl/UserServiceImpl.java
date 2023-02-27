@@ -39,21 +39,6 @@ public class UserServiceImpl implements IUserService {
     }
 
     public void deleteById(Long id) {
-        if (!invalidPosNumber(id)) { // Si el id es correcto... (función propia. Ver en Utils)
-            Optional<User> userOpt = findById(id); // Localizar el usuario por su id
-            if (userOpt.isPresent()) {
-                User user = userOpt.get();
-
-                // La entidad User tiene una asociación OneToOne con la entidad Address a través de la propiedad address
-                // Antes de borrar el usuario, se debe romper la relación. para ello:
-                if (user.getAddress() != null) { // Si la dirección existe...
-                    Long addressId = user.getAddress().getId(); // Obtener el id de la dirección asociada
-                    user.setAddress(null); // Romper la relación
-                    addressRepo.deleteById(addressId); // Borrar la dirección
-                }
-
-                userRepo.deleteById(id); // Borrar el usuario por su id
-            }
-        }
+        if (!invalidPosNumber(id) && userRepo.existsById(id)) userRepo.deleteById(id);
     }
 }

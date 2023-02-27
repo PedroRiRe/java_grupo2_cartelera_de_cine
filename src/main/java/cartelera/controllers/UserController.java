@@ -3,7 +3,9 @@ package cartelera.controllers;
 import cartelera.entities.User;
 import cartelera.services.IUserService;
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 import java.util.Optional;
+
+import static cartelera.utils.Utils.invalidPosNumber;
 
 @AllArgsConstructor
 @Controller
@@ -59,7 +63,19 @@ public class UserController {
 
     @GetMapping("users/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        userService.deleteById(id);
+        if (!invalidPosNumber(id)) {
+            Long loginId = null;
+
+            // Comprueba si hay un usuario logueado y, si es así, obtiene su id.
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+            if (auth != null) {
+                User admin = (User) auth.getPrincipal();
+                loginId = admin.getId();
+            }
+
+            // Si el usuario logueado y el usuario que queremos borrar NO es el mismo, borrarlo.
+            if (!id.equals(loginId)) userService.deleteById(id);
+        }
         return "redirect:/users";
     }
 }

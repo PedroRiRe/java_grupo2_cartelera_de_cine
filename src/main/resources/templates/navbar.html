@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="es" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<nav th:fragment="navbar" class="navbar sticky-top navbar-light bg-light justify-content-between">
+<nav th:fragment="navbar" class="navbar sticky-top navbar-light bg-light">
+
     <a class="navbar-brand" th:href="@{/}">
-        <img src="/img/logo.svg" width="120" height="48" class="ms-3 d-inline-block align-top" alt="Logo Cinéfilos">
+        <img src="/img/logo.svg" width="120" height="48" class="ms-4 d-inline-block align-top" alt="Logo Cinéfilos">
     </a>
 
-    <ul class="navbar-nav me-3 align-top d-flex flex-row">
+    <ul class="nav navbar-nav flex-row ms-3">
         <li class="nav-item me-3">
             <a class="nav-link" th:href="@{/addresses}">Direcciones</a>
         </li>
@@ -24,19 +25,22 @@
         </li>
     </ul>
 
-    <div class="me-3 align-top d-flex flex-row">
-        <div class="d-flex" sec:authorize="isAnonymous()">
+    <div class="navbar-text d-flex flex-row me-3">
+        <div sec:authorize="isAnonymous()">
             <a class="btn btn-link" th:href="@{/login}">Iniciar sesión</a>
         </div>
-<!--        <div class="d-flex" sec:authorize="isAnonymous()">-->
-<!--            <a class="btn btn-link" th:href="@{/user/registration}">Registro</a>-->
-<!--        </div>-->
-        <div class="d-flex btn" sec:authorize="isAuthenticated()">
-            <span sec:authentication="principal.name"></span>&nbsp;
-            <span sec:authentication="principal.surname"></span>
+        <div sec:authorize="isAnonymous()">
+            <a class="btn btn-link" th:href="@{/users/create}">Registro</a>
         </div>
-        <div class="d-flex" sec:authorize="isAuthenticated()">
+        <div sec:authorize="isAuthenticated()">
+            <a class="btn btn-link" th:href="@{/user/{id}(id=${#authentication.getPrincipal().getId()})}">
+                <span sec:authentication="principal.name"></span>&nbsp;
+                <span sec:authentication="principal.surname"></span>
+            </a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
             <a class="btn btn-link" th:href="@{/logout}">Cerrar sesión</a>
         </div>
     </div>
+
 </nav>
