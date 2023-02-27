@@ -1,3 +1,6 @@
+--
+-- Volcado de datos para la tabla `film`
+--
 
 INSERT INTO `film` (`id`, `classification`, `company`, `country`, `director`, `duration`, `music`, `photography`, `poster`, `rating`, `review`, `script`, `title`, `trailer`, `year`) VALUES
 (1, 1, 'Marvel Studios, Walt Disney Pictures, Truenorth Productions. Distribuidora: Walt Disney Pictures', 'EEUU', 'Peyton Reed', 125, 'Christophe Beck', 'Bill Pope', 8, 5.8, 7, 'Jeff Loveness. Cómic: Stan Lee, Jack Kirby, Larry Lieber', 'Ant-Man and The Wasp: Quantumania', 'https://www.youtube.com/watch?v=BaLJ044I2HI', 2023),
@@ -23,8 +26,8 @@ INSERT INTO `film` (`id`, `classification`, `company`, `country`, `director`, `d
 (21, 4, '3D Produzioni, Nexo Digital', 'Italia', 'Valeria Parisi', 90,'Dmitri Myachin',' Maximilien' Zaganelli,https://pics.filmaffinity.com/maledetto_modigliani-476752934-large.jpg,7,9,Didi Gnocchi,Maledetto Modigliani,2020),
 (22, 4, 'Full House, Maneki Films, Borsalino Productions, Pathé, Bellini Films. Distribuidora: Pathé', 'Francia', David Moreau, 105,Guillaume Roussel,https://pics.filmaffinity.com/king-928846801-mmed.jpg,King,8,6,King,https://www.youtube.com/watch?v=gzMySqfPS6g,2022),
 (23, 4, 'BCDF Pictures, Shaken Not Stirred, Baral Waley Productions, Bluewater Lane Productions, Clair de Lune Entertainment', 'Estados Unidos', 'Michael Morris, 119,Linda Perry,https://pics.filmaffinity.com/to_leslie-378627344-mmed.jpg,6,7,https://www.youtube.com/watch?v=2XOFxJjimAk,2022),
-(24, 4, 'Aqui y Alli Films BTeam Pictures, RTVE,Movistar Plus , TV3,ICAA,Crea SGR', 'España',Alana Mejia Gonzalez, 115,Nacho Sanchez,115,'Javier Lago','Alana Mejia Gonzalez',poner imagen,6,9,Zoe Stein,Manticora,en youtube,2022),
-(25, 4, 'Coproduccion Beliga-Francia-Paises Bajos (Holanda)', 'Lukas Dhont', 104, 'Valentin Hadjaddj','Frank van den Eeden', esta en internet,7,9,'Angelo Tijssness',esta  en youtube,Close,2022),
+(24, 4, 'Aqui y Alli Films BTeam Pictures, RTVE,Movistar Plus , TV3,ICAA,Crea SGR', 'España',Alana Mejia Gonzalez, 115,Nacho Sanchez,115,'Javier Lago','Alana Mejia Gonzalez',poner imagen,6,9,Zoe Stein,Manticora,https://www.youtube.com/watch?v=Mo462daEhgA,2022),
+(25, 4, 'Coproduccion Beliga-Francia-Paises Bajos (Holanda)', 'Lukas Dhont', 104, 'Valentin Hadjaddj','Frank van den Eeden', esta en internet,7,9,'Angelo Tijssness',https://www.youtube.com/watch?v=wLGCn5oB9ms,Close,2022),
 (26, 4, 'Coproduccion Reino Unido-Estados Unidso , BBC Film', 'Reino Unido', Charlotte Wells, 98. Oliver Coates, Gregory Oke, esta en internet,,8,10,Cyarlotte Wells, en internet , 2022),
 (27, 4, 'Encanta Films RTVE', 'España', 'Alauda Ruiz de Azua' 104,'Arabzazy Calleja','https://pics.filmaffinity.com/cinco_lobitos-443979892-mmed.jpg',7,9 ,'https://www.youtube.com/watch?v=xBuqdeNtXp4' , 2022),
 (28, 4, 'Metro-Goldwyn-Mayer Warner Bros'Estados Unidos','Kramer Morgentahu',116,'Joseph Shirley',esta en internet,5,7,'Kramer Morgenthau',Creed III,esta en internet,2023),
@@ -33,8 +36,8 @@ INSERT INTO `film` (`id`, `classification`, `company`, `country`, `director`, `d
 (31, 4, 'Bibi Film Tramp Ltd', 'Italia', Roberto Ando Ugo Chiti, esta en internet,93,Emanuele Bossi, Maurizo Calvesi,https://cineuropa.org/imgCache/2022/10/21/1666353926298_0620x0435_25x0x949x666_1666368687767.jpg,7,9,Michele Braga,La stranezza,esta en internet, 2022),
 (32, 4, 'Antidoto Films', 'España', Ignacio Nacho 104,Paloma Peñarrubia,Alfredo Lopez,https://pics.filmaffinity.com/isosceles-136793849-mmed.jpg,10,8,Isosceles,https://www.youtube.com/watch?v=UuHSJdfiLqY, 2022),
 (33, 4, 'Coproduccion Camboya,Aurora Films', 'Camboya',Davy Chou,Thomas Favel,117,Chiristophe Musset,https://pics.filmaffinity.com/retour_a_seoul-228141128-mmed.jpg,8,6,Davy Chou,Retorno a Seúl,https://www.youtube.com/watch?v=O3oSOY4GdjY,2022),
-(34, 4, 'Coproducción Estados Unidos-Reino Unido; Di Bonaventura Pictures, G-BASE, Lionsgate, MadRiver Pictures, Distribuidora: Lionsgate, GEM Entertainment, Notorious Pictures, Roadshow Films, Spentzos Films, United King Films', 'Estados Unidos', Matt Cook,107, 109),
-(35, 4, '', '', NULL, 109),
+(34, 4, 'Coproducción Estados Unidos-Reino Unido; Di Bonaventura Pictures, G-BASE, Lionsgate, MadRiver Pictures, Distribuidora: Lionsgate, GEM Entertainment, Notorious Pictures, Roadshow Films, Spentzos Films, United King Films', 'Estados Unidos', Matt Cook,146,),
+(35, 4, 'Coproducción Japón-Estados Unidos; FUNimation Entertainment, J.C.Staff. Distribuidora: Shôchiku', 'Japon', Yasuhiro Yoshiura, 120,Ryō Takahashi, Yohei Matsui,Yasuhiro Yoshiura,https://pics.filmaffinity.com/ai_no_utagoe_o_kikasete-525750135-large.jpg,6,7,Ai no Utagoe o Kikasete,https://www.youtube.com/watch?v=7AHSdrUDdio),
 (36, 4, '', '', NULL, 109),
 (37, 4, '', '', NULL, 109),
 (38, 4, '', '', NULL, 109),
