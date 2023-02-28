@@ -39,14 +39,11 @@
                     <input type="text" class="form-control" id="roomNumber" th:field="*{roomNumber}" >
                 </div>
 
-                <div class="mb-4">
-                    <label for="capacity" class="form-label">Aforo</label>
-                    <input type="text" class="form-control" id="capacity" th:field="*{capacity}">
-                </div>
-
-                <div class="form-check mb-5 text-start">
-                    <input class="form-check-input" type="checkbox" id="active" th:field="*{active}">
-                    <label class="form-check-label" for="active">Sala operativa</label>
+                <div class="mb-3">
+                    <select aria-label="Films" class="form-select" th:field="*{film}">
+                        <option th:if="${room.id} == null" selected value="0">Seleccionar película</option>
+                        <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.title}"></option>
+                    </select>
                 </div>
 
                 <div class="mb-4">
@@ -59,11 +56,14 @@
                     <input type="time" class="form-control" id="schedules" th:field="*{schedules}">
                 </div>
 
-                <div class="mb-3">
-                    <select aria-label="Films" class="form-select" th:field="*{film}">
-                        <option th:if="${room.id} == null" selected value="0">Seleccionar película</option>
-                        <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.title}"></option>
-                    </select>
+                <div class="form-check mb-5 text-start">
+                    <input class="form-check-input" type="checkbox" id="active" th:field="*{active}">
+                    <label class="form-check-label" for="active">Sala operativa</label>
+                </div>
+
+                <div class="mb-4">
+                    <label for="capacity" class="form-label">Aforo</label>
+                    <input type="text" class="form-control" id="capacity" th:field="*{capacity}">
                 </div>
 
                 <div class="mb-3">
