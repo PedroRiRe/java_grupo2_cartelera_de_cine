@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import static cartelera.utils.Utils.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Controller
@@ -29,7 +28,7 @@ public class FilmController {
     public String findAll(Model model) {
         List<Film> films = filmService.findAll();
         model.addAttribute("films", films);
-        //model.addAttribute("cities", addressService.citiesNames());
+        // model.addAttribute("cities", addressService.citiesNames());
         return "film/film-list";
     }
 

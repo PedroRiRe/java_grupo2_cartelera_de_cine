@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-import java.util.Optional;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
@@ -45,7 +44,7 @@ public class RoomController {
 //        model.addAttribute("rooms", roomService.findAllByFilmId(id));
 //        return "room/rooms-list";
 //    }
-
+//
 //    @GetMapping("rooms/cinema/{id}")
 //    public String findByCinemaId(Model model, @PathVariable Long id) {
 //        model.addAttribute("rooms", roomService.findAllByCinemaId(id));

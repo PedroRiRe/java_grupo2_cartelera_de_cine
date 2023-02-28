@@ -14,6 +14,8 @@ public interface IFilmService {
     boolean existsById(Long id);
 
     List<Film> findAllByRoomsCinemaAddressCityIgnoreCase(String city);
+
     Film save(Film film);
+
     void deleteById(Long id);
 }
