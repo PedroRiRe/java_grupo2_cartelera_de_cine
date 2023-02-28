@@ -26,10 +26,7 @@
 <!--            <button type="submit" class="btn btn-outline-info">Listar</button>-->
 <!--        </form>-->
 
-        <div>
-            <a class="btn btn-outline-primary" th:href="@{/films/create}" sec:authorize="isAuthenticated()">Crear nueva película</a>
-        </div>
-        <div class="col mt-4">
+        <div class="col mt-3">
             <table class="table th">
                 <thead>
                 <tr>
@@ -51,9 +48,12 @@
                     <td th:text="${film.classification}"></td>
                     <td th:text="${film.company}"></td>
                     <td>
-                        <a class="btn btn-outline-primary" th:href="@{/film/{id}(id=${film.id})}">Ver</a>
-                        <a class="btn btn-outline-success" th:href="@{/films/{id}/edit(id=${film.id})}" sec:authorize="isAuthenticated()">Editar</a>
-                        <a class="btn btn-outline-danger" th:href="@{/films/{id}/delete(id=${film.id})}" sec:authorize="isAuthenticated()">Borrar</a>
+                        <a class="btn btn-sm btn-outline-primary"
+                           th:href="@{/film/{id}(id=${film.id})}" role="button">Ver</a>
+                        <a class="btn btn-sm btn-outline-success" th:href="@{/films/{id}/edit(id=${film.id})}"
+                           sec:authorize="isAuthenticated()" role="button">Editar</a>
+                        <a class="btn btn-sm btn-outline-danger" th:href="@{/films/{id}/delete(id=${film.id})}"
+                           sec:authorize="isAuthenticated()" role="button">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
@@ -66,7 +66,11 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-outline-success" th:href="@{/}">VOLVER</a>
+    <div class="text-center mt-4">
+        <a class="btn btn-outline-primary" th:href="@{/films/create}"
+           sec:authorize="isAuthenticated()" role="button">Crear nueva película</a>
+        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+    </div>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

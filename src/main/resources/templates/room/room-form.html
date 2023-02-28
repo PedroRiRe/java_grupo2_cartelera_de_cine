@@ -15,9 +15,8 @@
 <div class="container text-center">
     <div class="row">
 
-        <h1 class="modificar" th:if="${room.id}">Modificar Sala<span class="modificar" th:text="${room.id}"></span></h1>
-        <h1 class="modificar" th:if="${room.id} == null">Crear nueva Sala</h1>
-
+        <h1 class="modificar" th:if="${room.id}">Modificar sala <span class="modificar" th:text="${room.id}"></span></h1>
+        <h1 class="modificar" th:if="${room.id} == null">Crear nueva sala</h1>
 
         <div class="col"></div>
 
@@ -73,8 +72,10 @@
                     </select>
                 </div>
 
-                <a class="btn btn-outline-primary" th:href="@{/rooms}">Cancelar</a>
-                <button type="submit" class="btn btn-outline-success">Guardar</button>
+                <div class="mt-5">
+                    <a class="btn btn-outline-primary" th:href="@{/rooms}" role="button">Cancelar</a>
+                    <button type="submit" class="btn btn-outline-success" role="button">Guardar</button>
+                </div>
             </form>
 
         </div>
@@ -85,7 +86,5 @@
 
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

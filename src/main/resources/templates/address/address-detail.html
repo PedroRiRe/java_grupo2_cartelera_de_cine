@@ -22,7 +22,7 @@
             <div class="alert alert-danger" role="alert">
                 <p th:text="${error}"></p>
             </div>
-            <a class="btn btn-primary" th:href="@{/addresses}">Volver</a>
+            <a class="btn btn-primary" th:href="@{/addresses}" role="button">Volver</a>
         </div>
 
         <div class="col">
@@ -38,11 +38,11 @@
                 </ul>
 
                 <div class="card-body">
-                    <a class="btn btn-outline-primary" th:href="@{/addresses}">DIRECCIONES</a>
+                    <a class="btn btn-outline-primary" th:href="@{/addresses}" role="button">Direcciones</a>
                     <a class="btn btn-outline-success" th:href="@{/addresses/{id}/edit(id=${address.id})}"
-                       sec:authorize="isAuthenticated()">Editar</a>
+                       sec:authorize="isAuthenticated()" role="button">Editar</a>
                     <a class="btn btn-outline-danger" th:href="@{/addresses/{id}/delete(id=${address.id})}"
-                       sec:authorize="isAuthenticated()">Borrar</a>
+                       sec:authorize="isAuthenticated()" role="button">Borrar</a>
                 </div>
 
 
@@ -54,7 +54,5 @@
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/main.js}"></script>
 </body>
 </html>

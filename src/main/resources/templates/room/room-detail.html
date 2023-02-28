@@ -23,7 +23,7 @@
                 <div class="alert alert-danger" role="alert" >
                     <p th:text="${error}"></p>
                 </div>
-                <a class="btn btn-primary" th:href="@{/films}">Volver</a>
+                <a class="btn btn-primary" th:href="@{/films}" role="button">Volver</a>
             </div>
 
             <div class="card">
@@ -52,9 +52,11 @@
                        th:href="@{/cinema/{id}(id=${room.cinema.id})}"></a>
                     <br>
                     <br>
-                    <a class="btn btn-outline-primary" th:href="@{/rooms}">SALAS</a>
-                    <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${room.id})}"  sec:authorize="isAuthenticated()">EDITAR</a>
-                    <button class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${room.id})}"  sec:authorize="isAuthenticated()">ELIMINAR</button>
+                    <a class="btn btn-outline-primary" th:href="@{/rooms}" role="button">Salas</a>
+                    <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${room.id})}"
+                       sec:authorize="isAuthenticated()" role="button">Editar</a>
+                    <button class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${room.id})}"
+                       sec:authorize="isAuthenticated()" role="button">Borrar</button>
                 </div>
             </div>
         </div>
@@ -64,6 +66,5 @@
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
