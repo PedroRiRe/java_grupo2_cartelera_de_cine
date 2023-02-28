@@ -46,8 +46,8 @@
                     <td th:text="${rooms.premiere}"></td>
                     <td>
                         <a class="btn btn-outline-primary" th:href="@{/room/{id}(id=${rooms.id})}">Ver</a>
-                        <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${rooms.id})}">Editar</a>
-                        <a class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${rooms.id})}">Borrar</a>
+                        <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${rooms.id})}" sec:authorize="isAuthenticated()">Editar</a>
+                        <a class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${rooms.id})}" sec:authorize="isAuthenticated()">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
