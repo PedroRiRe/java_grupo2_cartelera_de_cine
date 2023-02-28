@@ -45,8 +45,8 @@ public class Cinema {
     @Column(unique = true)
     private String phone;
 
-    @OneToOne
-    @JoinColumn(name = "address_id")
+    @OneToOne (cascade = CascadeType.ALL)
+    @JoinColumn(unique = true, name = "address_id")
     private Address address;
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.EAGER)

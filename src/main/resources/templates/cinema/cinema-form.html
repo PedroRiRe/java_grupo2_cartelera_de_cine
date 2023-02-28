@@ -33,12 +33,12 @@
 
                 <div class="mb-4">
                     <label for="cif" class="form-label">Cif</label>
-                    <input type="text" class="form-control" id="cif" th:field="*{cif}" >
+                    <input type="text" class="form-control" id="cif" th:field="*{cif}" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" th:field="*{name}" >
+                    <input type="text" class="form-control" id="name" th:field="*{name}" required>
                 </div>
 
                 <div class="mb-4">
@@ -67,13 +67,33 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label">Correo</label>
                     <input type="text" class="form-control" id="email" th:field="*{email}">
                 </div>
 
                 <div class="mb-4">
-                    <label for="phone" class="form-label">Phone</label>
+                    <label for="phone" class="form-label">Teléfono</label>
                     <input type="text" class="form-control" id="phone" th:field="*{phone}">
+                </div>
+
+                <div class="mb-4">
+                    <label for="address" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="address" th:field="*{address.address}" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="postalCode" class="form-label">C.P.</label>
+                    <input type="number" class="form-control" id="postalCode" th:field="*{address.postalCode}" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="city" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="city" th:field="*{address.city}" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="country" class="form-label">País</label>
+                    <input type="text" class="form-control" id="country" th:field="*{address.country}" required>
                 </div>
 
                 <a class="btn btn-outline-primary" th:href="@{/cinemas}">Cancelar</a>
