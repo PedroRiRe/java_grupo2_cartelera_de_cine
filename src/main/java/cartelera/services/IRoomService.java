@@ -11,6 +11,8 @@ public interface IRoomService {
 
     Optional<Room> findById(Long id);
 
+    boolean existsById(Long id);
+
     List<Room> findAllByCinemaId(Long id);
 
     List<Room> findAllByFilmId(Long id);

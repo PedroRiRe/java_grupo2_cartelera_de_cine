@@ -5,7 +5,6 @@ import cartelera.entities.Cinema;
 import cartelera.repositories.AddressRepository;
 import cartelera.repositories.CinemaRepository;
 import cartelera.services.IAddressService;
-import cartelera.services.ICinemaService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -32,31 +31,41 @@ public class AddressServiceImpl implements IAddressService {
     @Override
     public Optional<Address> findById(Long id) {
         log.info("findById {}", id);
-        if (id == null || id <= 0 ) return Optional.empty();
+        if (invalidPosNumber(id)) return Optional.empty();
         return addressRepo.findById(id);
     }
 
     @Override
+    public boolean existsById(Long id) {
+        log.info("existsById {}", id);
+        if (invalidPosNumber(id)) return false;
+        return addressRepo.existsById(id);
+    }
+
+    @Override
     public boolean existsCity(String city) {
+        log.info("existsCity {}", city);
         return !stringIsEmpty(city) && !addressRepo.findByCityIgnoreCase(city).isEmpty();
     }
 
     @Override
     public Set<String> citiesNames() {
+        log.info("citiesNames");
         Set<String> citiesNames = new HashSet<>();
         for (Address city : addressRepo.findAll()) citiesNames.add(city.getCity());
         return citiesNames;
     }
+
     @Override
     public Address save(Address address) {
+        log.info("save {}", address);
         return addressRepo.save(address);
     }
 
     @Override
     public void deleteById(Long id) {
-
-        if (invalidPosNumber(id)) return;
-
+        log.info("deleteById {}", id);
+        if (invalidPosNumber(id) && !existsById(id)) return;
 
         for (Cinema cinema : cinemaRepo.findAll()) {
             if (Objects.equals(cinema.getAddress().getId(), id)) {
@@ -70,11 +79,13 @@ public class AddressServiceImpl implements IAddressService {
 
     @Override
     public void deleteAllById(List<Long> ids) {
+        log.info("deleteAllById {}", ids);
         addressRepo.deleteAllById(ids);
     }
 
     @Override
     public void saveAll(List<Address> addresses) {
+        log.info("saveAll {}", addresses);
         addressRepo.saveAll(addresses);
     }
 }

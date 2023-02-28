@@ -1,7 +1,5 @@
 package cartelera.services.impl;
 
-import cartelera.entities.Cinema;
-import cartelera.entities.Film;
 import cartelera.entities.Room;
 import cartelera.repositories.RoomRepository;
 import cartelera.services.IRoomService;
@@ -12,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import static cartelera.utils.Utils.invalidPosNumber;
 
 @Slf4j
 @AllArgsConstructor
@@ -29,31 +29,40 @@ public class RoomServiceImpl implements IRoomService {
     @Override
     public Optional<Room> findById(Long id) {
         log.info("findById {}", id);
-        if (id == null || id <= 0) return Optional.empty();
+        if (invalidPosNumber(id)) return Optional.empty();
         return roomRepo.findById(id);
+    }
+
+    @Override
+    public boolean existsById(Long id) {
+        log.info("existsById {}", id);
+        if (invalidPosNumber(id)) return false;
+        return roomRepo.existsById(id);
     }
 
     @Override
     public List<Room> findAllByCinemaId(Long id) {
         log.info("findAllByCinemaId {}", id);
-        if (id == null || id <= 0) return new ArrayList<>();
-        return roomRepo.findAllByCinemaId(id);
+        if (invalidPosNumber(id)) return new ArrayList<>();
+        return roomRepo.findAllByCinema_Id(id);
     }
 
     @Override
     public List<Room> findAllByFilmId(Long id) {
         log.info("findAllByFilmId {}", id);
-        if (id == null || id <= 0) return new ArrayList<>();
-        return roomRepo.findAllByFilmId(id);
+        if (invalidPosNumber(id)) return new ArrayList<>();
+        return roomRepo.findAllByFilm_Id(id);
     }
 
     @Override
     public Room save(Room room) {
+        log.info("save {}", room);
         return roomRepo.save(room);
     }
 
     @Override
     public void deleteById(Long id) {
+        log.info("deleteById {}", id);
         // desasociar room de cine
         Optional<Room> roomOpt = findById(id);
         if (roomOpt.isPresent()) {
@@ -66,14 +75,15 @@ public class RoomServiceImpl implements IRoomService {
 
     @Override
     public void deleteAllById(List<Long> ids) {
+        log.info("deleteById {}", ids);
         roomRepo.deleteAllById(ids);
     }
 
     @Override
     public void saveAll(List<Room> rooms) {
+        log.info("saveAll {}", rooms);
         roomRepo.saveAll(rooms);
     }
-
 }
 
 

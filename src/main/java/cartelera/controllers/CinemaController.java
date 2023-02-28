@@ -1,8 +1,7 @@
 package cartelera.controllers;
 
-import cartelera.entities.Address;
 import cartelera.entities.Cinema;
-import cartelera.repositories.AddressRepository;
+import cartelera.services.IAddressService;
 import cartelera.services.ICinemaService;
 import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
@@ -16,13 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 import java.util.Optional;
 
+import static cartelera.utils.Utils.invalidPosNumber;
+
 @AllArgsConstructor
 @Controller
 public class CinemaController {
 
     private final ICinemaService cinemaService;
     private final IRoomService roomService;
-    private final AddressRepository addressRepository;
+    private final IAddressService addressService;
 
     @GetMapping("/cinemas")
     public String findAll(Model model) {
@@ -33,12 +34,10 @@ public class CinemaController {
 
     @GetMapping("cinema/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        Optional<Cinema> cinemaOpt = cinemaService.findById(id);
-        if (cinemaOpt.isPresent()) {
-            model.addAttribute("cinema", cinemaOpt.get());
+        if (!invalidPosNumber(id) && cinemaService.existsById(id)) {
+            model.addAttribute("cinema", cinemaService.findById(id).get());
             model.addAttribute("rooms", roomService.findAllByCinemaId(id));
-        } else
-            model.addAttribute("error", "Cine no encontrado.");
+        } else model.addAttribute("error", "Cine no encontrado.");
         return "cinema/cinema-detail";
     }
 
@@ -50,24 +49,22 @@ public class CinemaController {
 
     @GetMapping("cinemas/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
-        Optional<Cinema> cinemaOpt = cinemaService.findById(id);
-        if(cinemaOpt.isPresent())
-            model.addAttribute("cinema", cinemaOpt.get());
-        else
-            model.addAttribute("error", "No encontramos este cine");
+        if (!invalidPosNumber(id) && cinemaService.existsById(id))
+            model.addAttribute("cinema", cinemaService.findById(id).get());
+        else model.addAttribute("error", "Cine no encontrado.");
         return "cinema/cinema-form";
     }
 
     @PostMapping("cinemas")
     public String saveForm(@ModelAttribute Cinema cinema) {
-        addressRepository.save(cinema.getAddress());
+        addressService.save(cinema.getAddress());
         cinemaService.save(cinema);
         return "redirect:/cinemas";
     }
 
     @GetMapping("cinemas/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        cinemaService.deleteById(id);
+        if (!invalidPosNumber(id) && cinemaService.existsById(id)) cinemaService.deleteById(id);
         return "redirect:/cinemas";
     }
 }

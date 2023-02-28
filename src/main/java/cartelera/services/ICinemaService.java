@@ -12,6 +12,8 @@ public interface ICinemaService {
 
     Optional<Cinema> findById(Long id);
 
+    boolean existsById(Long id);
+
     Cinema save(Cinema cinema);
 
     void deleteById(Long id);
