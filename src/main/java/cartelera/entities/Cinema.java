@@ -45,7 +45,7 @@ public class Cinema {
     @Column(unique = true)
     private String phone;
 
-    @OneToOne (cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(unique = true, name = "address_id")
     private Address address;
 
