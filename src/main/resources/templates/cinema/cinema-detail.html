@@ -21,8 +21,8 @@
 <div class="container text-center">
     <div class="row mt-5">
         <h1 class="cinefilos-h1">Cine Detalle</h1>
-        <div class="col"></div>
-
+        <div class="col">
+        </div>
         <div class="col">
 
             <div th:if="${error}">
@@ -46,14 +46,14 @@
                     <li class="list-group-item" th:text="|Instagram: ${cinema.instagram}|"></li>
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-outline-primary" th:href="@{/cinemas}">Volver</a>
+                    <a class="btn btn-outline-primary" th:href="@{/cinemas}">CINES</a>
                     <a class="btn btn-outline-success" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"  sec:authorize="isAuthenticated()">Editar</a>
                     <button class="btn btn-outline-danger" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"  sec:authorize="isAuthenticated()">BORRAR</button>
                 </div>
             </div>
         </div>
-
-        <div class="col"></div>
+        <div class="col">
+        </div>
     </div>
 </div>
 
