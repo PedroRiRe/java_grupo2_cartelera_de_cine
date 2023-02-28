@@ -59,12 +59,10 @@ public class FilmServiceImpl implements IFilmService {
     @Override
     public void deleteById(Long id) {
         log.info("deleteById {}", id);
+        if (invalidPosNumber(id)) return;
         // desasociar film de rooms
         List<Room> rooms = roomRepo.findAllByFilm_Id(id);
-        for (Room room : rooms) {
-            room.setFilm(null);
-        }
-        roomRepo.saveAll(rooms);
+        for (Room room : rooms) room.setFilm(null);
 
         filmRepo.deleteById(id);
     }

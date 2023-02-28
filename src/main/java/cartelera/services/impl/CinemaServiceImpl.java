@@ -2,10 +2,10 @@ package cartelera.services.impl;
 
 import cartelera.entities.Cinema;
 import cartelera.entities.Room;
+import cartelera.repositories.AddressRepository;
 import cartelera.repositories.CinemaRepository;
-import cartelera.services.IAddressService;
+import cartelera.repositories.RoomRepository;
 import cartelera.services.ICinemaService;
-import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,8 +22,8 @@ import static cartelera.utils.Utils.invalidPosNumber;
 public class CinemaServiceImpl implements ICinemaService {
 
     private final CinemaRepository cinemaRepo;
-    private final IRoomService roomService;
-    private final IAddressService addressService;
+    private final RoomRepository roomRepo;
+    private final AddressRepository addressRepo;
 
     @Override
     public List<Cinema> findAll() {
@@ -53,16 +53,18 @@ public class CinemaServiceImpl implements ICinemaService {
     @Override
     public void deleteById(Long id) {
         log.info("deleteById {}", id);
+        if (invalidPosNumber(id) && !cinemaRepo.existsById(id)) return;
 
-        if (invalidPosNumber(id) && !existsById(id)) return;
+        Cinema cinema = findById(id).get();
 
         // borrar todas las rooms asociadas
-        List<Room> rooms = roomService.findAllByCinemaId(id);
-        if (!rooms.isEmpty()) for (Room room : rooms) roomService.deleteById(room.getId());
+        List<Room> rooms = roomRepo.findAllByCinema_Id(id);
+        if (!rooms.isEmpty()) for (Room room : rooms) roomRepo.deleteById(room.getId());
 
-        // desasociar la dirección asociada
-        Long addressId = cinemaRepo.findById(id).get().getAddress().getId();
-        if (addressService.existsById(addressId)) addressService.deleteById(addressId);
+        // borrar address asociada
+        Long addressId = cinema.getAddress().getId();
+        cinema.setAddress(null);
+        addressRepo.deleteById(addressId);
 
         cinemaRepo.deleteById(id);
     }

@@ -63,13 +63,11 @@ public class RoomServiceImpl implements IRoomService {
     @Override
     public void deleteById(Long id) {
         log.info("deleteById {}", id);
+        if (invalidPosNumber(id) && !roomRepo.existsById(id)) return;
         // desasociar room de cine
-        Optional<Room> roomOpt = findById(id);
-        if (roomOpt.isPresent()) {
-            Room room = roomOpt.get();
-            room.setCinema(null);
-            room.setFilm(null);
-        }
+        Room room = findById(id).get();
+        room.setCinema(null);
+        room.setFilm(null);
         roomRepo.deleteById(id);
     }
 

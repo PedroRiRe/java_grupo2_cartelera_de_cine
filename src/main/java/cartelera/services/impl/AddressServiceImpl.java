@@ -1,7 +1,6 @@
 package cartelera.services.impl;
 
 import cartelera.entities.Address;
-import cartelera.entities.Cinema;
 import cartelera.repositories.AddressRepository;
 import cartelera.repositories.CinemaRepository;
 import cartelera.services.IAddressService;
@@ -66,14 +65,7 @@ public class AddressServiceImpl implements IAddressService {
     public void deleteById(Long id) {
         log.info("deleteById {}", id);
         if (invalidPosNumber(id) && !existsById(id)) return;
-
-        for (Cinema cinema : cinemaRepo.findAll()) {
-            if (Objects.equals(cinema.getAddress().getId(), id)) {
-                cinema.setAddress(null);
-                break;
-            }
-        }
-
+        cinemaRepo.findByAddress_Id(id).setAddress(null);
         addressRepo.deleteById(id);
     }
 
