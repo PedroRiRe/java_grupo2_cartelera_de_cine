@@ -32,7 +32,7 @@
                            th:text="${room.film.title}"
                            th:href="@{/film/{id}(id=${room.film.id})}"></a>
                     </h5>
-                    <p class="card-text" th:text="${room.premiere}"></p>
+                    <p class="card-text" th:text="|Estreno: ${room.premiere}"></p>
                 </div>
                 <ul class="list-group list-group-flush">
 
