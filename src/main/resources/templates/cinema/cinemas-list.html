@@ -19,19 +19,19 @@
             <table class="table th">
                 <thead>
                 <tr>
-                    <th scope="col">CIF</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Sitio web</th>
                     <th scope="col">Teléfono</th>
+                    <th scope="col">Sitio web</th>
+                    <th scope="col">CIF</th>
                     <th scope="col">Opciones</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="cinema : ${cinemas}">
-                    <td th:text="${cinema.cif}"></td>
                     <td th:text="${cinema.name}"></td>
-                    <td th:text="${cinema.url}"></td>
                     <td th:text="${cinema.phone}"></td>
+                    <td th:text="${cinema.url}"></td>
+                    <td th:text="${cinema.cif}"></td>
                     <td>
                         <a class="btn btn-sm btn-outline-primary"
                            th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">Ver</a>
