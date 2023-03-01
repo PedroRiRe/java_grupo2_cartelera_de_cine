@@ -35,16 +35,14 @@
                 <tbody>
                 <tr th:each="rooms: ${rooms}">
                     <td th:text="${rooms.roomNumber}"></td>
-                    <td th:text="${rooms.capacity}"></td>
-                    <td th:text="${rooms.cinema}"></td>
-                    <td th:text="${rooms.film}"></td>
-<!--                    <td>-->
-<!--                        <a class="btn btn-light" th:text="${rooms.cinema.name}"-->
-<!--                           th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>-->
-<!--                    <td>-->
-<!--                        <a class="btn btn-light" th:text="${rooms.film.title}"-->
-<!--                           th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>-->
-<!--                    </td>-->
+                    <td th:text="${rooms.capacity}"><
+                    <td>
+                        <a class="btn btn-light" th:text="${rooms.cinema.name}"
+                           th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
+                    <td>
+                        <a class="btn btn-light" th:text="${rooms.film.title}"
+                           th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>
+                    </td>
                     <td th:text="${rooms.premiere}"></td>
                     <td>
                         <a class="btn btn-sm btn-outline-primary"

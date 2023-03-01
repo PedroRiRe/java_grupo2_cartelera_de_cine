@@ -16,4 +16,6 @@ public interface ICinemaService {
     Cinema save(Cinema cinema);
 
     void deleteById(Long id);
+
+    Optional<Cinema> findByIdWithRooms(Long id);
 }
