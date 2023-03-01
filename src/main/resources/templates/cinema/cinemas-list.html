@@ -23,7 +23,6 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Sitio web</th>
                     <th scope="col">Teléfono</th>
-                    <th scope="col">Dirección</th>
                     <th scope="col">Opciones</th>
                 </tr>
                 </thead>
@@ -33,10 +32,6 @@
                     <td th:text="${cinema.name}"></td>
                     <td th:text="${cinema.url}"></td>
                     <td th:text="${cinema.phone}"></td>
-                    <td th:text="${cinema.address}"></td>
-<!--                    <td>-->
-<!--                        <a class="btn btn-light" th:text="${cinema.address.city}" th:href="@{/cinema/{id}(id=${cinema.address.id})}"></a>-->
-<!--                    </td>-->
                     <td>
                         <a class="btn btn-sm btn-outline-primary"
                            th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">Ver</a>

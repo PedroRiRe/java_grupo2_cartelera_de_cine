@@ -32,8 +32,6 @@
                 <tr>
                     <th scope="col">Título</th>
                     <th scope="col">Duración</th>
-                    <th scope="col">Año</th>
-                    <th scope="col">País</th>
                     <th scope="col">Clasific.</th>
                     <th scope="col">Compañía</th>
                     <th scope="col">Opciones</th>
@@ -43,8 +41,6 @@
                 <tr th:each="film: ${films}">
                     <td th:text="${film.title}"></td>
                     <td th:text="${film.duration}"></td>
-                    <td th:text="${film.year}"></td>
-                    <td th:text="${film.country}"></td>
                     <td th:text="${film.classification}"></td>
                     <td th:text="${film.company}"></td>
                     <td>

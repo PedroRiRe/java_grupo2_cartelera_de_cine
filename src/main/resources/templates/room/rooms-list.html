@@ -20,7 +20,6 @@
                 <thead>
                 <tr>
                     <th scope="col">Nº sala</th>
-                    <th scope="col">Aforo</th>
                     <th scope="col">Cine</th>
                     <th scope="col">Película</th>
                     <th scope="col">Estreno</th>
@@ -30,7 +29,6 @@
                 <tbody>
                 <tr th:each="rooms: ${rooms}">
                     <td th:text="${rooms.roomNumber}"></td>
-                    <td th:text="${rooms.capacity}"><
                     <td>
                         <a class="btn btn-light" th:text="${rooms.cinema.name}"
                            th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
