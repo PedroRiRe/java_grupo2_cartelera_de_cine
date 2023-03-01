@@ -5,12 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title class ="h1-title">Detalle de cine</title>
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <title>Detalle de cine</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/contact.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
@@ -20,16 +15,16 @@
 
 <div class="container text-center">
     <div class="row mt-5">
-        <h1 class="cinefilos-h1">Cine Detalle</h1>
-        <div class="col"></div>
-
+        <h1 class="cinefilos-h1" th:text="${cinema.name}"></h1>
+        <div class="col">
+        </div>
         <div class="col">
 
             <div th:if="${error}">
                 <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
                 </div>
-                <a type="button" class="btn btn-primary" th:href="@{/cinemas}">Volver</a>
+                <a type="button" class="btn btn-primary" th:href="@{/cinemas}" role="button">Volver</a>
             </div>
 
             <div class="card" th:if="${error} == null">
@@ -39,21 +34,26 @@
                     <p class="card-text" th:text="|Tel:${cinema.phone}"></p>
                     <p class="card-text" th:text="${cinema.address}"></p>
                 </div>
+
+                <h5 class="card-title">Salas</h5>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Twitter: ${cinema.twitter}|"></li>
-                    <li class="list-group-item" th:text="|LinkedIn: ${cinema.linkedIn}|"></li>
-                    <li class="list-group-item" th:text="|Facebook: ${cinema.facebook}|"></li>
-                    <li class="list-group-item" th:text="|Instagram: ${cinema.instagram}|"></li>
+                    <li class="list-group-item"
+                        th:each="rooms: ${cinema.rooms}"
+                        th:text="|Sala ${rooms.roomNumber} ${rooms.film.title}">
+                    </li>
                 </ul>
+
                 <div class="card-body">
-                    <a class="btn btn-outline-primary" th:href="@{/cinemas}">Volver</a>
-                    <a class="btn btn-outline-success" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"  sec:authorize="isAuthenticated()">Editar</a>
-                    <button class="btn btn-outline-danger" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"  sec:authorize="isAuthenticated()">BORRAR</button>
+                    <a class="btn btn-outline-primary" th:href="@{/cinemas}" role="button">Cines</a>
+                    <a class="btn btn-outline-success" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
+                       sec:authorize="isAuthenticated()" role="button">Editar</a>
+                    <button class="btn btn-outline-danger" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
+                       sec:authorize="isAuthenticated()" role="button">Borrar</button>
                 </div>
             </div>
         </div>
-
-        <div class="col"></div>
+        <div class="col">
+        </div>
     </div>
 </div>
 
@@ -121,6 +121,5 @@
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

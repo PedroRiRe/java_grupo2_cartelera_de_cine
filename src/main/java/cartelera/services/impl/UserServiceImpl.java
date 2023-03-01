@@ -34,11 +34,20 @@ public class UserServiceImpl implements IUserService {
         return userRepo.findById(id);
     }
 
+    @Override
+    public boolean existsById(Long id) {
+        log.info("existsById {}", id);
+        if (invalidPosNumber(id)) return false;
+        return userRepo.existsById(id);
+    }
+
     public User save(User user) {
+        log.info("save {}", user);
         return userRepo.save(user);
     }
 
     public void deleteById(Long id) {
+        log.info("deleteById {}", id);
         if (!invalidPosNumber(id) && userRepo.existsById(id)) userRepo.deleteById(id);
     }
 }

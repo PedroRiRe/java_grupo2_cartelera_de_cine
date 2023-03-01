@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title class ="h1-title">Cines</title>
+    <title>Cines</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
@@ -15,10 +15,7 @@
 <div class="container text-left">
     <div class="row mt-5">
         <h1 class="cinefilos-h1">Listado de cines</h1>
-        <div>
-            <a class="btn btn-outline-primary" th:href="@{/cinemas/create}" sec:authorize="isAuthenticated()">Crear nuevo cine</a>
-        </div>
-        <div class="col mt-4">
+        <div class="col mt-3">
             <table class="table th">
                 <thead>
                 <tr>
@@ -36,13 +33,19 @@
                     <td th:text="${cinema.name}"></td>
                     <td th:text="${cinema.url}"></td>
                     <td th:text="${cinema.phone}"></td>
+                    <td th:text="${cinema.address}"></td>
+<!--                    <td>-->
+<!--                        <a class="btn btn-light" th:text="${cinema.address.city}" th:href="@{/cinema/{id}(id=${cinema.address.id})}"></a>-->
+<!--                    </td>-->
                     <td>
-                        <a class="btn btn-light" th:text="${cinema.address.city}" th:href="@{/cinema/{id}(id=${cinema.address.id})}"></a>
-                    </td>
-                    <td>
-                        <a class="btn btn-outline-primary" th:href="@{/cinema/{id}(id=${cinema.id})}">Ver</a>
-                        <a class="btn btn-outline-success" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}" sec:authorize="isAuthenticated()">Editar</a>
-                        <a class="btn btn-outline-danger" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}" sec:authorize="isAuthenticated()">Borrar</a>
+                        <a class="btn btn-sm btn-outline-primary"
+                           th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">Ver</a>
+                        <a class="btn btn-sm btn-outline-success"
+                           th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
+                           sec:authorize="isAuthenticated()" role="button">Editar</a>
+                        <a class="btn btn-sm btn-outline-danger"
+                           th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
+                           sec:authorize="isAuthenticated()" role="button">Borrar</a>
                     </td>
                 </tr>
                 </tbody>
@@ -55,10 +58,13 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-outline-success" th:href="@{/}">VOLVER</a>
+    <div class="text-center mt-4">
+        <a class="btn btn-outline-primary" th:href="@{/cinemas/create}"
+           sec:authorize="isAuthenticated()" role="button">Crear nuevo cine</a>
+        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+    </div>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

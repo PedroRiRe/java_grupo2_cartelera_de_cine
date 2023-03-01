@@ -15,39 +15,37 @@ import org.springframework.web.bind.annotation.PostMapping;
 import static cartelera.utils.Utils.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @AllArgsConstructor
 @Controller
 public class FilmController {
 
     private final IFilmService filmService;
-    private final IAddressService addressService;
     private final IRoomService roomService;
+    private final IAddressService addressService;
 
     @GetMapping("/films")
     public String findAll(Model model) {
         List<Film> films = filmService.findAll();
         model.addAttribute("films", films);
-        //model.addAttribute("cities", addressService.citiesNames());
+        // model.addAttribute("cities", addressService.citiesNames());
         return "film/film-list";
     }
 
     @GetMapping("film/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        Optional<Film> filmOpt = filmService.findById(id);
-        if (filmOpt.isPresent()) {
-            model.addAttribute("film", filmOpt.get());
+        if (!invalidPosNumber(id) && filmService.existsById(id)) {
+            model.addAttribute("film", filmService.findById(id).get());
             model.addAttribute("rooms", roomService.findAllByFilmId(id));
         } else model.addAttribute("error", "Película no encontrada.");
         return "film/film-detail";
     }
 
     @GetMapping("/films/{city}")
-    public String findByRooms_Cinema_Address_CityIgnoreCase(Model model, @PathVariable String city) {
+    public String findAllByRoomsCinemaAddressCity(Model model, @PathVariable String city) {
         if (!stringIsEmpty(city) && addressService.existsCity(city.trim())) {
             city = firstCharUpercase(city.trim());
-            List<Film> films = filmService.findByRooms_Cinema_Address_CityIgnoreCase(city);
+            List<Film> films = filmService.findAllByRoomsCinemaAddressCityIgnoreCase(city);
             model.addAttribute("city", city);
             if (!films.isEmpty()) model.addAttribute("films", films);
             else model.addAttribute("warning", "No hay películas en «" + city + "».");
@@ -63,12 +61,9 @@ public class FilmController {
 
     @GetMapping("films/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
-        Optional<Film> filmOptional = filmService.findById(id);
-        if (filmOptional.isPresent())
-            model.addAttribute("film", filmOptional.get());
-        else
-            model.addAttribute("error", "Film not found");
-
+        if (!invalidPosNumber(id) && filmService.existsById(id))
+            model.addAttribute("film", filmService.findById(id).get());
+        else model.addAttribute("error", "Película no encontrada.");
         return "film/film-form";
     }
 
@@ -80,7 +75,7 @@ public class FilmController {
 
     @GetMapping("films/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        filmService.deleteById(id);
+        if (!invalidPosNumber(id) && filmService.existsById(id)) filmService.deleteById(id);
         return "redirect:/films";
     }
 }

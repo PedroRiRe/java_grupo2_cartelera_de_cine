@@ -1,7 +1,6 @@
 package cartelera.services;
 
 import cartelera.entities.Address;
-import cartelera.entities.Film;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +11,8 @@ public interface IAddressService {
     List<Address> findAll();
 
     Optional<Address> findById(Long id);
+
+    boolean existsById(Long id);
 
     boolean existsCity(String city);
 

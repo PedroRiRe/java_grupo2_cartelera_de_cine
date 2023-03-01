@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-import java.util.Optional;
+
+import static cartelera.utils.Utils.invalidPosNumber;
 
 @AllArgsConstructor
 @Controller
@@ -32,23 +33,23 @@ public class RoomController {
 
     @GetMapping("/room/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        Optional<Room> room = roomService.findById(id);
-        if (room.isPresent()) model.addAttribute("room", room.get());
+        if (!invalidPosNumber(id) && roomService.existsById(id))
+            model.addAttribute("room", roomService.findById(id).get());
         else model.addAttribute("error", "Sala no encontrada.");
         return "room/room-detail";
     }
 
-    @GetMapping("rooms/film/{id}")
-    public String findByFilmId(Model model, @PathVariable Long id) {
-        model.addAttribute("rooms", roomService.findAllByFilmId(id));
-        return "room/rooms-list";
-    }
-
-    @GetMapping("rooms/cinema/{id}")
-    public String findByCinemaId(Model model, @PathVariable Long id) {
-        model.addAttribute("rooms", roomService.findAllByCinemaId(id));
-        return "room/rooms-list";
-    }
+//    @GetMapping("rooms/film/{id}")
+//    public String findByFilmId(Model model, @PathVariable Long id) {
+//        model.addAttribute("rooms", roomService.findAllByFilmId(id));
+//        return "room/rooms-list";
+//    }
+//
+//    @GetMapping("rooms/cinema/{id}")
+//    public String findByCinemaId(Model model, @PathVariable Long id) {
+//        model.addAttribute("rooms", roomService.findAllByCinemaId(id));
+//        return "room/rooms-list";
+//    }
 
     @GetMapping("rooms/create")
     public String createForm(Model model) {
@@ -60,14 +61,11 @@ public class RoomController {
 
     @GetMapping("rooms/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
-        Optional<Room> roomOpt = roomService.findById(id);
-        if (roomOpt.isPresent()) {
-            model.addAttribute("room", roomOpt.get());
+        if (!invalidPosNumber(id) && roomService.existsById(id)) {
+            model.addAttribute("room", roomService.findById(id).get());
             model.addAttribute("cinemas", cinemaService.findAll());
             model.addAttribute("films", filmService.findAll());
-        } else {
-            model.addAttribute("error", "404 La sala desapareció");
-        }
+        } else model.addAttribute("error", "Sala no encontrada.");
         return "room/room-form";
     }
 
@@ -79,7 +77,7 @@ public class RoomController {
 
     @GetMapping("rooms/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        roomService.deleteById(id);
+        if (!invalidPosNumber(id) && roomService.existsById(id)) roomService.deleteById(id);
         return "redirect:/rooms";
     }
 }

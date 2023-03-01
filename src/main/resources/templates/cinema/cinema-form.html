@@ -12,9 +12,9 @@
 
 <div class="container text-center">
     <div class="row">
-        <h1 class="modificar" th:if="${cinema.id}">Modificar datos de un cine <span class="modificar"
+        <h1 class="modificar" th:if="${cinema.id}">Modificar datos de cine <span class="modificar"
                                                                                     th:text="${cinema.id}"></span></h1>
-        <h1 class="modificar" th:if="${cinema.id} == null">Crear nuevo Cine</h1>
+        <h1 class="modificar" th:if="${cinema.id} == null">Crear nuevo cine</h1>
 
         <div class="col"></div>
 
@@ -33,12 +33,12 @@
 
                 <div class="mb-4">
                     <label for="cif" class="form-label">Cif</label>
-                    <input type="text" class="form-control" id="cif" th:field="*{cif}" >
+                    <input type="text" class="form-control" id="cif" th:field="*{cif}" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="name" th:field="*{name}" >
+                    <input type="text" class="form-control" id="name" th:field="*{name}" required>
                 </div>
 
                 <div class="mb-4">

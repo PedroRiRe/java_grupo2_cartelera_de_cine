@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title class ="h1-title">Detalle de la sala</title>
+    <title>Detalle de la sala</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
@@ -18,6 +18,14 @@
         <div class="col">
         </div>
         <div class="col">
+
+            <div th:if="${error}">
+                <div class="alert alert-danger" role="alert" >
+                    <p th:text="${error}"></p>
+                </div>
+                <a class="btn btn-primary" th:href="@{/films}" role="button">Volver</a>
+            </div>
+
             <div class="card">
                 <img src="/img/poster/spiderman.jpg" class="card-img-top" alt="Spiderman">
                 <div class="card-body">
@@ -44,9 +52,11 @@
                        th:href="@{/cinema/{id}(id=${room.cinema.id})}"></a>
                     <br>
                     <br>
-                    <a class="btn btn-outline-primary" th:href="@{/rooms}">SALAS</a>
-                    <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${room.id})}"  sec:authorize="isAuthenticated()">EDITAR</a>
-                    <button class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${room.id})}"  sec:authorize="isAuthenticated()">ELIMINAR</button>
+                    <a class="btn btn-outline-primary" th:href="@{/rooms}" role="button">Salas</a>
+                    <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${room.id})}"
+                       sec:authorize="isAuthenticated()" role="button">Editar</a>
+                    <button class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${room.id})}"
+                       sec:authorize="isAuthenticated()" role="button">Borrar</button>
                 </div>
             </div>
         </div>
@@ -56,6 +66,5 @@
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

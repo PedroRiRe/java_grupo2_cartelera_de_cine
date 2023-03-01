@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-import java.util.Optional;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
@@ -34,8 +33,8 @@ public class UserController {
 
     @GetMapping("/user/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        Optional<User> user = userService.findById(id);
-        if (user.isPresent()) model.addAttribute("user", user.get());
+        if (!invalidPosNumber(id) && userService.existsById(id))
+            model.addAttribute("user", userService.findById(id).get());
         else model.addAttribute("error", "Usuario no encontrado.");
         return "user/user-detail";
     }
@@ -48,8 +47,8 @@ public class UserController {
 
     @GetMapping("users/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
-        Optional<User> user = userService.findById(id);
-        if (user.isPresent()) model.addAttribute("user", user.get());
+        if (!invalidPosNumber(id) && userService.existsById(id))
+            model.addAttribute("user", userService.findById(id).get());
         else model.addAttribute("error", "Usuario no encontrado.");
         return "user/user-form";
     }
@@ -63,7 +62,7 @@ public class UserController {
 
     @GetMapping("users/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        if (!invalidPosNumber(id)) {
+        if (!invalidPosNumber(id) && userService.existsById(id)) {
             Long loginId = null;
 
             // Comprueba si hay un usuario logueado y, si es así, obtiene su id.
@@ -73,7 +72,7 @@ public class UserController {
                 loginId = admin.getId();
             }
 
-            // Si el usuario logueado y el usuario que queremos borrar NO es el mismo, borrarlo.
+            // Si el usuario está logueado y el usuario que queremos borrar NO es el mismo, borrarlo.
             if (!id.equals(loginId)) userService.deleteById(id);
         }
         return "redirect:/users";

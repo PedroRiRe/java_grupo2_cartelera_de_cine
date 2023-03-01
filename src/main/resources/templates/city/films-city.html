@@ -58,7 +58,7 @@
                             <td th:text="${film.script}"></td>
                             <td th:text="${film.company}"></td>
                             <td>
-                                <a class="btn btn-primary btn-sm" th:href="@{/film/{id}(id=${film.id})}">Ver</a>
+                                <a class="btn btn-primary btn-sm" th:href="@{/film/{id}(id=${film.id})}" role="button">Ver</a>
                             </td>
                         </tr>
                         </tbody>
@@ -68,10 +68,9 @@
             </div>
         </div>
     </div>
-    <a class="btn btn-primary" th:href="@{/films}">Volver</a>
+    <a class="btn btn-primary" th:href="@{/films}" role="button">Volver</a>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>

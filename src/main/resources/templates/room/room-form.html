@@ -31,19 +31,40 @@
                     <input type="text" class="form-control" id="roomNumber" th:field="*{roomNumber}">
                 </div>
                 <div class="mb-3">
+                    Seleccionar película
                     <select aria-label="Films" class="form-select" th:field="*{film}">
-                        <option th:if="${room.id} == null" selected value="0">Seleccionar película</option>
+                        <option th:if="${room.id} == null" selected value="0"></option>
                         <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.title}"></option>
                     </select>
                 </div>
                 <div class="mb-4">
-                    <label for="premiere" class="form-label">Premiere</label>
+                    <label for="premiere" class="form-label">Día de estreno</label>
                     <input type="date" class="form-control" id="premiere" th:field="*{premiere}">
                 </div>
                 <div class="mb-4">
                     <label for="schedules" class="form-label">Sesión</label>
                     <input type="time" class="form-control" id="schedules" th:field="*{schedules}">
                 </div>
+
+                <!--
+                <div class="mb-3">
+                    Seleccione horarios para las sesiones
+                    <select aria-label="schedules" class="form-select" th:field="*{schedules}" multiple>
+                        <option th:each="room : ${schedules}" th:value="${schedules}" th:text="|16:00 |"></option>
+                    </select>
+                </div>
+                -->
+                <!--
+                <div class="mb-4">
+                    <select class="form-select" multiple aria-label="multiple select example">
+                        <option selected>Selecione las horas de pase de la película</option>
+                        <option value="1">16:00</option>
+                        <option value="2">18:00</option>
+                        <option value="3">20:00</option>
+                    </select>
+                </div>
+                -->
+
                 <div class="form-check mb-5 text-start">
                     <input class="form-check-input" type="checkbox" id="active" th:field="*{active}">
                     <label class="form-check-label" for="active">Sala operativa</label>
@@ -66,7 +87,5 @@
     </div>
 </div>
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/main.js}"></script>
 </body>
 </html>
