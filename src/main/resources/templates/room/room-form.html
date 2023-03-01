@@ -42,29 +42,18 @@
                     <input type="date" class="form-control" id="premiere" th:field="*{premiere}">
                 </div>
                 <div class="mb-4">
-                    <label for="schedules" class="form-label">Sesión</label>
-                    <input type="time" class="form-control" id="schedules" th:field="*{schedules}">
-                </div>
-
-                <!--
-                <div class="mb-3">
-                    Seleccione horarios para las sesiones
-                    <select aria-label="schedules" class="form-select" th:field="*{schedules}" multiple>
-                        <option th:each="room : ${schedules}" th:value="${schedules}" th:text="|16:00 |"></option>
+                    <select class="form-select"  th:field="*{schedules}" multiple aria-label="multiple select example">
+                        <option value="" selected>Selecione las horas de pase de la película</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:30">20:30</option>
+                        <option value="22:00">22:00</option>
+                        <option value="22:30">22:30</option>
                     </select>
                 </div>
-                -->
-                <!--
-                <div class="mb-4">
-                    <select class="form-select" multiple aria-label="multiple select example">
-                        <option selected>Selecione las horas de pase de la película</option>
-                        <option value="1">16:00</option>
-                        <option value="2">18:00</option>
-                        <option value="3">20:00</option>
-                    </select>
-                </div>
-                -->
-
                 <div class="form-check mb-5 text-start">
                     <input class="form-check-input" type="checkbox" id="active" th:field="*{active}">
                     <label class="form-check-label" for="active">Sala operativa</label>
