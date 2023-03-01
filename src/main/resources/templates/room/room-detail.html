@@ -18,14 +18,12 @@
         <div class="col">
         </div>
         <div class="col">
-
             <div th:if="${error}">
                 <div class="alert alert-danger" role="alert" >
                     <p th:text="${error}"></p>
                 </div>
                 <a class="btn btn-primary" th:href="@{/films}" role="button">Volver</a>
             </div>
-
             <div class="card">
                 <img src="/img/poster/spiderman.jpg" class="card-img-top" alt="Spiderman">
                 <div class="card-body">
