@@ -66,4 +66,14 @@ public class FilmServiceImpl implements IFilmService {
 
         filmRepo.deleteById(id);
     }
+
+    @Override
+    public List<Film> findByIdWithGender(Long ids) {
+        return filmRepo.findByIdWithGender(ids);
+    }
+
+    @Override
+    public List<Film> findAllByGenders(String gender) {
+        return filmRepo.findAllByGenders(gender);
+    }
 }

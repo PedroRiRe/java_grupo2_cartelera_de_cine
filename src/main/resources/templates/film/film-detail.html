@@ -24,8 +24,24 @@
                 </div>
                 <a class="btn btn-primary" th:href="@{/films}" role="button">Listado de películas</a>
             </div>
+
+    <!--        <embed><img th:src="@{${film.poster}}" src="[[${film.poster}]]"/><embed>   -->
+    <!--        <img th:src="@{${film.poster}}" [[${film.poster}]]="">                     -->
+
+
             <div class="card">
-                <img src="'${film.poster}'" class="card-img-top" alt="th:text='${film.title}|'">
+
+                <!--      <img src="@{${film.poster}}" class="card-img-top">  -->
+
+                <img src="@{${film.poster}}" th:src="@{${film.poster}}" th:value="@{${film.poster}}"/>
+
+            <!--    <div [[${film.poster}]]></div>  -->
+
+                <!--       <img class="card-img-top" src=" th:src='@{${film.poster}}'" alt="Caratula"/>  -->
+
+                <!--       <img src="${film.poster}" class="card-img-top" alt="Caratula" th:src="@{film.poster}"/>  -->
+
+
                 <div class="card-body">
                     <h5 class="card-title" th:text="${film.company}|"></h5>
                     <p class="card-text" th:text="|De: ${film.director}"></p>
