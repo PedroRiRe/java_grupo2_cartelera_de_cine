@@ -34,11 +34,18 @@ public class FilmController {
 
     @GetMapping("film/{id}")
     public String findById(Model model, @PathVariable Long id) {
+        List<Film> filmOpt = filmService.findByIdWithGender(id);
         if (!invalidPosNumber(id) && filmService.existsById(id)) {
             model.addAttribute("film", filmService.findById(id).get());
             model.addAttribute("rooms", roomService.findAllByFilmId(id));
         } else model.addAttribute("error", "Película no encontrada.");
         return "film/film-detail";
+    }
+
+    @GetMapping("films/genders/{gender}")
+    public String findByGender(Model model, @PathVariable String gender) {
+        model.addAttribute("films", filmService.findAllByGenders(gender));
+        return "film/film-list";
     }
 
     @GetMapping("/films/{city}")

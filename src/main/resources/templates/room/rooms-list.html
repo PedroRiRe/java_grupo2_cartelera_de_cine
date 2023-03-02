@@ -31,7 +31,7 @@
                     <td th:text="${rooms.roomNumber}"></td>
                     <td>
                         <a class="btn btn-light" th:text="${rooms.cinema.name}"
-                           th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
+                           th:href="@{rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
                     <td>
                         <a class="btn btn-light" th:text="${rooms.film.title}"
                            th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>

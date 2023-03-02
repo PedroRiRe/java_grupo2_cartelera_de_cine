@@ -121,6 +121,21 @@
     </button>
   </div>
 
+ <!--  <a class="btn btn-link" th:text="${film.genders}"    -->
+ <!--  th:href="@{/films/genders/{gender}(gender=${film.genders})}"></a>    -->
+
+
+<!--
+<h5 class="card-title">Películas por género</h5>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item"
+        th:each="genders: ${film.genders}"
+        th:text="|Género ${genders.gender} ${genders.film.title}">
+    </li>
+</ul>
+-->
+
+
 <div th:replace="~{footer :: footer}"></div>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
