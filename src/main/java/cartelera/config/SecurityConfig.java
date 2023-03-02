@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -21,8 +23,7 @@ public class SecurityConfig {
 
         return http
             .authorizeHttpRequests()
-
-            .requestMatchers("/css/**", "/js/**", "/img/**", "/webjars/**").permitAll()
+            .requestMatchers("/favicon.ico", "/css/**", "/js/**", "/img/**", "/webjars/**").permitAll()
             .requestMatchers(HttpMethod.GET,"/").permitAll()
 
             .requestMatchers(HttpMethod.GET,"/addresses/create").authenticated()
@@ -57,9 +58,9 @@ public class SecurityConfig {
 
             .anyRequest().authenticated()
 
-            .and().formLogin()
+            .and().formLogin().failureUrl("/login?error=true").defaultSuccessUrl("/")
             .and().logout().logoutSuccessUrl("/")
-            .and().exceptionHandling().accessDeniedPage("/login")
+            .and().exceptionHandling().accessDeniedPage("/")
 
             .and().build();
     }

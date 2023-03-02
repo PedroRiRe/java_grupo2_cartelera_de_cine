@@ -7,16 +7,13 @@ import java.util.Optional;
 
 public interface ICinemaService {
 
-    // CRUD
     List<Cinema> findAll();
 
     Optional<Cinema> findById(Long id);
 
+    boolean existsById(Long id);
+
     Cinema save(Cinema cinema);
 
     void deleteById(Long id);
-
-
-    // LÓGICA DE NEGOCIO
-
 }
