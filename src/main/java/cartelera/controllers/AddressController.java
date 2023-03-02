@@ -45,7 +45,7 @@ public class AddressController {
     public String editForm(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && addressService.existsById(id))
             model.addAttribute("address", addressService.findById(id).get());
-        else model.addAttribute("error", "dirección no encontrada.");
+        else model.addAttribute("error", "Dirección no encontrada.");
         return "address/address-form";
     }
 

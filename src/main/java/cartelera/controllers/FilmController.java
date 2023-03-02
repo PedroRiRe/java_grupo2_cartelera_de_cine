@@ -1,7 +1,7 @@
 package cartelera.controllers;
 
 import cartelera.entities.Film;
-import cartelera.services.IAddressService;
+// import cartelera.services.IAddressService;
 import cartelera.services.IFilmService;
 import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ public class FilmController {
 
     private final IFilmService filmService;
     private final IRoomService roomService;
-    private final IAddressService addressService;
+    // private final IAddressService addressService;
 
     @GetMapping("/films")
     public String findAll(Model model) {
@@ -41,17 +41,17 @@ public class FilmController {
         return "film/film-detail";
     }
 
-    @GetMapping("/films/{city}")
-    public String findAllByRoomsCinemaAddressCity(Model model, @PathVariable String city) {
-        if (!stringIsEmpty(city) && addressService.existsCity(city.trim())) {
-            city = firstCharUpercase(city.trim());
-            List<Film> films = filmService.findAllByRoomsCinemaAddressCityIgnoreCase(city);
-            model.addAttribute("city", city);
-            if (!films.isEmpty()) model.addAttribute("films", films);
-            else model.addAttribute("warning", "No hay películas en «" + city + "».");
-        } else model.addAttribute("error", "Ciudad «" + city + "» no encontrada.");
-        return "film/films-city";
-    }
+//    @GetMapping("/films/{city}")
+//    public String findAllByRoomsCinemaAddressCity(Model model, @PathVariable String city) {
+//        if (!stringIsEmpty(city) && addressService.existsCity(city.trim())) {
+//            city = firstCharUpercase(city.trim());
+//            List<Film> films = filmService.findAllByRoomsCinemaAddressCityIgnoreCase(city);
+//            model.addAttribute("city", city);
+//            if (!films.isEmpty()) model.addAttribute("films", films);
+//            else model.addAttribute("warning", "No hay películas en «" + city + "».");
+//        } else model.addAttribute("error", "Ciudad «" + city + "» no encontrada.");
+//        return "film/films-city";
+//    }
 
     @GetMapping("films/create")
     public String createForm(Model model) {

@@ -15,7 +15,12 @@
 <div class="container text-left">
     <div class="row mt-5">
         <h1 class="cinefilos-h1">Listado de salas</h1>
-        <div class="col mt-3">
+
+        <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(rooms)}">
+            Actualmente no hay ninguna sala para mostrar.
+        </div>
+
+        <div class="col mt-3" th:if="${#lists.size(rooms) > 0}">
             <table class="table th">
                 <thead>
                 <tr>
@@ -52,14 +57,13 @@
                 </tr>
                 </tbody>
             </table>
-            <div class="alert alert-info" role="alert" th:if="${#lists.isEmpty(rooms)}">
-                Actualmente no hay ninguna sala para mostrar.
-            </div>
-            <div class="text-center" th:if="${#lists.size(rooms) > 0}">
+
+            <div class="text-center">
                 Actualmente hay <span th:text="${#lists.size(rooms)}"></span> salas.
             </div>
         </div>
     </div>
+
     <div class="text-center mt-4">
         <a class="btn btn-outline-primary" th:href="@{/rooms/create}"
            sec:authorize="isAuthenticated()" role="button">Crear nueva sala</a>
