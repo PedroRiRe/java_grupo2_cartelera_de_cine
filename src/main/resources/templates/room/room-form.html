@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title class = "h1-title">Formulario Sala</title>
+    <title class="h1-title">Formulario Sala</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
@@ -19,18 +19,16 @@
         <div class="col"></div>
         <div class="col">
             <div th:if="${error}">
-                <div class="alert alert-danger" role="alert" >
+                <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
                 </div>
                 <a type="button" class="btn btn-primary" th:href="@{/rooms}">Volver</a>
             </div>
             <form th:if="${error} == null" th:action="@{/rooms}" method="POST" th:object="${room}">
-
-                <input type="hidden" id="id" name="id" th:field="*{id}" />
-
+                <input type="hidden" id="id" name="id" th:field="*{id}"/>
                 <div class="mb-4">
                     <label for="roomNumber" class="form-label">Número de Sala</label>
-                    <input type="text" class="form-control" id="roomNumber" th:field="*{roomNumber}" >
+                    <input type="text" class="form-control" id="roomNumber" th:field="*{roomNumber}">
                 </div>
                 <div class="mb-3">
                     Seleccionar película
@@ -44,29 +42,18 @@
                     <input type="date" class="form-control" id="premiere" th:field="*{premiere}">
                 </div>
                 <div class="mb-4">
-                    <label for="schedules" class="form-label">Sesión</label>
-                    <input type="time" class="form-control" id="schedules" th:field="*{schedules}">
-                </div>
-
-                <!--
-                <div class="mb-3">
-                    Seleccione horarios para las sesiones
-                    <select aria-label="schedules" class="form-select" th:field="*{schedules}" multiple>
-                        <option th:each="room : ${schedules}" th:value="${schedules}" th:text="|16:00 |"></option>
+                    <select class="form-select"  th:field="*{schedules}" multiple aria-label="multiple select example">
+                        <option value="" selected>Selecione las horas de pase de la película</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:30">20:30</option>
+                        <option value="22:00">22:00</option>
+                        <option value="22:30">22:30</option>
                     </select>
                 </div>
-                -->
-                <!--
-                <div class="mb-4">
-                    <select class="form-select" multiple aria-label="multiple select example">
-                        <option selected>Selecione las horas de pase de la película</option>
-                        <option value="1">16:00</option>
-                        <option value="2">18:00</option>
-                        <option value="3">20:00</option>
-                    </select>
-                </div>
-                -->
-
                 <div class="form-check mb-5 text-start">
                     <input class="form-check-input" type="checkbox" id="active" th:field="*{active}">
                     <label class="form-check-label" for="active">Sala operativa</label>
@@ -81,6 +68,8 @@
                         <option th:each="cinema : ${cinemas}" th:value="${cinema.id}" th:text="${cinema.name}"></option>
                     </select>
                 </div>
+                <a class="btn btn-outline-primary" th:href="@{/rooms}">Cancelar</a>
+                <button type="submit" class="btn btn-outline-success">Guardar</button>
 <div class="mt-5">
                     <a class="btn btn-outline-primary" th:href="@{/rooms}" role="button">Cancelar</a>
                     <button type="submit" class="btn btn-outline-success" role="button">Guardar</button>

@@ -1,6 +1,8 @@
 package cartelera.controllers;
 
+import cartelera.entities.Address;
 import cartelera.entities.Cinema;
+import cartelera.repositories.AddressRepository;
 import cartelera.services.IAddressService;
 import cartelera.services.ICinemaService;
 import cartelera.services.IRoomService;
@@ -23,6 +25,7 @@ public class CinemaController {
 
     private final ICinemaService cinemaService;
     private final IRoomService roomService;
+    private final AddressRepository addressRepository;
     private final IAddressService addressService;
 
     @GetMapping("/cinemas")
@@ -58,6 +61,7 @@ public class CinemaController {
 
     @PostMapping("cinemas")
     public String saveForm(@ModelAttribute Cinema cinema) {
+        addressRepository.save(cinema.getAddress());
         addressService.save(cinema.getAddress());
         cinemaService.save(cinema);
         return "redirect:/cinemas";

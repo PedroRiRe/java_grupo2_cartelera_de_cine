@@ -35,7 +35,6 @@
                 <tbody>
                 <tr th:each="rooms: ${rooms}">
                     <td th:text="${rooms.roomNumber}"></td>
-                    <td th:text="${rooms.capacity}"><
                     <td>
                         <a class="btn btn-light" th:text="${rooms.cinema.name}"
                            th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
