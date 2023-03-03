@@ -26,47 +26,96 @@
                 <a type="button" class="btn btn-primary" th:href="@{/films}">Volver</a>
             </div>
             <form th:if="${error} == null" th:action="@{/films}" method="POST" th:object="${film}">
+
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
+
+                <input type="hidden" id="poster" name="poster" th:field="*{poster}"/>
+
                 <div class="mb-4">
-                    <label for="title" class="form-label">Title</label>
+                    <label for="title" class="form-label">Título</label>
                     <input type="text" class="form-control" id="title" th:field="*{title}">
                 </div>
+
                 <div class="mb-4">
-                    <label for="duration" class="form-label">Duration</label>
+                    <label for="duration" class="form-label">Duración</label>
                     <input type="text" class="form-control" id="duration" th:field="*{duration}">
                 </div>
+
                 <div class="mb-4">
-                    <label for="year" class="form-label">Year</label>
+                    <label for="year" class="form-label">Año</label>
                     <input type="text" class="form-control" id="year" th:field="*{year}">
                 </div>
+
+                <div class="mb-4">
+                    <label for="country" class="form-label">País</label>
+                    <input type="text" class="form-control" id="country" th:field="*{country}">
+                </div>
+
+                <div class="mb-4">
+                    <label for="company" class="form-label">Compañía</label>
+                    <input type="text" class="form-control" id="company" th:field="*{company}">
+                </div>
+
+                <!--TODO classification debe ser un select con los nombres de los enums-->
+                <div class="mb-4">
+                    <label for="classification" class="form-label">Clasificación</label>
+                    <input type="text" class="form-control" id="classification" th:field="*{classification}">
+                </div>
+
+                <label class="form-label">Valoración</label>
+                <div class="form-inline d-flex justify-content-evenly mb-4">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="option1" name="option1" class="custom-control-input" value="1" th:field="*{rating}">
+                        <label class="custom-control-label" for="option1">1</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="option2" name="option2" class="custom-control-input" value="2" th:field="*{rating}">
+                        <label class="custom-control-label" for="option2">2</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="option3" name="option3" class="custom-control-input" value="3" th:field="*{rating}">
+                        <label class="custom-control-label" for="option3">3</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="option4" name="option4" class="custom-control-input" value="4" th:field="*{rating}">
+                        <label class="custom-control-label" for="option4">4</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="option5" name="option5" class="custom-control-input" value="5" th:field="*{rating}">
+                        <label class="custom-control-label" for="option5">5</label>
+                    </div>
+                </div>
+
                 <div class="mb-4">
                     <label for="director" class="form-label">Director</label>
                     <input type="text" class="form-control" id="director" th:field="*{director}">
                 </div>
+
                 <div class="mb-4">
-                    <label for="country" class="form-label">Country</label>
-                    <input type="text" class="form-control" id="country" th:field="*{country}">
+                    <label for="actor" class="form-label">Actor</label>
+                    <input type="text" class="form-control" id="actor" th:field="*{actor}">
                 </div>
+
                 <div class="mb-4">
-                    <label for="classification" class="form-label">Classification</label>
-                    <input type="text" class="form-control" id="classification" th:field="*{classification}">
-                </div>
-                <div class="mb-4">
-                    <label for="music" class="form-label">Music</label>
+                    <label for="music" class="form-label">Música</label>
                     <input type="text" class="form-control" id="music" th:field="*{music}">
                 </div>
+
                 <div class="mb-4">
-                    <label for="photography" class="form-label">Photography</label>
+                    <label for="photography" class="form-label">Fotografía</label>
                     <input type="text" class="form-control" id="photography" th:field="*{photography}">
                 </div>
+
                 <div class="mb-4">
-                    <label for="script" class="form-label">Script</label>
+                    <label for="script" class="form-label">Guión</label>
                     <input type="text" class="form-control" id="script" th:field="*{script}">
                 </div>
+
                 <div class="mb-4">
-                    <label for="company" class="form-label">Company</label>
-                    <input type="text" class="form-control" id="company" th:field="*{company}">
+                    <label for="synopsis" class="form-label">Sinopsis</label>
+                    <textarea rows = "5" cols = "60" class="form-control" id="synopsis" th:field="*{synopsis}"></textarea>
                 </div>
+
                 <a class="btn btn-outline-primary" th:href="@{/films}">Cancelar</a>
                 <button type="submit" class="btn btn-outline-success">Guardar</button>
             </form>

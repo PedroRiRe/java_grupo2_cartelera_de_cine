@@ -43,8 +43,7 @@ public class Film {
 
     private String company;
 
-    @ElementCollection
-    private Set<String> actors = new HashSet<>();
+    private String actor;
 
     @ElementCollection
     private Set<Gender> genders = new HashSet<>();

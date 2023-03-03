@@ -29,10 +29,12 @@
                 <img th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
 
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${film.company}"></h5>
-                    <p class="card-text" th:text="|De: ${film.director}"></p>
+                    <h5 class="card-title" th:text="|De: ${film.director}"></h5>
+                    <p class="card-text" th:text="${film.company}"></p>
+                    <p class="card-text" th:text="|Valoración: ${film.rating} de 5|"></p>
                 </div>
                 <ul class="list-group list-group-flush">
+                    <li class="list-group-item" th:text="|Actores: ${film.actor}|"></li>
                     <li class="list-group-item" th:text="|Sinopsis: ${film.synopsis}|"></li>
                     <li class="list-group-item" th:text="|Clasificación: ${film.classification}|"></li>
                     <li class="list-group-item" th:text="|Género: ${film.genders}|"></li>
