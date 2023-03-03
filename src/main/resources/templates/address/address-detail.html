@@ -33,7 +33,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item" th:text="|País: ${address.country}|"></li>
                 </ul>
-                <div class="card-body">
+                <div class="card-footer">
                     <a class="btn btn-outline-primary" th:href="@{/addresses}" role="button">Direcciones</a>
                     <a class="btn btn-outline-success" th:href="@{/addresses/{id}/edit(id=${address.id})}"
                        sec:authorize="isAuthenticated()" role="button">Editar</a>

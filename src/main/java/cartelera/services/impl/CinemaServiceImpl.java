@@ -1,5 +1,6 @@
 package cartelera.services.impl;
 
+import cartelera.entities.Address;
 import cartelera.entities.Cinema;
 import cartelera.entities.Room;
 import cartelera.repositories.AddressRepository;
@@ -62,9 +63,11 @@ public class CinemaServiceImpl implements ICinemaService {
         if (!rooms.isEmpty()) for (Room room : rooms) roomRepo.deleteById(room.getId());
 
         // borrar address asociada
-        Long addressId = cinema.getAddress().getId();
-        cinema.setAddress(null);
-        addressRepo.deleteById(addressId);
+        Address address = cinema.getAddress();
+        if (address != null && addressRepo.existsById(address.getId())) {
+            cinema.setAddress(null);
+            addressRepo.deleteById(address.getId());
+        }
 
         cinemaRepo.deleteById(id);
     }
