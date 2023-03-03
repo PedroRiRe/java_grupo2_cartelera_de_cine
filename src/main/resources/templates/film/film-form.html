@@ -61,13 +61,13 @@
                     <input type="text" class="form-control" id="company" th:field="*{company}">
                 </div>
 
-<!--                <div class="mb-4">-->
-<!--                    <label for="classification" class="form-label">Clasificación</label>-->
-<!--                    <select name="classification" class="form-control" id="classification" th:field="*{classification}">-->
-<!--                        <option th:each="classification : ${T(cartelera.entities.enums.Classification).values()}"-->
-<!--                                th:value="${classification.name()}" th:text="${classification}"></option>-->
-<!--                    </select>-->
-<!--                </div>-->
+                <div class="mb-4">
+                    <label for="genders" class="form-label">Géneros</label>
+                    <select name="genders" class="form-control" id="genders" th:field="*{genders}" multiple>
+                        <option th:each="gender : ${T(cartelera.entities.enums.Gender).values()}"
+                                th:value="${gender.name()}" th:text="${gender}"></option>
+                    </select>
+                </div>
 
                 <label class="form-label">Clasificación</label>
                 <div class="form-inline d-flex justify-content-evenly mb-4">
