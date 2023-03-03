@@ -43,8 +43,7 @@ public class Film {
 
     private String company;
 
-    @ElementCollection
-    private Set<String> actors = new HashSet<>();
+    private String actor;
 
     @ElementCollection
     private Set<Gender> genders = new HashSet<>();
@@ -53,7 +52,7 @@ public class Film {
 
     private String poster;
 
-    private String review;
+    private String synopsis;
 
     @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
     private Set<Room> rooms = new HashSet<>();

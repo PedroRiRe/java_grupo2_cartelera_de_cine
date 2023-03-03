@@ -1,6 +1,8 @@
 package cartelera.controllers;
 
+import cartelera.entities.Address;
 import cartelera.entities.Cinema;
+import cartelera.repositories.AddressRepository;
 import cartelera.services.IAddressService;
 import cartelera.services.ICinemaService;
 import cartelera.services.IRoomService;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
@@ -22,6 +25,7 @@ public class CinemaController {
 
     private final ICinemaService cinemaService;
     private final IRoomService roomService;
+    private final AddressRepository addressRepository;
     private final IAddressService addressService;
 
     @GetMapping("/cinemas")
@@ -33,6 +37,7 @@ public class CinemaController {
 
     @GetMapping("cinema/{id}")
     public String findById(Model model, @PathVariable Long id) {
+        Optional<Cinema> cinemaOpt = cinemaService.findByIdWithRooms(id);
         if (!invalidPosNumber(id) && cinemaService.existsById(id)) {
             model.addAttribute("cinema", cinemaService.findById(id).get());
             model.addAttribute("rooms", roomService.findAllByCinemaId(id));
@@ -56,6 +61,7 @@ public class CinemaController {
 
     @PostMapping("cinemas")
     public String saveForm(@ModelAttribute Cinema cinema) {
+        addressRepository.save(cinema.getAddress());
         addressService.save(cinema.getAddress());
         cinemaService.save(cinema);
         return "redirect:/cinemas";

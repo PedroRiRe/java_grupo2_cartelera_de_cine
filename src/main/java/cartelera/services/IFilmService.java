@@ -18,4 +18,8 @@ public interface IFilmService {
     Film save(Film film);
 
     void deleteById(Long id);
+
+    List<Film> findByIdWithGender(Long ids);
+
+    List<Film> findAllByGenders(String gender);
 }

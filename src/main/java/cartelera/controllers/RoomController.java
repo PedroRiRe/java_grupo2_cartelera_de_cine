@@ -39,17 +39,17 @@ public class RoomController {
         return "room/room-detail";
     }
 
-//    @GetMapping("rooms/film/{id}")
-//    public String findByFilmId(Model model, @PathVariable Long id) {
-//        model.addAttribute("rooms", roomService.findAllByFilmId(id));
-//        return "room/rooms-list";
-//    }
-//
-//    @GetMapping("rooms/cinema/{id}")
-//    public String findByCinemaId(Model model, @PathVariable Long id) {
-//        model.addAttribute("rooms", roomService.findAllByCinemaId(id));
-//        return "room/rooms-list";
-//    }
+    @GetMapping("rooms/film/{id}")
+    public String findByFilmId(Model model, @PathVariable Long id) {
+        model.addAttribute("rooms", roomService.findAllByFilmId(id));
+        return "room/rooms-list";
+    }
+
+    @GetMapping("rooms/cinema/{id}")
+    public String findByCinemaId(Model model, @PathVariable Long id) {
+        model.addAttribute("rooms", roomService.findAllByCinemaId(id));
+        return "room/rooms-list";
+    }
 
     @GetMapping("rooms/create")
     public String createForm(Model model) {

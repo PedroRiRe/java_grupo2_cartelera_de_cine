@@ -15,32 +15,33 @@
 
 <div class="container text-center">
     <div class="row mt-5">
-        <h1 class="cinefilos-h1">Cine Detalle</h1>
+        <h1 class="cinefilos-h1" th:text="${cinema.name}"></h1>
         <div class="col">
         </div>
         <div class="col">
-
             <div th:if="${error}">
                 <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
                 </div>
-                <a type="button" class="btn btn-primary" th:href="@{/cinemas}" role="button">Volver</a>
+                <a type="button" class="btn btn-primary" th:href="@{/cinemas}" role="button">Lista de cines</a>
             </div>
-
             <div class="card" th:if="${error} == null">
-                <img src="https://dummyimage.com/300" class="card-img-top" alt="Cinema Image">
+                <img src="/img/cine.jpg" class="card-img-top" alt="Cinema Image">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${cinema.name}"></h5>
-                    <p class="card-text" th:text="|Tel:${cinema.phone}"></p>
-                    <p class="card-text" th:text="${cinema.address}"></p>
+                    <h5 class="card-title" th:text="|Dirección: ${cinema.address}"></h5>
+                    <p class="card-text" th:text="|Teléfono: ${cinema.phone}"></p>
+                    <p class="card-text" th:text="|CIF: ${cinema.cif}"></p>
                 </div>
+
+                <h5 class="card-title">Salas</h5>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Twitter: ${cinema.twitter}|"></li>
-                    <li class="list-group-item" th:text="|LinkedIn: ${cinema.linkedIn}|"></li>
-                    <li class="list-group-item" th:text="|Facebook: ${cinema.facebook}|"></li>
-                    <li class="list-group-item" th:text="|Instagram: ${cinema.instagram}|"></li>
+                    <li class="list-group-item"
+                        th:each="rooms: ${cinema.rooms}"
+                        th:text="|Sala ${rooms.roomNumber} ${rooms.film.title}">
+                    </li>
                 </ul>
-                <div class="card-body">
+
+                <div class="card-footer">
                     <a class="btn btn-outline-primary" th:href="@{/cinemas}" role="button">Cines</a>
                     <a class="btn btn-outline-success" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
                        sec:authorize="isAuthenticated()" role="button">Editar</a>
