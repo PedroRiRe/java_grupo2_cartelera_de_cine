@@ -35,10 +35,10 @@
                 <tr th:each="rooms: ${rooms}">
                     <td th:text="${rooms.roomNumber}"></td>
                     <td>
-                        <a class="btn btn-light" th:text="${rooms.cinema.name}"
-                           th:href="@{rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
+                        <a class="btn btn-sm btn-light" th:text="${rooms.cinema.name}"
+                           th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
                     <td>
-                        <a class="btn btn-light" th:text="${rooms.film.title}"
+                        <a class="btn btn-sm btn-light" th:text="${rooms.film.title}"
                            th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>
                     </td>
                     <td th:text="${rooms.premiere}"></td>
