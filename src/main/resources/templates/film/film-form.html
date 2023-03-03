@@ -29,7 +29,12 @@
 
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
 
-                <input type="hidden" id="poster" name="poster" th:field="*{poster}"/>
+                <img th:src="*{poster}" th:alt="*{title}"/>
+
+                <div class="mb-4">
+                    <label for="poster" class="form-label">Poster</label>
+                    <input type="text" class="form-control" id="poster" th:field="*{poster}">
+                </div>
 
                 <div class="mb-4">
                     <label for="title" class="form-label">Título</label>
