@@ -56,10 +56,36 @@
                     <input type="text" class="form-control" id="company" th:field="*{company}">
                 </div>
 
-                <!--TODO classification debe ser un select con los nombres de los enums-->
-                <div class="mb-4">
-                    <label for="classification" class="form-label">Clasificación</label>
-                    <input type="text" class="form-control" id="classification" th:field="*{classification}">
+<!--                <div class="mb-4">-->
+<!--                    <label for="classification" class="form-label">Clasificación</label>-->
+<!--                    <select name="classification" class="form-control" id="classification" th:field="*{classification}">-->
+<!--                        <option th:each="classification : ${T(cartelera.entities.enums.Classification).values()}"-->
+<!--                                th:value="${classification.name()}" th:text="${classification}"></option>-->
+<!--                    </select>-->
+<!--                </div>-->
+
+                <label class="form-label">Clasificación</label>
+                <div class="form-inline d-flex justify-content-evenly mb-4">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="opt1" name="opt1" class="custom-control-input" value="ALL_AGES" th:field="*{classification}">
+                        <label class="custom-control-label" for="opt1">TP</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="opt2" name="opt2" class="custom-control-input" value="OLDER7" th:field="*{classification}">
+                        <label class="custom-control-label" for="opt2">+7</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="opt3" name="opt3" class="custom-control-input" value="OLDER12" th:field="*{classification}">
+                        <label class="custom-control-label" for="opt3">+12</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="opt4" name="opt4" class="custom-control-input" value="OLDER16" th:field="*{classification}">
+                        <label class="custom-control-label" for="opt4">+16</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="opt5" name="opt5" class="custom-control-input" value="OLDER18" th:field="*{classification}">
+                        <label class="custom-control-label" for="opt5">+18</label>
+                    </div>
                 </div>
 
                 <label class="form-label">Valoración</label>
