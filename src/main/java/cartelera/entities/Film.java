@@ -53,7 +53,7 @@ public class Film {
 
     private String poster;
 
-    private String review;
+    private String synopsis;
 
     @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
     private Set<Room> rooms = new HashSet<>();
