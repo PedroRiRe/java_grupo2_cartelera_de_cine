@@ -13,6 +13,8 @@ public interface IUserService {
 
     boolean existsById(Long id);
 
+    boolean existsByUsername(String username);
+
     User save(User user);
 
     void deleteById(Long id);
