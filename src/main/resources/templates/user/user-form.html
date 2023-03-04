@@ -54,8 +54,9 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="password" th:field="*{password}" required>
+                    <label th:if="${user.id}" for="password" class="form-label">Cambiar contraseña (no obligatorio)</label>
+                    <label th:unless="${user.id}" for="password" class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" id="password" th:field="*{password}">
                 </div>
 
                 <div class="mt-5">
