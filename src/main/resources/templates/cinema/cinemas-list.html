@@ -32,7 +32,6 @@
                 </thead>
                 <tbody>
                 <tr th:each="cinema : ${cinemas}">
-                <!--    <td th:text="${cinema.name}"></td>  -->
                     <td>
                         <a class="btn btn-sm btn-light" th:text="${cinema.name}"
                            th:href="@{/cinema/{id}(id=${cinema.id})}"></a>
