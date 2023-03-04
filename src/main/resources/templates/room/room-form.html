@@ -14,7 +14,7 @@
 
 <div class="container text-center">
     <div class="row">
-        <h1 class="modificar" th:if="${room.id}">Modificar Sala<span class="modificar" th:text="${room.id}"></span></h1>
+        <h1 class="modificar" th:if="${room.id}">Modificar Sala <span class="modificar" th:text="${room.roomNumber}"></span></h1>
         <h1 class="modificar" th:if="${room.id} == null">Crear nueva Sala</h1>
         <div class="col"></div>
         <div class="col">
