@@ -55,16 +55,16 @@ public class UserController {
 
     @PostMapping("users")
     public String save(@ModelAttribute User user) {
-            String oldPasswd = null;
-            if (userService.existsById(user.getId()))
-                oldPasswd = userService.findById(user.getId()).get().getPassword();
-            String newPasswd = user.getPassword();
+        String oldPasswd = null;
+        if (userService.existsById(user.getId()))
+            oldPasswd = userService.findById(user.getId()).get().getPassword();
+        String newPasswd = user.getPassword();
 
-            if (!stringIsEmpty(newPasswd)) user.setPassword(passwordEncoder.encode(newPasswd)); // Cambia contraseña
-            else if (!stringIsEmpty(oldPasswd)) user.setPassword(oldPasswd); // Mantiene contraseña actual
-            else user.setPassword("$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q"); // por defecto
+        if (!stringIsEmpty(newPasswd)) user.setPassword(passwordEncoder.encode(newPasswd)); // Cambia contraseña
+        else if (!stringIsEmpty(oldPasswd)) user.setPassword(oldPasswd); // Mantiene contraseña actual
+        else user.setPassword("$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q"); // por defecto
 
-            userService.save(user);
+        userService.save(user);
         return "redirect:/users";
     }
 
