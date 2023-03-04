@@ -19,6 +19,7 @@
         <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(cinemas)}">
             Actualmente no hay ningún cine para mostrar.
         </div>
+
         <div class="col mt-3" th:if="${#lists.size(cinemas) > 0}">
             <table class="table th">
                 <thead>
