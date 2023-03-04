@@ -26,7 +26,7 @@
                 <a type="button" class="btn btn-primary" th:href="@{/cinemas}" role="button">Lista de cines</a>
             </div>
             <div class="card" th:if="${error} == null">
-                <img src="/img/cine.jpg" class="card-img-top" alt="Cinema Image">
+                <img th:src="@{${cinema.image}}" class="card-img-top" th:alt="${cinema.name}"/>
                 <div class="card-body">
                     <h5 class="card-title" th:text="|Teléfono: ${cinema.phone}"></h5>
                     <p class="card-text" th:text="|CIF: ${cinema.cif}"></p>

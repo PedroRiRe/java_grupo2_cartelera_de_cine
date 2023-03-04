@@ -4,12 +4,12 @@
 -- Volcado de datos para la tabla `address`
 --
 
-INSERT INTO `address` (`id`, `address`, `city`, `country`, `postal_code`) VALUES
-(1, 'C/ Callejón, 2', 'Alicante', 'España', '23654'),
-(2, 'C/ Calle Cita, 5', 'Madrid', 'España', '41258'),
-(3, 'C/ Carrerón, 3', 'Bayona', 'España', '96587'),
-(4, 'C/ Carrerita, 1', 'Badajoz', 'España', '12365'),
-(5, 'C/ Camino, 2', 'Abrera', 'España', '12123');
+INSERT INTO `address` (`id`, `image`, `address`, `city`, `country`, `postal_code`) VALUES
+(1, 'https://cualbondi.com.ar/media/poi.webp/poi-cines-aana-san-juan.880x300.webp', 'C/ Callejón, 2', 'Alicante', 'España', '23654'),
+(2, 'https://www.pillalas.com/static/_s/img/cines/mapa_349566086E5F21EF.jpg', 'C/ Calle Cita, 5', 'Madrid', 'España', '41258'),
+(3, 'https://cualbondi.com.ar/media/poi/poi-cines-golem-baiona.500x500.png', 'C/ Carrerón, 3', 'Bayona', 'España', '96587'),
+(4, 'https://www.alimarket.es/media/images/mapas/censos/2/image-map-1049382-640x416-z17-scale2.png', 'C/ Carrerita, 1', 'Badajoz', 'España', '12365'),
+(5, 'https://www.alimarket.es/media/images/mapas/censos/6/image-map-1064966-640x416-z17-scale2.png', 'C/ Camino, 2', 'Abrera', 'España', '12123');
 
 -- --------------------------------------------------------
 
@@ -36,12 +36,12 @@ INSERT INTO `users` (`id`, `email`, `name`, `password`, `surname`, `username`) V
 -- Volcado de datos para la tabla `cinema`
 --
 
-INSERT INTO `cinema` (`id`, `cif`, `email`, `facebook`, `instagram`, `linked_in`, `name`, `phone`, `twitter`, `url`, `address_id`) VALUES
-(1, '123456987', 'cinesaana@cinefilos.org', 'Facebook1', 'Instagram1', 'LinkedIn1', 'Cines Aana', '693326598', 'Twitter1', 'http://www.cinesaana.com/', 1),
-(2, '987456321', 'princesa@cinefilos.org', 'Facebook2', 'Instagram2', 'LinkedIn2', 'Reinor Princesa', '658946785', 'Twitter2', 'https://www.cinesrenoir.com/cartelera/cine/349566086E5F21EF/', 2),
-(3, '654987123', 'pamplona@cinefilos.org', 'Facebook3', 'Instagram3', 'LinkedIn3', 'Golem Bayona', '685269831', 'Twitter3', 'https://golem.es/golem/golem-baiona', 3),
-(4, '951753682', 'donbenito@cinefilos.org', 'Facebook4', 'Instagram4', 'LinkedIn4', 'Cines Victoria Don Benito', '647958969', 'Twitter4', 'http://www.cinesvictoria.com/', 4),
-(5, '951753680', 'yelmoabrera@cinefilos.org', 'Facebook5', 'Instagram5', 'LinkedIn5', 'Cine Yelmo Abrera', '647958960', 'Twitter5', 'http://www.yelmocines.es/', 5);
+INSERT INTO `cinema` (`id`, `image`, `cif`, `email`, `facebook`, `instagram`, `linked_in`, `name`, `phone`, `twitter`, `url`, `address_id`) VALUES
+(1, 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/19/61/3d/65/entrada.jpg?w=1200&h=-1&s=1', '123456987', 'cinesaana@cinefilos.org', 'Facebook1', 'Instagram1', 'LinkedIn1', 'Cines Aana', '693326598', 'Twitter1', 'http://www.cinesaana.com/', 1),
+(2, 'https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2013/04/18/c9f3117_CINES_RENOIR.jpg', '987456321', 'princesa@cinefilos.org', 'Facebook2', 'Instagram2', 'LinkedIn2', 'Reinor Princesa', '658946785', 'Twitter2', 'https://www.cinesrenoir.com/cartelera/cine/349566086E5F21EF/', 2),
+(3, 'https://fastly.4sqi.net/img/general/600x600/1285676_1ma4wO1IhSyhcsP-RIWxYrVPpKTRqQf7IAQ_gaxfP_E.jpg', '654987123', 'pamplona@cinefilos.org', 'Facebook3', 'Instagram3', 'LinkedIn3', 'Golem Bayona', '685269831', 'Twitter3', 'https://golem.es/golem/golem-baiona', 3),
+(4, 'https://static2.hoy.es/www/multimedia/202101/20/media/cortadas/157188370--1248x936.jpg', '951753682', 'donbenito@cinefilos.org', 'Facebook4', 'Instagram4', 'LinkedIn4', 'Cines Victoria Don Benito', '647958969', 'Twitter4', 'http://www.cinesvictoria.com/', 4),
+(5, 'https://dades.grupnaciodigital.cat/redaccio/arxius/imatges/202006/1200_1592410050yelmosantcugat.jpg', '951753680', 'yelmoabrera@cinefilos.org', 'Facebook5', 'Instagram5', 'LinkedIn5', 'Cine Yelmo Abrera', '647958960', 'Twitter5', 'http://www.yelmocines.es/', 5);
 
 -- --------------------------------------------------------
 

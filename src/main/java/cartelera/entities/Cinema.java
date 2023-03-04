@@ -18,6 +18,8 @@ public class Cinema {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String image;
+
     @Column(unique = true, nullable = false)
     private String cif;
 
