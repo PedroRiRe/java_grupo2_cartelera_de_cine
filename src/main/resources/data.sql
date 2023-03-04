@@ -1,3 +1,5 @@
+-- --------------------------------------------------------
+
 --
 -- Volcado de datos para la tabla `address`
 --
@@ -80,6 +82,7 @@ INSERT INTO `film` (`id`, `actor`, `classification`, `company`, `country`, `dire
 (30, '', 4, 'Fundação Calouste Gulbenkian, Tropico Filmes, Radiotelevisão Portuguesa, Instituto Português de Cinema (IPC)', 'Portugal', 'Pedro Costa', 95, 'Acácio de Almeida', 'Acácio de Almeida, Elso Roque, Martin Schäfer (B&W)', 'https://pics.filmaffinity.com/o_sangue-936829145-large.jpg', 3, 'Dos hermanos, Nino y Vincente, han aprendido a desenvolverse muy bien juntos durante las inexplicadas ausencias de su padre. El día que aparentemente desaparece para siempre, no tienen ningún problema en seguir como antes.', 'Pedro Costa', 'La sangre','https://www.youtube.com/watch?v=RBttCtfsCQg', 1989),
 (31, '', 2, 'Filmstudio Berlin', 'Alemania', 'Robert Siodmak, Edgar G. Ulmer, Curt Siodmak, Fred Zinnemann', 74, 'Billy Wilder', 'Eugen Schüfftan (B&W)', 'https://pics.filmaffinity.com/menschen_am_sonntag_people_on_sunday-691848423-large.jpg', 1, 'Una mezcla de ficción y documental que retrata a los berlineses de 1930 durante un domingo. Obtuvo muy buenas críticas y dio la oportunidad a sus creadores (Siodmak, Ulmer, Wilder, Zinnemann) de dar el salto al cine de ficción.', 'Billy Wilder, Curt Siodmak, Robert Siodmak', 'Gente en domingo','https://www.youtube.com/watch?v=djsAduducm0', 1930),
 (32, '', 3, 'Marvel Studios, Walt Disney Pictures, Truenorth Productions. Distribuidora: Walt Disney Pictures', 'Estados Unidos', 'Peyton Reed', 125, 'Christophe Beck', 'Bill Pope', 'https://pics.filmaffinity.com/ant_man_and_the_wasp_quantumania-332452493-large.jpg', 5, 'Scott Lang y Hope Van Dyne, junto con Hank Pym y Janet Van Dyne, exploran el Reino Cuántico, donde interactúan con extrañas criaturas y se embarcan en una aventura que va más allá de los límites de lo que creían posible.', 'Jeff Loveness. Cómic: Stan Lee, Jack Kirby, Larry Lieber', 'Ant-Man y la Avispa: Quantumanía', 'https://www.youtube.com/watch?v=BaLJ044I2HI', 2023);
+
 -- --------------------------------------------------------
 
 --
@@ -139,6 +142,8 @@ INSERT INTO `room` (`id`, `active`, `capacity`, `premiere`, `room_number`, `cine
 (null, b'1', 130, '2023-02-18', 3, 5, 3),
 (null, b'1', 130, '2023-02-18', 4, 5, 4),
 (null, b'1', 130, '2023-02-18', 5, 5, 5);
+
+-- --------------------------------------------------------
 
 --
 -- Volcado de datos para la tabla `room_schedules`
@@ -245,3 +250,5 @@ INSERT INTO `room_schedules` (`room_id`, `schedules`) VALUES
 (23, '22:30'),
 (24, '22:30'),
 (25, '22:30');
+
+-- --------------------------------------------------------
