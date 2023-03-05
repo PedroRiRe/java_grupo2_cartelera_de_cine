@@ -1,27 +1,27 @@
 <!doctype html>
-<html lang="es" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="">
+<html lang="es" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<nav th:fragment="navbar" class="navbar sticky-top navbar-light" style="background-color:#FFFFE0">
+<nav th:fragment="navbar" class="navbar sticky-top navbar-light shadow d-flex justify-content-between" style="background-color:#FFFFE0">
 
     <a class="navbar-brand px-5" th:href="@{/}">
         <img src="/img/logo.svg" width="120" height="48" class="ms-4 d-inline-block align-top" alt="Logo Cinéfilos">
     </a>
 
-    <ul class="nav navbar-nav flex-row ms-3">
-        <li class="nav-item me-3">
-            <a class="nav-link" th:href="@{/addresses}">Direcciones</a>
+    <ul class="nav navbar-nav flex-row ms-4">
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/addresses}">Direcciones</a>
         </li>
-        <li class="nav-item me-3">
-            <a class="nav-link" th:href="@{/films}">Películas</a>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/films}">Películas</a>
         </li>
-        <li class="nav-item me-3">
-            <a class="nav-link" th:href="@{/cinemas}">Cines</a>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/cinemas}">Cines</a>
         </li>
-        <li class="nav-item me-3">
-            <a class="nav-link" th:href="@{/rooms}">Salas</a>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/rooms}">Salas</a>
         </li>
-        <li class="nav-item me-3">
-            <a class="nav-link" th:href="@{/users}">Usuarios</a>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/users}">Usuarios</a>
         </li>
     </ul>
 

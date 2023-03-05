@@ -34,7 +34,7 @@
                 <tbody>
                 <tr th:each="user: ${users}">
                     <td>
-                        <a class="btn btn-light" th:text="${user.username}"
+                        <a class="btn btn-sm btn-light" th:text="${user.username}"
                            th:href="@{/user/{id}(id=${user.id})}"></a>
                     </td>
                     <td th:text="${user.name}"></td>
