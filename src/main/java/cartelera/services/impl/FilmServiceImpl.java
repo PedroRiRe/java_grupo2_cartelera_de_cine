@@ -43,12 +43,12 @@ public class FilmServiceImpl implements IFilmService {
         return filmRepo.existsById(id);
     }
 
-    @Override
-    public List<Film> findAllByRoomsCinemaAddressCityIgnoreCase(String city) {
-        log.info("findByRoomsCinemaAddressCityIgnoreCase {}", city);
-        if (city == null || city.trim().isEmpty()) return new ArrayList<>();
-        return filmRepo.findAllByRooms_Cinema_Address_CityIgnoreCase(city);
-    }
+//    @Override
+//    public List<Film> findAllByRoomsCinemaAddressCityIgnoreCase(String city) {
+//        log.info("findByRoomsCinemaAddressCityIgnoreCase {}", city);
+//        if (city == null || city.trim().isEmpty()) return new ArrayList<>();
+//        return filmRepo.findAllByRooms_Cinema_Address_CityIgnoreCase(city);
+//    }
 
     @Override
     public Film save(Film film) {
@@ -67,13 +67,13 @@ public class FilmServiceImpl implements IFilmService {
         filmRepo.deleteById(id);
     }
 
-    @Override
-    public List<Film> findByIdWithGender(Long ids) {
-        return filmRepo.findByIdWithGender(ids);
-    }
-
-    @Override
-    public List<Film> findAllByGenders(String gender) {
-        return filmRepo.findAllByGenders(gender);
-    }
+//    @Override
+//    public List<Film> findByIdWithGender(Long ids) {
+//        return filmRepo.findByIdWithGender(ids);
+//    }
+//
+//    @Override
+//    public List<Film> findAllByGenders(String gender) {
+//        return filmRepo.findAllByGenders(gender);
+//    }
 }

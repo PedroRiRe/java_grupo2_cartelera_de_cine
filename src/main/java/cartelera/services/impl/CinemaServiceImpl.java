@@ -72,8 +72,8 @@ public class CinemaServiceImpl implements ICinemaService {
         cinemaRepo.deleteById(id);
     }
 
-    @Override
-    public Optional<Cinema> findByIdWithRooms(Long id) {
-        return cinemaRepo.findByIdWithRooms(id);
-    }
+//    @Override
+//    public Optional<Cinema> findByIdWithRooms(Long id) {
+//        return cinemaRepo.findByIdWithRooms(id);
+//    }
 }
