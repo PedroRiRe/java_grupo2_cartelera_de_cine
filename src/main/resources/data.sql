@@ -18,17 +18,17 @@ INSERT INTO `address` (`id`, `image`, `address`, `city`, `country`, `postal_code
 -- Contraseña: 632541
 --
 
-INSERT INTO `users` (`id`, `email`, `name`, `password`, `surname`, `username`) VALUES
-(1, 'doloresem@il', 'Dolores', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuertes', 'dfuertes'),
-(2, 'manuelem@il', 'Manuel', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Perez', 'mperez'),
-(3, 'rosaem@il', 'Rosa', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuentes', 'rfuentes'),
-(4, 'luisem@il', 'Luis', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Reta', 'lreta'),
-(5, 'mariaem@il', 'María', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fernandez', 'mfernandez'),
-(6, 'robertoem@il', 'Roberto', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Martinez', 'rmartinez'),
-(7, 'anaem@il', 'Ana', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Melendez', 'amelendez'),
-(8, 'albertoem@il', 'Alberto', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Lopez', 'alopez'),
-(9, 'mercedesem@il', 'Mercedes', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Mila', 'mmila'),
-(10, 'ramonem@il', 'Ramón', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Perez', 'rperez');
+INSERT INTO `users` (`id`, `image`, `email`, `name`, `password`, `surname`, `username`) VALUES
+(1, 'https://xsgames.co/randomusers/assets/avatars/female/14.jpg', 'doloresem@il', 'Dolores', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuertes', 'dfuertes'),
+(2, 'https://xsgames.co/randomusers/assets/avatars/male/27.jpg', 'manuelem@il', 'Manuel', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Perez', 'mperez'),
+(3, 'https://xsgames.co/randomusers/assets/avatars/female/19.jpg', 'rosaem@il', 'Rosa', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fuentes', 'rfuentes'),
+(4, 'https://xsgames.co/randomusers/assets/avatars/male/60.jpg', 'luisem@il', 'Luis', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Reta', 'lreta'),
+(5, 'https://xsgames.co/randomusers/assets/avatars/female/68.jpg', 'mariaem@il', 'María', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Fernandez', 'mfernandez'),
+(6, 'https://xsgames.co/randomusers/assets/avatars/male/54.jpg', 'robertoem@il', 'Roberto', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Martinez', 'rmartinez'),
+(7, 'https://xsgames.co/randomusers/assets/avatars/female/17.jpg', 'anaem@il', 'Ana', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Melendez', 'amelendez'),
+(8, 'https://xsgames.co/randomusers/assets/avatars/male/43.jpg', 'albertoem@il', 'Alberto', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Lopez', 'alopez'),
+(9, 'https://xsgames.co/randomusers/assets/avatars/female/77.jpg', 'mercedesem@il', 'Mercedes', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Mila', 'mmila'),
+(10, 'https://xsgames.co/randomusers/assets/avatars/male/26.jpg', 'ramonem@il', 'Ramón', '$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q', 'Perez', 'rperez');
 
 -- --------------------------------------------------------
 
