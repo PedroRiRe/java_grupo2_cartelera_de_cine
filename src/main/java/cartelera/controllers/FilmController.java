@@ -1,7 +1,6 @@
 package cartelera.controllers;
 
 import cartelera.entities.Film;
-import cartelera.services.IAddressService;
 import cartelera.services.IFilmService;
 import cartelera.services.IRoomService;
 import lombok.AllArgsConstructor;
@@ -22,8 +21,12 @@ public class FilmController {
 
     private final IFilmService filmService;
     private final IRoomService roomService;
-    private final IAddressService addressService;
 
+    /**
+     * Lista todas las películas.
+     * @param model Modelo.
+     * @return Plantilla film-list,
+     */
     @GetMapping("/films")
     public String findAll(Model model) {
         List<Film> films = filmService.findAll();
@@ -32,6 +35,12 @@ public class FilmController {
         return "film/film-list";
     }
 
+    /**
+     * Muestra una película específica.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla film-detail.
+     */
     @GetMapping("film/{id}")
     public String findById(Model model, @PathVariable Long id) {
         // List<Film> filmOpt = filmService.findByIdWithGender(id);
@@ -60,12 +69,23 @@ public class FilmController {
 //        return "film/films-city";
 //    }
 
+    /**
+     * Crea una nueva película.
+     * @param model modelo.
+     * @return Plantilla film-form.
+     */
     @GetMapping("films/create")
     public String createForm(Model model) {
         model.addAttribute("film",new Film());
         return "film/film-form";
     }
 
+    /**
+     * Edita una película existente.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla film-form.
+     */
     @GetMapping("films/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && filmService.existsById(id))
@@ -74,12 +94,22 @@ public class FilmController {
         return "film/film-form";
     }
 
+    /**
+     * Guarda la película obtenida desde el formulario.
+     * @param film Película.
+     * @return Plantilla films.
+     */
     @PostMapping("films")
     public String saveForm(@ModelAttribute Film film) {
         filmService.save(film);
         return "redirect:/films";
     }
 
+    /**
+     * Borra una película por su ID.
+     * @param id Identificador.
+     * @return Plantilla films.
+     */
     @GetMapping("films/{id}/delete")
     public String deleteById(@PathVariable Long id) {
         if (!invalidPosNumber(id) && filmService.existsById(id)) filmService.deleteById(id);
