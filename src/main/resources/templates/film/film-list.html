@@ -46,7 +46,7 @@
                 <tbody>
                 <tr th:each="film: ${films}">
                     <td>
-                        <a class="btn btn-light" th:text="${film.title}"
+                        <a class="btn btn-sm btn-light" th:text="${film.title}"
                            th:href="@{/film/{id}(id=${film.id})}"></a>
                     </td>
                     <td th:text="${film.duration}"></td>

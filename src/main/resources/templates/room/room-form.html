@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title class="h1-title">Formulario Sala</title>
+    <title>Formulario Sala</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
     <link rel="stylesheet" href="/css/navbar.css">
@@ -15,9 +15,9 @@
 <div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container text-center">
-    <div class="row">
-        <h1 class="modificar" th:if="${room.id}">Modificar Sala <span class="modificar" th:text="${room.roomNumber}"></span></h1>
-        <h1 class="modificar" th:if="${room.id} == null">Crear nueva Sala</h1>
+    <div class="row mt-5">
+        <h1 class="cinefilos-h1" th:if="${room.id}">Modificar sala <span th:text="${room.roomNumber}"></span></h1>
+        <h1 class="cinefilos-h1" th:if="${room.id} == null">Crear nueva sala</h1>
         <div class="col"></div>
         <div class="col">
             <div th:if="${error}">
@@ -56,7 +56,7 @@
                         <option value="22:30">22:30</option>
                     </select>
                 </div>
-                <div class="form-check mb-5 text-start">
+                <div class="form-check mb-4 text-start">
                     <input class="form-check-input" type="checkbox" id="active" th:field="*{active}">
                     <label class="form-check-label" for="active">Sala operativa</label>
                 </div>
@@ -70,9 +70,8 @@
                         <option th:each="cinema : ${cinemas}" th:value="${cinema.id}" th:text="${cinema.name}"></option>
                     </select>
                 </div>
-                <a class="btn btn-outline-primary" th:href="@{/rooms}">Cancelar</a>
-                <button type="submit" class="btn btn-outline-success">Guardar</button>
-<div class="mt-5">
+
+                <div class="mt-5">
                     <a class="btn btn-outline-primary" th:href="@{/rooms}" role="button">Cancelar</a>
                     <button type="submit" class="btn btn-outline-success" role="button">Guardar</button>
                 </div>
@@ -81,6 +80,7 @@
         <div class="col"></div>
     </div>
 </div>
+
 <div th:replace="~{footer :: footer}"></div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!-- Footer -->
-<footer class="bg-light text-center mt-5" xmlns:th="http://www.w3.org/1999/xhtml">
+<footer class="bg-light text-center mt-5">
     <!-- Container -->
-    <div class="container p-4">
+    <div class="container pt-5 pb-4 border-top border-bottom">
 
 <!--        &lt;!&ndash; Section: Form &ndash;&gt;-->
 <!--        <section class="">-->
@@ -42,10 +42,10 @@
 <!--        &lt;!&ndash; Section: Form &ndash;&gt;-->
 
         <!-- Section: Links -->
-        <section class="">
+        <section>
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Home</h5>
+                    <h5 class="text-uppercase">Proyecto</h5>
 
                     <ul class="list-unstyled mb-0">
                         <li>
@@ -53,55 +53,57 @@
                         </li>
 
                         <li>
+                            <a href="https://github.com/PedroRiRe/java_grupo2_cartelera_de_cine"
+                               target="_blank" class="text-dark">GitHub</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Recursos</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="https://github.com/JavGuerra"
+                               target="_blank" class="text-dark">Javier Guerra</a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/PedroRiRe"
+                               target="_blank" class="text-dark">Pedro Rivas</a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/Eduardo474Gonzalez"
+                               target="_blank" class="text-dark">Eduardo González</a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/DawidL449"
+                               target="_blank" class="text-dark">Dawid L</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">App</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
                             <a th:href="@{/addresses}" class="text-dark">Direcciones</a>
                         </li>
 
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">GitHub</h5>
-
-                    <ul class="list-unstyled mb-0">
                         <li>
-                            <a th:href="@{https://github.com/JavGuerra}" class="text-dark">Javier Guerra</a>
+                            <a th:href="@{//films}" class="text-dark">Películas</a>
                         </li>
 
                         <li>
-                            <a th:href="@{https://github.com/PedroRiRe}" class="text-dark">Pedro Rivas</a>
+                            <a th:href="@{/cinemas}" class="text-dark">Cines</a>
                         </li>
 
                         <li>
-                            <a th:href="@{https://github.com/Eduardo474Gonzalez}" class="text-dark">Eduardo González</a>
+                            <a th:href="@{/rooms}" class="text-dark">Salas</a>
                         </li>
-
-                        <li>
-                            <a th:href="@{https://github.com/DawidL449}" class="text-dark">Dawid L</a>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Trello</h5>
-
-                    <ul class="list-unstyled mb-0">
-                        <li>
-                            <a th:href="@{https://trello.com/b/vV4wNJDH/javagrupo2}" class="text-dark">Javier Guerra</a>
-                        </li>
-
-                        <li>
-                            <a th:href="@{https://trello.com/b/vV4wNJDH/javagrupo2}" class="text-dark">Pedro Rivas</a>
-                        </li>
-
-                        <li>
-                            <a th:href="@{https://trello.com/b/vV4wNJDH/javagrupo2}" class="text-dark">Eduardo González</a>
-                        </li>
-
-                        <li>
-                            <a th:href="@{https://trello.com/b/vV4wNJDH/javagrupo2}" class="text-dark">Dawid L</a>
-                        </li>
-
                     </ul>
                 </div>
 
@@ -109,6 +111,9 @@
                     <h5 class="text-uppercase">Login</h5>
 
                     <ul class="list-unstyled mb-0">
+                        <li>
+                            <a th:href="@{/login}" class="text-dark">Login</a>
+                        </li>
                         <li>
                             <a th:href="@{/users}" class="text-dark">Usuarios</a>
                         </li>
@@ -119,16 +124,8 @@
         </section>
         <!-- Section: Links -->
 
-        <!-- Section: Text -->
-        <section class="mb-2 mt-4">
-            <p>
-              Proyecto realizado por el equipo de Cinéfilos.
-            </p>
-        </section>
-        <!-- Section: Text -->
-
         <!-- Section: Social media -->
-        <section class="mb-2">
+        <section class="mt-5">
             <!-- Facebook -->
             <a class="btn btn-outline-light m-1"  href="https://www.facebook.com/" target="_blank" role="button">
                 <img width="30px" height="30px" src="/img/icons/facebook2.svg" alt="Facebook"></a>
@@ -148,8 +145,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-3 bg-body">
-        © 2023 Copyright:
-        <a class="text-dark" th:href="@{/}">Cinéfilos.com</a>
+        Proyecto final del equipo de «<a class="text-dark" th:href="@{/}">cinéfilos</a>»
+        del curso Java+Spring de Addeco · Enero-marzo 2023
     </div>
     <!-- Copyright -->
 </footer>

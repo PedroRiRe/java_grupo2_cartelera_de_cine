@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title class="h1-title">Formulario Film</title>
+    <title>Formulario Film</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
     <link rel="stylesheet" href="/css/navbar.css">
@@ -15,10 +15,9 @@
 <div th:replace="~{navbar :: navbar}"></div>
 
 <div class="container text-center">
-    <div class="row">
-        <h1 class="modificar" th:if="${film.id}">Modificar Film <span class="modificar" th:text="${film.id}"></span>
-        </h1>
-        <h1 class="modificar" th:if="${film.id} == null">Crear nuevo Film</h1>
+    <div class="row mt-5">
+        <h1 class="cinefilos-h1" th:if="${film.id}">Modificar «<span th:text="${film.title}"></span>»</h1>
+        <h1 class="cinefilos-h1" th:if="${film.id} == null">Crear nueva película</h1>
         <div class="col"></div>
         <div class="col">
             <div th:if="${error}">
@@ -31,7 +30,7 @@
 
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
 
-                <img th:src="*{poster}" th:alt="*{title}"/>
+                <img class="mb-4" th:src="*{poster}" th:alt="*{title}"/>
 
                 <div class="mb-4">
                     <label for="poster" class="form-label">Poster</label>
@@ -41,6 +40,11 @@
                 <div class="mb-4">
                     <label for="title" class="form-label">Título</label>
                     <input type="text" class="form-control" id="title" th:field="*{title}">
+                </div>
+
+                <div class="mb-4">
+                    <label for="trailer" class="form-label">Tráiler</label>
+                    <input type="text" class="form-control" id="trailer" th:field="*{trailer}">
                 </div>
 
                 <div class="mb-4">
@@ -156,8 +160,7 @@
         <div class="col"></div>
     </div>
 </div>
+
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/main.js}"></script>
 </body>
 </html>
