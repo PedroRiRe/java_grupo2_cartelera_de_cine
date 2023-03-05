@@ -7,71 +7,76 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cines</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
-    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/table.css">
     <script defer src="js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
-<div class="container text-left">
+<div class="box">
     <div class="row mt-5">
-        <h1 class="cinefilos-h1">Listado de cines</h1>
-
-        <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(cinemas)}">
-            Actualmente no hay ningún cine para mostrar.
-        </div>
-
-        <div class="col mt-3" th:if="${#lists.size(cinemas) > 0}">
-            <table class="table th">
-                <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Sitio web</th>
-                    <th scope="col">CIF</th>
-                    <th scope="col">Opciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="cinema : ${cinemas}">
-                    <td>
-                        <a class="btn btn-sm btn-light" th:text="${cinema.name}"
-                           th:href="@{/cinema/{id}(id=${cinema.id})}"></a>
-                    </td>
-                    <td th:text="${cinema.phone}"></td>
-                        <td width="350px" th:text="${cinema.url}"></td>
-                    <!--    <td>
-                            <a class="btn btn-sm btn-light" th:text="|Visitar sitio|"
-                               th:href="@{/cinema/url}" target="_blank"></a>
-                        </td>    -->
-                    <td th:text="${cinema.cif}"></td>
-                    <td>
-                        <a class="btn btn-sm btn-outline-primary"
-                           th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">Ver</a>
-                        <a class="btn btn-sm btn-outline-success"
-                           th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
-                           sec:authorize="isAuthenticated()" role="button">Editar</a>
-                        <a class="btn btn-sm btn-outline-danger"
-                           th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
-                           sec:authorize="isAuthenticated()" role="button">Borrar</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
-            <div class="text-center">
-                Actualmente hay <span th:text="${#lists.size(cinemas)}"></span> cines.
-            </div>
-        </div>
+        <h1 class="title-table">Listado de cines</h1>
     </div>
+</div>
 
+<div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(cinemas)}">
+    Actualmente no hay ningún cine para mostrar.
+</div>
+<div class="col mt-3" th:if="${#lists.size(cinemas) > 0}">
+    <main class="container">
+        <table class="list">
+            <thead class="paragraphs">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Sitio web</th>
+                <th scope="col">CIF</th>
+                <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="cinema : ${cinemas}">
+                <td>
+                    <button class="btn-club" type="button" th:text="${cinema.name}"
+                            th:href="@{/cinema/{id}(id=${cinema.id})}"></button>
+                </td>
+                <td th:text="${cinema.phone}"></td>
+                <td>
+                    <button class="btn-club" type="button" th:href="@{${cinema.url}}" target="_blank">
+                        Visitar sitio
+                    </button>
+                </td>
+                <td th:text="${cinema.cif}"></td>
+                <td>
+                    <button class="btn-detail" type="button"
+                            th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">Ver
+                    </button>
+                    <button class="btn-edit" type="button"
+                            th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
+                            sec:authorize="isAuthenticated()" role="button">Editar
+                    </button>
+                    <button class="btn-delete" type="button"
+                            th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
+                            sec:authorize="isAuthenticated()" role="button">Borrar
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+    <br>
+    <div class="text-center">
+        Actualmente hay <span th:text="${#lists.size(cinemas)}"></span> cines.
+    </div>
     <div class="text-center mt-4">
         <a class="btn btn-outline-primary" th:href="@{/cinemas/create}"
-           sec:authorize="isAuthenticated()" role="button">Crear nuevo cine</a>
+         sec:authorize="isAuthenticated()" role="button">Crear nuevo cine</a>
         <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
     </div>
+    <br>
+    <br>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
