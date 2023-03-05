@@ -7,20 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Películas</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
-    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/table.css">
     <script defer src="js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
-<div class="container text-left">
-    <div class="row mt-5">
-        <h1 class="cinefilos-h1">Listado de películas</h1>
 
-        <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(films)}">
-            Actualmente no hay ninguna película para mostrar.
-        </div>
+<div class="box">
+    <div class="row mt-5">
+        <h1 class="title-table">Listado de películas</h1>
+    </div>
+</div>
+
+<div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(films)}">
+    Actualmente no hay ninguna película para mostrar.
+</div>
 
 <!--        <form th:if="${not #lists.isEmpty(cities)}" th:action="@{/films/} + ${city}" method="GET">-->
 <!--            <p>Elija una ciudad:</p>-->
@@ -32,49 +35,53 @@
 <!--            <button type="submit" class="btn btn-outline-info">Listar</button>-->
 <!--        </form>-->
 
-        <div class="col mt-3" th:if="${#lists.size(films) > 0}">
-            <table class="table th">
-                <thead>
-                <tr>
-                    <th scope="col">Título</th>
-                    <th scope="col">Duración</th>
-                    <th scope="col">Clasific.</th>
-                    <th scope="col">Compañía</th>
-                    <th scope="col">Opciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="film: ${films}">
-                    <td>
-                        <a class="btn btn-sm btn-light" th:text="${film.title}"
-                           th:href="@{/film/{id}(id=${film.id})}"></a>
-                    </td>
-                    <td th:text="${film.duration}"></td>
-                    <td th:text="${film.classification}"></td>
-                    <td width="350px" th:text="${film.company}"></td>
-                    <td>
-                        <a class="btn btn-sm btn-outline-primary"
-                           th:href="@{/film/{id}(id=${film.id})}" role="button">Ver</a>
-                        <a class="btn btn-sm btn-outline-success" th:href="@{/films/{id}/edit(id=${film.id})}"
-                           sec:authorize="isAuthenticated()" role="button">Editar</a>
-                        <a class="btn btn-sm btn-outline-danger" th:href="@{/films/{id}/delete(id=${film.id})}"
-                           sec:authorize="isAuthenticated()" role="button">Borrar</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-
-            <div class="text-center">
-                Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
-            </div>
-        </div>
+<div class="col mt-3" th:if="${#lists.size(films) > 0}">
+    <main class="container">
+        <table class="list">
+            <thead class="paragraphs">
+            <tr>
+                <th scope="col">Título</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Clasific.</th>
+                <th scope="col">Compañía</th>
+                <th scope="col">Opciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="film: ${films}">
+                <td>
+                    <button class="btn-club" type="submit" th:text="${film.title}"
+                            th:href="@{/film/{id}(id=${film.id})}" role="button"></button>
+                </td>
+                <td th:text="${film.duration}"></td>
+                <td th:text="${film.classification}"></td>
+                <td width="350px" th:text="${film.company}"></td>
+                <td>
+                    <button class="btn-detail" type="submit"
+                            th:href="@{/film/{id}(id=${film.id})}" role="button">Ver
+                    </button>
+                    <button class="btn-edit" type="submit" th:href="@{/films/{id}/edit(id=${film.id})}"
+                            sec:authorize="isAuthenticated()" role="button">Editar
+                    </button>
+                    <button class="btn-delete" type="submit" th:href="@{/films/{id}/delete(id=${film.id})}"
+                            sec:authorize="isAuthenticated()" role="button">Borrar
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </main>
+    <br>
+    <div class="text-center">
+        Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
     </div>
-
     <div class="text-center mt-4">
         <a class="btn btn-outline-primary" th:href="@{/films/create}"
            sec:authorize="isAuthenticated()" role="button">Crear nueva película</a>
         <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
     </div>
+    <br>
+    <br>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>
