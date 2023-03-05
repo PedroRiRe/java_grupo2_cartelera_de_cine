@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import static cartelera.utils.Utils.invalidPosNumber;
+import static cartelera.utils.Utils.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +39,13 @@ public class UserServiceImpl implements IUserService {
         log.info("existsById {}", id);
         if (invalidPosNumber(id)) return false;
         return userRepo.existsById(id);
+    }
+
+    @Override
+    public boolean existsByUsername(String username) {
+        log.info("existsByUsername {}", username);
+        if (stringIsEmpty(username)) return false;
+        return userRepo.existsByUsername(username);
     }
 
     public User save(User user) {

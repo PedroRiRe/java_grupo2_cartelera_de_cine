@@ -1,87 +1,70 @@
 <!-- Footer -->
 <footer class="bg-light text-center mt-5">
     <!-- Container -->
-    <div class="container p-4">
-
-<!--        &lt;!&ndash; Section: Form &ndash;&gt;-->
-<!--        <section class="">-->
-<!--            <form action="">-->
-<!--                &lt;!&ndash;Grid row&ndash;&gt;-->
-<!--                <div class="row d-flex justify-content-center">-->
-<!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
-<!--                    <div class="col-auto">-->
-<!--                        <p class="pt-2">-->
-<!--                            <strong>Suscríbete a nuestro boletín</strong>-->
-<!--                        </p>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
-
-<!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
-<!--                    <div class="col-md-5 col-12">-->
-<!--                        &lt;!&ndash; Email input &ndash;&gt;-->
-<!--                        <div class="form-outline mb-4">-->
-<!--                            <input type="email" id="form5Example2" class="form-control" />-->
-<!--                            <label class="form-label" for="form5Example2">Dirección de Correo</label>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
-
-<!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
-<!--                    <div class="col-auto">-->
-
-<!--                        &lt;!&ndash; Submit button &ndash;&gt;-->
-<!--                        <button type="submit" class="btn btn-primary mb-4">-->
-<!--                            Subscribe-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
-<!--                </div>-->
-<!--                &lt;!&ndash;Grid row&ndash;&gt;-->
-<!--            </form>-->
-<!--        </section>-->
-<!--        &lt;!&ndash; Section: Form &ndash;&gt;-->
-
+    <div class="container pt-5 pb-4 border-top border-bottom">
         <!-- Section: Links -->
-        <section class="">
+        <section>
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Home</h5>
+                    <h5 class="text-uppercase">Proyecto</h5>
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a th:href="@{/}" class="text-dark">Portada</a>
+                            <a th:href="@{/}" class="text-dark text-decoration-none">Portada</a>
                         </li>
 
                         <li>
-                            <a th:href="@{/addresses}" class="text-dark">Direcciones</a>
+                            <a href="https://github.com/PedroRiRe/java_grupo2_cartelera_de_cine"
+                               target="_blank" class="text-dark text-decoration-none">GitHub</a>
                         </li>
-
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Film</h5>
+                    <h5 class="text-uppercase">Recursos</h5>
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a th:href="@{/films}" class="text-dark">Películas</a>
+                            <a href="https://github.com/JavGuerra"
+                               target="_blank" class="text-dark text-decoration-none">Javier&nbsp;Guerra</a>
                         </li>
 
+                        <li>
+                            <a href="https://github.com/PedroRiRe"
+                               target="_blank" class="text-dark text-decoration-none">Pedro&nbsp;Rivas</a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/Eduardo474Gonzalez"
+                               target="_blank" class="text-dark text-decoration-none">Eduardo&nbsp;González</a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/DawidL449"
+                               target="_blank" class="text-dark text-decoration-none">Dawid&nbsp;L</a>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">Cinema</h5>
+                    <h5 class="text-uppercase">App</h5>
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a th:href="@{/cinemas}" class="text-dark">Cines</a>
+                            <a th:href="@{/addresses}" class="text-dark text-decoration-none">Direcciones</a>
                         </li>
 
                         <li>
-                            <a th:href="@{/rooms}" class="text-dark">Salas</a>
+                            <a th:href="@{//films}" class="text-dark text-decoration-none">Películas</a>
                         </li>
 
+                        <li>
+                            <a th:href="@{/cinemas}" class="text-dark text-decoration-none">Cines</a>
+                        </li>
+
+                        <li>
+                            <a th:href="@{/rooms}" class="text-dark text-decoration-none">Salas</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -90,7 +73,10 @@
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a th:href="@{/users}" class="text-dark">Usuarios</a>
+                            <a th:href="@{/login}" class="text-dark text-decoration-none">Iniciar&nbsp;sesión</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/users}" class="text-dark text-decoration-none">Usuarios</a>
                         </li>
 
                     </ul>
@@ -99,27 +85,19 @@
         </section>
         <!-- Section: Links -->
 
-        <!-- Section: Text -->
-        <section class="mb-2 mt-4">
-            <p>
-                Diseñado y construido con todo el amor del mundo por el equipo de Cinéfilos.
-            </p>
-        </section>
-        <!-- Section: Text -->
-
         <!-- Section: Social media -->
-        <section class="mb-2">
+        <section class="mt-5">
             <!-- Facebook -->
-            <a class="btn btn-outline-light m-1"  href="https://www.facebook.com/" role="button">
+            <a class="btn btn-outline-light m-1"  href="https://www.facebook.com/" target="_blank" role="button">
                 <img width="30px" height="30px" src="/img/icons/facebook2.svg" alt="Facebook"></a>
             <!-- Twitter -->
-            <a class="btn btn-outline-light m-1" href="https://twitter.com/"  role="button">
+            <a class="btn btn-outline-light m-1" href="https://twitter.com/" target="_blank" role="button">
                 <img width="30px" height="30px" src="/img/icons/twitter2.svg" alt="Twitter"></a>
             <!-- Instagram -->
-            <a class="btn btn-outline-light m-1" href="https://www.instagram.com/"  role="button">
+            <a class="btn btn-outline-light m-1" href="https://www.instagram.com/" target="_blank" role="button">
                 <img width="30px" height="30px" src="/img/icons/instagram2.svg" alt="Instagram"></a>
             <!-- Linkedin -->
-            <a class="btn btn-outline-light m-1" href="https://www.linkedin.com/"  role="button">
+            <a class="btn btn-outline-light m-1" href="https://www.linkedin.com/" target="_blank" role="button">
                 <img width="30px" height="30px" src="/img/icons/linkedin2.svg" alt="Linkedin"></a>
         </section>
         <!-- Section: Social media -->
@@ -128,8 +106,8 @@
 
     <!-- Copyright -->
     <div class="text-center p-3 bg-body">
-        © 2023 Copyright:
-        <a class="text-dark" th:href="@{/}">Cinéfilos.com</a>
+        Proyecto final del equipo de «<a class="text-dark" th:href="@{/}">cinéfilos</a>»
+        del curso Java+Spring de Addeco · Enero-marzo 2023
     </div>
     <!-- Copyright -->
 </footer>

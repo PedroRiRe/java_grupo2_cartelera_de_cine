@@ -11,15 +11,6 @@
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
-
-<h5 class="card-title">Géneros</h5>
-<ul class="list-group list-group-flush">
-    <li class="list-group-item"
-        th:each="genders: ${genders}"
-        th:text="|${genders.gender}|" >
-    </li>
-</ul>
-
 <div class="container text-left">
     <div class="row mt-5">
         <h1 class="cinefilos-h1">Listado de películas</h1>
@@ -51,10 +42,13 @@
                 </thead>
                 <tbody>
                 <tr th:each="film: ${films}">
-                    <td th:text="${film.title}"></td>
+                    <td>
+                        <a class="btn btn-sm btn-light" th:text="${film.title}"
+                           th:href="@{/film/{id}(id=${film.id})}"></a>
+                    </td>
                     <td th:text="${film.duration}"></td>
                     <td th:text="${film.classification}"></td>
-                    <td th:text="${film.company}"></td>
+                    <td width="350px" th:text="${film.company}"></td>
                     <td>
                         <a class="btn btn-sm btn-outline-primary"
                            th:href="@{/film/{id}(id=${film.id})}" role="button">Ver</a>

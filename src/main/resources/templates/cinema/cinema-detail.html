@@ -26,10 +26,9 @@
                 <a type="button" class="btn btn-primary" th:href="@{/cinemas}" role="button">Lista de cines</a>
             </div>
             <div class="card" th:if="${error} == null">
-                <img src="/img/cine.jpg" class="card-img-top" alt="Cinema Image">
+                <img th:src="@{${cinema.image}}" class="card-img-top" th:alt="${cinema.name}"/>
                 <div class="card-body">
-                    <h5 class="card-title" th:text="|Dirección: ${cinema.address}"></h5>
-                    <p class="card-text" th:text="|Teléfono: ${cinema.phone}"></p>
+                    <h5 class="card-title" th:text="|Teléfono: ${cinema.phone}"></h5>
                     <p class="card-text" th:text="|CIF: ${cinema.cif}"></p>
                 </div>
 
@@ -94,22 +93,22 @@
         <nav class="social">
             <ul class="social-list">
                 <li>
-                    <a href="#">
+                    <a href="https://twitter.com/" target="_blank" role="button">
                         <img src="/img/icons/twitter2.svg" alt="Twitter">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.facebook.com/" target="_blank" role="button">
                         <img src="/img/icons/facebook2.svg" alt="Facebook">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.instagram.com/" target="_blank" role="button">
                         <img src="/img/icons/instagram2.svg" alt="Instagram">
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="https://www.linkedin.com/" target="_blank" role="button">
                         <img src="/img/icons/linkedin2.svg" alt="LinkedIn">
                     </a>
                 </li>

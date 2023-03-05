@@ -25,10 +25,10 @@
                 <a class="btn btn-primary" th:href="@{/films}" role="button">Volver</a>
             </div>
             <div class="card">
-                <img src="/img/poster/spiderman.jpg" class="card-img-top" alt="Spiderman">
+                <img th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a class="btn btn-light"
+                        <a class="btn btn-sm btn-outline-secondary"
                            th:text="${room.film.title}"
                            th:href="@{/film/{id}(id=${room.film.id})}"></a>
                     </h5>
@@ -46,11 +46,11 @@
                     </li>
                 </ul>
                 <div class="card-footer">
-                    <a class="btn btn-light"
+                    <a class="btn btn-sm btn-outline-secondary mb-3" role="button"
                        th:text="${room.cinema.name}"
-                       th:href="@{/cinema/{id}(id=${room.cinema.id})}"></a>
-                    <br>
-                    <br>
+                       th:href="@{/cinema/{id}(id=${room.cinema.id})}">
+                    </a>
+                    <br />
                     <a class="btn btn-outline-primary" th:href="@{/rooms}" role="button">Salas</a>
                     <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${room.id})}"
                        sec:authorize="isAuthenticated()" role="button">Editar</a>

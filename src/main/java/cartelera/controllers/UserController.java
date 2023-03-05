@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-import static cartelera.utils.Utils.invalidPosNumber;
+import static cartelera.utils.Utils.*;
 
 @AllArgsConstructor
 @Controller
@@ -55,7 +55,15 @@ public class UserController {
 
     @PostMapping("users")
     public String save(@ModelAttribute User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        String oldPasswd = null;
+        if (userService.existsById(user.getId()))
+            oldPasswd = userService.findById(user.getId()).get().getPassword();
+        String newPasswd = user.getPassword();
+
+        if (!stringIsEmpty(newPasswd)) user.setPassword(passwordEncoder.encode(newPasswd)); // Cambia contraseña
+        else if (!stringIsEmpty(oldPasswd)) user.setPassword(oldPasswd); // Mantiene contraseña actual
+        else user.setPassword("$2a$10$dsQX4tLUoI9qFpRXhdRYcOpM1ORFAU60Jtr/WSn.g0mY6ADvZsa5q"); // por defecto
+
         userService.save(user);
         return "redirect:/users";
     }
