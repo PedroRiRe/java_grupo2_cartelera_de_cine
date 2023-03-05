@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.box {
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--theme-color);
+    box-shadow: none;
+}
+
+.title-table {
+    color: var(--primary-color);
+    font-size: 60px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 30px auto;
+    padding 0;
+    background-color: var(--navbar-color);
+    box-shadow: 2px 2px var(--navbar-shadow-color);
+}
+
+table {
+    margin: 0;
+    padding: 0;
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+th {
+    background-color: var(--text-color);
+    color: var(--primary-color);
+    padding: 0 auto;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-transform: uppercase;
+    font-size: x-large;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing:2px;
+}
+
+table td {
+    padding: 10px 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+td .accion {
+    width: fit-content;
+    height: min-content;
+}
+
+button {
+    width: auto;
+    height: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.801);
+    border-radius: 0.6rem;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color);
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease all;
+}
+
+.btn-club {
+    background: radial-gradient(rgb(148, 147, 140), rgba(104, 104, 103, 0.801));
+}
+
+.btn-detail {
+    background: radial-gradient(rgb(83, 182, 83), rgba(0, 0, 0, 0.801));
+}
+
+.btn-edit {
+    background: radial-gradient(rgb(167, 147, 57), rgba(0, 0, 0, 0.801));
+}
+
+.btn-delete {
+    background: radial-gradient(rgb(177, 75, 75), rgba(0, 0, 0, 0.801));
+}
+
+button:hover,
+button a:hover {
+    color: var(--text-color-inverse);
+    filter: brightness(150%);
+}
+
+tr:hover td{
+    background-color: var(--primary-color);
+    color: var(--text-color-inverse);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: 800;
+    transition: all 0.5s ease;
+}
+
+@media ( max-width: 480px) {
+     .container {
+         width: 100%;
+         box-sizing: border-box;
+     }
+
+     .list {
+         width: 100%;
+         align-content: center;
+         justify-content: center;
+     }
+
+     .list tr {
+         display: flex;
+         flex-direction: column;
+         border: 1px solid var(--primary-color);
+         padding: 1em;
+         margin-bottom: 1em;
+     }
+
+     .list tr:hover {
+         background-color: var(--primary-color);
+     }
+
+     .paragraphs {
+         display: none;
+     }
+
+     table td {
+        width: auto;
+        padding: 10px 10px;
+     }
+
+     button {
+             width: auto;
+             margin: 10px 20px;
+             height: 30px;
+             border: 1px solid rgba(0, 0, 0, 0.801);
+             border-radius: 0.6rem;
+             font-family: 'Montserrat', sans-serif;
+             color: var(--text-color);
+             font-weight: bold;
+             cursor: pointer;
+             transition: 0.4s ease all;
+     }
+
+    .btn-club {
+    background: radial-gradient(rgb(148, 147, 140), rgba(104, 104, 103, 0.801));
+    }
+
+     .btn-detail {
+         background: radial-gradient(rgb(83, 182, 83), rgba(0, 0, 0, 0.801));
+     }
+
+     .btn-edit {
+         background: radial-gradient(rgb(167, 147, 57), rgba(0, 0, 0, 0.801));
+     }
+
+     .btn-delete {
+         background: radial-gradient(rgb(177, 75, 75), rgba(0, 0, 0, 0.801));
+     }
+
+     button:hover,
+     button a:hover {
+         color: var(--text-color-inverse);
+         filter: brightness(150%);
+     }
+
+     tr:hover td{
+         background-color: var(--navbar-shadow-color);
+         color: var(--text-color-inverse);
+         font-family: 'Montserrat', sans-serif;
+         font-weight: 800;
+         transition: all 0.5s ease;
+     }
+}
