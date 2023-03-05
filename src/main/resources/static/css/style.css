@@ -3,13 +3,13 @@
 :root {
     --theme-color: white;
     --primary-color: #808000ff;
-    --secondary-color: rgb(226, 19, 19);
+    --secondary-color: #335db8;
     --text-color: black;
     --text-color-inverse: antiquewhite;
     --navbar-color: #FFFFE0;
     --navbar-shadow-color: #DBAC5B;
     --background-contact: #d8c366ab;
-    --menu-mobile-background-color: #3A4460;
+    --menu-mobile-background-color: rgb(41, 60, 61);
 }
 
 html {
