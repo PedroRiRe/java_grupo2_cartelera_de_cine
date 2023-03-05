@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+:root {
+    --theme-color: white;
+    --primary-color: #808000ff;
+    --secondary-color: #335db8;
+    --text-color: black;
+    --text-color-inverse: antiquewhite;
+    --navbar-color: #FFFFE0;
+    --navbar-shadow-color: #DBAC5B;
+    --background-contact: #d8c366ab;
+    --menu-mobile-background-color: rgb(41, 60, 61);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--theme-color);
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: var(--text-color);
+}
+
+.cinefilos-h1 {
+    color: var(--primary-color);
+    text-align: center;
+    font-weight:bold;
+    font-size: 70px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.horizontal-padding {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.vertical-padding {
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+@media (min-width: 950px) {
+    .horizontal-padding {
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+
+    .vertical-padding {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+}

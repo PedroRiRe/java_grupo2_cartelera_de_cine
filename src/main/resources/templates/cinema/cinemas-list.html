@@ -8,6 +8,9 @@
     <title>Cines</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -57,19 +60,19 @@
                     </tbody>
                 </table>
 
-                <div class="text-center">
-                    Actualmente hay <span th:text="${#lists.size(cinemas)}"></span> cines.
-                </div>
+            <div class="text-center">
+                Actualmente hay <span th:text="${#lists.size(cinemas)}"></span> cines.
             </div>
-        </div>
-
-        <div class="text-center mt-4">
-            <a class="btn btn-outline-primary" th:href="@{/cinemas/create}"
-               sec:authorize="isAuthenticated()" role="button">Crear nuevo cine</a>
-            <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
         </div>
     </div>
 
-    <div th:replace="~{footer :: footer}"></div>
-    </body>
-    </html>
+    <div class="text-center mt-4">
+        <a class="btn btn-outline-primary" th:href="@{/cinemas/create}"
+           sec:authorize="isAuthenticated()" role="button">Crear nuevo cine</a>
+        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+    </div>
+</div>
+
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>
