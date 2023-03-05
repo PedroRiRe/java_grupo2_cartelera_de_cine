@@ -23,26 +23,25 @@
         <div class="col mt-3" th:if="${#lists.size(cinemas) > 0}">
             <table class="table th">
                 <thead>
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Sitio web</th>
-                    <th scope="col">CIF</th>
-                    <th scope="col">Opciones</th>
-                </tr>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Sitio web</th>
+                        <th scope="col">CIF</th>
+                        <th scope="col">Opciones</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr th:each="cinema : ${cinemas}">
-                    <td>
-                        <a class="btn btn-sm btn-light" th:text="${cinema.name}"
-                           th:href="@{/cinema/{id}(id=${cinema.id})}"></a>
-                    </td>
-                    <td th:text="${cinema.phone}"></td>
-                    <td width="350px" th:text="${cinema.url}"></td>
-                    <!--    <td>
-                            <a class="btn btn-sm btn-light" th:text="|Visitar sitio"
-                               th:href="@{cinema.url}" target="_blank"></a>
-                        </td>  -->
+                    <tr th:each="cinema : ${cinemas}">
+                        <td>
+                            <a class="btn btn-sm btn-light" th:text="${cinema.name}"
+                               th:href="@{/cinema/{id}(id=${cinema.id})}"></a>
+                        </td>
+                        <td th:text="${cinema.phone}"></td>
+                        <td>
+                            <a class="btn btn-sm btn-light" th:href="@{${cinema.url}}" target="_blank">
+                                Visitar sitio</a>
+                        </td>
                         <td th:text="${cinema.cif}"></td>
                         <td>
                             <a class="btn btn-sm btn-outline-primary"
