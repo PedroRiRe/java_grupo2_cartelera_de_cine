@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="es" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="">
+<html lang="es" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
+<nav th:fragment="navbar" class="navbar sticky-top navbar-light shadow d-flex justify-content-between" style="background-color:#FFFFE0">
 <header class="topheader">
 
     <nav th:fragment="navbar" class="topnav">
@@ -9,53 +10,40 @@
             <img src="/img/logo.svg" width="120" height="48" class="ms-4 d-inline-block align-top" alt="Logo Cinéfilos">
         </a>
 
-        <button class="open-menu" aria-label="abrir menú">
-            <img height="50" width="50" src="/img/open-menu.jpg" alt="abrir">
-        </button>
-        <ul class="menu">
-            <button class="close-menu" aria-label="cerrar menú">
-                <img height="50" width="50" src="img/close-menu.png" alt="cerrar">
-            </button>
+    <ul class="nav navbar-nav flex-row ms-4">
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/addresses}">Direcciones</a>
+        </li>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/films}">Películas</a>
+        </li>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/cinemas}">Cines</a>
+        </li>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/rooms}">Salas</a>
+        </li>
+        <li class="nav-item me-4">
+            <a class="nav-link fs-5 text-primary" th:href="@{/users}">Usuarios</a>
+        </li>
+    </ul>
 
-            <li class="nav-item me-3">
-                <a class="nav-link" th:href="@{/films}">Películas</a>
-            </li>
-            <li class="nav-item me-3">
-                <a class="nav-link" th:href="@{/cinemas}">Cines</a>
-            </li>
-            <li class="nav-item me-3">
-                <a class="nav-link" th:href="@{/rooms}">Salas</a>
-            </li>
-            <li class="nav-item me-3">
-                <a class="nav-link" th:href="@{/addresses}">Direcciones</a>
-            </li>
-            <li class="nav-item me-3">
-                <a class="nav-link" th:href="@{/users}">Usuarios</a>
-            </li>
-            <li class="nav-item me-3 " sec:authorize="isAnonymous()">
-                    <a class="nav-link" th:href="@{/users/create}">Registro</a>
-            </li>
-            <li class="nav-item me-3" sec:authorize="isAnonymous()">
-                    <a class="nav-link" th:href="@{/login}">Iniciar sesión</a>
-            </li>
-                <div sec:authorize="isAuthenticated()">
-                    <a class="nav-link" th:href="@{/user/{id}(id=${#authentication.getPrincipal().getId()})}">
-                        <span sec:authentication="principal.name"></span>&nbsp;
-                        <span sec:authentication="principal.surname"></span>
-                    </a>
-                </div>
-            <li>
-                <div sec:authorize="isAuthenticated()">
-                    <a class="nav-link" th:href="@{/logout}">Cerrar sesión</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-</header>
-<!--
-                <li><a class="selected" href="#profile">Perfil</a></li>
-                <li><a href="#courses">Formación</a></li>
-                <li><a href="#skills">Habilidades</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
--->
+    <div class="navbar-text d-flex flex-row me-3">
+        <div sec:authorize="isAnonymous()">
+            <a class="btn btn-link" th:href="@{/login}">Iniciar sesión</a>
+        </div>
+        <div sec:authorize="isAnonymous()">
+            <a class="btn btn-link" th:href="@{/users/create}">Registro</a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <a class="btn btn-link" th:href="@{/user/{id}(id=${#authentication.getPrincipal().getId()})}">
+                <span sec:authentication="principal.name"></span>&nbsp;
+                <span sec:authentication="principal.surname"></span>
+            </a>
+        </div>
+        <div sec:authorize="isAuthenticated()">
+            <a class="btn btn-link" th:href="@{/logout}">Cerrar sesión</a>
+        </div>
+    </div>
+
+</nav>
