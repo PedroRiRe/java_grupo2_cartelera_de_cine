@@ -8,7 +8,9 @@
     <title>Salas</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
-    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -20,41 +22,39 @@
         <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(rooms)}">
             Actualmente no hay ninguna sala para mostrar.
         </div>
-
-        <main class="container">
-
-            <div class="row row-cols-1 row-cols-md-5 g-2">
-                <div class="card-deck" th:each="room: ${rooms}">
-                    <div class="card">
-                        <img th:if="${room.film != null}" th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
-                        <img th:unless="${room.film != null}" src="/img/logo.svg" class="card-img-top" th:alt="|Sin película|"/>
-                        <div class="card-body">
-                            <h5 class="card-title" th:text="|Sala ${room.roomNumber}|"></h5>
-                            <p class="card-text" th:text="${room.cinema.name}"></p>
-                            <h5 th:if="${room.film != null}" class="card-title" th:text="${room.film.title}"></h5>
-                            <h5 th:unless="${room.film != null}" class="card-title" th:text="| Sin película |"></h5>
-                            <p class="card-text" th:text="${room.premiere}"></p>
-                        </div>
-                    </div>
-                    <div class="card-opt mx-auto">
-
-                        <a  th:href="@{/room/{id}(id=${room.id})}">
-                            <img width="35" height="35" src="/img/icons/Ver.svg" th:title="|Ver detalle de Sala ${room.roomNumber}|" th:alt="|Ver detalle de Sala ${room.roomNumber}|">
-                        </a>
-
-                        <a   th:href="@{/rooms/{id}/edit(id=${room.id})}" sec:authorize="isAuthenticated()">
-                            <img width="35" height="35" src="/img/icons/Editar.svg" th:title="|Editar Sala ${room.roomNumber}" th:alt="|Editar Sala ${room.roomNumber}|">
-                        </a>
-
-                        <a th:href="@{/rooms/{id}/delete(id=${room.id})}" sec:authorize="isAuthenticated()">
-                            <img width="35" height="35" src="/img/icons/Borrar.svg" th:title="|Eliminar Sala ${room.roomNumber}" th:alt="|Eliminar Sala ${room.roomNumber}|">
-                        </a>
-
-                    </div>
-                </div>
-
-            </div>
-        </main>
+        <div class="col mt-3" th:if="${#lists.size(rooms) > 0}">
+            <table class="table th">
+                <thead>
+                <tr>
+                    <th scope="col">Nº sala</th>
+                    <th scope="col">Cine</th>
+                    <th scope="col">Película</th>
+                    <th scope="col">Estreno</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="rooms: ${rooms}">
+                    <td th:text="${rooms.roomNumber}"></td>
+                    <td>
+                        <a class="btn btn-sm btn-light" th:text="${rooms.cinema.name}"
+                           th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
+                    <td>
+                        <a class="btn btn-sm btn-light" th:text="${rooms.film.title}"
+                           th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>
+                    </td>
+                    <td th:text="${rooms.premiere}"></td>
+                    <td>
+                        <a class="btn btn-sm btn-outline-primary"
+                           th:href="@{/room/{id}(id=${rooms.id})}" role="button">Ver</a>
+                        <a class="btn btn-sm btn-outline-success" th:href="@{/rooms/{id}/edit(id=${rooms.id})}"
+                           sec:authorize="isAuthenticated()" role="button">Editar</a>
+                        <a class="btn btn-sm btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${rooms.id})}"
+                           sec:authorize="isAuthenticated()" role="button">Borrar</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
 
             <div class="text-center">
                 Actualmente hay <span th:text="${#lists.size(rooms)}"></span> salas.
@@ -65,7 +65,7 @@
     <div class="text-center mt-4">
         <a class="btn btn-outline-primary" th:href="@{/rooms/create}"
            sec:authorize="isAuthenticated()" role="button">Crear nueva sala</a>
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Portada</a>
+        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
     </div>
 </div>
 

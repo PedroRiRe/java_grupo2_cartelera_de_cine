@@ -1,28 +1,80 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
 
-.cinefilos-h1, th {
-    color: #808000ff;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+body {
+background:#white;
+font-weight:bold;
+color: black;
+}
+
+.text-dark {
+font-size:20px;
+}
+
+p {
+font-size:20px;
 }
 
 .cinefilos-h1 {
-    font-size: 3em;
+    color: #808000ff;
+    font-size: 45px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
-.cinefilos-btn {
-    font-size: 15px;
+.modificar {
+    color: #808000ff;
+    font-size:xxx-large;
+    font-weight:bold;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
-th {
+.h1-title {
+    color: #808000ff;
+    font-size:x-large;
+    font-weight:bold;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin-bottom: 25px;
+}
+
+.table th {
+    color: #808000ff;
     font-size: x-large;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-align: center;
+    font-weight: 900;
+    letter-spacing:2px;
+}
+
+.table td {
+    font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
     text-align: center;
 }
 
-td, .card-title, .card-text, .list-group-item, .form-label {
-    font-size: 18px;
+.card-title {
+    font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
     text-align: center;
 }
+
+.card-text {
+    font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.list-group-item {
+    font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.form-label {
+    font-family: "Lucida Sans"; arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+
+
+
+
 
 
 
