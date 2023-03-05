@@ -24,6 +24,6 @@ public interface CinemaRepository extends JpaRepository<Cinema, Long> {
     List<Cinema> findAllByAddressCity(String city);
 
     // Consulta Jakarta Persistence Query Language (JPQL) personalizada para recuperar entidades room asociadas
-    @Query("select cinema from Cinema cinema left join fetch cinema.rooms where cinema.id = :id")
-    Optional<Cinema> findByIdWithRooms(Long id);
+    // @Query("select cinema from Cinema cinema left join fetch cinema.rooms where cinema.id = :id")
+    // Optional<Cinema> findByIdWithRooms(Long id);
 }

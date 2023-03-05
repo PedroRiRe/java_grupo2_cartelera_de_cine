@@ -37,7 +37,7 @@ public class CinemaController {
 
     @GetMapping("cinema/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        Optional<Cinema> cinemaOpt = cinemaService.findByIdWithRooms(id);
+        // Optional<Cinema> cinemaOpt = cinemaService.findByIdWithRooms(id);
         if (!invalidPosNumber(id) && cinemaService.existsById(id)) {
             model.addAttribute("cinema", cinemaService.findById(id).get());
             model.addAttribute("rooms", roomService.findAllByCinemaId(id));
