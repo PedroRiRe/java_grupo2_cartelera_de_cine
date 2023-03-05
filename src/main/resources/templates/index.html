@@ -6,13 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
+
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
 <!----------------------  carrusel --------------------------------------------->
-
+<!--
 <div class="col">
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
@@ -120,7 +124,7 @@
         <span class="visually-hidden">Next</span>
     </button>
   </div>
-
+-->
  <!--  <a class="btn btn-link" th:text="${film.genders}"    -->
  <!--  th:href="@{/films/genders/{gender}(gender=${film.genders})}"></a>    -->
 
