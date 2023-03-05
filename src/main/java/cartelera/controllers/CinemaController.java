@@ -1,6 +1,5 @@
 package cartelera.controllers;
 
-import cartelera.entities.Address;
 import cartelera.entities.Cinema;
 import cartelera.repositories.AddressRepository;
 import cartelera.services.IAddressService;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
-import java.util.Optional;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
@@ -28,6 +26,11 @@ public class CinemaController {
     private final AddressRepository addressRepository;
     private final IAddressService addressService;
 
+    /**
+     * Lista todos los cines.
+     * @param model Modelo.
+     * @return Plantilla cinemas-list,
+     */
     @GetMapping("/cinemas")
     public String findAll(Model model) {
         List<Cinema> cinemas = cinemaService.findAll();
@@ -35,6 +38,12 @@ public class CinemaController {
         return "cinema/cinemas-list";
     }
 
+    /**
+     * Muestra un cine específico.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla cinema-detail.
+     */
     @GetMapping("cinema/{id}")
     public String findById(Model model, @PathVariable Long id) {
         // Optional<Cinema> cinemaOpt = cinemaService.findByIdWithRooms(id);
@@ -45,12 +54,23 @@ public class CinemaController {
         return "cinema/cinema-detail";
     }
 
+    /**
+     * Crea un nuevo cine.
+     * @param model modelo.
+     * @return Plantilla cinema-form.
+     */
     @GetMapping("cinemas/create")
     public String createForm(Model model) {
         model.addAttribute("cinema", new Cinema());
         return "cinema/cinema-form";
     }
 
+    /**
+     * Edita un cine existente.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla cinema-form.
+     */
     @GetMapping("cinemas/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && cinemaService.existsById(id))
@@ -59,6 +79,11 @@ public class CinemaController {
         return "cinema/cinema-form";
     }
 
+    /**
+     * Guarda el cine obtenido desde el formulario.
+     * @param cinema Cine.
+     * @return Plantilla cinemas.
+     */
     @PostMapping("cinemas")
     public String saveForm(@ModelAttribute Cinema cinema) {
         addressRepository.save(cinema.getAddress());
@@ -67,6 +92,11 @@ public class CinemaController {
         return "redirect:/cinemas";
     }
 
+    /**
+     * Borra un cine por su ID.
+     * @param id Identificador.
+     * @return Plantilla cinemas.
+     */
     @GetMapping("cinemas/{id}/delete")
     public String deleteById(@PathVariable Long id) {
         if (!invalidPosNumber(id) && cinemaService.existsById(id)) cinemaService.deleteById(id);

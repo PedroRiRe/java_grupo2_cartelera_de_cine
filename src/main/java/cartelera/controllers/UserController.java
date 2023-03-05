@@ -24,6 +24,11 @@ public class UserController {
     private final IUserService userService;
     private final PasswordEncoder passwordEncoder;
 
+    /**
+     * Lista todos los usuarios.
+     * @param model Modelo.
+     * @return Plantilla users-list,
+     */
     @GetMapping("/users")
     public String findAll(Model model) {
         List<User> users = userService.findAll();
@@ -31,6 +36,12 @@ public class UserController {
         return "user/users-list";
     }
 
+    /**
+     * Muestra un usuario específico.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla user-detail.
+     */
     @GetMapping("/user/{id}")
     public String findById(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && userService.existsById(id))
@@ -39,12 +50,23 @@ public class UserController {
         return "user/user-detail";
     }
 
+    /**
+     * Crea un nuevo usuario.
+     * @param model modelo.
+     * @return Plantilla user-form.
+     */
     @GetMapping("users/create")
     public String createForm(Model model) {
         model.addAttribute("user", new User());
         return "user/user-form";
     }
 
+    /**
+     * Edita un usuario existente.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla user-form.
+     */
     @GetMapping("users/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && userService.existsById(id))
@@ -53,6 +75,11 @@ public class UserController {
         return "user/user-form";
     }
 
+    /**
+     * Guarda el usuario obtenido desde el formulario.
+     * @param user Dirección.
+     * @return Plantilla users.
+     */
     @PostMapping("users")
     public String save(@ModelAttribute User user) {
         String oldPasswd = null;
@@ -68,6 +95,11 @@ public class UserController {
         return "redirect:/users";
     }
 
+    /**
+     * Borra un usuario por su ID.
+     * @param id Identificador.
+     * @return Plantilla users.
+     */
     @GetMapping("users/{id}/delete")
     public String deleteById(@PathVariable Long id) {
         if (!invalidPosNumber(id) && userService.existsById(id)) {
