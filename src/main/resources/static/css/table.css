@@ -61,7 +61,6 @@ td .accion {
     width: auto;
     margin-right: 5px;
     padding: 10px 10px;
-    height: 0.1em;
     border: 1px solid var(--primary-color);
     border-radius: 0.6rem;
     font-family: 'Montserrat', sans-serif;
