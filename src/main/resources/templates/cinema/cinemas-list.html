@@ -42,25 +42,25 @@
             <tr th:each="cinema : ${cinemas}">
                 <td>
                     <a class="btn-club" type="button" th:text="${cinema.name}"
-                            th:href="@{/cinema/{id}(id=${cinema.id})}"></a>
+                       th:title="|Ver detalle de ${cinema.name} de ${cinema.address.city}|"  th:href="@{/cinema/{id}(id=${cinema.id})}"></a>
                 </td>
                 <td th:text="${cinema.phone}"></td>
                 <td>
-                    <a class="btn-club" type="button" th:href="@{${cinema.url}}" target="_blank">
+                    <a class="btn-club" type="button" th:title="|Ir a ${cinema.url}|" th:href="@{${cinema.url}}" target="_blank">
                         Visitar sitio
                     </a>
                 </td>
                 <td th:text="${cinema.cif}"></td>
                 <td>
-                    <a class="btn-detail" type="button"
+                    <a class="btn-detail" type="button" th:title="|Ver detalle de ${cinema.name}|"
                             th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">+ Info
                     </a>
                     <a class="btn-edit" type="button"
-                            th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
+                            th:href="@{/cinemas/{id}/edit(id=${cinema.id})}" th:title="|Editar ${cinema.name}|"
                             sec:authorize="isAuthenticated()" role="button">Editar
                     </a>
                     <a class="btn-delete" type="button"
-                            th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
+                            th:href="@{/cinemas/{id}/delete(id=${cinema.id})}" th:title="|Eliminar ${cinema.name}|"
                             sec:authorize="isAuthenticated()" role="button">Borrar
                     </a>
                 </td>
@@ -73,9 +73,9 @@
         Actualmente hay <span th:text="${#lists.size(cinemas)}"></span> cines.
     </div>
     <div class="text-center mt-4">
-        <a class="btn btn-outline-primary" th:href="@{/cinemas/create}"
+        <a class="btn btn-outline-primary" th:href="@{/cinemas/create}" th:title="|Crear nuevo cine|"
          sec:authorize="isAuthenticated()" role="button">Crear nuevo cine</a>
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+        <a class="btn btn-outline-success" th:href="@{/}" th:title="|Volver a pantalla anterior|" role="button">Volver</a>
     </div>
     <br>
     <br>

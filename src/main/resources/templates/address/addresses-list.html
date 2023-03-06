@@ -42,7 +42,7 @@
             <tbody>
             <tr th:each="address: ${addresses}">
                 <td>
-                    <a class="btn-club" type="submit" th:text="${address.cinema.name}" th:title="|${address.cinema.name} ${address.city}|"
+                    <a class="btn-club" type="submit" th:text="${address.cinema.name}" th:title="|${address.cinema.name}, ${address.city}|"
                        th:href="@{/cinema/{id}(id=${address.cinema.id})}"></a>
                 </td>
                 <td>
