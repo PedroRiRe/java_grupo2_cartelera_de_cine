@@ -27,8 +27,8 @@
             <form th:if="${error} == null" th:action="@{/addresses}" method="POST" th:object="${address}">
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
                 <div class="mb-4">
-                    <label for="address" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="address" th:field="*{address}">
+                    <label for="street" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="street" th:field="*{street}">
                 </div>
                 <div class="mb-4">
                     <label for="image" class="form-label">Imagen</label>

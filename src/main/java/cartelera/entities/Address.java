@@ -18,7 +18,7 @@ public class Address {
     private String image;
 
     @Column(unique = true)
-    private String address; // ( calle, número, escalera, piso )
+    private String street; // ( calle, número, escalera, piso )
 
     @Column(length = 6)
     private String postalCode;
@@ -29,6 +29,6 @@ public class Address {
 
     @Override
     public String toString() {
-        return address + ", " + postalCode + " - " + city;
+        return street + ", " + postalCode + " - " + city;
     }
 }
