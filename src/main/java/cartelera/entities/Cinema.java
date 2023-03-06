@@ -47,8 +47,8 @@ public class Cinema {
     @Column(unique = true)
     private String phone;
 
-    @OneToOne
     @JoinColumn(unique = true, name = "address_id")
+    @OneToOne(fetch = FetchType.LAZY)
     private Address address;
 
     @OneToMany(mappedBy = "cinema", fetch = FetchType.EAGER)
