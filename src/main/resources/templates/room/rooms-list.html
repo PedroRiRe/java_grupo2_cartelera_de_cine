@@ -43,21 +43,23 @@
                 <td th:text="${rooms.roomNumber}"></td>
                 <td>
                     <a class="btn-club" type="button" th:text="${rooms.cinema.name}"
-                            th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
+                       th:title="|Ver listado de todas las películas que emite ${rooms.cinema.name}|"
+                       th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
                 <td>
                     <a class="btn-club" type="button" th:text="${rooms.film.title}"
-                            th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>
+                       th:title="|Ver listado de todas las salas que emiten ${rooms.film.title}|"
+                       th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>
                 </td>
                 <td th:text="${rooms.premiere}"></td>
                 <td>
-                    <a class="btn-detail" type="button"
+                    <a class="btn-detail" type="button" th:title="|Ver detalle de Sala ${rooms.roomNumber}|"
                             th:href="@{/room/{id}(id=${rooms.id})}" role="button">+ Info
                     </a>
                     <a class="btn-edit" type="button" th:href="@{/rooms/{id}/edit(id=${rooms.id})}"
-                            sec:authorize="isAuthenticated()" role="button">Editar
+                       th:title="|Editar Sala ${rooms.roomNumber}|" sec:authorize="isAuthenticated()" role="button">Editar
                     </a>
                     <a class="btn-delete" type="button" th:href="@{/rooms/{id}/delete(id=${rooms.id})}"
-                            sec:authorize="isAuthenticated()" role="button">Borrar
+                       th:title="|Eliminar Sala ${rooms.roomNumber}|" sec:authorize="isAuthenticated()" role="button">Borrar
                     </a>
                 </td>
             </tr>
@@ -69,9 +71,9 @@
         Actualmente hay <span th:text="${#lists.size(rooms)}"></span> salas.
     </div>
     <div class="text-center mt-4">
-        <a class="btn btn-outline-primary" th:href="@{/rooms/create}"
+        <a class="btn btn-outline-primary" th:href="@{/rooms/create}" th:title="|Crear una nueva sala|"
            sec:authorize="isAuthenticated()" role="button">Crear nueva sala</a>
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+        <a class="btn btn-outline-success" th:href="@{/}" th:title="|Volver a pantalla anterior|" role="button">Volver</a>
     </div>
     <br>
     <br>
