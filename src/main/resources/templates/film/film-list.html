@@ -44,29 +44,29 @@
             <tr>
                 <th scope="col">Título</th>
                 <th scope="col">Duración</th>
-                <th scope="col">Clasific.</th>
                 <th scope="col">Compañía</th>
+                <th scope="col">Clasific.</th>
                 <th scope="col">Opciones</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="film: ${films}">
                 <td>
-                    <a class="btn-club" type="submit" th:text="${film.title}"
+                    <a class="btn-club" type="submit" th:text="${film.title}" th:title="|Ver detalle de ${film.title}|"
                             th:href="@{/film/{id}(id=${film.id})}" role="button"></a>
                 </td>
                 <td th:text="${film.duration}"></td>
-                <td th:text="${film.classification}"></td>
                 <td width="350px" th:text="${film.company}"></td>
+                <td th:text="${film.classification}"></td>
                 <td>
-                    <a class="btn-detail" type="submit"
+                    <a class="btn-detail" type="submit" th:title="|Ver detalle de ${film.title}|"
                             th:href="@{/film/{id}(id=${film.id})}" role="button">+ Info
                     </a>
                     <a class="btn-edit" type="submit" th:href="@{/films/{id}/edit(id=${film.id})}"
-                            sec:authorize="isAuthenticated()" role="button">Editar
+                       th:title="|Editar ${film.title}|" sec:authorize="isAuthenticated()" role="button">Editar
                     </a>
                     <a class="btn-delete" type="submit" th:href="@{/films/{id}/delete(id=${film.id})}"
-                            sec:authorize="isAuthenticated()" role="button">Borrar
+                       th:title="|Eliminar ${film.title}|" sec:authorize="isAuthenticated()" role="button">Borrar
                     </a>
                 </td>
             </tr>
@@ -78,9 +78,9 @@
         Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
     </div>
     <div class="text-center mt-4">
-        <a class="btn btn-outline-primary" th:href="@{/films/create}"
+        <a class="btn btn-outline-primary" th:href="@{/films/create}" th:title="|Crear una nueva película|"
            sec:authorize="isAuthenticated()" role="button">Crear nueva película</a>
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+        <a class="btn btn-outline-success" th:href="@{/}" th:title="|Volver a pantalla anterior|" role="button">Volver</a>
     </div>
     <br>
     <br>
