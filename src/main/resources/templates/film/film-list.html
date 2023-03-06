@@ -50,22 +50,22 @@
             <tbody>
             <tr th:each="film: ${films}">
                 <td>
-                    <button class="btn-club" type="submit" th:text="${film.title}"
-                            th:href="@{/film/{id}(id=${film.id})}" role="button"></button>
+                    <a class="btn-club" type="submit" th:text="${film.title}"
+                            th:href="@{/film/{id}(id=${film.id})}" role="button"></a>
                 </td>
                 <td th:text="${film.duration}"></td>
                 <td th:text="${film.classification}"></td>
                 <td width="350px" th:text="${film.company}"></td>
                 <td>
-                    <button class="btn-detail" type="submit"
-                            th:href="@{/film/{id}(id=${film.id})}" role="button">Ver
-                    </button>
-                    <button class="btn-edit" type="submit" th:href="@{/films/{id}/edit(id=${film.id})}"
+                    <a class="btn-detail" type="submit"
+                            th:href="@{/film/{id}(id=${film.id})}" role="button">+ Info
+                    </a>
+                    <a class="btn-edit" type="submit" th:href="@{/films/{id}/edit(id=${film.id})}"
                             sec:authorize="isAuthenticated()" role="button">Editar
-                    </button>
-                    <button class="btn-delete" type="submit" th:href="@{/films/{id}/delete(id=${film.id})}"
+                    </a>
+                    <a class="btn-delete" type="submit" th:href="@{/films/{id}/delete(id=${film.id})}"
                             sec:authorize="isAuthenticated()" role="button">Borrar
-                    </button>
+                    </a>
                 </td>
             </tr>
             </tbody>

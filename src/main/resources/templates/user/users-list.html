@@ -40,20 +40,20 @@
             <tbody>
             <tr th:each="user: ${users}">
                 <td>
-                    <button class="btn-club" type="submit" th:text="${user.username}"
-                            th:href="@{/user/{id}(id=${user.id})}"></button>
+                    <a class="btn-club" type="submit" th:text="${user.username}"
+                            th:href="@{/user/{id}(id=${user.id})}"></a>
                 </td>
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.surname}"></td>
                 <td th:text="${user.email}"></td>
                 <td>
-                    <button class="btn-detail"
-                       th:href="@{/user/{id}(id=${user.id})}" role="button">Ver</button>
-                    <button class="btn-edit" th:href="@{/users/{id}/edit(id=${user.id})}"
-                       sec:authorize="isAuthenticated()" role="button">Editar</button>
-                    <button th:if="${user.id != #authentication.getPrincipal().getId()}"
+                    <a class="btn-detail"
+                       th:href="@{/user/{id}(id=${user.id})}" role="button">+ Info</a>
+                    <a class="btn-edit" th:href="@{/users/{id}/edit(id=${user.id})}"
+                       sec:authorize="isAuthenticated()" role="button">Editar</a>
+                    <a th:if="${user.id != #authentication.getPrincipal().getId()}"
                        class="btn-delete" th:href="@{/users/{id}/delete(id=${user.id})}"
-                       sec:authorize="isAuthenticated()" role="button">Borrar</button>
+                       sec:authorize="isAuthenticated()" role="button">Borrar</a>
                     <a th:unless="${user.id != #authentication.getPrincipal().getId()}"
                        class="btn btn-sm btn-outline-danger disabled" th:href="@{/users/{id}/delete(id=${user.id})}"
                        sec:authorize="isAuthenticated()" aria-disabled="true" role="button">Borrar</a>

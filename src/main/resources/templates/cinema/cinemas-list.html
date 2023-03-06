@@ -39,28 +39,28 @@
             <tbody>
             <tr th:each="cinema : ${cinemas}">
                 <td>
-                    <button class="btn-club" type="button" th:text="${cinema.name}"
-                            th:href="@{/cinema/{id}(id=${cinema.id})}"></button>
+                    <a class="btn-club" type="button" th:text="${cinema.name}"
+                            th:href="@{/cinema/{id}(id=${cinema.id})}"></a>
                 </td>
                 <td th:text="${cinema.phone}"></td>
                 <td>
-                    <button class="btn-club" type="button" th:href="@{${cinema.url}}" target="_blank">
+                    <a class="btn-club" type="button" th:href="@{${cinema.url}}" target="_blank">
                         Visitar sitio
-                    </button>
+                    </a>
                 </td>
                 <td th:text="${cinema.cif}"></td>
                 <td>
-                    <button class="btn-detail" type="button"
-                            th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">Ver
-                    </button>
-                    <button class="btn-edit" type="button"
+                    <a class="btn-detail" type="button"
+                            th:href="@{/cinema/{id}(id=${cinema.id})}" role="button">+ Info
+                    </a>
+                    <a class="btn-edit" type="button"
                             th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
                             sec:authorize="isAuthenticated()" role="button">Editar
-                    </button>
-                    <button class="btn-delete" type="button"
+                    </a>
+                    <a class="btn-delete" type="button"
                             th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
                             sec:authorize="isAuthenticated()" role="button">Borrar
-                    </button>
+                    </a>
                 </td>
             </tr>
             </tbody>

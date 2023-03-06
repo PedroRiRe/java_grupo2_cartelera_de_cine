@@ -40,23 +40,23 @@
             <tr th:each="rooms: ${rooms}">
                 <td th:text="${rooms.roomNumber}"></td>
                 <td>
-                    <button class="btn-club" type="button" th:text="${rooms.cinema.name}"
-                            th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></button>
+                    <a class="btn-club" type="button" th:text="${rooms.cinema.name}"
+                            th:href="@{/rooms/cinema/{id}(id=${rooms.cinema.id})}"></a>
                 <td>
-                    <button class="btn-club" type="button" th:text="${rooms.film.title}"
-                            th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></button>
+                    <a class="btn-club" type="button" th:text="${rooms.film.title}"
+                            th:href="@{/rooms/film/{id}(id=${rooms.film.id})}"></a>
                 </td>
                 <td th:text="${rooms.premiere}"></td>
                 <td>
-                    <button class="btn-detail" type="button"
-                            th:href="@{/room/{id}(id=${rooms.id})}" role="button">Ver
-                    </button>
-                    <button class="btn-edit" type="button" th:href="@{/rooms/{id}/edit(id=${rooms.id})}"
+                    <a class="btn-detail" type="button"
+                            th:href="@{/room/{id}(id=${rooms.id})}" role="button">+ Info
+                    </a>
+                    <a class="btn-edit" type="button" th:href="@{/rooms/{id}/edit(id=${rooms.id})}"
                             sec:authorize="isAuthenticated()" role="button">Editar
-                    </button>
-                    <button class="btn-delete" type="button" th:href="@{/rooms/{id}/delete(id=${rooms.id})}"
+                    </a>
+                    <a class="btn-delete" type="button" th:href="@{/rooms/{id}/delete(id=${rooms.id})}"
                             sec:authorize="isAuthenticated()" role="button">Borrar
-                    </button>
+                    </a>
                 </td>
             </tr>
             </tbody>
