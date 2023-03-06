@@ -29,6 +29,9 @@ public class Address {
 
     private String country;
 
+    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private Cinema cinema;
+
     @Override
     public String toString() {
         return street + ", " + postalCode + " - " + city;
