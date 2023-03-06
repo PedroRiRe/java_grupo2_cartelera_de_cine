@@ -32,7 +32,7 @@ table {
 }
 
 th {
-    background-color: var(--text-color);
+    background-color: var(--theme-color);
     color: var(--primary-color);
     padding: 0 auto;
     font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -53,10 +53,16 @@ td .accion {
     height: min-content;
 }
 
-button {
+.btn-club,
+.btn-detail,
+.btn-edit,
+.btn-delete,
+ button {
     width: auto;
-    height: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.801);
+    margin-right: 5px;
+    padding: 10px 10px;
+    height: 0.1em;
+    border: 1px solid var(--primary-color);
     border-radius: 0.6rem;
     font-family: 'Montserrat', sans-serif;
     color: var(--text-color);
@@ -81,9 +87,13 @@ button {
     background: radial-gradient(rgb(177, 75, 75), rgba(0, 0, 0, 0.801));
 }
 
+.btn-club:hover,
+.btn-detail:hover,
+.btn-edit:hover,
+.btn-delete:hover,
 button:hover,
 button a:hover {
-    color: var(--text-color-inverse);
+    color: var(--secondary-color);
     filter: brightness(150%);
 }
 
@@ -128,7 +138,10 @@ tr:hover td{
         padding: 10px 10px;
      }
 
-     button {
+     .btn-club,
+     .btn-detail,
+     .btn-edit,
+     .btn-delete {
              width: auto;
              margin: 10px 20px;
              height: 30px;
@@ -157,6 +170,10 @@ tr:hover td{
          background: radial-gradient(rgb(177, 75, 75), rgba(0, 0, 0, 0.801));
      }
 
+     .btn-club:hover,
+     .btn-detail:hover,
+     .btn-edit:hover,
+     .btn-delete:hover,
      button:hover,
      button a:hover {
          color: var(--text-color-inverse);
