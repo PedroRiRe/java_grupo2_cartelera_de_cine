@@ -15,12 +15,176 @@
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
+<div class="horizontal-padding vertical-padding">
+
+    <section class="carrusel">
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="8" aria-label="Slide 9"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/img/cartelera.jpg" class="d-block w-100" alt="cinefilos">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Grupo Cinéfilos</h2>
+                        <p>Proyecto Java Spring de Cartelera de películas</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/img/posters/modigliani.jpg" class="d-block w-100" alt="El Indomable Modigliani"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>El Indomable Modigliani</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/img/posters/Lo que el viento se llevo.jpg" class="d-block w-100" alt="Lo que el viento se llevo"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Lo que el viento se llevo</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/img/posters/Momias.jpg" class="d-block w-100" alt="Momias"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Momias</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/img/posters/piloto.jpeg" class="d-block w-100" alt="El Piloto"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>El Piloto</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/img/poster/comunnion.jpg" class="d-block w-100" alt="La Niña De La Comunión"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>La Niña De La Comunión</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/img/posters/fabelman" class="d-block w-100" alt="Los Fabelman"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Los Fabelman</h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/img/poster/terrifier.jpg" class="d-block w-100" alt="Terrifier 2"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>"El Indomable Modigliani"></h5>
+                        <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+    </section>
+
+
+
+<!------------------------------------------------------------------------------------------------------>
+
+    <!--
+
+    <div class="col">
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators" th:each="film: ${films}">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+            </div>
+                 <div class="carousel-item active">
+                      <img th:src="@{${film.poster}}" class="d-block w-100" th:alt="${film.title}">
+                      <div class="carousel-caption d-none d-md-block">
+                         <h5>Batman</h5>
+                         <p>Universal</p>
+                      </div>
+                  </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+    -->
+
+
+<!--------------------------------------------------------------------------------------------------->
+
+<!--
+    <div th:each="film: ${films}">
+        <p th:text="|${film.title}|"></p>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img th:src="@{${/img/cartelera.jpg}" class="d-block w-100" alt="cinefilos">
+                </div>
+
+
+                <div class="carousel-item" th:each="film: ${films}">
+                    <img th:src="@{${film.poster}}" class="d-block w-100" th:alt="${film.title}">
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+-->
+
 <!----------------------  carrusel --------------------------------------------->
 <!--
 <div class="col">
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-indicators">
+        <div class="carousel-indicators" th:each="film: ${films}">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
@@ -138,9 +302,11 @@
     </li>
 </ul>
 -->
-
+</div>
 
 <div th:replace="~{footer :: footer}"></div>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 </body>
 </html>
