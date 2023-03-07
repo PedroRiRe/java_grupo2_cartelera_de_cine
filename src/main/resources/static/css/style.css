@@ -22,6 +22,17 @@ body {
     color: var(--text-color);
 }
 
+.carrusel {
+    margin: 0 auto;
+    width: 980px;
+}
+
+.carrusel h2 {
+    color: var(--text-color);
+    font-size: 40px;
+    text-shadow: 20px 15px 7px red;
+}
+
 .cinefilos-h1 {
     color: var(--primary-color);
     text-align: center;
