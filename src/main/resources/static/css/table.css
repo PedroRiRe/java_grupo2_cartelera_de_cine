@@ -79,10 +79,6 @@ td .accion {
     transition: 0.4s ease all;
 }
 
-.btn-club {
-    background: radial-gradient(#FFFFE0, rgb(148, 147, 140));
-}
-
 .btn-detail {
     background: radial-gradient(#FFFFE0, rgb(83, 182, 83));
 }
