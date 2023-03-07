@@ -1,23 +1,31 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
 
-.cinefilos-h1, .h1-title, .table th {
+html {
+
+}
+
+.cinefilos-h1, th {
     color: #808000ff;
-    font-size: x-large;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .cinefilos-h1 {
-    font-size: 45px;
+    font-size: 3em;
 }
 
-.table th {
-    font-weight: 900;
-    letter-spacing: 2px;
-}
-
-.table th, .table td, .card-title, .card-text, .list-group-item, .form-label {
+th {
+    font-size: x-large;
     text-align: center;
+}
+
+td, .card-title, .card-text, .list-group-item, .form-label {
+    font-size: 18px;
+    text-align: center;
+}
+
+.cinefilos-btn {
+    font-size: 15px;
 }
 
 

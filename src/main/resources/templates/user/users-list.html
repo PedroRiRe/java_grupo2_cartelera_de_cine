@@ -21,7 +21,7 @@
         </div>
 
         <div class="col mt-3" th:if="${#lists.size(users) > 0}">
-            <table class="table">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Usuario</th>
@@ -34,8 +34,8 @@
                 <tbody>
                 <tr th:each="user: ${users}">
                     <td>
-                        <a class="btn btn-sm btn-light" th:text="${user.username}"
-                           th:href="@{/user/{id}(id=${user.id})}"></a>
+                        <a class="btn btn-sm btn-light cinefilos-btn" th:text="${user.username}"
+                           role="button" th:href="@{/user/{id}(id=${user.id})}"></a>
                     </td>
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.surname}"></td>
