@@ -39,7 +39,7 @@
                         </td>
                         <td th:text="${cinema.phone}"></td>
                         <td>
-                            <a class="btn btn-sm btn-light" th:href="@{${cinema.url}}" target="_blank">
+                            <a th:if="${cinema.url} != ''" class="btn btn-sm btn-light" th:href="@{${cinema.url}}" target="_blank">
                                 Visitar sitio</a>
                         </td>
                         <td th:text="${cinema.cif}"></td>
