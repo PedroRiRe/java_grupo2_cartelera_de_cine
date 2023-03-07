@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+.detail,
 .contact {
     display: grid;
     gap: 25px;
-    background-color: var(--background-contact);
+    background-color: var(--navbar-color);
     color: var(--text-color);
     font-size: 18px;
     border-radius: 14px;
@@ -15,6 +18,7 @@
     padding: 0;
 }
 
+.detail-title,
 .contact-title {
     font-size: 30px;
     font-weight: 600;
@@ -28,12 +32,15 @@
     gap: 20px;
 }
 
+.detail-details-group,
+.detail-img-group,
 .contact-details-group,
 .contact-form-group {
     display: grid;
     gap: 3px;
 }
 
+.detail-label,
 .contact-label {
     font-weight: 500;
     text-transform: uppercase;
@@ -71,8 +78,9 @@
         width: 100%;
         max-width: 350px;
         transform: scaleX(-1);
-    }
+}
 
+.detail-actions-list,
 .social-list {
     list-style: none;
     display: flex;
@@ -80,63 +88,131 @@
     justify-content: center;
 }
 
+.detail-actions-list img,
 .social-list img {
     height: 25px;
 }
 
+.detail-actions-list img:hover,
 .social-list img:hover {
     filter: drop-shadow(0 0 5px var(--secondary-color));
 }
 
 @media (min-width: 950px) {
-    .contact {
+.detail,
+.contact {
         font-size: 20px;
         padding: 70px;
-        max-width: 980px;
+        max-width: 1024px;
         margin: 0 auto;
         box-sizing: border-box;
-    }
+}
 
-    .contact-title {
+.detail-title {
+        color: var(--primary-color);
+        text-align: left;
+        font-weight:bolder;
+        font-size: 70px;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.detail-details-group h1 {
+        color: var(--primary-color);
+        text-align: center;
+        text-transform: uppercase;
+        font-weight:bolder;
+        font-size: 40px;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.detail-details-group h3 {
+        color: var(--primary-color);
+        text-align: left;
+        text-transform: uppercase;
+        font-weight:bold;
+        font-size: 30px;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.detail-details-group  {
+        color: var(--text-color);
+        text-align: left;
+        text-transform: uppercase;
+        font-weight:700;
+        font-size: 25px;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.contact-title {
         font-size: 35px;
         text-align: left;
-    }
+}
 
+.detail-list,
     .social-list {
         justify-content: flex-start;
     }
 
+.detail-list img,
     .social-list img {
         height: 35px;
     }
 
+.detail-list img:hover
     .social-list img:hover {
         filter: drop-shadow(0 0 6px var(--secondary-color));
     }
 
-    .contact-title {
-        grid-area: title;
-    }
+.detail-title {
+        grid-area: ditle;
+}
 
-    .contact-details {
+.detail-details {
         grid-area: details;
-    }
+}
 
-    .contact-form {
+.detail-img-section {
+        grid-area: img;
+}
+
+.detail-actions {
+        grid-area: action;
+}
+
+.contact-title {
+        grid-area: title;
+}
+
+.contact-details {
+        grid-area: details;
+}
+
+.contact-form {
         grid-area: form;
-    }
+}
 
-    .social {
+.social {
         grid-area: social;
-    }
+}
 
-    .contact {
+.detail {
+        display: grid;
+        grid:
+        "ditle   ditle"   auto
+        "img     details" auto
+         "img    details"  /
+        1fr       1fr;
+        align-items: start;
+}
+
+.contact {
         display: grid;
         grid:
         "title    form" auto
         "details  form" 1fr
-        "social   form" auto /
+        "social   form" auto
+        "action  action" auto /
         1fr       1fr;
         align-items: start;
-    }
+}
 }
