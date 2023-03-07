@@ -1,55 +1,42 @@
-.contact {
+.detail {
     display: grid;
     gap: 25px;
-    background-color: var(--background-contact);
+    background-color: var(--navbar-color);
     color: var(--text-color);
     font-size: 18px;
     border-radius: 14px;
     padding: 25px;
 }
 
-.contact p,
-.contact h2,
-.contact ul {
+.detail p,
+.detail h2,
+.detail ul {
     margin: 0;
     padding: 0;
 }
 
-.contact-title {
+.detail-title {
     font-size: 30px;
     font-weight: 600;
     text-align: left;
     text-transform: uppercase;
 }
 
-.contact-details,
-.contact-form {
+.detail-details,
+.detail-img-section {
     display: grid;
     gap: 20px;
 }
 
-.contact-details-group,
-.contact-form-group {
+.detail-details-group,
+.detail-img-group {
     display: grid;
     gap: 3px;
 }
 
-.contact-label {
+.detail-label {
     font-weight: 500;
     text-transform: uppercase;
-}
-
-.contact-form input,
-.contact-form textarea {
-    border: none;
-    border-radius: 7px;
-    height: 30px;
-    padding: 5px 10px;
-}
-
-.contact-form textarea {
-    height: auto;
-    resize: vertical;
 }
 
 .contact-form-btn {
@@ -71,25 +58,25 @@
         width: 100%;
         max-width: 350px;
         transform: scaleX(-1);
-    }
+}
 
-.social-list {
+.detail-actions-list {
     list-style: none;
     display: flex;
     gap: 25px;
     justify-content: center;
 }
 
-.social-list img {
+.detail-actions-list img {
     height: 25px;
 }
 
-.social-list img:hover {
+.detail-actions-list img:hover {
     filter: drop-shadow(0 0 5px var(--secondary-color));
 }
 
 @media (min-width: 950px) {
-    .contact {
+    .detail {
         font-size: 20px;
         padding: 70px;
         max-width: 980px;
@@ -97,45 +84,48 @@
         box-sizing: border-box;
     }
 
-    .contact-title {
-        font-size: 35px;
-        text-align: left;
+    .detail-title {
+        color: var(--primary-color);
+            text-align: left;
+            font-weight:bold;
+            font-size: 70px;
+            font-family: 'Yanone Kaffeesatz', sans-serif;
     }
 
-    .social-list {
+    .detail-list {
         justify-content: flex-start;
     }
 
-    .social-list img {
+    .detail-list img {
         height: 35px;
     }
 
-    .social-list img:hover {
+    .detail-list img:hover {
         filter: drop-shadow(0 0 6px var(--secondary-color));
     }
 
-    .contact-title {
+    .detail-title {
         grid-area: title;
     }
 
-    .contact-details {
+    .detail-details {
         grid-area: details;
     }
 
-    .contact-form {
-        grid-area: form;
+    .detail-img-section {
+        grid-area: img;
     }
 
-    .social {
-        grid-area: social;
+    .detail-actions {
+        grid-area: action;
     }
 
-    .contact {
+    .detail {
         display: grid;
         grid:
-        "title    form" auto
-        "details  form" 1fr
-        "social   form" auto /
+        "action  action" auto
+        "title   details" auto
+        "img     details" auto /
         1fr       1fr;
         align-items: start;
     }
