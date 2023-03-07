@@ -41,10 +41,13 @@
                 </ul>
 
                 <div class="card-footer">
-                    <a class="btn btn-outline-primary" th:href="@{/cinemas}" role="button">Cines</a>
-                    <a class="btn btn-outline-success" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
+                    <a class="btn btn-outline-primary" title="Ver cines"
+                       th:href="@{/cinemas}" role="button">Cines</a>
+                    <a class="btn btn-outline-success" title="Editar cines"
+                       th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
                        sec:authorize="isAuthenticated()" role="button">Editar</a>
-                    <button class="btn btn-outline-danger" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
+                    <button class="btn btn-outline-danger" title="Borrar cines"
+                            th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
                        sec:authorize="isAuthenticated()" role="button">Borrar</button>
                 </div>
             </div>

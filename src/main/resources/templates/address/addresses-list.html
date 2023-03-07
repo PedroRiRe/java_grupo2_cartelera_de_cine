@@ -35,8 +35,8 @@
                 <tbody>
                 <tr th:each="address: ${addresses}">
                     <td>
-                        <a class="btn btn-sm btn-light cinefilos-btn" th:text ="${address.street}"
-                           role="button" th:href="@{/address/{id}(id=${address.id})}"></a>
+                        <a class="btn btn-sm btn-light cinefilos-btn" th:title="|Ver detalle de «${address.street}»|"
+                           th:text="${address.street}" role="button" th:href="@{/address/{id}(id=${address.id})}"></a>
                     </td>
                 <!--    <td>
                         <a class="btn btn-sm btn-light" th:text ="${cinema.name}"
@@ -46,12 +46,12 @@
                     <td th:text ="${address.city}"></td>
                     <td th:text ="${address.country}"></td>
                     <td>
-                        <a class="btn btn-sm btn-outline-primary"
+                        <a class="btn btn-sm btn-outline-primary" title="Ver dirección"
                            th:href="@{/address/{id}(id=${address.id})}" role="button">Ver</a>
-                        <a class="btn btn-sm btn-outline-success"
+                        <a class="btn btn-sm btn-outline-success" title="Editar dirección"
                            th:href="@{/addresses/{id}/edit(id=${address.id})}"
                            sec:authorize="isAuthenticated()" role="button">Editar</a>
-                        <a class="btn btn-sm btn-outline-danger"
+                        <a class="btn btn-sm btn-outline-danger" title="Borrar dirección"
                            th:href="@{/addresses/{id}/delete(id=${address.id})}"
                            sec:authorize="isAuthenticated()" role="button">Borrar</a>
                     </td>
@@ -68,7 +68,7 @@
     <div class="text-center mt-4">
         <a class="btn btn-outline-primary" th:href="@{/addresses/create}"
            sec:authorize="isAuthenticated()" role="button">Crear nueva Dirección</a>
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+        <a class="btn btn-outline-success" th:href="@{/}" role="button">Portada</a>
     </div>
 </div>
 
