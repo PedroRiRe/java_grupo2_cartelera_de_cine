@@ -27,8 +27,8 @@
             <form th:if="${error} == null" th:action="@{/rooms}" method="POST" th:object="${room}">
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
                 <div class="mb-4">
-                    <label for="roomNumber" class="form-label">Número de Sala</label>
-                    <input type="text" class="form-control" id="roomNumber" th:field="*{roomNumber}">
+                    <label for="roomNumber" class="form-label">Número de Sala *</label>
+                    <input type="text" class="form-control" id="roomNumber" th:field="*{roomNumber}" required>
                 </div>
                 <div class="mb-4">
                     <label class="form-label">Seleccionar película</label>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-check mb-4 text-start">
                     <input class="form-check-input" type="checkbox" id="active" th:field="*{active}">
-                    <label class="form-check-label" for="active">Sala operativa</label>
+                    <label class="form-check-label" for="active">Sala operativa *</label>
                 </div>
                 <div class="mb-4">
                     <label for="capacity" class="form-label">Aforo</label>

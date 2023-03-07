@@ -42,11 +42,13 @@
                     </td>
                     <td th:text="${rooms.premiere}"></td>
                     <td>
-                        <a class="btn btn-sm btn-outline-primary"
+                        <a class="btn btn-sm btn-outline-primary" title="Ver sala"
                            th:href="@{/room/{id}(id=${rooms.id})}" role="button">Ver</a>
-                        <a class="btn btn-sm btn-outline-success" th:href="@{/rooms/{id}/edit(id=${rooms.id})}"
+                        <a class="btn btn-sm btn-outline-success" title="Editar sala"
+                           th:href="@{/rooms/{id}/edit(id=${rooms.id})}"
                            sec:authorize="isAuthenticated()" role="button">Editar</a>
-                        <a class="btn btn-sm btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${rooms.id})}"
+                        <a class="btn btn-sm btn-outline-danger" title="Borrar sala"
+                           th:href="@{/rooms/{id}/delete(id=${rooms.id})}"
                            sec:authorize="isAuthenticated()" role="button">Borrar</a>
                     </td>
                 </tr>
@@ -62,7 +64,7 @@
     <div class="text-center mt-4">
         <a class="btn btn-outline-primary" th:href="@{/rooms/create}"
            sec:authorize="isAuthenticated()" role="button">Crear nueva sala</a>
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+        <a class="btn btn-outline-success" th:href="@{/}" role="button">Portada</a>
     </div>
 </div>
 

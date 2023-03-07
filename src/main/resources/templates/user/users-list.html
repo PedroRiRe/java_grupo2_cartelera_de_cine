@@ -34,19 +34,21 @@
                 <tbody>
                 <tr th:each="user: ${users}">
                     <td>
-                        <a class="btn btn-sm btn-light cinefilos-btn" th:text="${user.username}"
-                           role="button" th:href="@{/user/{id}(id=${user.id})}"></a>
+                        <a class="btn btn-sm btn-light cinefilos-btn" th:title="|Ver detalle de «${user.username}»|"
+                           th:text="${user.username}" role="button" th:href="@{/user/{id}(id=${user.id})}"></a>
                     </td>
                     <td th:text="${user.name}"></td>
                     <td th:text="${user.surname}"></td>
                     <td th:text="${user.email}"></td>
                     <td>
-                        <a class="btn btn-sm btn-outline-primary"
+                        <a class="btn btn-sm btn-outline-primary" title="Ver usuario"
                            th:href="@{/user/{id}(id=${user.id})}" role="button">Ver</a>
-                        <a class="btn btn-sm btn-outline-success" th:href="@{/users/{id}/edit(id=${user.id})}"
+                        <a class="btn btn-sm btn-outline-success" title="Editar usuario"
+                           th:href="@{/users/{id}/edit(id=${user.id})}"
                            sec:authorize="isAuthenticated()" role="button">Editar</a>
                         <a th:if="${user.id != #authentication.getPrincipal().getId()}"
-                           class="btn btn-sm btn-outline-danger" th:href="@{/users/{id}/delete(id=${user.id})}"
+                           class="btn btn-sm btn-outline-danger" title="Borrar usuario"
+                           th:href="@{/users/{id}/delete(id=${user.id})}"
                            sec:authorize="isAuthenticated()" role="button">Borrar</a>
                         <a th:unless="${user.id != #authentication.getPrincipal().getId()}"
                            class="btn btn-sm btn-outline-danger disabled" th:href="@{/users/{id}/delete(id=${user.id})}"
@@ -65,7 +67,7 @@
     <div class="text-center mt-4">
         <a class="btn btn-outline-primary" th:href="@{/users/create}"
            sec:authorize="isAuthenticated()" role="button">Crear nuevo usuario</a>
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
+        <a class="btn btn-outline-success" th:href="@{/}" role="button">Portada</a>
     </div>
 </div>
 
