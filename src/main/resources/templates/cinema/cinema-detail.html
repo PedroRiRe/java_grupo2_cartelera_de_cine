@@ -10,7 +10,6 @@
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
     <link rel="stylesheet" th:href="@{/css/contact.css}"/>
-    <link rel="stylesheet" th:href="@{/css/detail.css}"/>
     <link rel="stylesheet" th:href="@{/css/table.css}"/>
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -21,10 +20,8 @@
 
 <div class="horizontal-padding vertical-padding">
 
-    <section class="detail">
+    <div class="detail">
         <h1 class="detail-title" th:text="${cinema.name}"></h1>
-
-
             <div th:if="${error}">
                 <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
@@ -32,17 +29,14 @@
                 <a type="button" class="btn btn-primary" th:href="@{/cinemas}" role="button">Lista de cines</a>
             </div>
 
-
-
             <div class="detail-details" th:if="${error} == null">
 
                 <div class="detail-details-group">
-                    <p class="detail-label">Teléfono:</p>
+                    <h1  th:text="${cinema.address.city}"></h1>
+                    <h3 class="detail-label">Teléfono:</h3>
                     <p class="contact-label" th:text="|${cinema.phone}"></p>
-                    <h4>CIF: </h4>
-                    <p class="contact-text" th:text="|${cinema.cif}"></p>
+                <h3 class="detail-label">Salas</h3>
                 </div>
-                <p class="detail-label">Salas</p>
                 <div class="detail-details-group">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"
@@ -51,6 +45,11 @@
                         </li>
                     </ul>
                 </div>
+                <br>
+                <div class="detail-details-group">
+                    <h3 class="detail-label">CIF: </h3>
+                    <p class="contact-text" th:text="|${cinema.cif}"></p>
+                </div>
             </div>
 
             <div class="detail-img-section">
@@ -58,33 +57,11 @@
                     <img th:src="@{${cinema.image}}" class="detail-img" th:alt="${cinema.name}"/>
                 </div>
             </div>
-
-            <nav class="detail-actions">
-                <ul class="detail-actions-list">
-                    <li>
-                        <a class="btn-detail" th:href="@{/cinemas}"
-                           th:title="|Ir a listado de cines|" role="button">Cines</a>
-                    </li>
-                    <li>
-                        <a class="btn-edit" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
-                           th:title="|Editar ${cinema.name}|"
-                           sec:authorize="isAuthenticated()" role="button">Editar</a>
-                    </li>
-                    <li>
-                        <a class="btn-delete" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
-                           th:title="|Editar ${cinema.name}|"
-                           sec:authorize="isAuthenticated()" role="button">Borrar</a>
-                    </li>
-                </ul>
-            </nav>
-    </section>
-</div>
+    </div>
 
 <!----------------------------- formulario de contacto ------------------------------------------->
-<div class="col"></div>
-<br>
-<div class="horizontal-padding vertical-padding">
-    <section class="contact" id="contact">
+
+    <div class="contact">
         <h2 class="contact-title">Contacto</h2>
         <div class="contact-details">
             <div class="contact-details-group">
@@ -140,7 +117,27 @@
                 </li>
             </ul>
         </nav>
-    </section>
+        <br>
+        <br>
+        <nav class="detail-actions">
+            <ul class="detail-actions-list">
+                <li>
+                    <a class="btn-detail" th:href="@{/cinemas}"
+                       th:title="|Ir a listado de cines|" role="button">Cines</a>
+                </li>
+                <li>
+                    <a class="btn-edit" th:href="@{/cinemas/{id}/edit(id=${cinema.id})}"
+                       th:title="|Editar ${cinema.name}|"
+                       sec:authorize="isAuthenticated()" role="button">Editar</a>
+                </li>
+                <li>
+                    <a class="btn-delete" th:href="@{/cinemas/{id}/delete(id=${cinema.id})}"
+                       th:title="|Editar ${cinema.name}|"
+                       sec:authorize="isAuthenticated()" role="button">Borrar</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

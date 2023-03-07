@@ -39,21 +39,6 @@
     text-transform: uppercase;
 }
 
-.contact-form-btn {
-    width: 100%;
-    height: 50px;
-    background-color: var(--text-color);
-    border-radius: 7px;
-    color: var(--text-color-inverse);
-    border: 1px solid var(--theme-color);
-    cursor: pointer;
-}
-
-.contact-form-btn:hover {
-    box-shadow: 0 0 14px var(--secondary-color);
-    filter: brightness(150%);
-}
-
 .detail-img {
         width: 100%;
         max-width: 350px;
@@ -123,9 +108,9 @@
     .detail {
         display: grid;
         grid:
-        "action  action" auto
-        "title   details" auto
-        "img     details" auto /
+        "ditle   details" auto
+        "img     details" auto
+         "action  action" auto /
         1fr       1fr;
         align-items: start;
     }
