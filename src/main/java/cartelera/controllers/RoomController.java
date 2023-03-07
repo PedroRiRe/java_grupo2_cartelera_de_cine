@@ -84,7 +84,7 @@ public class RoomController {
         model.addAttribute("room", new Room());
         model.addAttribute("cinemas", cinemaService.findAll());
         model.addAttribute("films", filmService.findAll());
-        return "room/rooms-list";
+        return "room/room-form";
     }
 
     /**

@@ -30,7 +30,7 @@
 <!--        </form>-->
 
         <div class="col mt-3" th:if="${#lists.size(films) > 0}">
-            <table class="table th">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th scope="col">Título</th>
@@ -43,8 +43,8 @@
                 <tbody>
                 <tr th:each="film: ${films}">
                     <td>
-                        <a class="btn btn-sm btn-light" th:text="${film.title}"
-                           th:href="@{/film/{id}(id=${film.id})}"></a>
+                        <a class="btn btn-sm btn-light cinefilos-btn" th:text="${film.title}"
+                           role="button" th:href="@{/film/{id}(id=${film.id})}"></a>
                     </td>
                     <td th:text="${film.duration}"></td>
                     <td th:text="${film.classification}"></td>
