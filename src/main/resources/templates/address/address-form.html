@@ -29,24 +29,24 @@
             <form th:if="${error} == null" th:action="@{/addresses}" method="POST" th:object="${address}">
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
                 <div class="mb-4">
-                    <label for="address" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="address" th:field="*{address}">
+                    <label for="street" class="form-label">Dirección *</label>
+                    <input type="text" class="form-control" id="street" th:field="*{street}" required>
                 </div>
                 <div class="mb-4">
                     <label for="image" class="form-label">Imagen</label>
                     <input type="text" class="form-control" id="image" th:field="*{image}">
                 </div>
                 <div class="mb-4">
-                    <label for="postalCode" class="form-label">Código postal</label>
-                    <input type="text" class="form-control" id="postalCode" th:field="*{postalCode}">
+                    <label for="postalCode" class="form-label">Código postal *</label>
+                    <input type="text" class="form-control" id="postalCode" th:field="*{postalCode}" required>
                 </div>
                 <div class="mb-4">
-                    <label for="city" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="city" th:field="*{city}">
+                    <label for="city" class="form-label">Ciudad *</label>
+                    <input type="text" class="form-control" id="city" th:field="*{city}" required>
                 </div>
                 <div class="mb-4">
-                    <label for="country" class="form-label">País</label>
-                    <input type="text" class="form-control" id="country" th:field="*{country}">
+                    <label for="country" class="form-label">País *</label>
+                    <input type="text" class="form-control" id="country" th:field="*{country}" required>
                 </div>
 
                 <a class="btn btn-outline-primary" th:href="@{/addresses}">Cancelar</a>

@@ -65,7 +65,8 @@ public class AddressServiceImpl implements IAddressService {
     public void deleteById(Long id) {
         log.info("deleteById {}", id);
         if (invalidPosNumber(id) && !existsById(id)) return;
-        cinemaRepo.findByAddress_Id(id).setAddress(null);
+        if (cinemaRepo.findByAddress_Id(id) != null)
+            cinemaRepo.findByAddress_Id(id).setAddress(null);
         addressRepo.deleteById(id);
     }
 
