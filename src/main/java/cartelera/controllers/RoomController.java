@@ -51,7 +51,7 @@ public class RoomController {
     }
 
     /**
-     * Muestra las salas de una película por si ID.
+     * Muestra las salas de una película por su ID.
      * @param model Modelo.
      * @param id Identificador.
      * @return Plantilla rooms-list.
@@ -63,7 +63,7 @@ public class RoomController {
     }
 
     /**
-     * Muestra las salas de un cine por su ID:
+     * Muestra las salas de un cine por su ID.
      * @param model Modelo.
      * @param id Identificador.
      * @return Plantilla rooms-list.
