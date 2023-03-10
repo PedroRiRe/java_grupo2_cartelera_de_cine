@@ -66,6 +66,9 @@
                     <label for="phone" class="form-label">Teléfono</label>
                     <input type="text" class="form-control" id="phone" th:field="*{phone}">
                 </div>
+
+                <input type="hidden" id="address.id" name="address.id" th:field="*{address.id}"/>
+
                 <div class="mb-4">
                     <label for="address" class="form-label">Dirección *</label>
                     <input type="text" class="form-control" id="address" th:field="*{address.street}" required>
