@@ -27,7 +27,19 @@ public interface IUserService {
      */
     boolean existsById(Long id);
 
-    // boolean existsByUsername(String username);
+    /**
+     * Comprueba si existe un usuario por el nombre de usuario.
+     * @param username nombre de usuario.
+     * @return Verdadero si existe, falso en caso contrario.
+     */
+    boolean existsByUsername(String username);
+
+    /**
+     * Comprueba si existe un usuario por su correo electrónico.
+     * @param email correo electrónico.
+     * @return Verdadero si existe, falso en caso contrario.
+     */
+    boolean existsByEmail(String email);
 
     /**
      * Guarda un usuario.

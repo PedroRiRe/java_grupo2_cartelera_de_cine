@@ -41,12 +41,19 @@ public class UserServiceImpl implements IUserService {
         return userRepo.existsById(id);
     }
 
-//    @Override
-//    public boolean existsByUsername(String username) {
-//        log.info("existsByUsername {}", username);
-//        if (stringIsEmpty(username)) return false;
-//        return userRepo.existsByUsername(username);
-//    }
+    @Override
+    public boolean existsByUsername(String username) {
+        log.info("existsByUsername {}", username);
+        if (stringIsEmpty(username)) return false;
+        return userRepo.existsByUsername(username);
+    }
+
+    @Override
+    public boolean existsByEmail(String email) {
+        log.info("existsByEmail {}", email);
+        if (stringIsEmpty(email)) return false;
+        return userRepo.existsByEmail(email);
+    }
 
     public User save(User user) {
         log.info("save {}", user);
