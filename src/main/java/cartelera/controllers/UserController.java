@@ -83,15 +83,29 @@ public class UserController {
     @PostMapping("users")
     public String save(Model model, @ModelAttribute User user) {
 
-        if (!userService.existsById(user.getId()) &&
-                (userService.existsByUsername(user.getUsername()) || userService.existsByEmail(user.getEmail()))) {
+        boolean userExist = userService.existsById(user.getId());
+        User oldUser = null;
+        if (userExist) oldUser = userService.findById(user.getId()).get();
+        boolean existsByUsername = userService.existsByUsername(user.getUsername());
+        boolean existsByEmail = userService.existsByEmail(user.getEmail());
+
+        // Si el usuario es nuevo, pero ya existe el nombre de usuario o el correo...
+        if (!userExist && (existsByUsername || existsByEmail)) {
+            model.addAttribute("error", "El usuario ya existe.");
+            return "user/user-form";
+        }
+
+        // Si el usuario ya existe, pero cambió el usuario o contraseña a otra que ya existía...
+        // TODO revisar
+        else if (userExist && (
+                ( existsByUsername && (user.getUsername() != oldUser.getUsername()) ) ||
+                ( existsByEmail && (user.getEmail() != oldUser.getEmail()) ) )) {
             model.addAttribute("error", "El usuario ya existe.");
             return "user/user-form";
         }
 
         String oldPasswd = null;
-        if (userService.existsById(user.getId()))
-            oldPasswd = userService.findById(user.getId()).get().getPassword();
+        if (userExist) oldPasswd = oldUser.getPassword();
         String newPasswd = user.getPassword();
 
         // Permite cambiar contraseña
