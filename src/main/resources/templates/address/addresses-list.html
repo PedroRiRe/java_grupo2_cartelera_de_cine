@@ -8,6 +8,7 @@
     <title>Direcciones</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -19,45 +20,69 @@
         <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(addresses)}">
             Actualmente no hay ninguna dirección para mostrar.
         </div>
+        <main class="container-address">
 
-        <div class="col mt-3" th:if="${#lists.size(addresses) > 0}">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col" >Dirección</th>
-                <!--    <th scope="col" >Cine</th>  -->
-                    <th scope="col" >CP</th>
-                    <th scope="col" >Ciudad</th>
-                    <th scope="col" >País</th>
-                    <th scope="col" >Opciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="address: ${addresses}">
-                    <td>
-                        <a class="btn btn-sm btn-light cinefilos-btn" th:title="|Ver detalle de «${address.street}»|"
-                           th:text="${address.street}" role="button" th:href="@{/address/{id}(id=${address.id})}"></a>
-                    </td>
-                <!--    <td>
-                        <a class="btn btn-sm btn-light" th:text ="${cinema.name}"
-                           th:href="@{/cinema/{address}(address=${cinema.address})}"></a>
-                    </td>  -->
-                    <td th:text ="${address.postalCode}"></td>
-                    <td th:text ="${address.city}"></td>
-                    <td th:text ="${address.country}"></td>
-                    <td>
-                        <a class="btn btn-sm btn-outline-primary" title="Ver dirección"
-                           th:href="@{/address/{id}(id=${address.id})}" role="button">Ver</a>
-                        <a class="btn btn-sm btn-outline-success" title="Editar dirección"
-                           th:href="@{/addresses/{id}/edit(id=${address.id})}"
-                           sec:authorize="isAuthenticated()" role="button">Editar</a>
-                        <a class="btn btn-sm btn-outline-danger" title="Borrar dirección"
-                           th:href="@{/addresses/{id}/delete(id=${address.id})}"
-                           sec:authorize="isAuthenticated()" role="button">Borrar</a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="row row-cols-1 row-cols-md-4 g-2">
+                <div class="card-deck" th:each="address: ${addresses}">
+                            <div class="card">
+                                <img th:if="${address != null}" th:src="@{${address.image}}" class="img-fluid rounded-start"/>
+                                <img th:unless="${address != null}" th:src="./img/close-menu.png" class="img-fluid rounded-start"
+                                     th:alt="| No disponible |"/>
+                                <div class="card-body">
+                                    <h5 th:if="${address != null}" class="card-title" th:text="|Dirección ${address.street}|"></h5>
+                                    <h5 th:unless="${address != null}" class="card-title" th:text="|Dirección no disponible|"></h5>
+                                    <p th:if="${address != null}" class="card-text" th:text="${address.postalCode}"></p>
+                                    <p th:unless="${address != null}" class="card-text" th:text="| Dirección no disponible |"></p>
+                                    <h5 th:if="${address != null}" class="card-title" th:text="${address.city}"></h5>
+                                    <h5 th:unless="${address != null}" class="card-title" th:text="| Dirección no disponible |"></h5>
+                                    <p th:if="${address != null}" class="card-text" th:text="${address.country}"></p>
+                                    <p th:unless="${address != null}" class="card-text" th:text="| Dirección no disponible |"></p>
+                                </div>
+                            </div>
+                    <div class="card-opt mx-auto">
+
+                        <a th:href="@{/address/{id}(id=${address.id})}">
+                            <img width="35" height="35" src="/img/icons/Ver.svg"
+                                 th:title="|Ver detalle de Dirección ${address.street}|"
+                                 th:alt="|Ver detalle de Dirección ${address.street}|">
+                        </a>
+
+                        <a th:href="@{/addresses/{id}/edit(id=${address.id})}"
+                           sec:authorize="isAuthenticated()">
+                            <img width="35" height="35" src="/img/icons/Editar.svg"
+                                 th:title="|Editar Dirección ${address.street}"
+                                 th:alt="|Editar Dirección ${address.street}|">
+                        </a>
+
+                        <a th:href="@{/addresses/{id}/delete(id=${address.id})}"
+                           sec:authorize="isAuthenticated()">
+                            <img width="35" height="35" src="/img/icons/Borrar.svg"
+                                 th:title="|Eliminar Dirección ${address.street}"
+                                 th:alt="|Eliminar Dirección ${address.street}|">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="text-center">
                 Actualmente hay <span th:text="${#lists.size(addresses)}"></span> direcciones.
