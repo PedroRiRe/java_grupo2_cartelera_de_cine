@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 import java.util.Optional;
 
-public interface DirectorRepository {
+public interface ScreenWriterRepository {
     Optional<Cinema> findByName(String name);
 
     List<Cinema> findAllByName(String name);
@@ -36,4 +36,5 @@ public interface DirectorRepository {
     // @Query("select cinema from Director director left join fetch cinema.rooms where cinema.id = :id")
     // Optional<Cinema> findByIdWithRooms(Long id);
 }
+
 
