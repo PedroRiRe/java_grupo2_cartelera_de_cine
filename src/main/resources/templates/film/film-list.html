@@ -53,19 +53,19 @@
                         <ul class="actions-list">
                             <li>
                                 <a th:title="|Ver detalle de ${film.title}|" th:href="@{/film/{id}(id=${film.id})}" role="button">
-                                    <img width="35px" height="35px" src="/img/icons/view.svg" th:alt="|Ver detalle de ${film.title}|">
+                                    <img width="35px" height="35px" src="/img/icons/Ver.svg" th:alt="|Ver detalle de ${film.title}|">
                                 </a>
                             </li>
                             <li>
                                 <a th:href="@{/films/{id}/edit(id=${film.id})}" th:title="|Editar ${film.title}|"
                                    sec:authorize="isAuthenticated()" role="button">
-                                    <img width="35px" height="35px" src="/img/icons/edit.svg" th:alt="|Edit detalle de ${film.title}|">
+                                    <img width="35px" height="35px" src="/img/icons/Editar.svg" th:alt="|Edit detalle de ${film.title}|">
                                 </a>
                             </li>
                             <li>
                                 <a th:href="@{/films/{id}/delete(id=${film.id})}" th:title="|Eliminar ${film.title}|"
                                    sec:authorize="isAuthenticated()" role="button">
-                                    <img width="35px" height="35px" src="/img/icons/delete.svg" th:alt="|Eliminar detalle de ${film.title}|">
+                                    <img width="35px" height="35px" src="/img/icons/Borrar.svg" th:alt="|Eliminar detalle de ${film.title}|">
                                 </a>
                             </li>
                         </ul>
