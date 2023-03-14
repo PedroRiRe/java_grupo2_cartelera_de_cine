@@ -22,6 +22,9 @@
         <h1 class="title-table">Cines</h1>
     </div>
 </div>
+
+
+
 <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(cinemas)}">
     Actualmente no hay ningún cine para mostrar.
 </div>
@@ -75,7 +78,7 @@
         Actualmente hay <span th:text="${#lists.size(cinemas)}"></span> cines.
     </div>
     <div class="text-center mt-4">
-        <a class="btn btn-outline-success" th:href="@{/}" th:title="|Volver a pantalla anterior|" role="button">Volver</a>
+        <a class="btn-club" th:href="@{/}" th:title="|Volver a página principal|" role="button">Inicio</a>
     </div>
 </div>
 
