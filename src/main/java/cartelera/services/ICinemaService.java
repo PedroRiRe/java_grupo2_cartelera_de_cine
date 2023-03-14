@@ -40,5 +40,5 @@ public interface ICinemaService {
      */
     void deleteById(Long id);
 
-    // Optional<Cinema> findByIdWithRooms(Long id);
+     Optional<Cinema> findByIdWithRooms(Long id);
 }
