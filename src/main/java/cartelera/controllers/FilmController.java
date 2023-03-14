@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import static cartelera.utils.Utils.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 @Controller
@@ -43,6 +44,7 @@ public class FilmController {
      */
     @GetMapping("film/{id}")
     public String findById(Model model, @PathVariable Long id) {
+         Optional<Film> filmOpt = filmService.findById(id);
         // List<Film> filmOpt = filmService.findByIdWithGender(id);
         if (!invalidPosNumber(id) && filmService.existsById(id)) {
             model.addAttribute("film", filmService.findById(id).get());
@@ -88,9 +90,12 @@ public class FilmController {
      */
     @GetMapping("films/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
-        if (!invalidPosNumber(id) && filmService.existsById(id))
-            model.addAttribute("film", filmService.findById(id).get());
-        else model.addAttribute("error", "Película no encontrada.");
+        Optional<Film> filmOptional = filmService.findById(id);
+        if (filmOptional.isPresent())
+            model.addAttribute("film", filmOptional.get());
+        else
+            model.addAttribute("error", "Film not found");
+
         return "film/film-form";
     }
 
@@ -112,7 +117,7 @@ public class FilmController {
      */
     @GetMapping("films/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        if (!invalidPosNumber(id) && filmService.existsById(id)) filmService.deleteById(id);
+        filmService.deleteById(id);
         return "redirect:/films";
     }
 }

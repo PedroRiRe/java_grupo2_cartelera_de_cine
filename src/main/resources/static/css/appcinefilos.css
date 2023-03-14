@@ -1,26 +1,57 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css");
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
 
-.cinefilos-h1, th {
+.cinefilos-h1, .h1-title, .table th {
+body {
+background:#white;
+font-weight:bold;
+color: black;
+}
+
+.text-dark {
+font-size:20px;
+}
+
+p {
+font-size:20px;
+}
+
+.cinefilos-h1 {
     color: #808000ff;
+    font-size: 45px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.modificar {
+    color: #808000ff;
+    font-size:xxx-large;
+    font-weight:bold;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.h1-title {
+.cinefilos-h1, .h1-title, .table th {
+    color: #808000ff;
+    font-size: x-large;
     font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .cinefilos-h1 {
-    font-size: 3em;
+    font-size: 45px;
 }
 
-.cinefilos-btn {
-    font-size: 15px;
-}
-
-th {
+.table th {
+    color: #808000ff;
     font-size: x-large;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
     text-align: center;
+    font-weight: 900;
+    letter-spacing: 2px;
 }
 
-td, .card-title, .card-text, .list-group-item, .form-label {
-    font-size: 18px;
+.table th, .table td, .card-title, .card-text, .list-group-item, .form-label {
     text-align: center;
 }
 

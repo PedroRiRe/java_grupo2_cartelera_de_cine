@@ -43,7 +43,6 @@ INSERT INTO `cinema` (`id`, `image`, `cif`, `email`, `facebook`, `instagram`, `l
 (4, 'https://static2.hoy.es/www/multimedia/202101/20/media/cortadas/157188370--1248x936.jpg', '951753682', 'donbenito@cinefilos.org', 'Facebook4', 'Instagram4', 'LinkedIn4', 'Cines Victoria Don Benito', '647958969', 'Twitter4', 'http://www.cinesvictoria.com/', 4),
 (5, 'https://dades.grupnaciodigital.cat/redaccio/arxius/imatges/202006/1200_1592410050yelmosantcugat.jpg', '951753680', 'yelmoabrera@cinefilos.org', 'Facebook5', 'Instagram5', 'LinkedIn5', 'Cine Yelmo Abrera', '647958960', 'Twitter5', 'http://www.yelmocines.es/', 5);
 
-
 -- --------------------------------------------------------
 
 --
@@ -114,19 +113,19 @@ INSERT INTO `film_genders` (`film_id`, `genders`) VALUES
 --
 
 INSERT INTO `room` (`id`, `active`, `capacity`, `premiere`, `room_number`, `cinema_id`, `film_id`) VALUES
-(null, b'1', 130, '2023-02-18', 1, 1, 1),
-(null, b'1', 130, '2023-02-18', 2, 1, 2),
-(null, b'1', 130, '2023-02-18', 3, 1, 3),
-(null, b'1', 130, '2023-02-18', 4, 1, 4),
-(null, b'1', 130, '2023-02-18', 5, 1, 5),
+(null, b'1', 130, '2023-02-18', 1, 1, 6),
+(null, b'1', 130, '2023-02-18', 2, 1, 7),
+(null, b'1', 130, '2023-02-18', 3, 1, 8),
+(null, b'1', 130, '2023-02-18', 4, 1, 9),
+(null, b'1', 130, '2023-02-18', 5, 1, 10),
 
-(null, b'1', 130, '2023-02-18', 1, 2, 1),
-(null, b'1', 130, '2023-02-18', 2, 2, 2),
-(null, b'1', 130, '2023-02-18', 3, 2, 3),
-(null, b'1', 130, '2023-02-18', 4, 2, 4),
-(null, b'1', 130, '2023-02-18', 5, 2, 5),
+(null, b'1', 130, '2023-02-18', 1, 2, 11),
+(null, b'1', 130, '2023-02-18', 2, 2, 21),
+(null, b'1', 130, '2023-02-18', 3, 2, 31),
+(null, b'1', 130, '2023-02-18', 4, 2, 24),
+(null, b'1', 130, '2023-02-18', 5, 2, 25),
 
-(null, b'1', 130, '2023-02-18', 1, 3, 1),
+(null, b'1', 130, '2023-02-18', 1, 3, 6),
 (null, b'1', 130, '2023-02-18', 2, 3, 2),
 (null, b'1', 130, '2023-02-18', 3, 3, 3),
 (null, b'1', 130, '2023-02-18', 4, 3, 4),
@@ -251,7 +250,5 @@ INSERT INTO `room_schedules` (`room_id`, `schedules`) VALUES
 (23, '22:30'),
 (24, '22:30'),
 (25, '22:30');
--- --------------------------------------------------------
-
 
 -- --------------------------------------------------------
