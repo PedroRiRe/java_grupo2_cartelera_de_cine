@@ -8,11 +8,12 @@
     <title>Usuarios</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" href="/css/table.css">
-    <script defer src="/js/app.js"></script>
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user.css}"/>
+    <link rel="stylesheet" href="/css/cinemas.css">
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -22,115 +23,67 @@
         <h1 class="title-table">Usuarios</h1>
     </div>
 </div>
-<div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(users)}">
-    Actualmente no hay ningún usuario para mostrar.
-</div>
-<div class="create-opt">
-    <a class="btn-club" th:href="@{/users/create}"
-       sec:authorize="isAuthenticated()" role="button">Crear nuevo usuario</a>
-</div>
+
+
+        <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(users)}">
+            Actualmente no hay ningún usuario para mostrar.
+        </div>
+        <div class="create-opt">
+            <a class="btn-club" th:href="@{/users/create}"
+               sec:authorize="isAuthenticated()" role="button">Crear nuevo usuario</a>
+        </div>
 
 <div class="horizontal-padding vertical-padding">
 
-    <main class="container">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col" th:each="user: ${users}">
-                <div class="card">
-                    <img th:src="@{${user.image}}" class="img-top" th:alt="${user.username}"/>
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre de usuario</h5>
-                        <p class="card-text" th:text="${user.username}"></p>
-                        <h5 class="card-title">Nombre</h5>
-                        <p class="card-text" th:text="|${user.name} min|"></p>
-                        <h5 class="card-title">Apellido</h5>
-                        <p class="card-text-company" th:text="${user.surname}"></p>
-                        <h5 class="card-title">E-mail</h5>
-                        <p class="card-text" th:text="${user.email}"></p>
-                    </div>
-                </div>
-                <nav>
-                    <ul class="actions-list">
-                        <li>
-                            <a th:title="|Ver detalle de ${user.username}|" th:href="@{/user/{id}(id=${user.id})}" role="button">
-                                <img width="35px" height="35px" src="/img/icons/view.svg" th:alt="|Ver detalle de ${user.username}|">
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{/users/{id}/edit(id=${user.id})}" th:title="|Editar ${user.username}|"
-                               sec:authorize="isAuthenticated()" role="button">
-                                <img width="35px" height="35px" src="/img/icons/edit.svg" th:alt="|Edit detalle de ${user.username}|">
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{/users/{id}/delete(id=${user.id})}" th:title="|Eliminar ${user.username}|"
-                               sec:authorize="isAuthenticated()" role="button">
-                                <img width="35px" height="35px" src="/img/icons/delete.svg" th:alt="|Eliminar detalle de ${user.username}|">
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </main>
+        <main class="container">
 
-    <div class="list-footer">
-        Actualmente hay <span th:text="${#lists.size(users)}"></span> usuarios.
-    </div>
+            <div class="row row-cols-1 row-cols-md-3 g-2">
+                <div class="card-deck" th:each="user: ${users}">
+                    <div class="card">
+                        <img th:src="@{${user.image}}" class="card-img-top" th:alt="${user.username}"/>
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="|Usuario ${user.username}|"></h5>
+                            <h5 class="card-title" th:text="${user.name}"></h5>
+                            <h5 class="card-title" th:text="${user.surname}"></h5>
+                            <p class="card-text" th:text="${user.email}"></p>
+                        </div>
+                    </div>
+                    <nav>
+                        <ul class="actions-list">
+                            <li>
+                                <a th:href="@{/user/{id}(id=${user.id})}">
+                                    <img width="35" height="35" src="/img/icons/Ver.svg"
+                                         th:title="|Ver detalle de  ${user.username}|"
+                                         th:alt="|Ver detalle de  ${user.username}|">
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">
+                                    <img width="35" height="35" src="/img/icons/Editar.svg" th:title="|Editar  ${user.username}"
+                                         th:alt="|Editar  ${user.username}|">
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">
+                                    <img width="35" height="35" src="/img/icons/Borrar.svg"
+                                         th:title="|Eliminar  ${user.username}" th:alt="|Eliminar  ${user.username}|">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </main>
+
+        <div class="text-center">
+            Actualmente hay <span th:text="${#lists.size(users)}"></span> usuarios.
+        </div>
+
     <div class="text-center mt-4">
         <a class="btn-club" th:href="@{/}" th:title="|Volver a página principal|" role="button">Inicio</a>
     </div>
 </div>
-
-<!--
-<div class="col mt-3" th:if="${#lists.size(users) > 0}">
-    <main class="container">
-        <table class="list">
-            <thead class="paragraphs">
-            <tr>
-                <th scope="col">Usuario</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Apellidos</th>
-                <th scope="col">Correo</th>
-                <th scope="col">Opciones</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="user: ${users}">
-                <td>
-                    <a class="btn-club" type="submit" th:text="${user.username}"
-                            th:href="@{/user/{id}(id=${user.id})}"></a>
-                </td>
-                <td th:text="${user.name}"></td>
-                <td th:text="${user.surname}"></td>
-                <td th:text="${user.email}"></td>
-                <td>
-                    <a class="btn-detail"
-                       th:href="@{/user/{id}(id=${user.id})}" role="button">+ Info</a>
-                    <a class="btn-edit" th:href="@{/users/{id}/edit(id=${user.id})}"
-                       sec:authorize="isAuthenticated()" role="button">Editar</a>
-                    <a th:if="${user.id != #authentication.getPrincipal().getId()}"
-                       class="btn-delete" th:href="@{/users/{id}/delete(id=${user.id})}"
-                       sec:authorize="isAuthenticated()" role="button">Borrar</a>
-                    <a th:unless="${user.id != #authentication.getPrincipal().getId()}"
-                       class="btn btn-sm btn-outline-danger disabled" th:href="@{/users/{id}/delete(id=${user.id})}"
-                       sec:authorize="isAuthenticated()" aria-disabled="true" role="button">Borrar</a>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </main>
-    <br>
-    <div class="text-center">
-        Actualmente hay <span th:text="${#lists.size(users)}"></span> usuarios.
-    </div>
-    <div class="text-center mt-4">
-
-        <a class="btn btn-outline-success" th:href="@{/}" role="button">Volver</a>
-    </div>
-    <br>
-    <br>
-</div>
--->
 
 <div th:replace="~{footer :: footer}"></div>
 </body>

@@ -24,3 +24,13 @@ color: #808000ff;
 font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
+.actions-list {
+    background-color: antiquewhite;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
