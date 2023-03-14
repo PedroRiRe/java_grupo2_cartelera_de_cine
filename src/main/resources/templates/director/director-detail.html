@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detalle de película</title>
+    <title>Detalle de Director</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
 </head>
@@ -14,7 +14,7 @@
 
 <div class="container text-center">
     <div class="row mt-5">
-        <h1 class="cinefilos-h1" th:text="|«${film.title}»|"></h1>
+        <h1 class="cinefilos-h1" th:text="|«${director.title}»|"></h1>
         <div class="col">
         </div>
         <div class="col">
@@ -22,31 +22,31 @@
                 <div class="alert alert-danger" role="alert" >
                     <p th:text="${error}"></p>
                 </div>
-                <a class="btn btn-primary" th:href="@{/films}" role="button">Listado de películas</a>
+                    <a class="btn btn-primary" th:href="@{/director}" role="button">Listado de Director</a>
             </div>
             <div class="card">
-                <img th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
+                <img th:src="@{${director.poster}}" class="card-img-top" th:alt="${director.title}"/>
                 <div class="card-body">
                     <h5 class="card-title" th:text="|De: ${film.director}"></h5>
-                    <p class="card-text" th:text="${film.company}"></p>
-                    <p class="card-text" th:if="${film.trailer} != ''">
+                    <p class="card-text" th:text="${director.company}"></p>
+                    <p class="card-text" th:if="${director.trailer} != ''">
                         <a class="btn btn-outline-primary" role="button"
-                           th:href="@{${film.trailer}}" target="_blank">Ver tráiler</a>
+                           th:href="@{${director.trailer}}" target="_blank">Ver tráiler</a>
                     </p>
-                    <p class="card-text" th:text="|Valoración: ${film.rating} de 5|"></p>
+                    <p class="card-text" th:text="|Valoración: ${director.rating} de 5|"></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Director: ${film.actor}|"></li>
+                    <li class="list-group-item" th:text="|Director: ${director.actor}|"></li>
 
                 </ul>
                 <div class="card-footer">
                     <a class="btn btn-outline-primary" title="Ver directores"
                        th:href="@{/films}" role="button">Películas</a>
                     <a class="btn btn-outline-success" title="Editar director"
-                       th:href="@{/films/{id}/edit(id=${film.id})}"
+                       th:href="@{/director/{id}/edit(id=${director.id})}"
                        sec:authorize="isAuthenticated()" role="button">Editar</a>
                     <a class="btn btn-outline-danger" title="Borrar director"
-                       th:href="@{/films/{id}/delete(id=${film.id})}"
+                       th:href="@{/director/{id}/delete(id=${director.id})}"
                        sec:authorize="isAuthenticated()" role="button">Borrar</a>
                 </div>
             </div>
