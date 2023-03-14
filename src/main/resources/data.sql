@@ -250,5 +250,23 @@ INSERT INTO `room_schedules` (`room_id`, `schedules`) VALUES
 (23, '22:30'),
 (24, '22:30'),
 (25, '22:30');
+-- --------------------------------------------------------
+
+
+INSERT INTO ACTOR (`document`, `name`, `surname`, `movies`, `image`) VALUES
+(Z0615402L,
+(Z0615402L,
+(Z0615402L,
+(Z0615402L,
+
+--
+-- Volcado de datos para la tabla `Director`
+--
+INSERT INTO VALUES `Director` (`document`, `name`, `surname`, `movies`, `image`) VALUES
+(Z0615402L,
+(X7860962E,
+(60845054A,
+(30714795C,
+(30714795C,
 
 -- --------------------------------------------------------
