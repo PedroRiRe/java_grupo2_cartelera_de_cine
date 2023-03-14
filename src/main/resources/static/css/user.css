@@ -1,0 +1,26 @@
+.card {
+width: auto;
+height: auto;
+border: none;
+margin-top: 60px;
+}
+
+.card img {
+max-width: 400px;
+border-radius: 50%;
+}
+
+.card-title {
+font-size: 2rem;
+font-weight: bold;
+color: #808000ff;
+font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.card-text {
+font-size: 1.5rem;
+font-weight: bold;
+color: #808000ff;
+font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
