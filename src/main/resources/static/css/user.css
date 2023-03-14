@@ -25,7 +25,8 @@ font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .actions-list {
-    background-color: antiquewhite;
+    background-color: (--navbar-color);
+    border-radius: 5px;
     margin: 0;
     padding: 0;
     list-style: none;

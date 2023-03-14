@@ -112,7 +112,8 @@
 }
 
 .actions-list {
-    background: radial-gradient(rgb(140, 143, 148), rgba(178, 185, 199, 0.801));
+    background-color: var(--navbar-color);
+    border-radius: 5px;
     margin: 0;
     padding: 0;
     list-style: none;

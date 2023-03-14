@@ -57,19 +57,19 @@
                     <ul class="actions-list">
                         <li>
                             <a th:title="|Ver detalle de Sala ${room.roomNumber}|" th:href="@{/rooms/{id}(id=${room.id})}" role="button">
-                                <img width="35px" height="35px" src="/img/icons/view.svg" th:alt="|Ver detalle de Sala ${room.roomNumber}|">
+                                <img width="35px" height="35px" src="/img/icons/Ver.svg" th:alt="|Ver detalle de Sala ${room.roomNumber}|">
                             </a>
                         </li>
                         <li>
                             <a th:href="@{/rooms/{id}/edit(id=${room.id})}" th:title="|Editar Sala ${room.roomNumber} de ${room.cinema.name}|"
                                sec:authorize="isAuthenticated()" role="button">
-                                <img width="35px" height="35px" src="/img/icons/edit.svg" th:alt="|Editar Sala ${room.roomNumber} de ${room.cinema.name}|">
+                                <img width="35px" height="35px" src="/img/icons/Editar.svg" th:alt="|Editar Sala ${room.roomNumber} de ${room.cinema.name}|">
                             </a>
                         </li>
                         <li>
                             <a th:href="@{/rooms/{id}/delete(id=${room.id})}" th:title="|Eliminar Sala ${room.roomNumber}|"
                                sec:authorize="isAuthenticated()" role="button">
-                                <img width="35px" height="35px" src="/img/icons/delete.svg" th:alt="|Eliminar Sala ${room.roomNumber} de ${room.cinema.name}|">
+                                <img width="35px" height="35px" src="/img/icons/Borrar.svg" th:alt="|Eliminar Sala ${room.roomNumber} de ${room.cinema.name}|">
                             </a>
                         </li>
                     </ul>
