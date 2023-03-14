@@ -34,10 +34,16 @@
 
                 <h5 class="card-title">Salas</h5>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"
+                    <li th:if="${rooms.film != null}" class="list-group-item"
                         th:each="rooms: ${cinema.rooms}"
                         th:text="|Sala ${rooms.roomNumber} ${rooms.film.title}">
                     </li>
+
+                    <li th:unless="${rooms.film != null}" class="list-group-item"
+                        th:each="rooms: ${cinema.rooms}"
+                        th:text="| Sala ${rooms.roomNumber} Sin emisión|">
+                    </li>
+
                 </ul>
 
                 <div class="card-footer">
