@@ -2,13 +2,13 @@ package cartelera.services;
 
 import cartelera.entities.Actor;
 import cartelera.entities.Cinema;
+import cartelera.entities.Director;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
-public interface IActorService {
 
+public interface IDirectorService {
 
     List<Cinema> findAll();
 
@@ -28,13 +28,18 @@ public interface IActorService {
      */
     boolean existsCity(String city);
 
-    Set<String> citiesNames();
-
     /**
      * Obtiene una lista de nombres de ciudades disponibles.
      * @return Lista de nombres de ciudades.
      */
+    /**
+     * Guarda una dirección.
+     * @param actors Dirección.
+     * @return La dirección guardada.
+     */
     Actor save(Actor actors);
+
+    Director save(Director directors);
 
     /**
      * Borra una dirección por el ID.
