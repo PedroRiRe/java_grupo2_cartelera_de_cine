@@ -35,11 +35,11 @@ public class Room {
     @ToString.Exclude
     private Set<LocalTime> schedules = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.DETACH)
     @JoinColumn(name = "film_id")
     private Film film;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     @JoinColumn(name = "cinema_id")
     private Cinema cinema;
 

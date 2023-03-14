@@ -121,7 +121,7 @@ public class RoomController {
      */
     @GetMapping("rooms/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        if (!invalidPosNumber(id) && roomService.existsById(id)) roomService.deleteById(id);
+        if (!invalidPosNumber(id) && roomService.existsById(id))roomService.deleteById(id);
         return "redirect:/rooms";
     }
 }
