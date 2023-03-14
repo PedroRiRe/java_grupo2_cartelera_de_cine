@@ -20,7 +20,7 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column()
     private String title;
 
     private Integer duration;
@@ -54,7 +54,7 @@ public class Film {
 
     private String synopsis;
 
-    @OneToMany(mappedBy = "film", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "film", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     private Set<Room> rooms = new HashSet<>();
 
     @Override
