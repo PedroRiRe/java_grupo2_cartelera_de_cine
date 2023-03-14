@@ -1,5 +1,6 @@
 package cartelera.entities;
 
+/*
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -29,4 +30,5 @@ public class Screenwriter {
 
     private LocalDate premiere;
 }
+ */
 
