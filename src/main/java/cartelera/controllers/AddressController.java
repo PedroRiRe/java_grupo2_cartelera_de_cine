@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
@@ -63,6 +64,8 @@ public class AddressController {
      * @param id Identificador.
      * @return Plantilla address-form.
      */
+
+   /*
     @GetMapping("addresses/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && addressService.existsById(id))
@@ -70,17 +73,53 @@ public class AddressController {
         else model.addAttribute("error", "Dirección no encontrada.");
         return "address/address-form";
     }
+    */
+
+    @GetMapping("addresses/{id}/edit")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Address> addressOptional = addressService.findById(id);
+        if (addressOptional.isPresent())
+            model.addAttribute("address", addressOptional.get());
+        else
+            model.addAttribute("error", "Address not found");
+
+        return "address/address-form";
+    }
+
 
     /**
      * Guarda la dirección obtenida desde el formulario.
      * @param address Dirección.
      * @return Plantilla addresses.
      */
+  /*
     @PostMapping("addresses")
     public String save(@ModelAttribute Address address) {
-        addressService.save(address);
+     addressService.save(address);
         return "redirect:/addresses";
     }
+   */
+
+
+    @PostMapping("addresses")
+    public String saveForm(@ModelAttribute Address address) {
+        addressService.save(address);
+        return "redirect:/addresses"; // redirección a controlador findAll
+    }
+
+
+  /*
+    @GetMapping("addresses/{id}/edit")
+    public String showEditForm(Model model, @PathVariable Long id) {
+        Optional<Address> addressOptional = addressService.findById(id);
+        if (addressOptional.isPresent())
+            model.addAttribute("address", addressOptional.get());
+        else
+            model.addAttribute("error", "Not Found");
+
+        return "address/address-form"; // vista
+    }
+   */
 
     /**
      * Borra una dirección por su ID.

@@ -99,7 +99,7 @@ public class CinemaController {
      */
     @GetMapping("cinemas/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        if (!invalidPosNumber(id) && cinemaService.existsById(id)) cinemaService.deleteById(id);
+        if (!invalidPosNumber(id) && cinemaService.existsById(id));
         return "redirect:/cinemas";
     }
 }

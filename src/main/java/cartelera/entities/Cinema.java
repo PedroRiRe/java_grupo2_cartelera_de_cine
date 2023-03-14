@@ -20,38 +20,40 @@ public class Cinema {
 
     private String image;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String cif;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String name;
 
-    @Column(unique = true)
+    @Column()
     private String url;
 
-    @Column(unique = true)
+    @Column()
     private String twitter;
 
-    @Column(unique = true)
+    @Column()
     private String linkedIn;
 
-    @Column(unique = true)
+    @Column()
     private String facebook;
 
-    @Column(unique = true)
+    @Column()
     private String instagram;
 
-    @Column(unique = true)
+    @Column()
     private String email;
 
-    @Column(unique = true)
+    @Column()
     private String phone;
 
-    @OneToOne
-    @JoinColumn(unique = true, name = "address_id")
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    //@JoinColumn(unique = true, name = "address_id")
+    @JoinColumn(name = "address_id")
+    //@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Address address;
 
-    @OneToMany(mappedBy = "cinema", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cinema", cascade = CascadeType.DETACH, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Room> rooms = new HashSet<>();
 
     @Override
