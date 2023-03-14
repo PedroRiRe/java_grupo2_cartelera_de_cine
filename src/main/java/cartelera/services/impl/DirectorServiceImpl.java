@@ -1,15 +1,27 @@
 package cartelera.services.impl;
 
+import cartelera.entities.Actor;
 import cartelera.entities.Director;
 import cartelera.entities.Cinema;
+import cartelera.repositories.DirectorRepository;
+import cartelera.services.IDirectorService;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
-public class DirectorServiceImpl {
+@Slf4j
+@AllArgsConstructor
+@Service
+
+
+public class DirectorServiceImpl implements IDirectorService {
+    private final DirectorRepository directorRepo;
 
     public DirectorServiceImpl() {
         directorRepo = null;
@@ -34,8 +46,14 @@ public class DirectorServiceImpl {
         if (invalidPosNumber(id)) return false;
         return directorRepo.existsById(id);
     }
+
     @Override
-    public Set<String> citiesNames() {
+    public boolean existsCity(String city) {
+        return false;
+    }
+
+    @Override
+    public Actor save(Actor actors) {
         return null;
     }
 

@@ -21,6 +21,12 @@ public interface DirectorRepository {
 
     List<Cinema> findAllByAddressCity(String city);
 
+    List<Cinema> findAll();
+
+    boolean existsById(Long id);
+
+    Optional<Cinema> findById(Long id);
+
     // Consulta Jakarta Persistence Query Language (JPQL) personalizada para recuperar entidades room asociadas
     // @Query("select cinema from Director director left join fetch cinema.rooms where cinema.id = :id")
     // Optional<Cinema> findByIdWithRooms(Long id);
