@@ -19,15 +19,75 @@
 
 <div class="box">
     <div class="row mt-5">
-        <h1 class="title-table">Listado de salas</h1>
+        <h1 class="title-table">Salas</h1>
     </div>
 </div>
-
 <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(rooms)}">
     Actualmente no hay ninguna sala para mostrar.
 </div>
-<div class="col mt-3" th:if="${#lists.size(rooms) > 0}">
+<div class="create-opt">
+    <a class="btn-club" th:href="@{/rooms/create}" th:title="|Crear una nueva sala|"
+       sec:authorize="isAuthenticated()" role="button">Crear nueva sala</a>
+</div>
+
+<div class="horizontal-padding vertical-padding">
+
     <main class="container">
+        <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div class="col" th:each="room: ${rooms}">
+                <div class="card">
+                    <div class="card-header" th:text="|Sala ${room.roomNumber} de ${room.cinema.name}|"></div>
+                    <img th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Película</h5>
+                        <p class="card-text-room" th:text="${room.film}"></p>
+                        <h5 class="card-title">Estreno</h5>
+                        <p class="card-text" th:text="${room.premiere}"></p>
+                        <h5 class="card-title">Filtrar por</h5>
+                        <a class="btn btn-info" type="button" th:text="${room.cinema.name}"
+                           th:title="|Ver listado de todas las películas que emite ${room.cinema.name}|"
+                           th:href="@{/rooms/cinema/{id}(id=${room.cinema.id})}"></a>
+                        <h5 class="card-text">-------------</h5>
+                        <a class="btn btn-info" type="button" th:text="${room.film.title}"
+                           th:title="|Ver listado de todas las salas que emiten ${room.film.title}|"
+                           th:href="@{/rooms/film/{id}(id=${room.film.id})}"></a>
+                    </div>
+                </div>
+                <nav>
+                    <ul class="actions-list">
+                        <li>
+                            <a th:title="|Ver detalle de Sala ${room.roomNumber}|" th:href="@{/rooms/{id}(id=${room.id})}" role="button">
+                                <img width="35px" height="35px" src="/img/icons/view.svg" th:alt="|Ver detalle de Sala ${room.roomNumber}|">
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/rooms/{id}/edit(id=${room.id})}" th:title="|Editar Sala ${room.roomNumber} de ${room.cinema.name}|"
+                               sec:authorize="isAuthenticated()" role="button">
+                                <img width="35px" height="35px" src="/img/icons/edit.svg" th:alt="|Editar Sala ${room.roomNumber} de ${room.cinema.name}|">
+                            </a>
+                        </li>
+                        <li>
+                            <a th:href="@{/rooms/{id}/delete(id=${room.id})}" th:title="|Eliminar Sala ${room.roomNumber}|"
+                               sec:authorize="isAuthenticated()" role="button">
+                                <img width="35px" height="35px" src="/img/icons/delete.svg" th:alt="|Eliminar Sala ${room.roomNumber} de ${room.cinema.name}|">
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </main>
+
+    <div class="list-footer">
+        Actualmente hay <span th:text="${#lists.size(rooms)}"></span> salas.
+    </div>
+    <div class="text-center mt-4">
+        <a class="btn-club" th:href="@{/}" th:title="|Volver a página principal|" role="button">Inicio</a>
+    </div>
+</div>
+
+<!--
+
         <table class="list">
             <thead class="paragraphs">
             <tr>
@@ -68,16 +128,16 @@
     </main>
     <br>
     <div class="text-center">
-        Actualmente hay <span th:text="${#lists.size(rooms)}"></span> salas.
+
     </div>
     <div class="text-center mt-4">
-        <a class="btn btn-outline-primary" th:href="@{/rooms/create}" th:title="|Crear una nueva sala|"
-           sec:authorize="isAuthenticated()" role="button">Crear nueva sala</a>
+
         <a class="btn btn-outline-success" th:href="@{/}" th:title="|Volver a pantalla anterior|" role="button">Volver</a>
     </div>
     <br>
     <br>
 </div>
+-->
 
 <div th:replace="~{footer :: footer}"></div>
 </body>
