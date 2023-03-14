@@ -14,15 +14,15 @@
 
 <div class="container text-center">
   <div class="row mt-5">
-    <h1 class="cinefilos-h1" th:if="${film.id}">Modificar «<span th:text="${film.title}"></span>»</h1>
-    <h1 class="cinefilos-h1" th:if="${film.id} == null">Crear nueva película</h1>
+    <h1 class="cinefilos-h1" th:if="${director.id}">Modificar «<span th:text="${film.title}"></span>»</h1>
+    <h1 class="cinefilos-h1" th:if="${director.id} == null">Crear nueva película</h1>
     <div class="col"></div>
     <div class="col">
       <div th:if="${error}">
         <div class="alert alert-danger" role="alert">
           <p th:text="${error}"></p>
         </div>
-        <a type="button" class="btn btn-primary" th:href="@{/films}">Volver</a>
+        <a type="button" class="btn btn-primary" th:href="@{/director}">Volver</a>
       </div>
       <form th:if="${error} == null" th:action="@{/films}" method="POST" th:object="${film}">
         <input type="hidden" id="id" name="id" th:field="*{id}"/>
@@ -133,7 +133,7 @@
           <textarea rows = "5" cols = "60" class="form-control" id="synopsis" th:field="*{synopsis}"></textarea>
         </div>
 
-        <a class="btn btn-outline-primary" th:href="@{/films}">Cancelar</a>
+        <a class="btn btn-outline-primary" th:href="@{/director}">Cancelar</a>
         <button type="submit" class="btn btn-outline-success">Guardar</button>
       </form>
     </div>

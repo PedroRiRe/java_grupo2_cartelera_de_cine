@@ -15,19 +15,10 @@
   <div class="row mt-5">
     <h1 class="cinefilos-h1">Listado de películas</h1>
 
-    <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(films)}">
+    <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(director)}">
       Actualmente no hay ninguna película para mostrar.
     </div>
 
-    <!--        <form th:if="${not #lists.isEmpty(cities)}" th:action="@{/films/} + ${city}" method="GET">-->
-    <!--            <p>Elija una ciudad:</p>-->
-    <!--            <div class="mb-4">-->
-    <!--                <select name="city" aria-label="Ciudades" class="form-select" th:field="*{cities}">-->
-    <!--                    <option th:each="city : ${cities}" th:value="${city}" th:text="${city}"></option>-->
-    <!--                </select>-->
-    <!--            </div>-->
-    <!--            <button type="submit" class="btn btn-outline-info">Listar</button>-->
-    <!--        </form>-->
 
     <div class="col mt-3" th:if="${#lists.size(films) > 0}">
       <table class="table table-hover">
@@ -43,20 +34,20 @@
         <tbody>
         <tr th:each="film: ${films}">
           <td>
-            <a class="btn btn-sm btn-light cinefilos-btn" th:title="|Ver detalle de «${film.title}»|"
-               th:text="${film.title}" role="button" th:href="@{/film/{id}(id=${film.id})}"></a>
+            <a class="btn btn-sm btn-light cinefilos-btn" th:title="|Ver detalle de «${director.title}»|"
+               th:text="${film.title}" role="button" th:href="@{/director/{id}(id=${director.id})}"></a>
           </td>
-          <td th:text="${film.duration}"></td>
-          <td th:text="${film.classification}"></td>
-          <td width="350px" th:text="${film.company}"></td>
+          <td th:text="${director.duration}"></td>
+          <td th:text="${director.classification}"></td>
+          <td width="350px" th:text="${director.company}"></td>
           <td>
             <a class="btn btn-sm btn-outline-primary" title="Ver película"
-               th:href="@{/film/{id}(id=${film.id})}" role="button">Ver</a>
+               th:href="@{/directors/{id}(id=${director.id})}" role="button">Ver</a>
             <a class="btn btn-sm btn-outline-success" title="Editar película"
-               th:href="@{/films/{id}/edit(id=${film.id})}"
+               th:href="@{/directors/{id}/edit(id=${film.id})}"
                sec:authorize="isAuthenticated()" role="button">Editar</a>
             <a class="btn btn-sm btn-outline-danger" title="Borrar película"
-               th:href="@{/films/{id}/delete(id=${film.id})}"
+               th:href="@{/directors/{id}/delete(id=${director.id})}"
                sec:authorize="isAuthenticated()" role="button">Borrar</a>
           </td>
         </tr>
@@ -64,13 +55,13 @@
       </table>
 
       <div class="text-center">
-        Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
+        Actualmente hay <span th:text="${#lists.size(directors)}"></span> películas.
       </div>
     </div>
   </div>
 
   <div class="text-center mt-4">
-    <a class="btn btn-outline-primary" th:href="@{/films/create}"
+    <a class="btn btn-outline-primary" th:href="@{/directors/create}"
        sec:authorize="isAuthenticated()" role="button">Crear nueva película</a>
     <a class="btn btn-outline-success" th:href="@{/}" role="button">Portada</a>
   </div>
