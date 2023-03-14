@@ -1,11 +1,14 @@
 <!doctype html>
 <html lang="es" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="">
 
-<header class="header">
+<header class="topheader">
     <nav th:fragment="navbar" class="topnav">
 
         <a class="logo" th:href="@{/}">
-            <img src="/img/logo.svg" width="120" height="48" class="ms-4 d-inline-block align-top" alt="Logo Cinéfilos">
+            <img src="/img/icons/logo.png" width="50" height="50" class="ms-4 d-inline-block align-top" alt="Logo Cinéfilos">
+            <div>
+                Cinéfilos
+            </div>
         </a>
 
         <button class="open-menu" aria-label="Abrir menú">
@@ -17,7 +20,7 @@
                 <img height="50" width="50" src="img/close-menu.png" alt="cerrar menú">
             </button>
 
-            <li class="nav-item me-5">
+            <li>
                 <a th:href="@{/films}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-film" viewBox="0 0 16 16">
@@ -25,7 +28,7 @@
                     </svg>&nbsp;&nbsp;Películas
                 </a>
             </li>
-            <li class="nav-item me-5">
+            <li>
                 <a th:href="@{/cinemas}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-camera-reels" viewBox="0 0 16 16">
@@ -35,7 +38,7 @@
                     </svg>&nbsp;&nbsp;Cines
                 </a>
             </li>
-            <li class="nav-item me-5">
+            <li>
                 <a th:href="@{/rooms}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-collection" viewBox="0 0 16 16">
@@ -43,7 +46,7 @@
                     </svg>&nbsp;&nbsp;Salas
                 </a>
             </li>
-            <li class="nav-item me-5">
+            <li>
                 <a th:href="@{/addresses}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-building" viewBox="0 0 16 16">
@@ -52,7 +55,7 @@
                     </svg>&nbsp;&nbsp;Direcciones
                 </a>
             </li>
-            <li class="nav-item me-5">
+            <li>
                 <a th:href="@{/users}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-people" viewBox="0 0 16 16">
@@ -62,7 +65,7 @@
             </li>
 
             <li sec:authorize="isAnonymous()">
-                <a class="nav-item me-5" th:href="@{/login}">
+                <a th:href="@{/login}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -73,7 +76,7 @@
                 </a>
             </li>
             <li sec:authorize="isAnonymous()">
-                <a class="nav-item me-5" th:href="@{/users/create}">
+                <a th:href="@{/users/create}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-person-plus" viewBox="0 0 16 16">
                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
@@ -82,9 +85,8 @@
                     </svg>&nbsp;&nbsp;Registrarse
                 </a>
             </li>
-            <div sec:authorize="isAuthenticated()">
-                <a class="btn btn-link text-decoration-none"
-                   th:href="@{/user/{id}(id=${#authentication.getPrincipal().getId()})}">
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/user/{id}(id=${#authentication.getPrincipal().getId()})}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-person" viewBox="0 0 16 16">
                         <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
@@ -92,9 +94,9 @@
                     <span sec:authentication="principal.name"></span>&nbsp;
                     <span sec:authentication="principal.surname"></span>
                 </a>
-            </div>
-            <div sec:authorize="isAuthenticated()">
-                <a class="btn btn-link text-decoration-none" th:href="@{/logout}">
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/logout}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -103,7 +105,36 @@
                               d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
                     </svg>&nbsp;&nbsp;Cerrar&nbsp;sesión
                 </a>
-            </div>
+            </li>
         </ul>
     </nav>
 </header>
+
+
+
+
+<!--
+<header class="topheader">
+    <nav class="topnav">
+        <a href="#" class="logo">
+            <img height="50" width="50" src="img/pedro.jpg" alt="desarrollador">
+            <div>
+                Pedro Rivas <br>
+                Desarrollador
+            </div>
+        </a>
+        <button class="open-menu" aria-label="abrir menú">
+            <img height="50" width="50" src="img/open-menu.png" alt="abrir">
+        </button>
+        <ul class="menu">
+            <button class="close-menu" aria-label="cerrar menú">
+                <img height="50" width="50" src="img/close-menu.png" alt="cerrar">
+            </button>
+            <li><a class="selected" href="#profile">Perfil</a></li>
+            <li><a href="#courses">Formación</a></li>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
+-->
