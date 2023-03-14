@@ -8,6 +8,7 @@
     <title>Películas</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -29,6 +30,39 @@
 <!--            <button type="submit" class="btn btn-outline-info">Listar</button>-->
 <!--        </form>-->
 
+        <main class="container">
+
+            <div class="row row-cols-1 row-cols-md-4 g-2">
+                <div class="card-deck" th:each="film: ${films}">
+                    <div class="card">
+                        <img th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${film.title}"></h5>
+                            <p class="card-text" th:text="${film.duration}"></p>
+                            <h5 class="card-title" th:text="${film.company}"></h5>
+                            <p class="card-text" th:text="${film.classification}"></p>
+                        </div>
+                    </div>
+                    <div class="card-opt mx-auto">
+
+                        <a  th:href="@{/film/{id}(id=${film.id})}">
+                            <img width="35" height="35" src="/img/icons/Ver.svg" th:title="|Ver detalle de ${film.title}|" th:alt="|Ver detalle de ${film.title}|">
+                        </a>
+
+                        <a  th:href="@{/films/{id}/edit(id=${film.id})}" sec:authorize="isAuthenticated()">
+                            <img width="35" height="35" src="/img/icons/Editar.svg" th:title="|Editar ${film.title}|" th:alt="|Editar ${film.title}|">
+                        </a>
+
+                        <a th:href="@{/films/{id}/delete(id=${film.id})}" sec:authorize="isAuthenticated()">
+                            <img width="35" height="35" src="/img/icons/Borrar.svg" th:title="|Eliminar ${film.title}|" th:alt="|Eliminar ${film.title}|">
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+<!--
         <div class="col mt-3" th:if="${#lists.size(films) > 0}">
             <table class="table table-hover">
                 <thead>
@@ -62,7 +96,7 @@
                 </tr>
                 </tbody>
             </table>
-
+-->
             <div class="text-center">
                 Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
             </div>

@@ -8,6 +8,8 @@
     <title>Usuarios</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" th:href="@{/css/list.css}"/>
+    <link rel="stylesheet" th:href="@{/css/user.css}"/>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -19,6 +21,46 @@
         <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(users)}">
             Actualmente no hay ningún usuario para mostrar.
         </div>
+        <div>
+            <a class="btn btn-outline-primary" th:href="@{/users/create}"
+               sec:authorize="isAuthenticated()" role="button">Crear nuevo usuario</a>
+        </div>
+        <main class="container">
+
+            <div class="row row-cols-1 row-cols-md-3 g-2">
+                <div class="card-deck" th:each="user: ${users}">
+                    <div class="card">
+                        <img th:src="@{${user.image}}" class="card-img-top" th:alt="${user.username}"/>
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="|Usuario ${user.username}|"></h5>
+                            <h5 class="card-title" th:text="${user.name}"></h5>
+                            <h5 class="card-title" th:text="${user.surname}"></h5>
+                            <p class="card-text" th:text="${user.email}"></p>
+                        </div>
+                    </div>
+                    <div class="card-opt mx-auto">
+
+                        <a  th:href="@{/user/{id}(id=${user.id})}">
+                            <img width="35" height="35" src="/img/icons/Ver.svg" th:title="|Ver detalle de  ${user.username}|" th:alt="|Ver detalle de  ${user.username}|">
+                        </a>
+
+                        <a   th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">
+                            <img width="35" height="35" src="/img/icons/Editar.svg" th:title="|Editar  ${user.username}" th:alt="|Editar  ${user.username}|">
+                        </a>
+
+                        <a th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">
+                            <img width="35" height="35" src="/img/icons/Borrar.svg" th:title="|Eliminar  ${user.username}" th:alt="|Eliminar  ${user.username}|">
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+
+
+<!--
 
         <div class="col mt-3" th:if="${#lists.size(users) > 0}">
             <table class="table table-hover">
@@ -57,7 +99,7 @@
                 </tr>
                 </tbody>
             </table>
-
+-->
             <div class="text-center">
                 Actualmente hay <span th:text="${#lists.size(users)}"></span> usuarios.
             </div>
@@ -65,8 +107,7 @@
     </div>
 
     <div class="text-center mt-4">
-        <a class="btn btn-outline-primary" th:href="@{/users/create}"
-           sec:authorize="isAuthenticated()" role="button">Crear nuevo usuario</a>
+
         <a class="btn btn-outline-success" th:href="@{/}" role="button">Portada</a>
     </div>
 </div>
