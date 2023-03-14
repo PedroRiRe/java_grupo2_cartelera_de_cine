@@ -74,8 +74,8 @@
 }
 
 .card {
-    max-width: 300px;
-    margin-top: 30px;
+    margin: 30px auto;
+    width: 980px;
     margin-bottom: 10px;
     background-color: var(--navbar-color);
     box-shadow: 1px 1px 5px var(--primary-color);
@@ -83,8 +83,18 @@
 
 
 .card img  {
-    max-width: 300px;
-    height: 470px;
+    width: 980px;
+    height: auto;
+}
+
+.cinema-name {
+    padding-left: 15px;
+    padding-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    font-weight: bolder;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 .card .card-title {
@@ -93,17 +103,10 @@
     color: var(--secondary-color);
 }
 
-.card-text-room,
-.card-text-film,
-.card .card-text-company,
 .card .card-text {
     font-size: 22px;
     font-weight: 700;
     color: var(--text-color);
-}
-
-.card-text-room {
-    height: 50px;
 }
 
 .card-text-film,
@@ -120,51 +123,9 @@
     justify-content: center;
 }
 
-.list-footer {
-    text-align: center;
-    font-size: 25px;
-    font-weight: 300;
-    font-family: 'Noto Sans', sans-serif;
-    color: var(--primary-color);
-}
-
-.btn-detail,
-.btn-edit,
-.btn-delete,
- button {
-    width: auto;
-    margin-right: 5px;
-    padding: 10px 10px;
-    border: 2px outset var(--primary-color);
-    border-radius: 0.3rem;
-    font-family: 'Yanone Kaffeesatz', sans-serif;
-    color: var(--text-color);
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.4s ease all;
-}
-
-.btn-detail {
-    background: radial-gradient(#FFFFE0, rgb(83, 182, 83));
-}
-
-.btn-edit {
-    background: radial-gradient(#FFFFE0, rgb(167, 147, 57));
-}
-
-.btn-delete {
-    background: radial-gradient(#FFFFE0, rgb(177, 75, 75));
-}
-
-.btn-detail:hover,
-.btn-edit:hover,
-.btn-delete:hover,
-button:hover,
-button a:hover {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--secondary-color);
-    border: 2px inset var(--primary-color);
-    filter: brightness(100%);
+.actions-list-btn {
+    width: 35px;
+    height: 35px;
 }
 
 @media ( max-width: 480px) {
@@ -173,10 +134,7 @@ button a:hover {
          box-sizing: border-box;
      }
 
-     .btn-club,
-     .btn-detail,
-     .btn-edit,
-     .btn-delete {
+     .btn-club {
              width: auto;
              margin: 10px 20px;
              height: 30px;
@@ -193,24 +151,7 @@ button a:hover {
     background: radial-gradient(rgb(148, 147, 140), rgba(104, 104, 103, 0.801));
     }
 
-     .btn-detail {
-         background: radial-gradient(rgb(83, 182, 83), rgba(0, 0, 0, 0.801));
-     }
-
-     .btn-edit {
-         background: radial-gradient(rgb(167, 147, 57), rgba(0, 0, 0, 0.801));
-     }
-
-     .btn-delete {
-         background: radial-gradient(rgb(177, 75, 75), rgba(0, 0, 0, 0.801));
-     }
-
-     .btn-club:hover,
-     .btn-detail:hover,
-     .btn-edit:hover,
-     .btn-delete:hover,
-     button:hover,
-     button a:hover {
+     .btn-club:hover {
      color: var(--text-color-inverse);
      filter: brightness(150%);
      }
