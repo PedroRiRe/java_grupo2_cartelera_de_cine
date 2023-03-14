@@ -33,12 +33,12 @@ public class ScreenwriterController {
      * @param model Modelo.
      * @return Plantilla cinemas-list,
      */
-    @GetMapping("/screenwriter")
+   /* @GetMapping("/screenwriter")
     public String findAll(Model model) {
         List<Cinema> cinemas = cinemaService.findAll();
         model.addAttribute("screenwriter", screenwriter);
         return "screenwriter/screenwriter-list";
-    }
+    } */
 
     /**
      * Muestra un cine específico.
