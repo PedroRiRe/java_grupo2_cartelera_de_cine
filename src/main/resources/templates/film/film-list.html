@@ -19,13 +19,73 @@
 
 <div class="box">
     <div class="row mt-5">
-        <h1 class="title-table">Listado de películas</h1>
+        <h1 class="title-table">Películas</h1>
     </div>
 </div>
-
 <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(films)}">
     Actualmente no hay ninguna película para mostrar.
 </div>
+<div class="create-opt">
+    <a class="btn-club" th:href="@{/films/create}" th:title="|Crear una nueva película|"
+       sec:authorize="isAuthenticated()" role="button">Crear nueva película</a>
+</div>
+
+<div class="horizontal-padding vertical-padding">
+
+    <main class="container">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <div class="col" th:each="film: ${films}">
+                <div class="card">
+                    <img th:src="@{${film.poster}}" class="img-top" th:alt="${film.title}"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Título</h5>
+                        <p class="card-text-film" th:text="${film.title}"></p>
+                            <h5 class="card-title">Duración</h5>
+                            <p class="card-text" th:text="|${film.duration} min|"></p>
+                        <h5 class="card-title">Una película de:</h5>
+                        <p class="card-text-company" th:text="${film.company}"></p>
+                        <h5 class="card-title">Apta para:</h5>
+                        <p class="card-text" th:text="${film.classification}"></p>
+                    </div>
+                </div>
+                <footer th:class="card-footer">
+                    <nav>
+                        <ul class="actions-list">
+                            <li>
+                                <a th:title="|Ver detalle de ${film.title}|" th:href="@{/film/{id}(id=${film.id})}" role="button">
+                                    <img width="35px" height="35px" src="/img/icons/view.svg" th:alt="|Ver detalle de ${film.title}|">
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/films/{id}/edit(id=${film.id})}" th:title="|Editar ${film.title}|"
+                                   sec:authorize="isAuthenticated()" role="button">
+                                    <img width="35px" height="35px" src="/img/icons/edit.svg" th:alt="|Edit detalle de ${film.title}|">
+                                </a>
+                            </li>
+                            <li>
+                                <a th:href="@{/films/{id}/delete(id=${film.id})}" th:title="|Eliminar ${film.title}|"
+                                   sec:authorize="isAuthenticated()" role="button">
+                                    <img width="35px" height="35px" src="/img/icons/delete.svg" th:alt="|Eliminar detalle de ${film.title}|">
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+    <div class="list-footer">
+        Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
+    </div>
+    <div class="text-center mt-4">
+        <a class="btn-club" th:href="@{/}" th:title="|Volver a página principal|" role="button">Inicio</a>
+    </div>
+</div>
+
+
+
+
 
 <!--        <form th:if="${not #lists.isEmpty(cities)}" th:action="@{/films/} + ${city}" method="GET">-->
 <!--            <p>Elija una ciudad:</p>-->
@@ -36,7 +96,7 @@
 <!--            </div>-->
 <!--            <button type="submit" class="btn btn-outline-info">Listar</button>-->
 <!--        </form>-->
-
+<!--
 <div class="col mt-3" th:if="${#lists.size(films) > 0}">
     <main class="container">
         <table class="list">
@@ -74,17 +134,9 @@
         </table>
     </main>
     <br>
-    <div class="text-center">
-        Actualmente hay <span th:text="${#lists.size(films)}"></span> películas.
-    </div>
-    <div class="text-center mt-4">
-        <a class="btn btn-outline-primary" th:href="@{/films/create}" th:title="|Crear una nueva película|"
-           sec:authorize="isAuthenticated()" role="button">Crear nueva película</a>
-        <a class="btn btn-outline-success" th:href="@{/}" th:title="|Volver a pantalla anterior|" role="button">Volver</a>
-    </div>
-    <br>
-    <br>
+
 </div>
+-->
 
 <div th:replace="~{footer :: footer}"></div>
 </body>
