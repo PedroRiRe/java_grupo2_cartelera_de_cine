@@ -25,27 +25,41 @@
                 <a class="btn btn-primary" th:href="@{/films}" role="button">Listado de películas</a>
             </div>
             <div class="card">
-                <img th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
+                <img th:if="${film != null}" th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
+
                 <div class="card-body">
-                    <h5 class="card-title" th:text="|De: ${film.director}"></h5>
-                    <p class="card-text" th:text="${film.company}"></p>
+                    <h5 th:if="${film != null}" class="card-title" th:text="|De: ${film.director}"></h5>
+
+                    <p th:if="${film != null}" class="card-text" th:text="${film.company}"></p>
+
                     <p class="card-text" th:if="${film.trailer} != ''">
+
                         <a class="btn btn-outline-primary" role="button"
                            th:href="@{${film.trailer}}" target="_blank">Ver tráiler</a>
                     </p>
                     <p class="card-text" th:text="|Valoración: ${film.rating} de 5|"></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" th:text="|Actores: ${film.actor}|"></li>
-                    <li class="list-group-item" th:text="|Sinopsis: ${film.synopsis}|"></li>
-                    <li class="list-group-item" th:text="|Clasificación: ${film.classification}|"></li>
-                    <li class="list-group-item" th:text="|Género: ${film.genders}|"></li>
-                    <li class="list-group-item" th:text="|Duración: ${film.duration}|"></li>
-                    <li class="list-group-item" th:text="|Año: ${film.year}|"></li>
-                    <li class="list-group-item" th:text="|País: ${film.country}|"></li>
-                    <li class="list-group-item" th:text="|Música: ${film.music}|"></li>
-                    <li class="list-group-item" th:text="|Fotografía: ${film.photography}|"></li>
-                    <li class="list-group-item" th:text="|Guión: ${film.script}|"></li>
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Actores: ${film.actor}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Sinopsis: ${film.synopsis}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Clasificación: ${film.classification}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Género: ${film.genders}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Duración: ${film.duration}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Año: ${film.year}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|País: ${film.country}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Música: ${film.music}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Fotografía: ${film.photography}|"></li>
+
+                    <li th:if="${film != null}" class="list-group-item" th:text="|Guión: ${film.script}|"></li>
+
                 </ul>
                 <div class="card-footer">
                     <a class="btn btn-outline-primary" title="Ver películas"
