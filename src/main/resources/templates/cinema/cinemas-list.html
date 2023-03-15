@@ -42,7 +42,7 @@
                     <img th:src="@{${cinema.image}}" class="detail-img" th:alt="${cinema.name}"/>
                     <div class="card-img-overlay">
                         <h1 class="cinema-name" th:text="${cinema.name}"></h1>
-                        <p th:if="${cinema.address != null}" class="card-text" th:text="${cinema.address.city}"></p>
+                        <p th:if="${cinema.address != null}" class="card-text" th:text="|${cinema.address.city} en ${cinema.address.country}|"></p>
                         <p th:unless="${cinema.address != null}" class="card-text" th:text="|Sin información|"></p>
                         <div th:class="cinema-details">
                             <h5 class="card-title">Teléfono</h5>
