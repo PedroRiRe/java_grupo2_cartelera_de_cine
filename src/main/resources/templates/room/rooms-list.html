@@ -38,8 +38,8 @@
                 <div class="card">
                     <div class="card-header" th:if="${room.cinema} != null" th:text="|Sala ${room.roomNumber} de ${room.cinema.name}|"></div>
                     <img th:if="${room.film} != null" th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
-                    <img th:unless="${room.film} != null" th:src="@{/img/logo.svg}" class="card-img-top"/>
-                <!--    <img th:unless="${room.film != null}"  th:src="@{/img/logo.svg}" class="card-img-top" th:alt="|Logo cinéfilos|"/>  -->
+                    <img th:unless="${room.film} != null" th:src="@{/img/icons/logo.png}" class="card-img-top"/>
+
                     <div class="card-body">
                         <h5 class="card-title">Película</h5>
                         <p th:if="${room.film} != null"  class="card-text-room" th:text="${room.film}"></p>
@@ -57,9 +57,12 @@
                            th:title="|Ver listado de todas las películas que emite este cine|"
                            th:href="#"></a>  -->
                         <h5 class="card-text">-------------</h5>
-                        <a  class="btn btn-info" type="button" th:text="${room.film.title}"
+                        <a th:if="${room.film} != null"  class="btn btn-info" type="button" th:text="${room.film.title}"
                            th:title="|Ver listado de todas las salas que emiten ${room.film.title}|"
                            th:href="@{/rooms/film/{id}(id=${room.film.id})}"></a>
+                        <a th:unless="${room.film} != null"   th:text="|No disponible|"
+                           th:title="|Hola|"></a>
+
                      <!--   <a th:unless="${room.film != null}" class="btn btn-info" type="button" th:text="||"
                            th:title="|Ver listado de todas las salas que emiten esta pelicula|"
                            th:href="#"></a>  -->

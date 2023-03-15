@@ -36,7 +36,8 @@
         <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col" th:each="film: ${films}">
                 <div class="card">
-                    <img th:src="@{${film.poster}}" class="img-top" th:alt="${film.title}"/>
+                    <img th:if="${film.poster} != null" th:src="@{${film.poster}}" class="img-top" th:alt="${film.title}"/>
+                   <img th:unless="${film.poster} != null" th:src="@{/img/icons/logo.png}" class="card-img-top"/>
                     <div class="card-body">
                         <h5 class="card-title">Título</h5>
                         <p class="card-text-film" th:text="${film.title}"></p>
