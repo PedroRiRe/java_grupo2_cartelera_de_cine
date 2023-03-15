@@ -29,9 +29,11 @@
     <div class="card-group">
         <div class="card" th:each="room: ${cinema.rooms}">
             <img th:if="${room.film} != null" th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
+            <img th:unless="${room.film} != null" th:src="@{/img/logo.svg}" class="card-img-top" />
             <div class="card-body">
                 <h5 class="card-title" th:text="|Sala ${room.roomNumber}|"></h5>
-                <p class="card-text" th:text="${room.film.title}"></p>
+                <p th:if="${room.film} != null" class="card-text" th:text="${room.film.title}"></p>
+                <p th:unless="${room.film} != null" class="card-text" th:text="|Sin emisión|"></p>
 
             </div>
         </div>
