@@ -42,11 +42,16 @@
                     <img th:src="@{${cinema.image}}" class="detail-img" th:alt="${cinema.name}"/>
                     <div class="card-img-overlay">
                         <h1 class="cinema-name" th:text="${cinema.name}"></h1>
-                        <p class="card-text"></p>
-                        <h5 class="card-title">Teléfono</h5>
-                        <p class="card-text" th:text="${cinema.phone}"></p>
-                        <h5 class="card-title">Sitio web</h5>
-                        <p class="card-text" th:href="@{${cinema.url}}"></p>
+                        <p th:if="${cinema.address != null}" class="card-text" th:text="${cinema.address.city}"></p>
+                        <p th:unless="${cinema.address != null}" class="card-text" th:text="|Sin información|"></p>
+                        <div th:class="cinema-details">
+                            <h5 class="card-title">Teléfono</h5>
+                            <p class="card-text" th:text="${cinema.phone}"></p>
+                            <h5 class="card-title">Sitio web</h5>
+                            <a class="btn-club" type="button" th:title="|Ir a ${cinema.url}|" th:href="@{${cinema.url}}" target="_blank">
+                                Visitar sitio
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <nav>

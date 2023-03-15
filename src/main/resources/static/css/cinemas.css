@@ -63,16 +63,6 @@
     filter: brightness(100%);
 }
 
-.card-header {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--primary-color);
-    background-color: var(--menu-mobile-background-color);
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 600;
-}
-
 .card {
     margin: 30px auto;
     width: 980px;
@@ -80,7 +70,6 @@
     background-color: var(--navbar-color);
     box-shadow: 1px 1px 5px var(--primary-color);
 }
-
 
 .card img  {
     width: 980px;
@@ -97,16 +86,22 @@
     text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
+.cinema-details {
+    margin: 300px auto;
+}
+
 .card .card-title {
     font-size: 25px;
     font-weight: bolder;
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 .card .card-text {
     font-size: 22px;
     font-weight: 700;
-    color: var(--text-color);
+    color: var(--primary-color);
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
 
 .card-text-film,
