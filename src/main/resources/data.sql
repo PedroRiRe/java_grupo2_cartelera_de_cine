@@ -5,11 +5,11 @@
 --
 
 INSERT INTO `address` (`id`, `image`, `street`, `city`, `country`, `postal_code`) VALUES
-(1, 'https://cualbondi.com.ar/media/poi.webp/poi-cines-aana-san-juan.880x300.webp', 'C/ Callejón, 2', 'Alicante', 'España', '23654'),
-(2, 'https://www.pillalas.com/static/_s/img/cines/mapa_349566086E5F21EF.jpg', 'C/ Calle Cita, 5', 'Madrid', 'España', '41258'),
-(3, 'https://cualbondi.com.ar/media/poi/poi-cines-golem-baiona.500x500.png', 'C/ Carrerón, 3', 'Bayona', 'España', '96587'),
-(4, 'https://www.alimarket.es/media/images/mapas/censos/2/image-map-1049382-640x416-z17-scale2.png', 'C/ Carrerita, 1', 'Badajoz', 'España', '12365'),
-(5, 'https://www.alimarket.es/media/images/mapas/censos/6/image-map-1064966-640x416-z17-scale2.png', 'C/ Camino, 2', 'Abrera', 'España', '12123');
+(1, 'https://cualbondi.com.ar/media/poi.webp/poi-cines-aana-san-juan.880x300.webp', 'C/ Callejón, 2', 'San Joan', 'Alicante', '23654'),
+(2, 'https://www.pillalas.com/static/_s/img/cines/mapa_349566086E5F21EF.jpg', 'C/ Calle Cita, 5', 'Madrid', 'Madrid', '41258'),
+(3, 'https://cualbondi.com.ar/media/poi/poi-cines-golem-baiona.500x500.png', 'C/ Carrerón, 3', 'Bayona', 'Pamplona', '96587'),
+(4, 'https://www.alimarket.es/media/images/mapas/censos/2/image-map-1049382-640x416-z17-scale2.png', 'C/ Carrerita, 1', 'Don Benito', 'Badajoz', '12365'),
+(5, 'https://www.alimarket.es/media/images/mapas/censos/6/image-map-1064966-640x416-z17-scale2.png', 'C/ Camino, 2', 'Abrera', 'Barcelona', '12123');
 
 -- --------------------------------------------------------
 

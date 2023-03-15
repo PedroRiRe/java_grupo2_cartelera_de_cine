@@ -32,7 +32,8 @@
             <div class="detail-details" th:if="${error} == null">
 
                 <div class="detail-details-group">
-                    <h1  th:text="${cinema.address.city}"></h1>
+                    <h1 th:if="${cinema.address != null}" th:text="${cinema.address.city}"></h1>
+                    <h1 th:unless="${cinema.address != null}" th:text="|Sin información|"></h1>
                     <h3 class="detail-label">Teléfono:</h3>
                     <p class="contact-label" th:text="|${cinema.phone}"></p>
                 <h3 class="detail-label">Salas</h3>
@@ -66,7 +67,8 @@
         <div class="contact-details">
             <div class="contact-details-group">
                 <p class="contact-label">Dirección</p>
-                <p class="contact-text" th:text="${cinema.address}"></p>
+                <p th:if="${cinema.address != null}" class="contact-text" th:text="${cinema.address}"></p>
+                <p th:unless="${cinema.address != null}" class="contact-text" th:text="|Sin informacion|"></p>
             </div>
             <div class="contact-details-group">
                 <p class="contact-label">Email</p>
