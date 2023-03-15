@@ -1,41 +1,24 @@
 package cartelera.controllers;
-
-import cartelera.entities.Cinema;
-import cartelera.repositories.AddressRepository;
-import cartelera.services.IAddressService;
-import cartelera.services.ICinemaService;
-import cartelera.services.IRoomService;
+import cartelera.services.IScreenWriterService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.List;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
 public class ScreenwriterController {
-    private final ICinemaService cinemaService;
-    private final IRoomService roomService;
-    private final AddressRepository addressRepository;
-    private final IAddressService addressService;
 
-    public ScreenwriterController(ICinemaService cinemaService, IRoomService roomService, AddressRepository addressRepository, IAddressService addressService) {
-        this.cinemaService = cinemaService;
-        this.roomService = roomService;
-        this.addressRepository = addressRepository;
-        this.addressService = addressService;
-    }
+
+    private IScreenWriterService screenwriterService;
+
 
     /**
-     * Lista todos los cines.
+     * Lista todos los guionistas
      * @param model Modelo.
-     * @return Plantilla cinemas-list,
+     * @return Plantilla screen-list,
      */
    /* @GetMapping("/screenwriter")
     public String findAll(Model model) {
-        List<Cinema> cinemas = cinemaService.findAll();
         model.addAttribute("screenwriter", screenwriter);
         return "screenwriter/screenwriter-list";
     } */
@@ -48,61 +31,58 @@ public class ScreenwriterController {
      */
     @GetMapping("cinema/{id}")
     public String findById(Model model, @PathVariable Long id) {
-        // Optional<Cinema> cinemaOpt = cinemaService.findByIdWithRooms(id);
-        if (!invalidPosNumber(id) && cinemaService.existsById(id)) {
-            model.addAttribute("cinema", cinemaService.findById(id).get());
-            model.addAttribute("rooms", roomService.findAllByCinemaId(id));
-        } else model.addAttribute("error", "Cine no encontrado.");
-        return "cinema/cinema-detail";
+        // Optional<Screen> screenOpt = screenService.findByIdWithRooms(id);
+        if (!invalidPosNumber(id) && screenwriterService.existsById(id)) {
+            model.addAttribute("screen", screenwriterService.findById(id).get());
+        } else model.addAttribute("error", "Guionista no encontrado.");
+        return "screenwriter/screenwriter-detail";
     }
 
     /**
      * Crea un nuevo cine.
      * @param model modelo.
-     * @return Plantilla cinema-form.
+     * @return Plantilla screenwriter-form.
      */
-    @GetMapping("cinemas/create")
+    @GetMapping("screenwriters/create")
     public String createForm(Model model) {
-        model.addAttribute("cinema", new Cinema());
-        return "cinema/cinema-form";
+        //model.addAttribute("screenwriter", new Screenwriter());//
+        return "screenwriter/screenwriter-form";
     }
 
     /**
      * Edita un cine existente.
      * @param model Modelo.
      * @param id Identificador.
-     * @return Plantilla cinema-form.
+     * @return Plantilla screenwriter-form.
      */
-    @GetMapping("cinemas/{id}/edit")
+    @GetMapping("screenwriters/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
-        if (!invalidPosNumber(id) && cinemaService.existsById(id))
-            model.addAttribute("cinema", cinemaService.findById(id).get());
-        else model.addAttribute("error", "Cine no encontrado.");
-        return "cinema/cinema-form";
+        if (!invalidPosNumber(id) && screenwriterService.existsById(id))
+            model.addAttribute("cinema", screenwriterService.findById(id).get());
+        else model.addAttribute("error", "Guionista no encontrada.");
+        return "screenwriter/screenwriter-form";
     }
 
     /**
      * Guarda el cine obtenido desde el formulario.
-     * @param cinema Cine.
-     * @return Plantilla cinemas.
+     * @return Plantilla screenwriter.
      */
-    @PostMapping("cinemas")
-    public String saveForm(@ModelAttribute Cinema cinema) {
-        addressRepository.save(cinema.getAddress());
-        addressService.save(cinema.getAddress());
-        cinemaService.save(cinema);
-        return "redirect:/cinemas";
-    }
+    //@PostMapping("screenwriter")
+    //public String saveForm(@ModelAttribute Screenwriter screenwriter) {
+        //screenwriterService.save((DirectorRepository) screenwriter);
+        //return "redirect:/screenwrite";//
+    //
+
 
     /**
      * Borra un cine por su ID.
      * @param id Identificador.
      * @return Plantilla cinemas.
      */
-    @GetMapping("cinemas/{id}/delete")
+    @GetMapping("screenwriter/{id}/delete")
     public String deleteById(@PathVariable Long id) {
-        if (!invalidPosNumber(id) && cinemaService.existsById(id)) cinemaService.deleteById(id);
-        return "redirect:/cinemas";
+        if (!invalidPosNumber(id) && screenwriterService.existsById(id)) screenwriterService.deleteById(id);
+        return "redirect:/screenwriter";
     }
 }
 

@@ -1,28 +1,23 @@
 package cartelera.entities;
 
-/*
+
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.Hibernate;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@ToString
 @Setter
 @Builder
 @Entity
 public class Screenwriter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private static Long id;
+    private  Long id;
 
-    private Byte roomNumber;
+    private String name;
 
     private Integer capacity;
 
@@ -30,5 +25,5 @@ public class Screenwriter {
 
     private LocalDate premiere;
 }
- */
+
 

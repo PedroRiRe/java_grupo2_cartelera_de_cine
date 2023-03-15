@@ -29,7 +29,7 @@ public class DirectorServiceImpl implements IDirectorService {
 
 
     @Override
-    public List<Cinema> findAll() {
+    public List<Director> findAll() {
         return directorRepo.findAll();
     }
 
