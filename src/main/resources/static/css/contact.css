@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
 
+.cinema,
 .detail,
 .contact {
     display: grid;
@@ -100,17 +101,7 @@
 }
 
 @media (min-width: 950px) {
-
-.detail-listing {
-margin:30px auto;
-text-align: center;
-align-items: center;
-}
-
-.view {
-background-color: var(--navbar-color);
-}
-
+.cinema,
 .detail,
 .contact {
         font-size: 20px;
@@ -119,13 +110,42 @@ background-color: var(--navbar-color);
         box-sizing: border-box;
 }
 
+.detail-listing {
+margin:30px auto;
+text-align: center;
+align-items: center;
+}
+
+.listing-title {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 50px;
+    letter-spacing: 0.2em;
+    font-family: 'Noto Sans', sans-serif;
+    text-shadow: 1px 1px 0px hsl(33,42%,40%),
+    2px 2px 0px hsl(33,42%,39%),
+    3px 3px 0px hsl(33,42%,38%),
+    4px 4px 0px hsl(33,42%,37%),
+    5px 5px 0px hsl(33,42%,36%),
+    6px 6px 0px hsl(33,42%,35%),
+    7px 7px 0px hsl(33,42%,34%),
+    8px 8px 0px hsl(33,42%,33%),
+    9px 9px 0px hsl(33,42%,32%);
+}
+
+.view {
+background-color: var(--navbar-color);
+}
+
+
+
 .detail-title {
         color: var(--primary-color);
         text-align: center;
         letter-spacing: 0.2em;
         text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
         font-weight:bolder;
-        font-size: 70px;
+        font-size: 90px;
         font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
@@ -140,7 +160,7 @@ background-color: var(--navbar-color);
 
 .detail-details-group h3 {
         color: var(--primary-color);
-        text-align: left;
+        text-align: center;
         text-transform: uppercase;
         font-weight:bold;
         font-size: 30px;
@@ -149,7 +169,7 @@ background-color: var(--navbar-color);
 
 .detail-details-group  {
         color: var(--text-color);
-        text-align: left;
+        text-align: center;
         text-transform: uppercase;
         font-weight:700;
         font-size: 25px;
@@ -180,8 +200,6 @@ background-color: var(--navbar-color);
     height: 60px;
 
     }
-
-
 
 .detail-list img:hover
     .social-list img:hover {
