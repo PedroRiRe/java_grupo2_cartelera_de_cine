@@ -1,15 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
 
-.cinema-listings {
-margin: 0;
-padding: 0;
-}
-
-.card-group {
-margin: 0 auto;
-}
-
-
 .detail,
 .contact {
     display: grid;
@@ -32,9 +22,10 @@ margin: 0 auto;
 .contact-title {
     font-size: 30px;
     font-weight: 600;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
 }
+
 
 .contact-details,
 .contact-form {
@@ -110,24 +101,29 @@ margin: 0 auto;
 
 @media (min-width: 950px) {
 
+.detail-listing {
+margin:30px auto;
+text-align: center;
+align-items: center;
+}
 
-
-
-
-
+.view {
+background-color: var(--navbar-color);
+}
 
 .detail,
 .contact {
         font-size: 20px;
         padding: 70px;
-        max-width: 1024px;
         margin: 0 auto;
         box-sizing: border-box;
 }
 
 .detail-title {
         color: var(--primary-color);
-        text-align: left;
+        text-align: center;
+        letter-spacing: 0.2em;
+        text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
         font-weight:bolder;
         font-size: 70px;
         font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -161,8 +157,9 @@ margin: 0 auto;
 }
 
 .contact-title {
-        font-size: 35px;
-        text-align: left;
+        font-size: 45px;
+        text-align: center;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .detail-list,
@@ -175,6 +172,21 @@ margin: 0 auto;
         height: 35px;
     }
 
+
+
+
+
+.detail-actions-list {
+gap: 100px;
+}
+    .detail-actions-list img {
+    width: 60px;
+    height: 60px;
+
+    }
+
+
+
 .detail-list img:hover
     .social-list img:hover {
         filter: drop-shadow(0 0 6px var(--secondary-color));
@@ -182,6 +194,10 @@ margin: 0 auto;
 
 .detail-title {
         grid-area: ditle;
+}
+
+.detail.listing {
+       grid-area: cartelera;
 }
 
 .detail-details {
@@ -215,9 +231,9 @@ margin: 0 auto;
 .detail {
         display: grid;
         grid:
-        "ditle   ditle"   auto
-        "img     details" auto
-         "img    details"  /
+        "ditle       ditle"   auto
+        "img         details" auto
+         "img        details"  /
         1fr       1fr;
         align-items: start;
 }
@@ -226,8 +242,9 @@ margin: 0 auto;
         display: grid;
         grid:
         "title    form" auto
-        "details  form" 1fr
-        "social   form" auto
+        "details  form" auto
+        "social       form" auto
+        ".       ." auto
         "action  action" auto /
         1fr       1fr;
         align-items: start;
