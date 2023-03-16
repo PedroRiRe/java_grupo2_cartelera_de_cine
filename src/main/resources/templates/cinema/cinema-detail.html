@@ -65,21 +65,21 @@
             <div class="container-fluid">
                 <div class="row row row g-4">
                     <div class="col" th:each="room: ${cinema.rooms}">
-                        <div class="card">
+                        <div class="card h-100 text-bg-primary">
+
+                            <div class="card-header">
+                                <h5 class="card-title" th:text="|Sala ${room.roomNumber}|"></h5>
+                            </div>
+
                             <img th:if="${room.film} != null" th:src="@{${room.film.poster}}" class="card-img-top"
                                  th:alt="${room.film.title}"/>
                             <img th:unless="${room.film} != null" th:src="@{/img/icons/logo.png}" class="card-img-top"/>
                             <div class="card-body">
-                                <h5 class="card-title" th:text="|Sala ${room.roomNumber}|"></h5>
-                                <p th:if="${room.film} != null" class="card-text" th:text="${room.film.title}"></p>
-                                <p th:unless="${room.film} != null" class="card-text" th:text="|Sin emisión|"></p>
+                                <a th:title="|Ver detalle de Sala ${room.roomNumber}|" th:href="@{/room/{id}(id=${room.id})}"
+                                   class="btn btn-primary">Ir a Sala</a>
                             </div>
                         </div>
-                        <a th:title="|Ver detalle de Sala ${room.roomNumber}|" th:href="@{/room/{id}(id=${room.id})}"
-                           role="button">
-                            <img class="view" width="35px" height="35px" src="/img/icons/Ver.svg"
-                                 th:alt="|Ver detalle de Sala ${room.roomNumber}|">
-                        </a>
+
                     </div>
                 </div>
             </div>
@@ -171,7 +171,7 @@
             </nav>
         </div>
     </div>
-    </div>
+</div>
 
 <div th:replace="~{footer :: footer}"></div>
 </body>
