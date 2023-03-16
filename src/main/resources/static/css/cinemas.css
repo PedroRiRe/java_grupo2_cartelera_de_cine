@@ -153,3 +153,11 @@
      filter: brightness(150%);
      }
 }
+
+.list-footer {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--primary-color);
+}

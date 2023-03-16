@@ -172,12 +172,8 @@ background-color: var(--navbar-color);
         height: 35px;
     }
 
-
-
-
-
 .detail-actions-list {
-gap: 100px;
+    gap: 100px;
 }
     .detail-actions-list img {
     width: 60px;
