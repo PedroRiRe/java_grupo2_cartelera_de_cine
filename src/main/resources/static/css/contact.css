@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
 
+.cinema,
 .detail,
 .contact {
     display: grid;
@@ -22,9 +23,10 @@
 .contact-title {
     font-size: 30px;
     font-weight: 600;
-    text-align: left;
+    text-align: center;
     text-transform: uppercase;
 }
+
 
 .contact-details,
 .contact-form {
@@ -99,21 +101,76 @@
 }
 
 @media (min-width: 950px) {
+.cinema,
 .detail,
 .contact {
         font-size: 20px;
         padding: 70px;
-        max-width: 1024px;
         margin: 0 auto;
         box-sizing: border-box;
+        background-color: var(--secondary-color);
+        box-shadow: 1px 1px 5px var(--primary-color);
+}
+
+.cinema {
+    box-shadow: 1px 1px 5px var(--primary-color);
 }
 
 .detail-title {
         color: var(--primary-color);
-        text-align: left;
-        font-weight:bolder;
-        font-size: 70px;
+        text-align: center;
+        letter-spacing: 0.2em;
+        text-shadow: 1px 1px 0px red, 0 0 1em, 0 0 0.2em var(--primary-color),
+            2px 2px 0px hsl(33,42%,39%),
+            3px 3px 0px hsl(33,42%,38%),
+            4px 4px 0px hsl(33,42%,37%),
+            5px 5px 0px hsl(33,42%,36%);
+        font-weight:500;
+        font-size: 90px;
         font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.detail-listing {
+margin: 0 auto;
+text-align: center;
+align-items: center;
+}
+
+.listing-title {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 50px;
+    letter-spacing: 0.2em;
+    font-family: 'Noto Sans', sans-serif;
+    text-shadow: 1px 1px 0px hsl(33,42%,40%),
+    2px 2px 0px hsl(33,42%,39%),
+    3px 3px 0px hsl(33,42%,38%),
+    4px 4px 0px hsl(33,42%,37%),
+    5px 5px 0px hsl(33,42%,36%),
+    6px 6px 0px hsl(33,42%,35%),
+    7px 7px 0px hsl(33,42%,34%),
+    8px 8px 0px hsl(33,42%,33%),
+    9px 9px 0px hsl(33,42%,32%);
+}
+
+.card {
+    border: 1px solid var(--primary-color);
+}
+
+.card-header {
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.card a {
+    box-shadow: 1px 1px 5px var(--primary-color);
+}
+
+.card a:hover {
+    filter: brightness(140%);
 }
 
 .detail-details-group h1 {
@@ -127,7 +184,7 @@
 
 .detail-details-group h3 {
         color: var(--primary-color);
-        text-align: left;
+        text-align: center;
         text-transform: uppercase;
         font-weight:bold;
         font-size: 30px;
@@ -136,7 +193,7 @@
 
 .detail-details-group  {
         color: var(--text-color);
-        text-align: left;
+        text-align: center;
         text-transform: uppercase;
         font-weight:700;
         font-size: 25px;
@@ -144,8 +201,9 @@
 }
 
 .contact-title {
-        font-size: 35px;
-        text-align: left;
+        font-size: 45px;
+        text-align: center;
+        font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .detail-list,
@@ -158,6 +216,15 @@
         height: 35px;
     }
 
+.detail-actions-list {
+    gap: 100px;
+}
+    .detail-actions-list img {
+    width: 60px;
+    height: 60px;
+
+    }
+
 .detail-list img:hover
     .social-list img:hover {
         filter: drop-shadow(0 0 6px var(--secondary-color));
@@ -165,6 +232,10 @@
 
 .detail-title {
         grid-area: ditle;
+}
+
+.detail.listing {
+       grid-area: cartelera;
 }
 
 .detail-details {
@@ -198,9 +269,9 @@
 .detail {
         display: grid;
         grid:
-        "ditle   ditle"   auto
-        "img     details" auto
-         "img    details"  /
+        "ditle       ditle"   auto
+        "img         details" auto
+         "img        details"  /
         1fr       1fr;
         align-items: start;
 }
@@ -209,8 +280,9 @@
         display: grid;
         grid:
         "title    form" auto
-        "details  form" 1fr
-        "social   form" auto
+        "details  form" auto
+        "social       form" auto
+        ".       ." auto
         "action  action" auto /
         1fr       1fr;
         align-items: start;
