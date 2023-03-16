@@ -8,12 +8,11 @@
     <title>Usuarios</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/navbar.css">
-    <link rel="stylesheet" th:href="@{/css/list.css}"/>
-    <link rel="stylesheet" th:href="@{/css/user.css}"/>
-    <link rel="stylesheet" href="/css/cinemas.css">
+    <link rel="stylesheet" href="/css/user.css">
+    <script defer src="/js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -23,15 +22,15 @@
         <h1 class="title-table">Usuarios</h1>
     </div>
 </div>
-
-
         <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(users)}">
             Actualmente no hay ningún usuario para mostrar.
         </div>
-        <div class="create-opt">
-            <a class="btn-club" th:href="@{/users/create}"
-               sec:authorize="isAuthenticated()" role="button">Crear nuevo usuario</a>
-        </div>
+
+<div class="create-opt">
+    <a class="btn-club" th:href="@{/users/create}" th:title="|Crear un nuevo usuario|"
+       sec:authorize="isAuthenticated()" role="button">Crear nuevo usuario</a>
+</div>
+
 
 <div class="horizontal-padding vertical-padding">
 
@@ -76,7 +75,7 @@
             </div>
         </main>
 
-        <div class="text-center">
+        <div class="list-footer">
             Actualmente hay <span th:text="${#lists.size(users)}"></span> usuarios.
         </div>
 
