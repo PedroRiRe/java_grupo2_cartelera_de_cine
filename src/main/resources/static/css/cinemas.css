@@ -125,6 +125,10 @@
     height: 35px;
 }
 
+.actions-list img {
+background-color: var(--navbar-color);
+}
+
 @media ( max-width: 480px) {
      .container {
          width: 100%;
