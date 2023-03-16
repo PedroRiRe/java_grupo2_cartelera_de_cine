@@ -10,10 +10,19 @@
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/details.css">
     <script defer src="js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
+
+<iframe class="trailer" th:src="@{${film.trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+
+
+
 
 <div class="container text-center">
     <div class="row mt-5">
@@ -29,9 +38,7 @@
             </div>
 
 
-            <iframe width="560" height="315" th:src="@{${film.trailer}}"
-                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media;
-                    gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 
 
 
