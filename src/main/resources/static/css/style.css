@@ -61,9 +61,13 @@ a {
 }
 
 .pie-pagina {
-    width: 100%;
     background: radial-gradient(var(--theme-color), var(--menu-mobile-background-color));
     opacity: 0.9;
+     display: grid;
+        gap: 25px;
+        font-size: 18px;
+        border-radius: 14px;
+        padding: 25px;
 }
 
 .pie-pagina h2,
@@ -171,13 +175,13 @@ a {
     }
 
      .parte1 {
-            display: grid;
-            margin: 0;
-            padding: 0;
+             font-size: 20px;
+                    padding: 70px;
+                    margin: 0 auto;
+                    box-sizing: border-box;
         }
 
         .footer-img {
-            grid-area: footer-img;
             text-align: center;
             justify-content: center;
             width: 50%;
@@ -189,7 +193,6 @@ a {
         }
 
         .footer-text {
-            grid-area: footer-text;
             width: 100%;
             margin-left: -10%;
         }
@@ -212,7 +215,6 @@ a {
         }
 
         .footer-social {
-            grid-area: footer-social;
             width: 100%;
             margin-left: -10%;
         }
@@ -252,4 +254,29 @@ a {
         .footer-social img:hover {
             filter: drop-shadow(0 0 18px var(--primary-color));
         }
+
+.footer-img {
+grid-area: logo;
+}
+
+.footer-text {
+grid-area: nosotros;
+}
+
+.footer-social {
+grid-area: social;
+}
+
+.parte1 {
+        display: grid;
+        grid:
+        "nosotros    logo" auto
+        "nosotros       ." auto
+        "social       social" auto /
+        1fr       1fr;
+        align-items: start;
+}
+
+
+
 }
