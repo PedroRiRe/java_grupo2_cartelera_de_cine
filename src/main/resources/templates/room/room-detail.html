@@ -8,7 +8,7 @@
     <title>Detalle de la sala</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
-    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" th:href="@{/css/room.css}"/>
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/style.css">
     <script defer src="js/app.js"></script>
@@ -18,62 +18,106 @@
 
 <div class="container text-center">
     <div class="row mt-5">
-        <h1 class="cinefilos-h1" th:text="|Sala ${room.roomNumber}|"></h1>
         <div class="col">
         </div>
         <div class="col">
             <div th:if="${error}">
-                <div class="alert alert-danger" role="alert" >
+                <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
                 </div>
-                <a class="btn btn-primary" th:href="@{/films}" role="button">Volver</a>
+                <a class="btn btn-primary" th:href="@{/films}" role="button">Ir a Salas</a>
             </div>
-            <div class="card">
-                <img th:if="${room.film} != null" th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
-                <img th:unless="${room.film} != null" th:src="@{/img/logo.svg}" class="card-img-top" th:alt="|Logo|"/>
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <a th:if="${room.film} != null" class="btn btn-sm btn-outline-secondary"
-                           th:text="${room.film.title}"
-                           th:href="@{/film/{id}(id=${room.film.id})}"></a>
-
-                        <a th:unless="${room.film} != null"
-                           th:text="| arreglado por Pedro y Eduardo |"
-                           ></a>
-                    </h5>
-                    <p class="card-text" th:text="|Estreno: ${room.premiere}"></p>
-                    <p class="card-text" th:text="|Sesiones: ${room.schedules}|"></p>
-                </div>
-                <ul class="list-group list-group-flush">
-
-             <!--   <li class="list-group-item" th:text="|Sesiones: ${#time.format(room.schedules, 'hh:mm')}|"></li>  -->
-
-                    <li class="list-group-item" th:text="|Aforo: ${room.capacity}|"></li>
-                    <li class="list-group-item">
-                        <span th:if="${room.active}" class="btn btn-success">Disponible</span>
-                        <span th:if="${room.active} == false" class="btn btn-danger">No disponible</span>
-                    </li>
-                </ul>
-                <div class="card-footer">
-                    <a class="btn btn-sm btn-outline-secondary mb-3" role="button"
-                       th:text="${room.cinema.name}"
-                       th:href="@{/cinema/{id}(id=${room.cinema.id})}">
-                    </a>
-                    <br />
-                    <a class="btn btn-outline-primary" title="Ver salas"
-                       th:href="@{/rooms}" role="button">Salas</a>
-                    <a class="btn btn-outline-success" title="Editar sala"
-                       th:href="@{/rooms/{id}/edit(id=${room.id})}"
-                       sec:authorize="isAuthenticated()" role="button">Editar</a>
-                    <button class="btn btn-outline-danger" title="Borrar sala"
-                            th:href="@{/rooms/{id}/delete(id=${room.id})}"
-                       sec:authorize="isAuthenticated()" role="button">Borrar</button>
-                </div>
-            </div>
-        </div>
-        <div class="col">
         </div>
     </div>
+</div>
+
+<div class="horizontal-padding vertical-padding">
+
+    <section class="room">
+        <h1 class="room-title" th:text="|Sala ${room.roomNumber}|"></h1>
+
+        <div class="room-trailer">
+            <iframe th:if="${room.film != null}" class="trailer" th:src="@{${room.film.trailer}}"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            <iframe th:unless="${room.film != null}" src="https://www.youtube.com/embed/fSm7rl2gkX4"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+        </div>
+
+        <div class="room-image">
+            <div class="card text-bg-dark">
+                <img th:if="${room.film} != null" th:src="@{${room.film.poster}}" class="card-img-top"
+                     th:alt="${room.film.title}"/>
+                <img th:unless="${room.film} != null" th:src="@{/img/icons/logo.png}" class="card-img-top"
+                     th:alt="|Logo|"/>
+                <div class="card-img-overlay">
+                    <span th:if="${room.active}" class="btn btn-success">Disponible</span>
+                    <span th:if="${room.active} == false" class="btn btn-danger">No disponible</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="room-info">
+            <div class="room-info-group">
+                <h5 class="card-title">
+                    <a th:if="${room.film} != null" class="btn btn-sm btn-outline-secondary"
+                       th:text="${room.film.title}" th:title="|Información de ${room.film.title}|"
+                       th:href="@{/film/{id}(id=${room.film.id})}"></a>
+                    <a th:unless="${room.film} != null"
+                       th:text="|Sin película|"></a>
+                </h5>
+            </div>
+            <div class="room-info-group">
+                <p class="card-text" th:text="|Estreno: ${room.premiere}"></p>
+            </div>
+            <div class="room-info-group">
+                <p class="card-text" th:text="|Sesiones: ${room.schedules}|"></p>
+            </div>
+            <div class="room-info-group">
+                <p class="card-text" th:text="|Aforo: ${room.capacity}|"></p>
+            </div>
+            <div class="room-info-group">
+                <h5 class="card-title">
+                    <a th:if="${room.cinema} != null" class="btn btn-sm btn-outline-secondary mb-3" role="button"
+                       th:text="${room.cinema.name}" th:title="|Ir a ${room.cinema.name}|"
+                       th:href="@{/cinema/{id}(id=${room.cinema.id})}">
+                    </a>
+                    <a th:unless="${room.cinema} != null"
+                       th:text="|Sin información|"></a>
+                </h5>
+            </div>
+        </div>
+
+        <nav class="actions">
+            <ul class="actions-list">
+                <li>
+                    <a th:title="|Ver lista de Salas|" th:href="@{/rooms}" role="button">
+                        <img th:class="actions-list-btn" src="/img/icons/cinemas.svg"
+                             th:alt="|Lista de salas|">
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/rooms/{id}/edit(id=${room.id})}" th:title="|Editar ${room.roomNumber}|"
+                       sec:authorize="isAuthenticated()" role="button">
+                        <img th:class="actions-list-btn" src="/img/icons/Editar.svg"
+                             th:alt="|Editar ${room.roomNumber}|">
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/rooms/{id}/delete(id=${room.id})}" th:title="|Eliminar ${room.roomNumber}|"
+                       sec:authorize="isAuthenticated()" role="button">
+                        <img th:class="actions-list-btn" src="/img/icons/Borrar.svg"
+                             th:alt="|Eliminar ${room.roomNumber}|">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
 </div>
 
 <div th:replace="~{footer :: footer}"></div>

@@ -22,21 +22,22 @@
         </div>
         <div class="col">
             <div th:if="${error}">
-                <div class="alert alert-danger" role="alert" >
+                <div class="alert alert-danger" role="alert">
                     <p th:text="${error}"></p>
                 </div>
-                <a class="btn btn-primary" th:href="@{/films}" role="button">Listado de películas</a>
+                <a class="btn btn-primary" th:href="@{/films}" role="button">Ir a películas</a>
             </div>
-
         </div>
     </div>
 </div>
 
 <div class="horizontal-padding vertical-padding">
 
-<iframe class="trailer" th:src="@{${film.trailer}}" title="YouTube video player"
-        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
+    <iframe class="trailer" th:src="@{${film.trailer}}" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+    </iframe>
 
 
     <div class="film">
@@ -45,7 +46,7 @@
                 <img th:if="${film != null}" th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
                 <div class="card-img-overlay">
                     <h5 class="card-title">Valoración:</h5>
-                    <p class="card-text" th:text="|${film.rating} de 5|"><small ></small></p>
+                    <p class="card-text" th:text="|${film.rating} de 5|"><small></small></p>
                 </div>
             </div>
         </div>
@@ -81,7 +82,8 @@
 
                 <div class="details-details-group">
                     <p class="details-label">Clasificación: </p>
-                    <p th:if="${film.classification != null}" class="details-text" th:text="|${film.classification}|"></p>
+                    <p th:if="${film.classification != null}" class="details-text"
+                       th:text="|${film.classification}|"></p>
                     <p th:unless="${film.classification != null}" class="details-text" th:text="|Sin informacion|"></p>
                 </div>
 
@@ -130,28 +132,28 @@
             </div>
 
         </div>
-            <nav class="detail-actions">
-                <ul class="detail-actions-list">
-                    <li>
-                        <a th:title="|Ver todas las películas|" th:href="@{/films}" role="button">
-                            <img th:class="actions-list-btn" src="/img/icons/cinemas.svg" th:alt="|Ir a películas|">
-                        </a>
-                    </li>
-                    <li>
-                        <a th:href="@{/films/{id}/edit(id=${film.id})}" th:title="|Editar película ${film.title}|"
-                           sec:authorize="isAuthenticated()" role="button">
-                            <img th:class="actions-list-btn" src="/img/icons/Editar.svg" th:alt="|Editar ${film.title}|">
-                        </a>
-                    </li>
-                    <li>
-                        <a th:href="@{/films/{id}/delete(id=${film.id})}" th:title="|Eliminar ${film.title}|"
-                           sec:authorize="isAuthenticated()" role="button">
-                            <img th:class="actions-list-btn" src="/img/icons/Borrar.svg"
-                                 th:alt="|Eliminar ${film.title}|">
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <nav class="detail-actions">
+            <ul class="detail-actions-list">
+                <li>
+                    <a th:title="|Ver todas las películas|" th:href="@{/films}" role="button">
+                        <img th:class="actions-list-btn" src="/img/icons/cinemas.svg" th:alt="|Ir a películas|">
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/films/{id}/edit(id=${film.id})}" th:title="|Editar película ${film.title}|"
+                       sec:authorize="isAuthenticated()" role="button">
+                        <img th:class="actions-list-btn" src="/img/icons/Editar.svg" th:alt="|Editar ${film.title}|">
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/films/{id}/delete(id=${film.id})}" th:title="|Eliminar ${film.title}|"
+                       sec:authorize="isAuthenticated()" role="button">
+                        <img th:class="actions-list-btn" src="/img/icons/Borrar.svg"
+                             th:alt="|Eliminar ${film.title}|">
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
 </div>
