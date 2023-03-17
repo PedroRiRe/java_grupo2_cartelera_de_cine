@@ -29,15 +29,15 @@
             <form th:if="${error} == null" th:action="@{/cinemas}" method="POST" th:object="${cinema}">
                 <input type="hidden" id="id" name="id" th:field="*{id}"/>
                 <div class="mb-4">
-                    <label for="cif" class="form-label">CIF</label>
+                    <label for="cif" class="form-label">CIF *</label>
                     <input type="text" class="form-control" id="cif" th:field="*{cif}" required>
                 </div>
                 <div class="mb-4">
                     <label for="image" class="form-label">Imagen</label>
-                    <input type="text" class="form-control" id="image" th:field="*{image}" required>
+                    <input type="text" class="form-control" id="image" th:field="*{image}">
                 </div>
                 <div class="mb-4">
-                    <label for="name" class="form-label">Nombre</label>
+                    <label for="name" class="form-label">Nombre *</label>
                     <input type="text" class="form-control" id="name" th:field="*{name}" required>
                 </div>
                 <div class="mb-4">
@@ -68,21 +68,21 @@
                     <label for="phone" class="form-label">Teléfono</label>
                     <input type="text" class="form-control" id="phone" th:field="*{phone}">
                 </div>
-                <div class="mb-4">
-                    <label for="address" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="address" th:field="*{address.address}" required>
+               <div class="mb-4">
+                    <label for="address" class="form-label">Dirección *</label>
+                    <input type="text" class="form-control" id="address" th:field="*{address.street}" required>
                 </div>
                 <div class="mb-4">
-                    <label for="postalCode" class="form-label">C.P.</label>
+                    <label for="postalCode" class="form-label">Código Postal *</label>
                     <input type="number" class="form-control" id="postalCode" th:field="*{address.postalCode}"
                            step="1" min="1" max="999999" required>
                 </div>
                 <div class="mb-4">
-                    <label for="city" class="form-label">Ciudad</label>
+                    <label for="city" class="form-label">Ciudad *</label>
                     <input type="text" class="form-control" id="city" th:field="*{address.city}" required>
                 </div>
                 <div class="mb-4">
-                    <label for="country" class="form-label">País</label>
+                    <label for="country" class="form-label">País *</label>
                     <input type="text" class="form-control" id="country" th:field="*{address.country}" required>
                 </div>
 

@@ -2,11 +2,13 @@ package cartelera.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.jetbrains.annotations.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
+@NotNull
 @Builder
 @Entity
 public class Address {
@@ -17,7 +19,7 @@ public class Address {
 
     private String image;
 
-    @Column(unique = true)
+    @Column()
     private String street; // ( calle, número, escalera, piso )
 
     @Column(length = 6)
@@ -26,9 +28,6 @@ public class Address {
     private String city;
 
     private String country;
-
-    @OneToOne(mappedBy = "address", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    private Cinema cinema;
 
     @Override
     public String toString() {
