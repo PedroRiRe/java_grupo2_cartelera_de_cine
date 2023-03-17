@@ -47,10 +47,8 @@ public class Cinema {
     @Column()
     private String phone;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-    //@JoinColumn(unique = true, name = "address_id")
+    @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
-    //@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Address address;
 
     @OneToMany(mappedBy = "cinema", cascade = CascadeType.DETACH, orphanRemoval = true, fetch = FetchType.LAZY)

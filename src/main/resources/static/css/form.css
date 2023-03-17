@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+
+.contact {
+    display: grid;
+    gap: 25px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-inverse);
+    font-size: 18px;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.contact p,
+.contact h2,
+.contact ul {
+    margin: 0;
+    padding: 0;
+}
+
+.contact-title {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.contact-details,
+.contact-form {
+    display: grid;
+    gap: 20px;
+}
+
+
+.contact-details-group,
+.contact-form-group {
+    display: grid;
+    gap: 3px;
+}
+
+.contact-label {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.contact-form input {
+    border: none;
+    border-radius: 7px;
+    height: 30px;
+    padding: 5px 10px;
+}
+
+
+.contact-form-btn {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: var(--text-color);
+    border-radius: 7px;
+    color: var(--text-color-inverse);
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.contact-form-cancel {
+    width: 100%;
+    height: 50px;
+    background-color: var(--menu-mobile-background-color);
+    border-radius: 7px;
+    color: var(--text-color-inverse);
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.contact-form-cancel:hover,
+.contact-form-btn:hover {
+    box-shadow: 0 0 14px var(--secondary-color);
+    filter: brightness(150%);
+}
+
+
+@media (min-width: 950px) {
+    .contact {
+        font-size: 20px;
+        padding: 70px;
+        max-width: 980px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        box-shadow: 1px 1px 5px var(--primary-color);
+    }
+
+    .contact-title {
+        color: var(--primary-color);
+           text-align: center;
+           text-transform: uppercase;
+           letter-spacing: 0.1em;
+           text-shadow: 1px 1px 0px red, 0 0 1em, 0 0 0.2em var(--primary-color),
+               2px 2px 0px hsl(33,42%,39%),
+               3px 3px 0px hsl(33,42%,38%),
+               4px 4px 0px hsl(33,42%,37%),
+               5px 5px 0px hsl(33,42%,36%);
+           font-weight:500;
+           font-size: 30px;
+           font-family: 'Yanone Kaffeesatz', sans-serif;
+    }
+
+
+    .form-label {
+       font-family: 'Yanone Kaffeesatz', sans-serif;
+       font-size:20px;
+       color: var(--primary-color);
+       font-weight:500;
+    }
+
+    .social img {
+        height: 150px;
+    }
+
+    .contact-title {
+        grid-area: title;
+    }
+
+    .contact-details {
+        grid-area: details;
+    }
+
+    .contact-form {
+        grid-area: form;
+    }
+
+    .social {
+        grid-area: social;
+    }
+
+    .contact {
+        display: grid;
+        grid:
+        "title    form" auto
+        "social  form" 1fr
+        "details   form" auto /
+        1fr       1fr;
+        align-items: start;
+    }
+}
