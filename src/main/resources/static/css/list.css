@@ -1,0 +1,38 @@
+.card-opt {
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.card-opt a {
+    padding-top: 25px;
+    padding-right: 25px;
+    margin-bottom: 50px;
+}
+
+.card {
+    max-width: 400px;
+
+}
+
+.card img{
+    max-width: 400px;
+    height: 450px;
+}
+
+.card-title {
+height: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+!Doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Películas</title>
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+</head>
+<body>
+<div th:replace="~{navbar :: navbar}"></div>
+<div class="container text-left">
+  <div class="row mt-5">
+    <h1 class="cinefilos-h1">Listado de películas</h1>
+
+    <div class="col mt-3 alert alert-info" role="alert" th:if="${#lists.isEmpty(director)}">
+      Actualmente no hay ninguna película para mostrar.
+    </div>
+
+
+    <div class="col mt-3" th:if="${#lists.size(films) > 0}">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th scope="col">Título</th>
+          <th scope="col">Duración</th>
+          <th scope="col">Clasific.</th>
+          <th scope="col">Compañía</th>
+          <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="film: ${films}">
+          <td>
+            <a class="btn btn-sm btn-light cinefilos-btn" th:title="|Ver detalle de «${director.title}»|"
+               th:text="${film.title}" role="button" th:href="@{/director/{id}(id=${director.id})}"></a>
+          </td>
+          <td th:text="${director.duration}"></td>
+          <td th:text="${director.classification}"></td>
+          <td width="350px" th:text="${director.company}"></td>
+          <td>
+            <a class="btn btn-sm btn-outline-primary" title="Ver película"
+               th:href="@{/directors/{id}(id=${director.id})}" role="button">Ver</a>
+            <a class="btn btn-sm btn-outline-success" title="Editar película"
+               th:href="@{/directors/{id}/edit(id=${film.id})}"
+               sec:authorize="isAuthenticated()" role="button">Editar</a>
+            <a class="btn btn-sm btn-outline-danger" title="Borrar película"
+               th:href="@{/directors/{id}/delete(id=${director.id})}"
+               sec:authorize="isAuthenticated()" role="button">Borrar</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center">
+        Actualmente hay <span th:text="${#lists.size(directors)}"></span> películas.
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-4">
+    <a class="btn btn-outline-primary" th:href="@{/directors/create}"
+       sec:authorize="isAuthenticated()" role="button">Crear nueva película</a>
+    <a class="btn btn-outline-success" th:href="@{/}" role="button">Portada</a>
+  </div>
+</div>
+
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>

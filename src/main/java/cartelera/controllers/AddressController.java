@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 import static cartelera.utils.Utils.invalidPosNumber;
 
@@ -20,6 +21,11 @@ public class AddressController {
 
     private final IAddressService addressService;
 
+    /**
+     * Lista todas las direcciones.
+     * @param model Modelo.
+     * @return Plantilla addresses-list,
+     */
     @GetMapping("/addresses")
     public String findAll(Model model) {
         List<Address> addresses = addressService.findAll();
@@ -27,6 +33,12 @@ public class AddressController {
         return "address/addresses-list";
     }
 
+    /**
+     * Muestra una dirección específica.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla address-detail.
+     */
     @GetMapping("/address/{id}")
     public String findById(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && addressService.existsById(id))
@@ -35,12 +47,25 @@ public class AddressController {
         return "address/address-detail";
     }
 
+    /**
+     * Crea una nueva dirección.
+     * @param model modelo.
+     * @return Plantilla address-form.
+     */
     @GetMapping("addresses/create")
     public String createForm(Model model) {
         model.addAttribute("address", new Address());
         return "address/address-form";
     }
 
+    /**
+     * Edita una dirección existente.
+     * @param model Modelo.
+     * @param id Identificador.
+     * @return Plantilla address-form.
+     */
+
+   /*
     @GetMapping("addresses/{id}/edit")
     public String editForm(Model model, @PathVariable Long id) {
         if (!invalidPosNumber(id) && addressService.existsById(id))
@@ -48,13 +73,59 @@ public class AddressController {
         else model.addAttribute("error", "Dirección no encontrada.");
         return "address/address-form";
     }
+    */
 
-    @PostMapping("addresses")
-    public String save(@ModelAttribute Address address) {
-        addressService.save(address);
-        return "redirect:/addresses";
+    @GetMapping("addresses/{id}/edit")
+    public String editForm(Model model, @PathVariable Long id) {
+        Optional<Address> addressOptional = addressService.findById(id);
+        if (addressOptional.isPresent())
+            model.addAttribute("address", addressOptional.get());
+        else
+            model.addAttribute("error", "Address not found");
+
+        return "address/address-form";
     }
 
+
+    /**
+     * Guarda la dirección obtenida desde el formulario.
+     * @param address Dirección.
+     * @return Plantilla addresses.
+     */
+  /*
+    @PostMapping("addresses")
+    public String save(@ModelAttribute Address address) {
+     addressService.save(address);
+        return "redirect:/addresses";
+    }
+   */
+
+
+    @PostMapping("addresses")
+    public String saveForm(@ModelAttribute Address address) {
+        addressService.save(address);
+        return "redirect:/addresses"; // redirección a controlador findAll
+    }
+
+
+  /*
+    @GetMapping("addresses/{id}/edit")
+    public String showEditForm(Model model, @PathVariable Long id) {
+        Optional<Address> addressOptional = addressService.findById(id);
+        if (addressOptional.isPresent())
+            model.addAttribute("address", addressOptional.get());
+        else
+            model.addAttribute("error", "Not Found");
+
+        return "address/address-form"; // vista
+    }
+   */
+
+    /**
+     * Borra una dirección por su ID.
+     * @param id Identificador.
+     * @return Plantilla addresses.
+     */
     @GetMapping("addresses/{id}/delete")
     public String deleteById(@PathVariable Long id) {
         if (!invalidPosNumber(id) && addressService.existsById(id)) addressService.deleteById(id);

@@ -65,19 +65,20 @@ public class AddressServiceImpl implements IAddressService {
     public void deleteById(Long id) {
         log.info("deleteById {}", id);
         if (invalidPosNumber(id) && !existsById(id)) return;
-        cinemaRepo.findByAddress_Id(id).setAddress(null);
+        if (cinemaRepo.findByAddress_Id(id) != null)
+            cinemaRepo.findByAddress_Id(id).setAddress(null);
         addressRepo.deleteById(id);
     }
 
-    @Override
-    public void deleteAllById(List<Long> ids) {
-        log.info("deleteAllById {}", ids);
-        addressRepo.deleteAllById(ids);
-    }
-
-    @Override
-    public void saveAll(List<Address> addresses) {
-        log.info("saveAll {}", addresses);
-        addressRepo.saveAll(addresses);
-    }
+//    @Override
+//    public void deleteAllById(List<Long> ids) {
+//        log.info("deleteAllById {}", ids);
+//        addressRepo.deleteAllById(ids);
+//    }
+//
+//    @Override
+//    public void saveAll(List<Address> addresses) {
+//        log.info("saveAll {}", addresses);
+//        addressRepo.saveAll(addresses);
+//    }
 }

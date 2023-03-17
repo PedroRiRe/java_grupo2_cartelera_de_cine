@@ -8,6 +8,10 @@
     <title>Detalle de la sala</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script defer src="js/app.js"></script>
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -25,12 +29,17 @@
                 <a class="btn btn-primary" th:href="@{/films}" role="button">Volver</a>
             </div>
             <div class="card">
-                <img th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
+                <img th:if="${room.film} != null" th:src="@{${room.film.poster}}" class="card-img-top" th:alt="${room.film.title}"/>
+                <img th:unless="${room.film} != null" th:src="@{/img/logo.svg}" class="card-img-top" th:alt="|Logo|"/>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <a class="btn btn-sm btn-outline-secondary"
+                        <a th:if="${room.film} != null" class="btn btn-sm btn-outline-secondary"
                            th:text="${room.film.title}"
                            th:href="@{/film/{id}(id=${room.film.id})}"></a>
+
+                        <a th:unless="${room.film} != null"
+                           th:text="| arreglado por Pedro y Eduardo |"
+                           ></a>
                     </h5>
                     <p class="card-text" th:text="|Estreno: ${room.premiere}"></p>
                     <p class="card-text" th:text="|Sesiones: ${room.schedules}|"></p>
@@ -41,8 +50,8 @@
 
                     <li class="list-group-item" th:text="|Aforo: ${room.capacity}|"></li>
                     <li class="list-group-item">
-                        <span th:if="${room.active}" class="badge text-bg-success">Disponible</span>
-                        <span th:if="${room.active} == false" class="badge text-bg-danger">No disponible</span>
+                        <span th:if="${room.active}" class="btn btn-success">Disponible</span>
+                        <span th:if="${room.active} == false" class="btn btn-danger">No disponible</span>
                     </li>
                 </ul>
                 <div class="card-footer">
@@ -51,10 +60,13 @@
                        th:href="@{/cinema/{id}(id=${room.cinema.id})}">
                     </a>
                     <br />
-                    <a class="btn btn-outline-primary" th:href="@{/rooms}" role="button">Salas</a>
-                    <a class="btn btn-outline-success" th:href="@{/rooms/{id}/edit(id=${room.id})}"
+                    <a class="btn btn-outline-primary" title="Ver salas"
+                       th:href="@{/rooms}" role="button">Salas</a>
+                    <a class="btn btn-outline-success" title="Editar sala"
+                       th:href="@{/rooms/{id}/edit(id=${room.id})}"
                        sec:authorize="isAuthenticated()" role="button">Editar</a>
-                    <button class="btn btn-outline-danger" th:href="@{/rooms/{id}/delete(id=${room.id})}"
+                    <button class="btn btn-outline-danger" title="Borrar sala"
+                            th:href="@{/rooms/{id}/delete(id=${room.id})}"
                        sec:authorize="isAuthenticated()" role="button">Borrar</button>
                 </div>
             </div>

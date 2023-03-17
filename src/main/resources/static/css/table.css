@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300&display=swap');
+
+.box {
+    margin: 0 auto;
+    text-align: center;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.title-table {
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 90px;
+    letter-spacing: 0.2em;
+    font-family: 'Noto Sans', sans-serif;
+    text-shadow: 1px 1px 0px hsl(33,42%,40%),
+    2px 2px 0px hsl(33,42%,39%),
+    3px 3px 0px hsl(33,42%,38%),
+    4px 4px 0px hsl(33,42%,37%),
+    5px 5px 0px hsl(33,42%,36%),
+    6px 6px 0px hsl(33,42%,35%),
+    7px 7px 0px hsl(33,42%,34%),
+    8px 8px 0px hsl(33,42%,33%),
+    9px 9px 0px hsl(33,42%,32%);
+}
+
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 30px auto;
+    padding 0;
+}
+
+.create-opt {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.btn-club {
+    background: radial-gradient(rgb(140, 143, 148), rgba(178, 185, 199, 0.801));
+}
+
+.btn-club {
+    width: 600px;
+    padding: 10px 10px;
+    border: 2px outset var(--primary-color);
+    border-radius: 0.3rem;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--text-color);
+    font-size: 20px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.4s ease all;
+}
+
+.btn-club:hover {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    background: radial-gradient(rgb(245, 245, 245), rgba(246, 248, 222, 0.801));
+    border: 2px inset var(--primary-color);
+    filter: brightness(100%);
+}
+
+.card-header {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color);
+    background-color: var(--menu-mobile-background-color);
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card {
+    max-width: 300px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    background-color: var(--navbar-color);
+    box-shadow: 1px 1px 5px var(--primary-color);
+}
+
+
+.card img  {
+    max-width: 300px;
+    height: 470px;
+}
+
+.card .card-title {
+    font-size: 25px;
+    font-weight: bolder;
+    color: var(--secondary-color);
+}
+
+.card-text-room,
+.card-text-film,
+.card .card-text-company,
+.card .card-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.card-text-room {
+    height: 50px;
+}
+
+.card-text-film,
+.card .card-text-company {
+    height: 40px;
+}
+
+.actions-list {
+    background-color: var(--navbar-color);
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.list-footer {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    font-family: 'Noto Sans', sans-serif;
+    color: var(--primary-color);
+}
+
+.btn-detail,
+.btn-edit,
+.btn-delete,
+ button {
+    width: auto;
+    margin-right: 5px;
+    padding: 10px 10px;
+    border: 2px outset var(--primary-color);
+    border-radius: 0.3rem;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.4s ease all;
+}
+
+.btn-detail {
+    background: radial-gradient(#FFFFE0, rgb(83, 182, 83));
+}
+
+.btn-edit {
+    background: radial-gradient(#FFFFE0, rgb(167, 147, 57));
+}
+
+.btn-delete {
+    background: radial-gradient(#FFFFE0, rgb(177, 75, 75));
+}
+
+.btn-detail:hover,
+.btn-edit:hover,
+.btn-delete:hover,
+button:hover,
+button a:hover {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--secondary-color);
+    border: 2px inset var(--primary-color);
+    filter: brightness(100%);
+}
+
+@media ( max-width: 480px) {
+     .container {
+         width: 100%;
+         box-sizing: border-box;
+     }
+
+     .btn-club,
+     .btn-detail,
+     .btn-edit,
+     .btn-delete {
+             width: auto;
+             margin: 10px 20px;
+             height: 30px;
+             border: 1px solid rgba(0, 0, 0, 0.801);
+             border-radius: 0.6rem;
+             font-family: 'Montserrat', sans-serif;
+             color: var(--text-color);
+             font-weight: bold;
+             cursor: pointer;
+             transition: 0.4s ease all;
+     }
+
+    .btn-club {
+    background: radial-gradient(rgb(148, 147, 140), rgba(104, 104, 103, 0.801));
+    }
+
+     .btn-detail {
+         background: radial-gradient(rgb(83, 182, 83), rgba(0, 0, 0, 0.801));
+     }
+
+     .btn-edit {
+         background: radial-gradient(rgb(167, 147, 57), rgba(0, 0, 0, 0.801));
+     }
+
+     .btn-delete {
+         background: radial-gradient(rgb(177, 75, 75), rgba(0, 0, 0, 0.801));
+     }
+
+     .btn-club:hover,
+     .btn-detail:hover,
+     .btn-edit:hover,
+     .btn-delete:hover,
+     button:hover,
+     button a:hover {
+     color: var(--text-color-inverse);
+     filter: brightness(150%);
+     }
+}

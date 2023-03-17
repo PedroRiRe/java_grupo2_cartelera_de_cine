@@ -8,6 +8,8 @@
     <title>Formulario Film</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
@@ -32,8 +34,8 @@
                     <input type="text" class="form-control" id="poster" th:field="*{poster}">
                 </div>
                 <div class="mb-4">
-                    <label for="title" class="form-label">Título</label>
-                    <input type="text" class="form-control" id="title" th:field="*{title}">
+                    <label for="title" class="form-label">Título *</label>
+                    <input type="text" class="form-control" id="title" th:field="*{title}" required>
                 </div>
                 <div class="mb-4">
                     <label for="trailer" class="form-label">Tráiler</label>
@@ -109,8 +111,8 @@
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label for="director" class="form-label">Director</label>
-                    <input type="text" class="form-control" id="director" th:field="*{director}">
+                    <label for="director" class="form-label">Director *</label>
+                    <input type="text" class="form-control" id="director" th:field="*{director}" required>
                 </div>
                 <div class="mb-4">
                     <label for="actor" class="form-label">Actor</label>
