@@ -1,4 +1,8 @@
+# Rama más actualizada MASTER.
+
 # Proyecto Cartelera de Cine
+
+
 
 * Está aplicación está diseñada con entidades, controladores, enum,
   excepciones, repositories, services, implementaciones, security, html y css
