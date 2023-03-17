@@ -16,17 +16,8 @@
 <body>
 <div th:replace="~{navbar :: navbar}"></div>
 
-<iframe class="trailer" th:src="@{${film.trailer}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-
-
-
-
-
-
 <div class="container text-center">
     <div class="row mt-5">
-        <h1 class="cinefilos-h1" th:text="|«${film.title}»|"></h1>
         <div class="col">
         </div>
         <div class="col">
@@ -37,14 +28,143 @@
                 <a class="btn btn-primary" th:href="@{/films}" role="button">Listado de películas</a>
             </div>
 
+        </div>
+    </div>
+</div>
+
+<iframe class="trailer" th:src="@{${film.trailer}}" title="YouTube video player"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+
+<div class="horizontal-padding vertical-padding">
+
+    <div class="film">
+        <div class="image">
+            <div class="card text-bg-dark">
+                <img th:if="${film != null}" th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Valoración:</h5>
+                    <p class="card-text" th:text="|${film.rating} de 5|"><small ></small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="details">
+            <h2 th:if="${film != null}" class="details-title" th:text="${film.title}"></h2>
+
+            <div class="details-details">
+
+                <div class="details-details-group">
+                    <p class="details-label">Compañia:</p>
+                    <p th:if="${film.company != null}" class="details-text" th:text="${film.company}"></p>
+                    <p th:unless="${film.company != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Dirigida por:</p>
+                    <p th:if="${film.director != null}" class="details-text" th:text="${film.director}"></p>
+                    <p th:unless="${film.director != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Intérpretes:</p>
+                    <p th:if="${film.actor != null}" class="details-text" th:text="${film.actor}"></p>
+                    <p th:unless="${film.actor != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Sinopsis: </p>
+                    <p th:if="${film.synopsis != null}" class="details-text" th:text="|${film.synopsis}|"></p>
+                    <p th:unless="${film.synopsis != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Clasificación: </p>
+                    <p th:if="${film.classification != null}" class="details-text" th:text="|${film.classification}|"></p>
+                    <p th:unless="${film.classification != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Género: </p>
+                    <p th:if="${film.genders != null}" class="details-text" th:text="|${film.genders}|"></p>
+                    <p th:unless="${film.genders != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Duración: </p>
+                    <p th:if="${film.duration != null}" class="details-text" th:text="|${film.duration}|"></p>
+                    <p th:unless="${film.duration != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Año: </p>
+                    <p th:if="${film.year != null}" class="details-text" th:text="|${film.year}|"></p>
+                    <p th:unless="${film.year != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">País: </p>
+                    <p th:if="${film.country != null}" class="details-text" th:text="|${film.country}|"></p>
+                    <p th:unless="${film.country != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Música: </p>
+                    <p th:if="${film.country != null}" class="details-text" th:text="|${film.music}|"></p>
+                    <p th:unless="${film.country != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Fotografía: </p>
+                    <p th:if="${film.photography != null}" class="details-text" th:text="|${film.photography}|"></p>
+                    <p th:unless="${film.photography != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+                <div class="details-details-group">
+                    <p class="details-label">Guión: </p>
+                    <p th:if="${film.script != null}" class="details-text" th:text="|${film.script}|"></p>
+                    <p th:unless="${film.script != null}" class="details-text" th:text="|Sin informacion|"></p>
+                </div>
+
+            </div>
+
+        </div>
+            <nav class="detail-actions">
+                <ul class="detail-actions-list">
+                    <li>
+                        <a th:title="|Ver todas las películas|" th:href="@{/films}" role="button">
+                            <img th:class="actions-list-btn" src="/img/icons/cinemas.svg" th:alt="|Ir a películas|">
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/films/{id}/edit(id=${film.id})}" th:title="|Editar película ${film.title}|"
+                           sec:authorize="isAuthenticated()" role="button">
+                            <img th:class="actions-list-btn" src="/img/icons/Editar.svg" th:alt="|Editar ${film.title}|">
+                        </a>
+                    </li>
+                    <li>
+                        <a th:href="@{/films/{id}/delete(id=${film.id})}" th:title="|Eliminar ${film.title}|"
+                           sec:authorize="isAuthenticated()" role="button">
+                            <img th:class="actions-list-btn" src="/img/icons/Borrar.svg"
+                                 th:alt="|Eliminar ${film.title}|">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </div>
+
+</div>
+
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>
 
 
 
 
 
 
-
-
+<!--
             <div class="card">
                 <img th:if="${film != null}" th:src="@{${film.poster}}" class="card-img-top" th:alt="${film.title}"/>
 
@@ -62,23 +182,14 @@
                 </div>
                 <ul class="list-group list-group-flush">
                     <li th:if="${film != null}" class="list-group-item" th:text="|Actores: ${film.actor}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Sinopsis: ${film.synopsis}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Clasificación: ${film.classification}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Género: ${film.genders}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Duración: ${film.duration}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Año: ${film.year}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|País: ${film.country}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Música: ${film.music}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Fotografía: ${film.photography}|"></li>
-
                     <li th:if="${film != null}" class="list-group-item" th:text="|Guión: ${film.script}|"></li>
 
                 </ul>
@@ -92,13 +203,4 @@
                        th:href="@{/films/{id}/delete(id=${film.id})}"
                        sec:authorize="isAuthenticated()" role="button">Borrar</a>
                 </div>
-            </div>
-        </div>
-        <div class="col">
-        </div>
-    </div>
-</div>
-
-<div th:replace="~{footer :: footer}"></div>
-</body>
-</html>
+            </div>  -->

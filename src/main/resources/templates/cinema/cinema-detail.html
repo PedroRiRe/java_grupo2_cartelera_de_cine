@@ -33,7 +33,8 @@
             <div class="detail-details" th:if="${error} == null">
 
                 <div class="detail-details-group">
-                    <h1 th:if="${cinema.address != null}" th:text="|${cinema.address.city} de ${cinema.address.country}|"></h1>
+                    <h1 th:if="${cinema.address != null}"
+                        th:text="|${cinema.address.city} de ${cinema.address.country}|"></h1>
                     <h1 th:unless="${cinema.address != null}" th:text="|Sin información|"></h1>
                     <h3 class="detail-label">Teléfono:</h3>
                     <p class="contact-label" th:text="|${cinema.phone}"></p>
@@ -75,7 +76,8 @@
                                  th:alt="${room.film.title}"/>
                             <img th:unless="${room.film} != null" th:src="@{/img/icons/logo.png}" class="card-img-top"/>
                             <div class="card-body">
-                                <a th:title="|Ver detalle de Sala ${room.roomNumber}|" th:href="@{/room/{id}(id=${room.id})}"
+                                <a th:title="|Ver detalle de Sala ${room.roomNumber}|"
+                                   th:href="@{/room/{id}(id=${room.id})}"
                                    class="btn btn-primary">Ir a Sala</a>
                             </div>
                         </div>
@@ -151,13 +153,15 @@
                 <ul class="detail-actions-list">
                     <li>
                         <a th:title="|Ver todos los cines|" th:href="@{/cinemas}" role="button">
-                            <img th:class="actions-list-btn" src="/img/icons/cinemas.svg" th:alt="|Ir a listado de cines|">
+                            <img th:class="actions-list-btn" src="/img/icons/cinemas.svg"
+                                 th:alt="|Ir a listado de cines|">
                         </a>
                     </li>
                     <li>
                         <a th:href="@{/cinemas/{id}/edit(id=${cinema.id})}" th:title="|Editar ${cinema.name}|"
                            sec:authorize="isAuthenticated()" role="button">
-                            <img th:class="actions-list-btn" src="/img/icons/Editar.svg" th:alt="|Editar ${cinema.name}|">
+                            <img th:class="actions-list-btn" src="/img/icons/Editar.svg"
+                                 th:alt="|Editar ${cinema.name}|">
                         </a>
                     </li>
                     <li>
@@ -171,7 +175,7 @@
             </nav>
         </div>
     </div>
-    </div>
+</div>
 
 <div th:replace="~{footer :: footer}"></div>
 </body>

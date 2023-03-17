@@ -219,11 +219,12 @@ align-items: center;
 .detail-actions-list {
     gap: 100px;
 }
-    .detail-actions-list img {
+
+.detail-actions-list img {
     width: 60px;
     height: 60px;
 
-    }
+}
 
 .detail-list img:hover
     .social-list img:hover {
