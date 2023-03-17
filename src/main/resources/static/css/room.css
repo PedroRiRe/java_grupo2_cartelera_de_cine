@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&display=swap');
+
+.room {
+    display: grid;
+    gap: 25px;
+    background-color: var(--primary-color);
+    color: var(--text-color-inverse);
+    font-size: 18px;
+    border-radius: 14px;
+    padding: 25px;
+}
+
+.room p,
+.room h2,
+.room ul {
+    margin: 0;
+    padding: 0;
+}
+
+.room-title {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.room-info {
+    display: grid;
+    gap: 20px;
+}
+
+.room-info-group {
+    display: grid;
+    gap: 3px;
+}
+
+.room-info-group a {
+    background-color: var(--primary-color);
+}
+
+.actions-list {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+.actions-list img {
+    height: 25px;
+}
+
+.actions-list img:hover {
+    filter: drop-shadow(0 0 5px var(--secondary-color));
+}
+
+
+@media (min-width: 950px) {
+
+.room {
+    display: grid;
+    font-size: 20px;
+    padding: 70px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background-color: var(--secondary-color);
+    box-shadow: 1px 1px 5px var(--primary-color);
+}
+
+.room-title {
+    color: var(--primary-color);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-shadow: 1px 1px 0px red, 0 0 1em, 0 0 0.2em var(--primary-color),
+        2px 2px 0px hsl(33,42%,39%),
+        3px 3px 0px hsl(33,42%,38%),
+        4px 4px 0px hsl(33,42%,37%),
+        5px 5px 0px hsl(33,42%,36%);
+    font-weight:500;
+    font-size: 90px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.trailer {
+    margin: 0;
+    padding: 0;
+    width: 560px;
+    height: 315px;
+}
+
+.card {
+    margin: 0;
+    padding: 0;
+    width: 420px;
+    border: 3px outset var(--text-color);
+}
+
+.card-title {
+ text-transform: uppercase;
+}
+
+.card-title,
+.card-text {
+    font-family: 'Noto Sans', sans-serif;
+     color: var(--primary-color);
+     text-shadow: 1px 1px 0px red, 0 0 1em, 0 0 0.2em var(--primary-color),
+        2px 2px 0px hsl(33,42%,39%),
+        3px 3px 0px hsl(33,42%,38%),
+        4px 4px 0px hsl(33,42%,37%),
+        5px 5px 0px hsl(33,42%,36%);
+     font-weight:500;
+}
+
+.actions-list {
+    justify-content: center;
+}
+
+.actions-list img {
+    height: 60px;
+}
+
+.actions-list img:hover {
+    filter: drop-shadow(0 0 5px var(--primary-color));
+}
+
+.room-title {
+    grid-area: title;
+}
+
+.room-trailer {
+        grid-area: trailer;
+}
+
+.room-info {
+        grid-area: info;
+}
+
+.room-image {
+        grid-area: poster;
+}
+
+.actions {
+        grid-area: actions;
+}
+
+.room {
+        display: grid;
+        grid:
+        "title    title" auto
+        "poster   trailer" auto
+        "poster   info" auto
+        "actions   actions" auto /
+        1fr       1fr;
+        align-items: start;
+    }
+}
