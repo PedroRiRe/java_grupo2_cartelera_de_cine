@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Formulario Address</title>
+    <title>Address Form</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/css/appcinefilos.css}"/>
     <link rel="stylesheet" href="/css/navbar.css">
@@ -18,83 +18,66 @@
 <div class="horizontal-padding vertical-padding">
 
     <div class="container text-center">
+        <div class="col"></div>
+        <div th:if="${error}">
+            <div class="alert alert-danger" role="alert">
+                <p th:text="${error}"></p>
+            </div>
+            <a type="button" class="btn btn-primary" th:href="@{/addresses}">Volver</a>
+        </div>
 
 
-            <div class="col"></div>
-                <div th:if="${error}">
-                    <div class="alert alert-danger" role="alert">
-                        <p th:text="${error}"></p>
+        <section class="contact">
+
+            <div class="contact-title">
+                <h1 class="cinefilos-h1" th:if="${address.id}">Modificar dirección</h1>
+                <h1 class="cinefilos-h1" th:if="${address.id} == null">Crear nueva dirección</h1>
+            </div>
+
+            <div class="contact-details">
+                <button type="submit" class="contact-form-cancel" th:title="|Cancelar|" th:href="@{/addresses}">
+                    Cancelar
+                </button>
+            </div>
+
+            <div class="contact-form">
+                <form th:if="${error} == null" th:action="@{/addresses}" method="POST" th:object="${address}">
+
+                    <input type="hidden" id="id" name="id" th:field="*{id}"/>
+
+                    <div class="contact-form-group">
+                        <label for="street" class="form-label">Dirección *</label>
+                        <input type="text" class="form-control" id="street" th:field="*{street}" required>
                     </div>
-                    <a type="button" class="btn btn-primary" th:href="@{/addresses}">Volver</a>
-                </div>
 
+                    <div class="contact-form-group">
+                        <label for="image" class="form-label">Imagen</label>
+                        <input type="text" class="form-control" id="image" th:field="*{image}">
+                    </div>
 
-            <section class="contact">
+                    <div class="contact-form-group">
+                        <label for="postalCode" class="form-label">Código postal </label>
+                        <input type="text" class="form-control" id="postalCode" th:field="*{postalCode}">
+                    </div>
 
-               <div class="contact-title">
-                   <h1 class="cinefilos-h1" th:if="${address.id}">Modificar dirección</h1>
-                   <h1 class="cinefilos-h1" th:if="${address.id} == null">Crear nueva dirección</h1>
-               </div>
+                    <div class="contact-form-group">
+                        <label for="city" class="form-label">Ciudad </label>
+                        <input type="text" class="form-control" id="city" th:field="*{city}">
+                    </div>
 
-                <div class="contact-details">
-                    <button type="submit" class="contact-form-cancel" th:title="|Cancelar|" th:href="@{/addresses}">Cancelar</button>
-                </div>
+                    <div class="contact-form-group">
+                        <label for="country" class="form-label">País </label>
+                        <input type="text" class="form-control" id="country" th:field="*{country}">
+                    </div>
+                    <button type="submit" class="contact-form-btn" th:title="|Guardar|">Guardar</button>
+                </form>
+            </div>
 
-                <div class="contact-form">
-                    <form th:if="${error} == null" th:action="@{/addresses}" method="POST" th:object="${address}">
+            <div class="social">
+                <img src="/img/icons/logo.png">
+            </div>
 
-                        <input type="hidden" id="id" name="id" th:field="*{id}"/>
-
-                        <div class="contact-form-group">
-                            <label for="street" class="form-label">Dirección *</label>
-                            <input type="text" class="form-control" id="street" th:field="*{street}" required>
-                        </div>
-
-                        <div class="contact-form-group">
-                            <label for="image" class="form-label">Imagen</label>
-                            <input type="text" class="form-control" id="image" th:field="*{image}">
-                        </div>
-
-                        <div class="contact-form-group">
-                            <label for="postalCode" class="form-label">Código postal </label>
-                            <input type="text" class="form-control" id="postalCode" th:field="*{postalCode}">
-                        </div>
-
-                        <div class="contact-form-group">
-                            <label for="city" class="form-label">Ciudad </label>
-                            <input type="text" class="form-control" id="city" th:field="*{city}">
-                        </div>
-
-                        <div class="contact-form-group">
-                            <label for="country" class="form-label">País </label>
-                            <input type="text" class="form-control" id="country" th:field="*{country}">
-                        </div>
-                        <button type="submit" class="contact-form-btn" th:title="|Guardar|">Guardar</button>
-                    </form>
-                </div>
-
-
-         <div class="social">
-             <img src="/img/icons/logo.png">
-         </div>
-
-
-
-
-
-
-            </section>
-
-
-
-
-
-
-
-
-
-            <div class="col"></div>
-
+        </section>
     </div>
 </div>
 
