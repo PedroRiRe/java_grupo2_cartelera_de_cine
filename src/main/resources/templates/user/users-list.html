@@ -57,7 +57,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a th:href="@{/users/{id}/delete(id=${user.id})}" sec:authorize="isAuthenticated()">
+                                <a th:href="@{/users/{id}/edit(id=${user.id})}" sec:authorize="isAuthenticated()">
                                     <img width="35" height="35" src="/img/icons/Editar.svg" th:title="|Editar  ${user.username}"
                                          th:alt="|Editar  ${user.username}|">
                                 </a>
