@@ -1,113 +1,76 @@
-# Proyecto Cartelera de Cine
+![Logo Cinéfilos](src/main/resources/static/img/logo.svg)
 
-* Está aplicación está diseñada con entidades, controladores, enum,
-  excepciones, repositories, services, implementaciones, security, html y css
-  para que los usuarios puedan acceder a todas las funcionalidades de la
-  aplicación. Si estás registrado la aplicación te deja realizar otras
-  funciones extras.
+# Práctica final «Cartelera de Cine»
 
-## Esta aplicación tiene estas entidades
+Práctica final del curso Desarrollo Web Java+Spring de Addeco  
+Proyecto Digital School Erasmus+  
+Enero-marzo 2023
 
-* Dirección
-* Cine
-* Película
-* Género
-* Clasificación
-* Sala
-* Usuario
+## La práctica
 
-## Proyecto Cartelera de Cine
+Empleando **Java** y el framework **Spring**, se ha llevado a cabo la planificación e implementación de una aplicación web que permite a los usuarios listar cines, salas de cine y sus películas asociadas, y capacita a los usuarios registrados para modificar, mediante formularios, cada una de las entidades mencionadas.
 
-* Lo primero que hay que hacer es ir a la página de GitHub y después
-  clonaros el proyecto para que podáis modificarlo como ustedes quieran.
+En su desarrollo se ha empleado **Spring security**, **Tymeleaft** y **Bootstrap**. Se ha codificado usando **IntelliJ IDEA**.
 
-Construido con:
-* GitHub
-* IntelliJ IDEA
-* Maven
-* Spring
-* Bootstrap
-* Spring Security
-* Trello
+La planificación y el desarrollo se han llevado a cabo usando **Trello** y **GitHub**.
 
-## Autores
+Además de los requisitos solicitados para el MVP, la app implementa:
 
-* Javier Guerra:
+- Sprint Security para securización de rutas
+- Registro de Usuario
+- Refactorización de métodos
+- Documentación JavaDoc
+- Implementación de Logs
 
-Ha realizado la coordinación, planificación, trello, revisión de
-funcionalidades, seguridad de la app, entidades de usuario y dirección con
-todas sus funciones y la propuesta de mejorar la app.
+### Estado de la aplicación
 
+La aplicación ha sido realizada en un plazo de cuatro semanas en las que, íbamos aplicando lo que aprendíamos por la mañana.
 
-* Pedro Rivas:
+Si bien su estado es inconcluso, habida cuenta de que la planificación inicial preveía implementar relaciones entre las distintas pantallas de la App, el código resultante ha sido revisado y cumple con los contenidos impartidos en el curso.
 
-Ha realizado la gestión del repositorio, entidades de cine y sala con todas
-sus funciones también ha realizado las relaciones entre entidades y también
-el borrado de entidades.
+Versión de la rama de desarrollo: revisión-javier.
 
+### Opciones de mejora
 
-* Eduardo González:
+- Portada dinámica de la App
+- Lógica de negocio y estadísticas
+- Gestión de excepciones
+- Testing
+- Diseño claro / oscuro
+- Diseño responsive
+- Diseño accesible
+- Aviso legal y privacidad
+- Despliegue
 
-Ha realizado el diseño y CSS también ha realizado la entidad de películas con
-todas sus funcionalidades la estructura de la entidad user el listado de
-películas y la documentación de la app.
+## DEMO
 
+Puede ver un video sobre la aplicación en: https://youtu.be/DfS8oC7WmDk
 
-* Dawid Lempicki:
+## Indicaciones de instalación
 
-Ha realizado la estructura de la entidad room también el listado de
-películas y también la presentación de la app.
+Tras clonar el repositorio, es necesario crear un usuario en la BBDD relacional llamado «**cinefilo**» con el password: «**ElPadrino2**» (sin comillas). Estos datos, así como el puerto por defecto de la app (**8082**), pueden ser alterados en el fichero «aplication.propieties», en resources.
 
+Una vez iniciada la aplicación en local, se puede acceder a ella con la dirección: http://localhost:8082
 
+Para hacer login, todos los usuarios registrados cuentan con la contraseña: **632541**
 
-# Film Billboard Project
+## Implicación de los autores
 
-* This application is designed with entities, controllers, enum, Exceptions, repositories, services, implementations,
-  security, HTML and CSS so that users can access all the functionalities of the application. If you are registered the
-  application lets you perform other Extra features.
+* **Javier Guerra**: Se ha encargado de la coordinación del equipo mediante Trello y de la planificación de las funcionalidades de la aplicación, corrección de errores detectados, securización de la app, documentación JavaDoc, funcionalidades de las entidades «user» y «address» y las propuesta de mejora de la app.
 
 
-## This application has these entities
+* **Dawid Lempicki**: Ha realizado la estructura de la entidad «room», el listado de películas y la presentación de la app.
 
-* Address
-* Cinema
-* Film
-* Gender
-* Classification
-* Room
-* User
 
-## Film Billboard Project
+* **Pedro Rivas**: Se ha encargado de la gestión del repositorio en GitHub, y las funcionalidades de las entidades de «cinema» y «room».
 
-* The first thing to do is go to the GitHub page and then Clone the project so that you can modify it as you wish.
 
-## Built with
+* **Eduardo González**: Ha realizado el diseño CSS y las funcionalidades de la entidad de «film», la estructura de la entidad «user», y el listado de películas.
 
-* GitHub
-* IntelliJ IDEA
-* Maven
-* Spring
-* Bootstrap
-* Spring Security
-* Trello
+## Licencia
 
-## Authors
+Sobre el código fuente: [GNU GENERAL PUBLIC LICENSE Version 3](LICENSE)
 
-* Javier Guerra:
+## Saber más
 
-It has carried out the coordination, planning, trello, review of Functionalities, app security, user entities
-and address with all its functions and the proposal to improve the app.
-
-* Pedro Rivas:
-
-It has carried out the management of the repository, cinema entities and cinema with all Its functions have also
-performed the relations between entities and also deleting entities.
-
-* Eduardo González:
-
-He has done the design and CSS has also made the film entity with All its functionalities the structure of the entity
-user the list of movies and app documentation.
-
-* Dawid Lempicki:
-
-The structure of the room entity has also made the list of films and also the presentation of the app.
+- [Artículo informativo sobre la práctica en mi blog](https://javguerra.github.io/2023-03-17-cartelera-java-spring/)
