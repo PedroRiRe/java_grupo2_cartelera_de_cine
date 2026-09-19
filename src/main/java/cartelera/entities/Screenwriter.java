@@ -1,29 +1,37 @@
 package cartelera.entities;
 
-
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.HashSet;
+import java.util.Set;
 
-import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@ToString
 @Setter
+@ToString
 @Builder
 @Entity
 public class Screenwriter {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id;
+    private Long id;
 
     private String name;
 
-    private Integer capacity;
+    private String surname;
 
-    private Boolean active;
+    private String image;
 
-    private LocalDate premiere;
+    // Relación ManyToMany con Film para enlazar los guiones a las películas
+    @ManyToMany(mappedBy = "screenwriters") // (Asegúrate de añadir también este lado en Film si lo usas)
+    @ToString.Exclude
+    private Set<Film> films = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return name + " " + surname;
+    }
 }
-
 
