@@ -34,6 +34,7 @@ public class User implements UserDetails {
     @Column(unique = true)
     private String email;
 
+    @ToString.Exclude // Evita que la contraseña aparezca en los logs por seguridad
     private String password;
 
     @Override
