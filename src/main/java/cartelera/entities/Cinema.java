@@ -26,32 +26,20 @@ public class Cinema {
     @Column(nullable = false)
     private String name;
 
-    @Column()
     private String url;
-
-    @Column()
     private String twitter;
-
-    @Column()
     private String linkedIn;
-
-    @Column()
     private String facebook;
-
-    @Column()
     private String instagram;
-
-    @Column()
     private String email;
-
-    @Column()
     private String phone;
 
     @OneToOne(cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToMany(mappedBy = "cinema", cascade = CascadeType.DETACH, orphanRemoval = true, fetch = FetchType.LAZY)
+    // Cambiado CascadeType.DETACH por CascadeType.ALL para evitar errores al borrar cines con salas
+    @OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Set<Room> rooms = new HashSet<>();
 
     @Override
