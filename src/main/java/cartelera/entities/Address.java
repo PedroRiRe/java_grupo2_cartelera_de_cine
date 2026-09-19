@@ -2,13 +2,11 @@ package cartelera.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.jetbrains.annotations.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@NotNull
 @Builder
 @Entity
 public class Address {
@@ -19,7 +17,6 @@ public class Address {
 
     private String image;
 
-    @Column()
     private String street; // ( calle, número, escalera, piso )
 
     @Column(length = 6)
