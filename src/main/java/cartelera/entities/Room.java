@@ -35,12 +35,14 @@ public class Room {
     @ToString.Exclude
     private Set<LocalTime> schedules = new HashSet<>();
 
-    @ManyToOne (cascade = CascadeType.DETACH)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "film_id")
+    @ToString.Exclude // Evita problemas de recursión y LazyInitialization
     private Film film;
 
-    @ManyToOne (cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     @JoinColumn(name = "cinema_id")
+    @ToString.Exclude // Evita problemas de recursión y LazyInitialization
     private Cinema cinema;
 
     @Override
