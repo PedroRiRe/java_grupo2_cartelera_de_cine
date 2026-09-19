@@ -9,34 +9,26 @@ import lombok.*;
 @Setter
 @Builder
 @Entity
-
 public class Actor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String image;
+    private String name;
 
-    @Column(unique = true)
-    private String street; // ( calle, número, escalera, piso )
+    private String surname;
 
-    @Column(length = 6)
-    private String postalCode;
+    private String image; // Foto del actor
 
-    private String city;
-
-    private String country;
+    // Si quieres asociarle una dirección de forma limpia mediante relaciones JPA:
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
 
     @Override
     public String toString() {
-        return street + ", " + postalCode + " - " + city;
-    }
-
-    public Room getAddress() {
-
-
-        return null;
+        return name + " " + surname;
     }
 }
 
